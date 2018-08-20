@@ -11,7 +11,7 @@
 	
 	<%@ include file="inc/footer.jsp" %>
 	<script>
-	// 개인 스크립트
+		// 개인 스크립트
 	</script>
 </body>
 </html>

@@ -1,13 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
-<!doctype html>
-<html>
-<head>
-	<%@ include file="inc/head.jsp" %>
-</head>
-<body>
-	<%@ include file="inc/topbar.jsp" %>
-	
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
 <!-- 슬라이드의 부모(높이와 넓이를 구성한다) -->
 <div id="slide-container">
 	<div id="slides">
@@ -46,8 +39,3 @@
 		});
 	});
 </script>
-	<h1>내용영역</h1>
-	
-	<%@ include file="inc/footer.jsp" %>
-</body>
-</html>

@@ -6,7 +6,7 @@
 	<%@ include file="inc/head.jsp" %>
 </head>
 <body>
-	<%@ include file="inc/header.jsp" %>
+	<%@ include file="inc/topbar.jsp" %>
 	<h1>내용영역</h1>
 	
 	<%@ include file="inc/footer.jsp" %>

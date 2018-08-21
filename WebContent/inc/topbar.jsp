@@ -4,28 +4,26 @@
 
 <header id="site-header">
 	<div class="container clearfix">
-		<div class="box1">
-			<ul class="list-inline">
-				<li>호텔찾기</li>
-				<li>예약</li>
+			<ul class="menu list-inline downrow">
+				<li class="menu-item"><button class="btn btn-topbar">호텔찾기</button></li>
+				<li class="menu-item"><button class="btn btn-topbar glyphicon glyphicon-calendar"> 예약</button></li>
 			</ul>
+		<div class="box1">
+			<a href="index.jsp"><span class="pull-left logo">My Site</span></a>
 		</div>
-		<div class="box1">
-			<a href="index.jsp"><h2 class="pull-left logo">My Site</h2></a>
+			<ul class="menu list-inline right">
+				<li class="menu-item2 br">로그인&nbsp;</li>
+				<li class="menu-item2 br">신라 리워즈 가입&nbsp;</li>
+				<li class="menu-item2">예약 확인</li>
+			</ul>
+			<div class="clearfix">
+			<ul class="menu list-inline">
+				<li class="menu-item"><button class="btn btn-topbar">호텔신라 소개</button></li>
+				<li class="menu-item"><button class="btn btn-topbar">고객문의</button></li>
+				<li class="menu-item"><button class="btn btn-topbar">신라리워즈</button></li>
+			</ul>
+			</div>
 		</div>
-		<div class="box1">
-			<ul class="list-inline">
-				<li>로그인</li>
-				<li>신라 리워즈 가입</li>
-				<li>예약 확인</li>
-			</ul>
-			<ul class="list-inline">
-				<li>호텔신라 소개</li>
-				<li>고객문의</li>
-				<li>신라리워즈</li>
-			</ul>
-		</div>	
-	</div>
 </header>
 
 <script>

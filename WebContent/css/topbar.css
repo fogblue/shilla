@@ -10,11 +10,6 @@
 		margin: 0;
 	}
 	
-	a {
-		text-decoration: none;
-		color: black;
-	}
-	
 	/** Float 처리 클래스 */
 	.pull-left {
 		float: left;

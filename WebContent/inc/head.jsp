@@ -16,6 +16,7 @@
 
 <!-- CSS 참조 -->
 <link rel="stylesheet" type="text/css" href="css/topbar.css">
+<link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet"
 	href="plugins/superslides/stylesheets/superslides.css">
 

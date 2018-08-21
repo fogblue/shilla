@@ -5,7 +5,7 @@
 <header id="site-header">
 	<div class="container clearfix">
 		<div class="box1">
-			<ul>
+			<ul class="list-inline">
 				<li>호텔찾기</li>
 				<li>예약</li>
 			</ul>
@@ -14,12 +14,12 @@
 			<a href="index.jsp"><h2 class="pull-left logo">My Site</h2></a>
 		</div>
 		<div class="box1">
-			<ul>
+			<ul class="list-inline">
 				<li>로그인</li>
 				<li>신라 리워즈 가입</li>
 				<li>예약 확인</li>
 			</ul>
-			<ul>
+			<ul class="list-inline">
 				<li>호텔신라 소개</li>
 				<li>고객문의</li>
 				<li>신라리워즈</li>

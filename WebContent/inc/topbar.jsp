@@ -16,7 +16,7 @@
 				<li class="menu-item2 br">신라 리워즈 가입&nbsp;</li>
 				<li class="menu-item2">예약 확인</li>
 			</ul>
-			<div class="clearfix">
+			<div>
 			<ul class="menu list-inline">
 				<li class="menu-item"><button class="btn btn-topbar">호텔신라 소개</button></li>
 				<li class="menu-item"><button class="btn btn-topbar">고객문의</button></li>

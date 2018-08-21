@@ -91,10 +91,9 @@
 	.box1 {
 		display:inline-block;
 		width: 350px;
-		height: 200px;
 		float: left;
 		margin-top: 20px;
-		margin-left: 200px;
+		margin-left: 150px;
 	}
 	
 	.menu {

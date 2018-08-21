@@ -1,123 +1,128 @@
 /*------------------------------------------------------------
 	| 기본설정
 -------------------------------------------------------------*/
-	
-	/** 문서 전체 크기, 여백 설정 */
-	html, body {
-		width: 100%;
-		height: 100%;
-		padding: 0;
-		margin: 0;
-	}
-	
-	/** Float 처리 클래스 */
-	.pull-left {
-		float: left;
-	}
-	
-	.pull-right {
-		float: right;
-	}
-	
-	.clearfix:after {
-		content: '';
-		display: block;
-		clear: both;
-		float: none;
-	}
-	
-	ul {
-		list-style: none;
-	}
+
+/** 문서 전체 크기, 여백 설정 */
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+/** Float 처리 클래스 */
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+	float: none;
+}
+
+ul, li {
+	list-style: none;
+}
 
 /*------------------------------------------------------------
  | 메뉴바 설정
  -------------------------------------------------------------*/
-	/** Headroom 플러그인이 적용될 메뉴바 */
-	#site-header {
-		/** 스크롤 이동에 상관 없이 위치 고정 */
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 10;
-		/** 사이즈,색상 설정 */
-		width: 100%;
-		height: 100px;
-		background: #f1e3c4;
-		/** animate.css에 의해 적용될 애니메이션의 재생시간 설정 */
-		animation-duration: 500ms;
-	}
-	
-	/** 메뉴바 > 메뉴영역 넓이 제한 */
-	#site-header .container {
-		width: 1200px;
-		margin: auto;
-	}
-	/** 메뉴바 > 메뉴영역 > 좌측 로고 */
-	#site-header h1 {
-		font-size: 24px;
-		color: white;
-		padding: 13px 0;
-		margin-top: 20px;
-		margin-left: 500px;
-	}
-	/** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 */
-	#site-header .menu {
-		display: inline-block;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		margin-top: 20px;
-	}
-	/** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 > 목록 아이템 */
-	#site-header .menu .menu-item {
-		font-size: 22px;
-		color: black;
-	}
-	
-	.logo {
-		display:block;
-		width: 202px;
-		height: 50px;
-		background: url(../img/logo.gif) no-repeat;
-		text-indent: -9999px;
-	}
-	
-	.logo>a {
-		width: 100%;
-		height: 100%;
-	}
-	
-	.box1 {
-		display:inline-block;
-		width: 350px;
-		float: left;
-		margin-top: 20px;
-		margin-left: 150px;
-	}
-	
-	.menu {
-		float:left;
-	}
-	
-	.btn-topbar {
-		font-size: 18px;
-		background-color:#f1e3c4 !important;
-	}
-	
-	.menu-item:hover {
-		background-color:#000;
-		z-index:100;
-	}
-	
-	.br {
-		border-right: 1px solid #000;
-	}
-	
-	.right {
-		margin-left: 100px !important;
-	}
-	
-	.downrow {
-		margin-top: 50px !important;
-	}
+/** Headroom 플러그인이 적용될 메뉴바 */
+#site-header {
+	/** 스크롤 이동에 상관 없이 위치 고정 */
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	/** 사이즈,색상 설정 */
+	width: 100%;
+	height: 100px;
+	background: #f1e3c4;
+	/** animate.css에 의해 적용될 애니메이션의 재생시간 설정 */
+	animation-duration: 500ms;
+}
+
+/** 메뉴바 > 메뉴영역 넓이 제한 */
+#site-header .tcontainer {
+	width: 1200px;
+	margin: auto;
+}
+/** 메뉴바 > 메뉴영역 > 좌측 로고 */
+#site-header h1 {
+	font-size: 24px;
+	color: white;
+	padding: 13px 0;
+	margin-top: 20px;
+	margin-left: 500px;
+}
+/** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 */
+#site-header .menu {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+}
+/** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 > 목록 아이템 */
+#site-header .menu .menu-item {
+	font-size: 22px;
+	color: black;
+}
+
+.logo {
+	display: block;
+	width: 202px;
+	height: 50px;
+	background: url(../img/logo.gif) no-repeat;
+	text-indent: -9999px;
+}
+
+.logo>a {
+	width: 100%;
+	height: 100%;
+}
+
+.box1 {
+	display: inline-block;
+	width: 350px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 270px;
+}
+
+.menu {
+	float: left;
+}
+
+.btn-topbar {
+	font-size: 18px;
+	background-color: #f1e3c4 !important;
+}
+
+.menu-item:hover {
+	background-color: #000;
+	z-index: 100;
+}
+
+.br {
+	border-right: 1px solid #000;
+}
+
+.right {
+	margin-left: 100px !important;
+}
+
+.downrow {
+	margin-top: 50px !important;
+}
+
+.main {
+	margin-top: 100px;
+	height: 1200px;
+}

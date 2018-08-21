@@ -7,22 +7,9 @@
 </head>
 <body>
 	<%@ include file="inc/topbar.jsp" %>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
-	<h1>내용영역</h1>
+	<div class="container main">
+		<h1>내용영역</h1>
+	</div>
 	<%@ include file="inc/footer.jsp" %>
 </body>
 </html>

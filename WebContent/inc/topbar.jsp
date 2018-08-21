@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 
 <header id="site-header">
-	<div class="container clearfix">
+	<div class="tcontainer clearfix">
 			<ul class="menu list-inline downrow">
 				<li class="menu-item"><button class="btn btn-topbar">호텔찾기</button></li>
 				<li class="menu-item"><button class="btn btn-topbar glyphicon glyphicon-calendar"> 예약</button></li>
@@ -11,13 +11,13 @@
 		<div class="box1">
 			<a href="index.jsp"><span class="pull-left logo">My Site</span></a>
 		</div>
-			<ul class="menu list-inline right">
+			<ul class="menu list-inline pull-right">
 				<li class="menu-item2 br">로그인&nbsp;</li>
 				<li class="menu-item2 br">신라 리워즈 가입&nbsp;</li>
 				<li class="menu-item2">예약 확인</li>
 			</ul>
 			<div>
-			<ul class="menu list-inline">
+			<ul class="menu list-inline pull-right">
 				<li class="menu-item"><button class="btn btn-topbar">호텔신라 소개</button></li>
 				<li class="menu-item"><button class="btn btn-topbar">고객문의</button></li>
 				<li class="menu-item"><button class="btn btn-topbar">신라리워즈</button></li>

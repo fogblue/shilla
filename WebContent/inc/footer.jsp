@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
-<div class="footer">
-    <div class="container fContainer">
+<div class="footer fcontainer">
+    <div class="container">
             <div class="flogo">
                 <h1>THESHILLA</h1>
                 <h5>HOTEL &amp; RESORTS</h5>

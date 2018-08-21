@@ -9,19 +9,19 @@
 			<li>
 				<div class="slide-contents">
 					<div class="slide-contents-cell"></div>
-				</div> <img src="../img/R0000000P5J9_KR.jpg" />
+				</div> <img src="img/R0000000P5J9_KR.jpg" />
 			</li>
 			<!-- 슬라이드 2 -->
 			<li>
 				<div class="slide-contents">
 					<div class="slide-contents-cell"></div>
-				</div> <img src="../img/R0000000P5J1_KR.jpg" />
+				</div> <img src="img/R0000000P5J1_KR.jpg" />
 			</li>
 			<!-- 슬라이드 3 -->
 			<li>
 				<div class="slide-contents">
 					<div class="slide-contents-cell"></div>
-				</div> <img src="../img/R0000000P5VD_KR.jpg" />
+				</div> <img src="img/R0000000P5VD_KR.jpg" />
 			</li>
 		</ul>
 	</div>

@@ -14,10 +14,10 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- CSS 참조 -->
-<link rel="stylesheet" type="text/css" href="css/topbar.css">
+<link rel="stylesheet" type="text/css" href="/iot5/css/topbar.css">
 <link rel="stylesheet"
-	href="plugins/superslides/stylesheets/superslides.css">
-<link rel="stylesheet" type="text/css" href="plugins/animate/animate.css" />
+	href="/iot5/plugins/superslides/stylesheets/superslides.css">
+<link rel="stylesheet" type="text/css" href="/iot5/plugins/animate/animate.css" />
 
 <!-- 플러그인 JS 참조 -->
 <script src="plugins/headroom/features.js"></script>

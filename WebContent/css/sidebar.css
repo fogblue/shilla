@@ -2,11 +2,32 @@
 	background-color: #f1e3c4;
 	min-height: 200px;
 }
-
 .bdb {
-	border-bottom: 3px solid #999;}
+	float: left;
+}
+.hr, .contents-header {
+	width: 100%;
+	border-bottom: 3px solid #999;
+	float: left;
+	margin-bottom: 15px;
 }
 
-.contents-header {
-	width: 100%;
+.conhead {
+	display: inline;
+}
+
+.ind {
+	text-align: right;
+	float: right;
+	font-size: 5px;
+}
+
+.orng {
+	color: orange;
+	text-decoration: underline;
+}
+
+.con1 h3,h4 {
+	font-weight: bold;
+	color: #101010;
 }

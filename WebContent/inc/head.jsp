@@ -13,6 +13,9 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- Nanum Gothic 참조 -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+
 <!-- CSS 참조 -->
 <link rel="stylesheet" type="text/css" href="/iot5/css/topbar.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/sidebar.css">

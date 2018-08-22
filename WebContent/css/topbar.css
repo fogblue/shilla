@@ -30,8 +30,6 @@ ul, li {
 	list-style: none;
 }
 
-<<<<<<< HEAD
-=======
 a, a:hover {
 	display: block;
 	width: 100%;
@@ -39,7 +37,6 @@ a, a:hover {
 	text-decoration: none;
 	color: black;
 }
->>>>>>> b84e53e198b8930a3267054765b484804662f767
 
 /*------------------------------------------------------------
  | 메뉴바 설정
@@ -56,6 +53,8 @@ a, a:hover {
 
 	/** animate.css에 의해 적용될 애니메이션의 재생시간 설정 */
 	animation-duration: 500ms;
+	
+	background: #f1e3c4;
 }
 
 /** 메뉴바 > 메뉴영역 넓이 제한 */
@@ -63,9 +62,7 @@ a, a:hover {
 .tcontainer {
 	width: 1200px;
 	height: 100px;
-
 	margin: auto;
-	background: #f1e3c4;
 }
 
 /** 메뉴바 > 메뉴영역 > 좌측 로고 */
@@ -106,7 +103,7 @@ a, a:hover {
 
 }
 /** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 > 목록 아이템 */
-#site-header .menu .menu-item {
+#site-header .menu-item {
 	font-size: 22px;
 	color: black;
 }
@@ -130,11 +127,6 @@ a, a:hover {
 	float: left;
 	margin-top: 20px;
 	margin-left: 270px;
-}
-
-.menu {
-	float: left;
-
 }
 
 .btn-topbar {
@@ -172,6 +164,7 @@ a, a:hover {
 }
 
 .fcontainer {
+	width: 1200px;
 	height: 200px;
 	padding-top: 30px;
 }
@@ -190,13 +183,6 @@ a, a:hover {
 	height: 70px;
 	background: url(../img/brandTit.gif) no-repeat;
 	text-indent: -9999px;
-}
-
-.clearfix:before {
-	display: block;
-	content: '';
-	float: none;
-	clear: both;
 }
 
 .border-right {
@@ -233,6 +219,7 @@ a, a:hover {
 }
 
 .bottom {
+	width: 1200px;
 	font-size: 17px;
 	margin-top: 30px;
 }
@@ -245,6 +232,7 @@ a, a:hover {
 }
 
 .address {
+	width: 1200px;
 	font-size: 16px;
 }
 

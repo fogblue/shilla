@@ -1,12 +1,95 @@
+/*------------------------------------------------------------
+	| 페이지 기본 설정
+-------------------------------------------------------------*/
+
+.mcontainer {
+	width: 1200px;
+}
+
+/*------------------------------------------------------------
+	| 사이드바 기본 설정
+-------------------------------------------------------------*/
+
 .sidebar {
 	background-color: #f1e3c4;
 	min-height: 200px;
 }
 
 .bdb {
-	border-bottom: 3px solid #999;}
+	border-bottom: 3px solid #101010;
+}
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정
+-------------------------------------------------------------*/
+
+.bdb2 {
+	border-bottom: 3px solid #856f56;
+}
+
+.contents {
+	min-height: 200px;
+}
+
+.bd {
+	border: 1px solid #9b7f5b;
+	padding: 20px 20px 50px 20px;
 }
 
 .contents-header {
 	width: 100%;
+	margin-bottom: 10px;
+}
+
+.contents-header h2{
+	display: inline-block;
+}
+
+.contents-header p{
+	display: inline-block;
+}
+
+.bd .btn:first-child {
+	width: 60px;
+}
+
+.bd .btn:last-child {
+	width: 70px;
+}
+
+.contents-table {
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #f1ebd6;
+	border-bottom: 1px solid #f1ebd6;
+}
+
+.contents-table tr {
+	height: 35px;
+}
+
+.contents-table tr:first-child {
+	background-color: #faf9f4;
+	font-weight: bold;
+	border-bottom: 1px solid #f1ebd6;
+}
+
+.contents-table td:nth-child(1) {
+	width: 15%
+}
+
+.contents-table td:nth-child(2) {
+	width: 10%
+}
+
+.contents-table td:nth-child(3) {
+	width: 30%
+}
+
+.contents-table td:nth-child(4) {
+	width: 30%
+}
+
+.contents-table td:nth-child(5) {
+	width: 15%
 }

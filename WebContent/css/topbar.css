@@ -3,8 +3,7 @@
 -------------------------------------------------------------*/
 
 /** 문서 전체 크기, 여백 설정 */
-html,
-body {
+html, body {
 	width: 100%;
 	height: 100%;
 	padding: 0;
@@ -27,20 +26,18 @@ body {
 	float: none;
 }
 
-ul,
-li {
+ul, li {
 	list-style: none;
 }
 
-a,
-a:hover {
+a, a:hover {
 	display: block;
-	width:100%;
-	height:100%;
+	width: 100%;
+	height: 100%;
 	text-decoration: none;
 	color: black;
 }
-    
+
 /*------------------------------------------------------------
  | 메뉴바 설정
  -------------------------------------------------------------*/
@@ -60,10 +57,13 @@ a:hover {
 }
 
 /** 메뉴바 > 메뉴영역 넓이 제한 */
-#site-header .tcontainer {
+.tcontainer {
 	width: 1200px;
+	height: 100px;
 	margin: auto;
+	background: #f1e3c4;
 }
+
 /** 메뉴바 > 메뉴영역 > 좌측 로고 */
 #site-header h1 {
 	font-size: 24px;
@@ -72,13 +72,30 @@ a:hover {
 	margin-top: 20px;
 	margin-left: 500px;
 }
+
 /** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 */
-#site-header .menu {
+.tcontainer .menu1 {
+	display: block;
+	float: left; list-style : none;
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+	list-style: none;
+}
+
+.tcontainer .menu2 {
 	display: inline-block;
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	margin-top: 20px;
+}
+
+.tcontainer .menu3 {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+	margin-top: -10px;
 }
 /** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 > 목록 아이템 */
 #site-header .menu .menu-item {
@@ -140,7 +157,6 @@ a:hover {
 /*------------------------------------------------------------
  | 하단바 설정
  -------------------------------------------------------------*/
-
 .bgc {
 	background-color: rgb(241, 235, 214);
 }
@@ -158,7 +174,7 @@ a:hover {
 	display: inline-block;
 	float: left;
 }
-    
+
 .hotelList {
 	width: 161px;
 	height: 70px;
@@ -176,24 +192,19 @@ a:hover {
 .border-right {
 	border-right: 1px solid rgb(174, 168, 152);
 }
-    
-.tel,
-.info,
-.sns {
+
+.tel, .info, .sns {
 	height: 50px;
 	font-size: 17px;
 	line-height: 50px;
 }
 
-.fb,
-.is,
-.gg,
-.wb {
+.fb, .is, .gg, .wb {
 	width: 30px;
 	height: 50px;
 	background: url(../img/HublocalBoxSnsNews.gif) no-repeat;
 	text-indent: -9999px;
-}	
+}
 
 .fb {
 	background-position: -19px -36px;

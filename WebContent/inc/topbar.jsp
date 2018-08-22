@@ -4,11 +4,16 @@
 
 <header id="site-header">
 	<div class="tcontainer clearfix">
-		<ul class="menu1 list-inline downrow">
-			<li class="menu-item"><button class="btn btn-topbar">호텔찾기</button></li>
-			<li class="menu-item"><button
-					class="btn btn-topbar glyphicon glyphicon-calendar">예약</button></li>
-		</ul>
+		<div class="menu1 list-inline downrow">
+			<button class="btn btn-topbar dropdown-toggle" data-toggle="dropdown">호텔찾기 <span class="caret"></span></button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">서울신라호텔</a></li>
+				<li><a href="#">제주신라호텔</a></li>
+			</ul>
+		</div>
+		<div class="menu1 list-inline downrow">
+			<button class="btn btn-topbar">예약 <span  class="glyphicon glyphicon-calendar"></span></button>
+		</div>
 		<div class="box1">
 			<a href="index.jsp"><span class="pull-left logo">My Site</span></a>
 		</div>

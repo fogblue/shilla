@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -16,7 +15,6 @@
 
 <!-- CSS 참조 -->
 <link rel="stylesheet" type="text/css" href="css/topbar.css">
-<link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet"
 	href="plugins/superslides/stylesheets/superslides.css">
 <link rel="stylesheet" type="text/css" href="plugins/animate/animate.css" />

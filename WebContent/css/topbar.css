@@ -30,6 +30,16 @@ ul, li {
 	list-style: none;
 }
 
+<<<<<<< HEAD
+=======
+a, a:hover {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: black;
+}
+>>>>>>> b84e53e198b8930a3267054765b484804662f767
 
 /*------------------------------------------------------------
  | 메뉴바 설정
@@ -49,12 +59,15 @@ ul, li {
 }
 
 /** 메뉴바 > 메뉴영역 넓이 제한 */
- .tcontainer {
+
+.tcontainer {
 	width: 1200px;
-	height:100px;
+	height: 100px;
+
 	margin: auto;
 	background: #f1e3c4;
 }
+
 /** 메뉴바 > 메뉴영역 > 좌측 로고 */
 #site-header h1 {
 	font-size: 24px;
@@ -63,15 +76,18 @@ ul, li {
 	margin-top: 20px;
 	margin-left: 500px;
 }
+
 /** 메뉴바 > 메뉴영역 > 우측 메뉴 목록 */
 .tcontainer .menu1 {
 	display: block;
-	float:left;
-	list-style: none;
+	float: left; list-style : none;
 	padding: 0;
 	margin: 0;
 	margin-top: 20px;
+	list-style: none;
 }
+
+
 .tcontainer .menu2 {
 	display: inline-block;
 	list-style: none;
@@ -79,7 +95,10 @@ ul, li {
 	margin: 0;
 	margin-top: 20px;
 }
-.tcontainer .menu3{
+
+
+.tcontainer .menu3 {
+
 	display: inline-block;
 	list-style: none;
 	padding: 0;
@@ -144,3 +163,88 @@ ul, li {
 	margin-top: 100px;
 	height: 1200px;
 }
+
+/*------------------------------------------------------------
+ | 하단바 설정
+ -------------------------------------------------------------*/
+.bgc {
+	background-color: rgb(241, 235, 214);
+}
+
+.fcontainer {
+	height: 200px;
+	padding-top: 30px;
+}
+
+.flogo {
+	width: 230px;
+	height: 133px;
+	background: url(../img/localBoxCompInfo.gif) no-repeat;
+	text-indent: -9999px;
+	display: inline-block;
+	float: left;
+}
+
+.hotelList {
+	width: 161px;
+	height: 70px;
+	background: url(../img/brandTit.gif) no-repeat;
+	text-indent: -9999px;
+}
+
+.clearfix:before {
+	display: block;
+	content: '';
+	float: none;
+	clear: both;
+}
+
+.border-right {
+	border-right: 1px solid rgb(174, 168, 152);
+}
+
+.tel, .info, .sns {
+	height: 50px;
+	font-size: 17px;
+	line-height: 50px;
+}
+
+.fb, .is, .gg, .wb {
+	width: 30px;
+	height: 50px;
+	background: url(../img/HublocalBoxSnsNews.gif) no-repeat;
+	text-indent: -9999px;
+}
+
+.fb {
+	background-position: -19px -36px;
+}
+
+.is {
+	background-position: -50px -36px;
+}
+
+.gg {
+	background-position: -80px -36px;
+}
+
+.wb {
+	background-position: -110px -36px;
+}
+
+.bottom {
+	font-size: 17px;
+	margin-top: 30px;
+}
+
+.bottom li {
+	width: auto;
+	height: 100%;
+	padding-left: 10px;
+	padding-right: 20px;
+}
+
+.address {
+	font-size: 16px;
+}
+

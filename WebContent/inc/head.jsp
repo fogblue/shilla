@@ -15,16 +15,20 @@
 
 <!-- CSS 참조 -->
 <link rel="stylesheet" type="text/css" href="/iot5/css/topbar.css">
+
 <link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
+
+<link rel="stylesheet" type="text/css" href="/iot5/css/sidebar.css">
+
 <link rel="stylesheet"
 	href="/iot5/plugins/superslides/stylesheets/superslides.css">
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/animate/animate.css" />
 
 <!-- 플러그인 JS 참조 -->
-<script src="plugins/headroom/features.js"></script>
-<script src="plugins/headroom/Debouncer.js"></script>
-<script src="plugins/headroom/Headroom.js"></script>
-<script src="plugins/headroom/jQuery.headroom.js"></script>
-<script src="plugins/superslides/jquery.easing.1.3.js"></script>
-<script src="plugins/superslides/jquery.superslides.min.js"></script>
-<script src="plugins/animate/jquery.animatecss.min.js"></script>
+<script src="/iot5/plugins/headroom/features.js"></script>
+<script src="/iot5/plugins/headroom/Debouncer.js"></script>
+<script src="/iot5/plugins/headroom/Headroom.js"></script>
+<script src="/iot5/plugins/headroom/jQuery.headroom.js"></script>
+<script src="/iot5/plugins/superslides/jquery.easing.1.3.js"></script>
+<script src="/iot5/plugins/superslides/jquery.superslides.min.js"></script>
+<script src="/iot5/plugins/animate/jquery.animatecss.min.js"></script>

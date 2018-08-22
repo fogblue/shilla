@@ -12,12 +12,12 @@
 		<div class="sidebar col-md-3"></div>
 		<div class="col-md-9 contents">
 			<div class="tline">
-				<h1>개요<span class="view">home > About The Shilla > <a href="#">Overview</a></span>
-				</h1>
+				<h1>개요</h1>
+				<span class="view">Home > About The Shilla > <a href="#">Overview</a></span>
 			</div>
 
 			<div class="imgbox">
-				<img src="http://via.placeholder.com/800x300" alt="" />
+				<img src="http://via.placeholder.com/800x300" alt="exmimg" />
 			</div>
 		</div>
 	</div>

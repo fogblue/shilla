@@ -193,7 +193,7 @@ a, a:hover {
 }
 
 .hotelList {
-	width: 900px;
+	width: 940px;
 	height: 70px;
 	background: url(../img/brandTit.gif) no-repeat;
 	text-indent: -9999px;
@@ -245,7 +245,6 @@ a, a:hover {
 .bottom {
 	width: 1200px;
 	font-size: 15px;
-	margin-top: 30px;
 }
 
 .bottom li {

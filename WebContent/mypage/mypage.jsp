@@ -9,12 +9,12 @@
 	<%@ include file="../inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="container mcontainer main">
-		<div class="sidebar col-md-3">
+		<div class="sidebar col-md-2">
 			<div class="bdb">
 				<h2>마이페이지</h2>
 			</div>
 			<div>
-				<p>예약 확인/취소</p>
+				<span>예약 확인/취소</span><span></span>
 			</div>
 		</div>
 		<div class="contents col-md-9">

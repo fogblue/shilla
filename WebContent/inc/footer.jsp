@@ -48,7 +48,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container fcontainer">
 		<div class="bottom">
 			<ul class="list-inline">
 				<li class="border-right"><a href="#">개인정보처리방침</a></li>

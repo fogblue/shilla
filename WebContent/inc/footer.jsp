@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
 <div class="footer">
 	<div class="bgc">
 		<div class="container fcontainer">
@@ -7,7 +8,7 @@
 				<h1>THESHILLA</h1>
 				<h5>HOTEL &amp; RESORTS</h5>
 			</div>
-			<div class="pull-left hotelList">
+			<div class="pull-left hotelList clearfix">
 				<ul>
 					<li>THESHILLA
 						<ul class="list-inline">
@@ -17,33 +18,33 @@
 					</li>
 				</ul>
 			</div>
-			<hr />
-			<div class="pull-left">
-				<ul class="list-inline">
-					<li class="tel border-right">
-						<ul class="list-inline">
-							<li>서울신라호텔</li>
-							<li>02-2233-3131</li>
-							<li>제주신라호텔</li>
-							<li>064-735-5114</li>
-						</ul>
-					</li>
-					<li class="info border-right">
-						<ul class="list-inline">
-							<li><a href="#">호텔신라 소개</a></li>
-							<li><a href="#">고객문의</a></li>
-							<li><a href="#">사이트맵</a></li>
-						</ul>
-					</li>
-					<li class="sns">
-						<ul class="list-inline">
-							<li class="fb"><a href="https://www.facebook.com/theshillahotels">Facebook</a></li>
-							<li class="is"><a href="https://www.instagram.com/shillahotels/">Instagram</a></li>
-							<li class="gg"><a href="https://plus.google.com/+TheShillaHotelsResorts">Google+</a></li>
-							<li class="wb"><a href="https://www.weibo.com/shillahotel">Weibo</a></li>
-						</ul>
-					</li>
-				</ul>
+			<div class="clearfix">
+				<div class="tel border-right">
+					<ul class="list-inline">
+						<li>서울신라호텔</li>
+						<li>02-2233-3131</li>
+						<li>제주신라호텔</li>
+						<li>064-735-5114</li>
+					</ul>
+				</div>
+				<div class="info border-right">
+					<ul class="list-inline">
+						<li><a href="#">호텔신라 소개</a></li>
+						<li><a href="#">고객문의</a></li>
+						<li><a href="#">사이트맵</a></li>
+					</ul>
+				</div>
+				<div class="sns">
+					<ul class="list-inline">
+						<li class="fb"><a
+							href="https://www.facebook.com/theshillahotels">Facebook</a></li>
+						<li class="is"><a
+							href="https://www.instagram.com/shillahotels/">Instagram</a></li>
+						<li class="gg"><a
+							href="https://plus.google.com/+TheShillaHotelsResorts">Google+</a></li>
+						<li class="wb"><a href="https://www.weibo.com/shillahotel">Weibo</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

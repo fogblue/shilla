@@ -161,6 +161,7 @@ a, a:hover {
 }
 
 .main {
+	width: 1200px;
 	margin-top: 160px;
 	min-height: 400px;
 }
@@ -169,6 +170,7 @@ a, a:hover {
  | 하단바 설정
  -------------------------------------------------------------*/
 .bgc {
+	width: 100%;
 	margin-top:20px;
 	background-color: rgb(241, 235, 214);
 	

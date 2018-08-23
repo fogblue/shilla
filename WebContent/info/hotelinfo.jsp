@@ -10,21 +10,27 @@
 	<%@ include file="../inc/topbar.jsp"%>
 	<!-- ==================================== -->
 	<div class="container main">
-		<div class="sidebar col-md-3">
-			<div class="contents-header">
+		<div class="sidebar col-md-2">
+			<div class="contents-header bdb">
 				<!-- 제목 들어갈 곳 -->
-				<h3>마이페이지</h3>
+				<h3 class="conhead">호텔신라 소개</h3>
 			</div>
 			<div>
 				<!-- 메뉴 들어갈 곳 -->
+				<ul class="list-group">
+					<li class="list-group-item">개요</li>
+					<li class="list-group-item">서울신라호텔</li>
+					<li class="list-group-item">제주신라호텔</li>
+					<li class="list-group-item">수상이력</li>
+				</ul>
+				
 			</div>
 		</div>
 		<div class="contents col-md-9">
-			<div>
+			<div class="bdb">
 				<h3 class="conhead">개요</h3>
-				<p class="ind glyphicon glyphicon-home"> > About The Shilla > <span class="orng">Overview</span></p>				
+				<div class="ind"> <span class="glyphicon glyphicon-home"></span> > About The Shilla > <span class="orng">Overview</span></div>				
 			</div>
-			<hr class="hr" />
 			<div class="imgbox">
 				<img src="http://via.placeholder.com/850x180" alt="exmimg" />
 			</div>

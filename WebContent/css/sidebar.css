@@ -5,6 +5,20 @@
 }
 
 .bdb {
-	border-bottom: 3px solid #101010;	
-	margin-bottom: 10px;
+	border-bottom: 4px solid #3e2b2c;	
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+.ind {
+	margin-top: 35px;
+	display: inline;
+	text-align: right;
+	float: right;
+	font-size: 10px;
+}
+
+.orng {
+	color: orange;
+	text-decoration: underline;
 }

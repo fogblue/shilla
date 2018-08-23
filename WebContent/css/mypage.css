@@ -16,7 +16,8 @@
 }
 
 .bdb {
-	border-bottom: 3px solid #101010;
+	border-bottom: 3px solid #101010;	
+	margin-bottom: 10px;
 }
 
 /*------------------------------------------------------------
@@ -25,6 +26,7 @@
 
 .bdb2 {
 	border-bottom: 3px solid #856f56;
+	padding-bottom: 5px;
 }
 
 .contents {
@@ -38,15 +40,15 @@
 
 .contents-header {
 	width: 100%;
-	margin-bottom: 10px;
 }
 
 .contents-header h2{
 	display: inline-block;
 }
 
-.contents-header p{
-	display: inline-block;
+#datepicker,
+#show-cal {
+	vertical-align: middle;
 }
 
 .bd .btn:first-child {

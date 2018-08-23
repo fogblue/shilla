@@ -1,31 +1,36 @@
-		.form-horizontal{
-			border-top: 5px solid #856f56;
-			width: 600px;
-			height:300px;
-			margin: auto;
-			padding: 25px;
-			background: #f1ebd6;
+		.ind2{
+		margin-top: -10px;
+		text-align: right;
+		display: inline;
+		float: right;
+		font-size: 10px;
 		}
-		.form-group:after{
-			content: '';
+		.log_top_box{
+		margin-left:100px;
+		}
+		ul{
+			list-style: none;
+		}
+		
+		.pull-left {
+			float: left;
+		}
+		
+		.clearfix:after{
 			display: block;
+			content: '';
 			clear: both;
 			float: none;
 		}
-		.form-group {
-			padding-top: 10px;
-			padding-bottom: 10px;
-			border-bottom: 1px dotted #eee;
-
+		.log_body{
 		}
+		.bdbb1{
+		border-bottom: 4px solid #987f66;	
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+		}
+		.main_box{
 		
-		.log_header1{
-			font-size:30px;
-			color: #865009;
-			text-align: center;
-		}
-		.log_header2{
-			font-size:15px;
-			color: #000;
-			text-align: center;
+		width:1100px;
+		margin-top:150px;
 		}

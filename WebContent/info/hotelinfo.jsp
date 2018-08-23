@@ -13,7 +13,7 @@
 		<div class="sidebar col-md-3">
 			<div class="contents-header">
 				<!-- 제목 들어갈 곳 -->
-				<h2>마이페이지</h2>
+				<h3>마이페이지</h3>
 			</div>
 			<div>
 				<!-- 메뉴 들어갈 곳 -->
@@ -21,7 +21,7 @@
 		</div>
 		<div class="contents col-md-9">
 			<div>
-				<h2 class="conhead">개요</h2>
+				<h3 class="conhead">개요</h3>
 				<p class="ind glyphicon glyphicon-home"> > About The Shilla > <span class="orng">Overview</span></p>				
 			</div>
 			<hr class="hr" />

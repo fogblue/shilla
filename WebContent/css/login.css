@@ -21,12 +21,12 @@
 		.form-group:last-child{
 			border-bottom: 0;
 		}
-		h1{
+		log_header1{
 			font-size:30px;
 			color: #865009;
 			text-align: center;
 		}
-		h2{
+		log_header2{
 			font-size:15px;
 			color: #000;
 			text-align: center;

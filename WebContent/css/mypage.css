@@ -10,10 +10,7 @@
 	| 사이드바 기본 설정
 -------------------------------------------------------------*/
 
-.sidebar {
-	background-color: #f1e3c4;
-	min-height: 200px;
-}
+
 
 .bdb {
 	border-bottom: 3px solid #101010;	

@@ -1,12 +1,3 @@
 .sidebar {
-	background-color: #f1e3c4;
-	min-height: 200px;
-}
-
-.bdb {
-	border-bottom: 3px solid #999;}
-}
-
-.contents-header {
-	width: 100%;
+	background: #f1e3c4
 }

@@ -3,3 +3,8 @@
 	min-height: 200px;
 	margin-right: 30px;
 }
+
+.bdb {
+	border-bottom: 3px solid #101010;	
+	margin-bottom: 10px;
+}

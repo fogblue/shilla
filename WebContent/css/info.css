@@ -1,26 +1,25 @@
-.if-container {
-	width: 1200px;
-}
-
-.if-contents-header {
-	width: 100%;
-}
-
-.if-contents-header h3 {
+.bdb h3 {
 	display: inline-block;
 	margin: 0;
+}
+
+.conhead {
+	width: 100%;
+	color: #865009;
+	font-weight: bold;
 }
 
 .inme1 {
 	background: #f1e3c4;
 	border: none;
+	height: 50px;
 }
 
 .imenu {
 	width: 150px;
 	color: #865009;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 15px;
 	border: none;
 	transition: 300ms;
 }
@@ -37,9 +36,9 @@
 }
 
 .if-contents {
-	width: 930px;
-	min-height: 400px;
+	width: 870px;
 	display: inline-block;
+	margin-left: 20px;
 }
 
 .con1>h3 {
@@ -47,7 +46,7 @@
 }
 
 .missionbox {
-	width: 230px;
+	width: 220px;
 	height: 200px;
 	background: #f1e3c4;
 	float: left;
@@ -57,13 +56,37 @@
 	text-align: center;
 }
 
-.arti2 {
+.artibox {
+	width: 200px;
 	display: table-cell;
 	vertical-align: middle;
 	padding: 20px;
+	font-weight: bold;
 }
 
-.arti2 hr {
+.artibox>h3 {
+	font-weight: bold;
+}
+
+.artiboxhr {
 	width: 150px;
 	border-color: #222;
+	font-weight: bold;
+}
+
+.sidebar-header {
+	margin-top: 0;
+	padding-bottom: 20px;
+	border-bottom: 5px solid #3e2b2c;
+	font-size: 22px;
+	color: #865009;
+}
+
+.pridebox {
+	margin-bottom: 150px;
+}
+.pridebox>ul,li {
+	list-style: disc;
+	margin-left: 10px;
+	padding:0;
 }

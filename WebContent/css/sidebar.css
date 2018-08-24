@@ -2,19 +2,20 @@
 	background-color: #f1e3c4;
 	min-height: 200px;
 	margin-right: 20px;
-	width: 216px;
-	padding: 0 20px 20px 20px;
+	width: 250px;
+	padding: 30px;
 	display: inline-block;
 	vertical-align: top;
 }
 
 .bdb {
-	border-bottom: 4px solid #3e2b2c;
+	border-bottom: 5px solid #3e2b2c;
 	padding-bottom: 15px;
+	margin-bottom: 20px !important;
 }
 
 .ind {
-	margin-top: 10px;
+	margin-top: -20px;
 	display: inline;
 	text-align: right;
 	float: right;
@@ -22,7 +23,7 @@
 }
 
 .orng {
-	color: orange;
+	color: #322223;
 	text-decoration: underline;
 }
 

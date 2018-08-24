@@ -8,8 +8,11 @@
 <body>
 	<%@ include file="../inc/topbar.jsp" %>
 	<div class="container main">
-		<div class="form-group">
-			<h1 class="bdb log_header">로그인</h1>
+		<div class="form-group log-form">
+			<div class="log_bdb">
+			<h1 class="log_header">로그인</h1>
+			</div>
+			
 			<div class="ind1"> <span class="glyphicon glyphicon-home"></span> > <span class="orng">로그인</span></div>
 			<br/>
 			<h2 class="log_header1">신라호텔에 오신 것을 환영합니다.</h2>
@@ -25,10 +28,10 @@
 			</div>
 			<div class="form-group">
 				<div class="col-md-10">
-					<input type="text" name="user_id" id="user_id" class="form-control"  
+					<input type="text" name="user_id" id="user_id" class="form-control log-form-control"  
 					placeholder="아이디 입력">
 					<br/>
-					<input type="password" name="user_pw" id="user_pw" class="form-control"  
+					<input type="password" name="user_pw" id="user_pw" class="form-control log-form-control"   
 					 placeholder="비밀번호"> 
 				</div>
 				<div  class="col-md-2">

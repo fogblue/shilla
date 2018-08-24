@@ -9,19 +9,15 @@
 	font-weight: bold;
 }
 
-.inme1 {
-	background: #f1e3c4;
-	border: none;
-	height: 50px;
-}
-
 .imenu {
 	width: 150px;
 	color: #865009;
+	background: #f1e3c4;
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 16px;
 	border: none;
 	transition: 300ms;
+	margin: 15px 0;
 }
 
 .imenu a {
@@ -30,7 +26,6 @@
 }
 
 .imenu:hover {
-	width: 150px;
 	background: #9b7f5b;
 	color: #000;
 }
@@ -38,7 +33,6 @@
 .if-contents {
 	width: 870px;
 	display: inline-block;
-	margin-left: 20px;
 }
 
 .con1>h3 {
@@ -89,4 +83,8 @@
 	list-style: disc;
 	margin-left: 10px;
 	padding:0;
+}
+
+.list-group {
+	border: none;
 }

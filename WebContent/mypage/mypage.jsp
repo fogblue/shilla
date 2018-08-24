@@ -8,37 +8,50 @@
 <body>
 	<%@ include file="../inc/topbar.jsp" %>
 	<!-- ============시작================== -->
-	<div class="container mcontainer main">
-		<div class="sidebar col-md-2">
-			<div class="bdb">
-				<h2>마이페이지</h2>
-			</div>
-			<div>
-				<span>예약 확인/취소</span><span></span>
+	<div class="container mypg-container main">
+		<div class="sidebar">
+			<div class="sidebar-cont">
+				<div class="bdb">
+					<h3>마이페이지</h3>
+				</div>
+				<div>
+					<a>예약 확인/취소</a>
+					<br />
+					<a>개인정보</a>
+					<hr style="border-style: dotted; border-color: #000000"/>
+					<ul class="">
+						<li>프로필 수정</li>
+						<br />
+						<li>비밀번호 변경</li>
+						<br />
+						<li>회원 탈퇴 요청</li>
+					</ul>
+					<a>문의 내역</a>
+				</div>
 			</div>
 		</div>
-		<div class="contents col-md-9">
-			<div class="bdb contents-header">
-				<h2>예약확인/취소</h2>
-				<span class="pull-right">현재위치경로 들어갈 곳</span>
+		<div class="mypg-contents">
+			<div class="bdb mypg-contents-header">
+				<h3>예약확인/취소</h3>
+				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">예약 확인/취소</span></div>
 			</div>
 			<div>
 				<p>객실 및 패키지 예약 내역을 확인하실 수 있습니다.</p>
 			</div>
-			<div class="bd">
+			<div class="mypg-bd">
 				<div>
 					<span>기간조회</span>
-					<button type="button" class="btn btn-default">전체</button>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/calendar.png" height="20"></span>
+					<button type="button" class="btn whole">전체</button>
+					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
 					<span> ~ </span>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/calendar.png" height="20"></span>
-					<button type="button" class="btn btn-warning">조회</button>
+					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
+					<button type="button" class="btn find">조회</button>
 				</div>
 				<div>
-					<h4 class="bdb2">객실 / 패키지 예약</h4>
+					<h4 class="mypg-bdb">객실 / 패키지 예약</h4>
 					<div>
 						<p>Total : </p>
-						<table class="contents-table">
+						<table class="mypg-contents-table">
 							<tr>
 								<td>예약번호</td>
 								<td>호텔</td>

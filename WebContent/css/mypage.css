@@ -11,6 +11,11 @@
 	display: inline-block;
 }
 
+.mypg-bdb2 {
+	border-bottom: 5px solid #3e2b2c;
+	padding-bottom: 15px;
+}
+
 .mypg-contents-header {
 	width: 100%;
 }
@@ -36,6 +41,7 @@
 .mypg-contents-txtbox {
 	height: 50px;
 	border: 1px solid #cccccc;
+	border-top: 0;
 	background-color: #fbfbfb;
 	margin-bottom: 20px;
 	padding-top: 12px;

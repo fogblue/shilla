@@ -26,40 +26,25 @@
 		</div>
 		<div class="mypg-contents">
 			<div class="bdb mypg-contents-header">
-				<h3>예약확인/취소</h3>
-				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">예약 확인/취소</span></div>
+				<h3>프로필 수정</h3>
+				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;개인정보&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">프로필 수정</span></div>
 			</div>
 			<div>
-				<p>객실 및 패키지 예약 내역을 확인하실 수 있습니다.</p>
+				<p>님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</p>
 			</div>
-			<div class="mypg-bd">
-				<div>
-					<span>기간조회</span>
-					<button type="button" class="btn whole">전체</button>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
-					<span> ~ </span>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
-					<button type="button" class="btn find">조회</button>
-				</div>
-				<div>
-					<h4 class="mypg-bdb">객실 / 패키지 예약</h4>
-					<div>
-						<p>Total : </p>
-						<table class="mypg-contents-table">
-							<tr>
-								<td>예약번호</td>
-								<td>호텔</td>
-								<td>객실/패키지</td>
-								<td>체크인/체크아웃</td>
-								<td>예약상태</td>
-							</tr>
-							<tr>
-								<td colspan="5">자료가 없습니다.</td>
-							</tr>
-						</table>
-					</div>
-				</div>
+			<div>
+				<table class="mypg-contents-table">
+					<tr>
+						<td>회원 번호</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>비밀번호</td>
+						<td><input type="password" /></td>
+					</tr>
+				</table>
 			</div>
+			<button type="submit" class="confirm">확인</button>
 		</div>
 	</div>
 	<!-- ==============끝================== -->

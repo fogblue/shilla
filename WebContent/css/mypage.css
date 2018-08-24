@@ -44,7 +44,8 @@
 	color: #ffffff;
 }
 
-.find {
+.find,
+.confirm {
 	width: 70px;
 	background-color: #5d4930;
 	color: #f1ebd6;

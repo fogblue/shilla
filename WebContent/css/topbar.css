@@ -196,6 +196,12 @@ a, a:hover {
 	clear: both;
 }
 
+.flogo > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
 .hotelList {
 	width: 940px;
 	height: 70px;

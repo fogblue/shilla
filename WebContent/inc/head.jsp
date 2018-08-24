@@ -19,8 +19,6 @@
 <!-- CSS 참조 -->
 <link rel="stylesheet" type="text/css" href="/iot5/css/topbar.css">
 
-<link rel="stylesheet" type="text/css" href="/iot5/css/info.css" />
-
 <link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
 

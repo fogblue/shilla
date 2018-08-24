@@ -5,12 +5,9 @@
 	width: 1200px;
 }
 
-/*------------------------------------------------------------
-	| 컨텐츠 설정
--------------------------------------------------------------*/
 .mypg-contents {
 	width: 930px;
-	min-height: 400px;
+	min-height: 600px;
 	display: inline-block;
 }
 
@@ -32,26 +29,44 @@
 	text-decoration: underline;
 }
 
-.mypg-bd {
+.mypg-contents-txtbox {
+	height: 50px;
+	border: 1px solid #cccccc;
+	background-color: #fbfbfb;
+	margin-bottom: 20px;
+	padding-top: 12px;
+}
+
+.mypg-bdb {
+	border-bottom: 3px solid #856f56;
+	padding-bottom: 10px;
+}
+
+.mypg-contents-table tr {
+	height: 35px;
+}
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - reservation.jsp
+-------------------------------------------------------------*/
+.mypg-rsvt-bd {
 	border: 1px solid #9b7f5b;
 	padding: 20px 20px 50px 20px;
 }
 
-
-.whole {
+.mypg-rsvt-whole {
 	width: 60px;
 	background-color: #666666;
 	color: #ffffff;
 }
 
-.find,
-.confirm {
+.mypg-rsvt-find {
 	width: 70px;
 	background-color: #5d4930;
 	color: #f1ebd6;
 }
 
-.mypg-bd span,
+.mypg-rsvt-bd span,
 #datepicker,
 #show-cal {
 	vertical-align: middle;
@@ -61,44 +76,78 @@
 	margin: 5px 0 8px 5px;
 }
 
-.mypg-bdb {
-	border-bottom: 3px solid #856f56;
-	padding-bottom: 10px;
-}
-
-.mypg-contents-table {
+.mypg-rsvt-contents-table {
 	width: 100%;
 	text-align: center;
 	border-top: 1px solid #f1ebd6;
 	border-bottom: 1px solid #f1ebd6;
 }
 
-.mypg-contents-table tr {
-	height: 35px;
-}
-
-.mypg-contents-table tr:first-child {
+.mypg-rsvt-contents-table tr:first-child {
 	background-color: #faf9f4;
 	font-weight: bold;
 	border-bottom: 1px solid #f1ebd6;
 }
 
-.mypg-contents-table td:nth-child(1) {
+.mypg-rsvt-contents-table td:nth-child(1) {
 	width: 15%
 }
 
-.mypg-contents-table td:nth-child(2) {
+.mypg-rsvt-contents-table td:nth-child(2) {
 	width: 10%
 }
 
-.mypg-contents-table td:nth-child(3) {
+.mypg-rsvt-contents-table td:nth-child(3) {
 	width: 30%
 }
 
-.mypg-contents-table td:nth-child(4) {
+.mypg-rsvt-contents-table td:nth-child(4) {
 	width: 30%
 }
 
-.mypg-contents-table td:nth-child(5) {
+.mypg-rsvt-contents-table td:nth-child(5) {
 	width: 15%
 }
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - profile_edit.jsp
+-------------------------------------------------------------*/
+.mypg-pfed-contents-table {
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #f1ebd6;
+	border-bottom: 1px solid #f1ebd6;
+}
+
+.mypg-pfed-contents-table tr:nth-child(1) {
+	border-bottom: 1px solid #f1ebd6;
+}
+
+.mypg-pfed-contents-table td:nth-child(1) {
+	font-weight: bold;
+	width: 15%;
+	background-color: #faf9f4;
+	padding-left: 15px;
+	text-align: left;
+}
+
+.mypg-pfed-contents-table td:nth-child(2) {
+	width: 85%;
+	padding-left: 15px;
+	text-align: left;
+}
+
+.mypg-pfed-confirm {
+	width: 70px;
+	background-color: #5d4930;
+	color: #f1ebd6;
+	margin: 40px 430px;
+}
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - password_edit.jsp
+-------------------------------------------------------------*/
+
+
+
+

@@ -32,20 +32,20 @@
 			<div>
 				<p>객실 및 패키지 예약 내역을 확인하실 수 있습니다.</p>
 			</div>
-			<div class="mypg-bd">
+			<div class="mypg-rsvt-bd">
 				<div>
 					<span>기간조회</span>
-					<button type="button" class="btn whole">전체</button>
+					<button type="button" class="btn mypg-rsvt-whole">전체</button>
 					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
 					<span> ~ </span>
 					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
-					<button type="button" class="btn find">조회</button>
+					<button type="button" class="btn mypg-rsvt-find">조회</button>
 				</div>
-				<div>
+				<div class="mypg-contents-table">
 					<h4 class="mypg-bdb">객실 / 패키지 예약</h4>
 					<div>
 						<p>Total : </p>
-						<table class="mypg-contents-table">
+						<table class="mypg-rsvt-contents-table">
 							<tr>
 								<td>예약번호</td>
 								<td>호텔</td>

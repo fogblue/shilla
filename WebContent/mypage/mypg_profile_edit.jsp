@@ -44,7 +44,9 @@
 					</tr>
 				</table>
 			</div>
-			<button type="submit" class="btn mypg-pfed-confirm">확인</button>
+			<div class="mypg-contents-btn">
+				<button type="submit" class="btn mypg-pfed-confirm">확인</button>
+			</div>
 		</div>
 	</div>
 	<!-- ==============끝================== -->

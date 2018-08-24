@@ -29,6 +29,10 @@
 	text-decoration: underline;
 }
 
+.mypg-contents-txt {
+	margin-top: 15px;
+}
+
 .mypg-contents-txtbox {
 	height: 50px;
 	border: 1px solid #cccccc;
@@ -46,6 +50,15 @@
 	height: 35px;
 }
 
+.mypg-contents-btn {
+	margin: 40px 430px;
+}
+
+.mypg-contents-btn2 {
+	width: 270px;
+	margin: 40px 330px;
+}
+
 /*------------------------------------------------------------
 	| 컨텐츠 설정 - reservation.jsp
 -------------------------------------------------------------*/
@@ -54,13 +67,15 @@
 	padding: 20px 20px 50px 20px;
 }
 
-.mypg-rsvt-whole {
+.mypg-rsvt-whole,
+.mypg-rsvt-whole:hover {
 	width: 60px;
 	background-color: #666666;
 	color: #ffffff;
 }
 
-.mypg-rsvt-find {
+.mypg-rsvt-find,
+.mypg-rsvt-find:hover {
 	width: 70px;
 	background-color: #5d4930;
 	color: #f1ebd6;
@@ -115,8 +130,8 @@
 .mypg-pfed-contents-table {
 	width: 100%;
 	text-align: center;
-	border-top: 1px solid #f1ebd6;
-	border-bottom: 1px solid #f1ebd6;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
 }
 
 .mypg-pfed-contents-table tr:nth-child(1) {
@@ -137,17 +152,90 @@
 	text-align: left;
 }
 
-.mypg-pfed-confirm {
+.mypg-pfed-confirm,
+.mypg-pfed-confirm:hover {
 	width: 70px;
 	background-color: #5d4930;
 	color: #f1ebd6;
-	margin: 40px 430px;
 }
 
 /*------------------------------------------------------------
 	| 컨텐츠 설정 - password_edit.jsp
 -------------------------------------------------------------*/
+.mypg-pwed-contents-table {
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
 
+.mypg-pwed-contents-table tr:nth-child(1),
+.mypg-pwed-contents-table tr:nth-child(2) {
+	border-bottom: 1px solid #f1ebd6;
+}
 
+.mypg-pwed-contents-table td:nth-child(1) {
+	font-weight: bold;
+	width: 15%;
+	background-color: #faf9f4;
+	padding-left: 15px;
+	text-align: left;
+}
 
+.mypg-pwed-contents-table td:nth-child(2) {
+	width: 85%;
+	padding-left: 15px;
+	text-align: left;
+}
 
+.mypg-pwed-contents-table span {
+	margin: 0 5px;
+	font-size: 12px;
+}
+
+.mypg-pwed-change,
+.mypg-pwed-change:hover {
+	width: 130px;
+	background-color: #5d4930;
+	color: #f1ebd6;
+	margin-right: 10px;
+	float:left;
+}
+
+.mypg-pwed-cancel,
+.mypg-pwed-cancel:hover {
+	width: 130px;
+	background-color: #9b7f5b;
+	color: #f1ebd6;
+}
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - qna.jsp
+-------------------------------------------------------------*/
+.mypg-qna-bd-search {
+	margin-bottom: 20px;
+}
+
+.mypg-rsvt-contents-table td:nth-child(1) {
+	width: 10%
+}
+
+.mypg-rsvt-contents-table td:nth-child(2) {
+	width: 10%
+}
+
+.mypg-rsvt-contents-table td:nth-child(3) {
+	width: 20%
+}
+
+.mypg-rsvt-contents-table td:nth-child(4) {
+	width: 40%
+}
+
+.mypg-rsvt-contents-table td:nth-child(5) {
+	width: 10%
+}
+
+.mypg-rsvt-contents-table td:nth-child(6) {
+	width: 10%
+}

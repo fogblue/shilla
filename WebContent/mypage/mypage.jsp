@@ -14,18 +14,12 @@
 				<div class="bdb">
 					<h3>마이페이지</h3>
 				</div>
-				<div>
+				<div class="mypg-sidebar-menu">
 					<a>예약 확인/취소</a>
-					<br />
 					<a>개인정보</a>
-					<hr style="border-style: dotted; border-color: #000000"/>
-					<ul class="">
-						<li>프로필 수정</li>
-						<br />
-						<li>비밀번호 변경</li>
-						<br />
-						<li>회원 탈퇴 요청</li>
-					</ul>
+					<a>프로필 수정</a>
+					<a>비밀번호 변경</a>
+					<a>회원 탈퇴 요청</a>
 					<a>문의 내역</a>
 				</div>
 			</div>

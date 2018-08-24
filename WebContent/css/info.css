@@ -1,4 +1,12 @@
-.conhead {
+.if-container {
+	width: 1200px;
+}
+
+.if-contents-header {
+	width: 100%;
+}
+
+.if-contents-header h3 {
 	display: inline-block;
 	margin: 0;
 }
@@ -26,6 +34,12 @@
 	width: 150px;
 	background: #9b7f5b;
 	color: #000;
+}
+
+.if-contents {
+	width: 930px;
+	min-height: 400px;
+	display: inline-block;
 }
 
 .con1>h3 {

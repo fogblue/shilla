@@ -9,29 +9,30 @@
 <body>
 	<%@ include file="../inc/topbar.jsp"%>
 	<!-- ==================================== -->
-	<div class="container main">
-		<div class="sidebar col-md-2">
-			<div class="contents-header bdb">
-				<!-- 제목 들어갈 곳 -->
-				<h3>호텔신라 소개</h3>
-			</div>
-			<div>
-				<!-- 메뉴 들어갈 곳 -->
-				<ul class="list-group">
-					<li class="list-group-item inme1"><a
-						href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a></li>
-					<li class="list-group-item inme1"><a
-						href="/iot5/info/hotelinfo.jsp" class="imenu">서울신라호텔</a></li>
-					<li class="list-group-item inme1"><a
-						href="/iot5/info/hotelinfo.jsp" class="imenu">제주신라호텔</a></li>
-					<li class="list-group-item inme1"><a
-						href="/iot5/info/hotelinfo.jsp" class="imenu">수상이력</a></li>
-				</ul>
-
+	<div class="container if-container main">
+		<div class="sidebar">
+			<div class="sidebar-cont">
+				<div class="bdb">
+					<!-- 제목 들어갈 곳 -->
+					<h3>호텔신라 소개</h3>
+				</div>
+				<div class="if-sidebar-menu">
+					<!-- 메뉴 들어갈 곳 -->
+					<ul class="list-group">
+						<li class="list-group-item inme1"><a
+							href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a></li>
+						<li class="list-group-item inme1"><a
+							href="/iot5/info/hotelinfo.jsp" class="imenu">서울신라호텔</a></li>
+						<li class="list-group-item inme1"><a
+							href="/iot5/info/hotelinfo.jsp" class="imenu">제주신라호텔</a></li>
+						<li class="list-group-item inme1"><a
+							href="/iot5/info/hotelinfo.jsp" class="imenu">수상이력</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
-		<div class="contents col-md-9">
-			<div class="bdb">
+		<div class="if-contents">
+			<div class="bdb if-contents-header">
 				<h3 class="conhead">개요</h3>
 				<div class="ind">
 					<span class="glyphicon glyphicon-home"></span> > About The Shilla >

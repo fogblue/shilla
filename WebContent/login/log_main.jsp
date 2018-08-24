@@ -9,12 +9,14 @@
 	<%@ include file="../inc/topbar.jsp" %>
 	<div class="container main">
 		<div class="form-group">
-			<h1 class="log_header1">신라호텔에 오신 것을 환영합니다.</h1>
+			<h1 class="bdb log_header">로그인</h1>
+			<div class="ind1"> <span class="glyphicon glyphicon-home"></span> > <span class="orng">로그인</span></div>
+			<br/>
+			<h2 class="log_header1">신라호텔에 오신 것을 환영합니다.</h2>
 			
 			<h2 class="log_header2">아이디와 비밀번호를 입력해 주시기 바랍니다.<br/>
 			신라호텔 회원이 되시면 회원만을 위한 다양한 서비스와 혜택을 받으실 수 있습니다.</h2>
 		</div>
-		<br/>
 		<div class="form-group">
 			<form class="form-horizontal" name="login_form" id="login_form">
 			<div>

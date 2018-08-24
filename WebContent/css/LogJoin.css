@@ -28,7 +28,7 @@
 		.log_body{
 			width:850px;
 			margin:auto;
-			padding-left:20px;
+			padding-left:2 0px;
 		}
 		
 		.bdbb1{
@@ -45,7 +45,9 @@
 			background: url(../img/log_step1.png) no-repeat;
 			text-indent: -9999px;
 		}	
-		
+		.log_h3{
+			
+		}
 		.log_box1{
 			margin-left:130px;
 		}

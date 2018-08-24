@@ -21,9 +21,6 @@
 
 <link rel="stylesheet" type="text/css" href="/iot5/css/info.css" />
 
-<link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
-
 <link rel="stylesheet" type="text/css" href="/iot5/css/sidebar.css">
 
 <link rel="stylesheet" type="text/css" href="/iot5/css/mypage.css">

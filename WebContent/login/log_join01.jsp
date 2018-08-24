@@ -5,6 +5,8 @@
 <html>
 <head>
 <%@ include file="../inc/head.jsp"%>
+<link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
+<link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>
@@ -32,26 +34,168 @@
 			<div class="bdbb1">
 				<h3>약관동의</h3>
 			</div>
-			
-			<h3 class="log_h3">신라리워즈 이용약관에 대한 동의 (필수)</h3>
-			<div class="log_text1"
-				style="overflow: scroll; width: 850px; height: 150px;">
-					
-					<!-- Large modal -->
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+			<div class="agree_box1">
+				<h3 class="log_h3"><strong>신라리워즈 이용약관에 대한 동의 (필수)</strong></h3>
 				
-					<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-					  <div class="modal-dialog modal-lg">
+						<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary btn-md view_all" data-toggle="modal" data-target="#myModal">
+					 전체보기
+					</button>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" >
 					    <div class="modal-content">
-					      <%@ include file="../inc/log_text01.jsp"%>
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">신라리워즈 이용약관에 관한 동의</h4>
+					      </div>
+					      <div class="modal-body">
+					        <%@ include file="../inc/log_text01.jsp"%>
+					      </div>
 					    </div>
 					  </div>
 					</div>
-					
+					<div class="log_text1"
+					style="overflow: scroll; width: 850px; height: 150px;">	
+					 	<%@ include file="../inc/log_text01.jsp"%>
+					</div>
+					<div class="agree_checkbox">
+						<label><input type="radio" name="agree" value="agree" checked>동의함</label>
+						<label><input type="radio" name="agree" value="disagree">동의하지 않음</label>
+					</div>
+				</div><!-- agree_box1 end -->
 				
-				</div>
-			</div>
-		</div>
+				<div class="agree_box1">
+				<h3 class="log_h3"><strong>개인정보 수집, 이용에 대한 동의 (필수)</strong></h3>
+				
+						<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary btn-md view_all" data-toggle="modal" data-target="#myModal">
+					 전체보기
+					</button>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" >
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">개인정보 수집, 이용에 대한 동의</h4>
+					      </div>
+					      <div class="modal-body">
+					        <%@ include file="../inc/log_text02.jsp"%>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="log_text1"
+					style="overflow: scroll; width: 850px; height: 150px;">	
+					 	<%@ include file="../inc/log_text02.jsp"%>
+					</div>
+					<div class="agree_checkbox">
+						<label><input type="radio" name="agree" value="agree" checked>동의함</label>
+						<label><input type="radio" name="agree" value="disagree">동의하지 않음</label>
+					</div>
+				</div><!-- agree_box2 end -->
+				
+				<div class="agree_box1">
+				<h3 class="log_h3"><strong>개인정보 제3자 제공에 대한 동의 (필수)</strong></h3>
+				
+						<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary btn-md view_all" data-toggle="modal" data-target="#myModal">
+					 전체보기
+					</button>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" >
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">개인정보 제3자 제공에 대한 동의</h4>
+					      </div>
+					      <div class="modal-body">
+					        <%@ include file="../inc/log_text03.jsp"%>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="log_text1"
+					style="overflow: scroll; width: 850px; height: 150px;">	
+					 	<%@ include file="../inc/log_text03.jsp"%>
+					</div>
+					<div class="agree_checkbox">
+						<label><input type="radio" name="agree" value="agree" checked>동의함</label>
+						<label><input type="radio" name="agree" value="disagree">동의하지 않음</label>
+					</div>
+				</div><!-- agree_box3 end -->
+				
+				<div class="agree_box1">
+				<h3 class="log_h3"><strong>개인정보 마케팅 활용 동의 (선택)</strong></h3>
+				
+						<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary btn-md view_all" data-toggle="modal" data-target="#myModal">
+					 전체보기
+					</button>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" >
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">개인정보 마케팅 활용 동의</h4>
+					      </div>
+					      <div class="modal-body">
+					        <%@ include file="../inc/log_text04.jsp"%>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="log_text1"
+					style="overflow: scroll; width: 850px; height: 150px;">	
+					 	<%@ include file="../inc/log_text04.jsp"%>
+					</div>
+					<div class="agree_checkbox">
+						<label><input type="radio" name="agree" value="agree" checked>동의함</label>
+						<label><input type="radio" name="agree" value="disagree">동의하지 않음</label>
+					</div>
+				</div><!-- agree_box4 end -->
+				
+				<div class="agree_box1">
+				<h3 class="log_h3"><strong>고객정보 국외이전 동의 (선택)</strong></h3>
+				
+						<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary btn-md view_all" data-toggle="modal" data-target="#myModal">
+					 전체보기
+					</button>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" >
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">고객정보 국외이전 동의</h4>
+					      </div>
+					      <div class="modal-body">
+					        <%@ include file="../inc/log_text05.jsp"%>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="log_text1"
+					style="overflow: scroll; width: 850px; height: 150px;">	
+					 	<%@ include file="../inc/log_text05.jsp"%>
+					</div>
+					<div class="agree_checkbox">
+						<label><input type="radio" name="agree" value="agree" checked>동의함</label>
+						<label><input type="radio" name="agree" value="disagree">동의하지 않음</label>
+					</div>
+				</div><!-- agree_box5 end -->
+			</div><!-- log_body end -->
+			
+		</div><!-- container end -->
 
 
 

@@ -15,3 +15,11 @@
             font-size: 14px;
             color: #f00;
 }
+
+ .con1 > .table .busihour {
+ 	border-top: none;
+ }
+ 
+ #enq_target {
+ 	border-top: none;
+ }

@@ -281,6 +281,11 @@
 	text-align: left;
 }
 
+.mypg-pfed2-contents-table tr:nth-child(5) td,
+.mypg-pfed2-contents-table tr:nth-child(7) td {
+	background-color: #fff;
+}
+
 #calling {
 	width: 80px;
 	height: 26px;
@@ -299,3 +304,24 @@
 .mypg-pfed2-contents-table input[type="radio"] {
 	margin: 0 10px;
 }
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - withdraw_2.jsp
+-------------------------------------------------------------*/
+.mypg-wd-contents {
+	height: auto;
+	padding: 20px 20px 10px 25px;
+	border: 1px solid #f1ebd6;
+	background-color: #faf9f4;
+}
+
+.mypg-wd-contents p {
+	padding: 5px 0;
+}
+
+.mypg-wd-apply,
+.mypg-wd-apply:hover {
+	width: 70px;
+	background-color: #5d4930;
+	color: #f1ebd6;
+} 

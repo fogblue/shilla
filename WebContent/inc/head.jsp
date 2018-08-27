@@ -36,3 +36,7 @@
 <script src="/iot5/plugins/superslides/jquery.easing.1.3.js"></script>
 <script src="/iot5/plugins/superslides/jquery.superslides.min.js"></script>
 <script src="/iot5/plugins/animate/jquery.animatecss.min.js"></script>
+
+<!-- Ajax Helper -->
+<script src="/iot5/plugins/ajax/ajax_helper.js"></script>
+<link rel="stylesheet" type="text/css" href="/iot5/plugins/ajax/ajax_helper.css" />

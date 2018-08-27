@@ -31,7 +31,7 @@ ul, li {
 	list-style: none;
 }
 
-a, a:hover {
+a, a:link, a:hover, a:visited, a:active {
 	display: block;
 	width: 100%;
 	height: 100%;

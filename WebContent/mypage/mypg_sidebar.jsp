@@ -4,9 +4,6 @@
 <html>
 <head>
 	<%@ include file="../inc/head.jsp" %>
-	<!-- Ajax Helper -->
-<script src="/iot5/plugins/ajax/ajax_helper.js"></script>
-<link rel="stylesheet" type="text/css" href="/iot5/plugins/ajax/ajax_helper.css" />
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp" %>

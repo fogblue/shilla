@@ -245,3 +245,57 @@
 .mypg-rsvt-contents-table td:nth-child(6) {
 	width: 10%
 }
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - profile_edit_2.jsp
+-------------------------------------------------------------*/
+.mypg-pfed2-contents-table {
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+.mypg-pfed2-contents-table tr:nth-child(1),
+.mypg-pfed2-contents-table tr:nth-child(2),
+.mypg-pfed2-contents-table tr:nth-child(3),
+.mypg-pfed2-contents-table tr:nth-child(5) {
+	border-bottom: 1px solid #f1ebd6;
+}
+
+.mypg-pfed2-contents-table tr:nth-child(5) input:nth-child(1) {
+	width: 200px;
+}
+
+.mypg-pfed2-contents-table td:nth-child(1) {
+	font-weight: bold;
+	width: 15%;
+	background-color: #faf9f4;
+	padding-left: 15px;
+	text-align: left;
+}
+
+.mypg-pfed2-contents-table td:nth-child(2) {
+	width: 85%;
+	padding-left: 15px;
+	text-align: left;
+}
+
+#calling {
+	width: 80px;
+	height: 26px;
+}
+#email_select {
+	width: 130px;
+	height: 26px;
+}
+
+.mypg-pfed2-overlap {
+	height: 26px;
+	background-color: #9b7f5b;
+	color: #f1ebd6;
+}
+
+.mypg-pfed2-contents-table input[type="radio"] {
+	margin: 0 10px;
+}

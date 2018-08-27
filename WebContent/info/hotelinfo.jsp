@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@ include file="../inc/head.jsp"%>
+<link rel="stylesheet" href="/iot5/css/info.css" />
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>

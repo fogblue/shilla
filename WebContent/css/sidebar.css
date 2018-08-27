@@ -8,6 +8,14 @@
 	vertical-align: top;
 }
 
+.sidebar-header {
+	margin-top: 0;
+	padding-bottom: 20px;
+	border-bottom: 5px solid #3e2b2c;
+	font-size: 22px;
+	color: #865009;
+}
+
 .bdb {
 	border-bottom: 5px solid #3e2b2c;
 	padding-bottom: 15px;

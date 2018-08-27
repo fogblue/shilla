@@ -1,0 +1,17 @@
+.belowheader {
+	font-size: 12px;
+}
+
+.ctabhead {
+	vertical-align: middle !important;
+	background-color: #faf9f4;
+}
+
+.table {
+	border: 1px solid #faf9f4;
+}
+
+.identify {
+            font-size: 14px;
+            color: #f00;
+}

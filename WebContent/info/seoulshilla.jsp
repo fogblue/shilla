@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@ include file="../inc/head.jsp"%>
+<link rel="stylesheet" href="/iot5/css/info.css" />
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>
@@ -14,16 +15,10 @@
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">호텔신라 소개</h3>
 			<!-- 메뉴 들어갈 곳 -->
-			<ul class="list-group if-sidebar-menu">
-				<li class="list-group-item inme1"><a
-					href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a></li>
-				<li class="list-group-item inme1"><a
-					href="/iot5/info/seoulshilla.jsp" class="imenu active">서울신라호텔</a></li>
-				<li class="list-group-item inme1"><a
-					href="/iot5/info/hotelinfo.jsp" class="imenu">제주신라호텔</a></li>
-				<li class="list-group-item inme1"><a
-					href="/iot5/info/hotelinfo.jsp" class="imenu">수상이력</a></li>
-			</ul>
+			<a href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a>
+			<a href="/iot5/info/seoulshilla.jsp" class="imenu">서울신라호텔</a>
+			<a href="/iot5/info/hotelinfo.jsp" class="imenu">제주신라호텔</a>
+			<a href="/iot5/info/hotelinfo.jsp" class="imenu">수상이력</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">

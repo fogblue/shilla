@@ -30,7 +30,7 @@
 					<ul class="list-inline">
 						<li><a href="/iot5/info/hotelinfo.jsp">호텔신라 소개</a></li>
 						<li><a href="/iot5/info/contactinfo.jsp">고객문의</a></li>
-						<li><a href="#">사이트맵</a></li>
+						<li><a href="/iot5/sitemap/sitemap.jsp">사이트맵</a></li>
 					</ul>
 				</div>
 				<div class="sns">

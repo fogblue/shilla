@@ -18,5 +18,22 @@
 	</table>
 </div>
 <div class="mypg-contents-btn">
-	<button type="submit" class="btn mypg-pfed-confirm">확인</button>
+	<button type="submit" class="btn mypg-pfed-confirm" id="pfed_confirm">확인</button>
 </div>
+
+<script type="text/javascript">
+	$(function() {
+		$("#pfed_confirm").click(function(e) {
+			$("#mypage_contents_box").empty();
+			$.ajax({
+				url: "../mypage/mypg_profile_edit_2.html",
+				method: "get",
+				data: {},
+				dataType: "html",
+				success: function(req) {
+					$("#mypage_contents_box").append(req);
+				}
+			});
+		});
+	});
+</script>

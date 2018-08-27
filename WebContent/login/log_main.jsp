@@ -47,9 +47,9 @@
 			</div>
 			<div class="form-group">
 				<div class="text-center">
-					<button class="btn btn_color2 btn-md" type="button">회원가입</button>
-					<button class="btn btn_color3 btn-md"  type="button">아이디 찾기</button>
-					<button class="btn btn_color3 btn-md"  type="button">비밀번호 찾기</button>
+					<button class="btn btn_color2 btn-md" type="button"  onclick="location.href='/iot5/login/log_join01.jsp' ">회원가입</button>
+					<button class="btn btn_color3 btn-md"  type="button" onclick="location.href='/iot5/login/log_join01.jsp' ">아이디 찾기</button>
+					<button class="btn btn_color3 btn-md"  type="button" onclick="location.href='/iot5/login/log_join01.jsp' ">비밀번호 찾기</button>
 				</div>
 			</div>
 		</form>

@@ -23,8 +23,9 @@
 		</div>
 		<ul class="menu2 list-inline pull-right">
 			<li class="menu-item2 br"><a href="/iot5/login/log_main.jsp">로그인&nbsp;</a></li>
-			<li class="menu-item2 br">회원 가입&nbsp;</li>
+			<li class="menu-item2 br"><a href="/iot5/login/log_join01.jsp">회원 가입&nbsp;</a></li>
 			<li class="menu-item2"><a href="/iot5/mypage/mypg_reservation.jsp">예약 확인</a></li>
+
 		</ul>
 		<div>
 			<ul class="menu3 list-inline pull-right downrow">

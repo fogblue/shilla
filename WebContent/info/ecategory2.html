@@ -2,7 +2,6 @@
 	<th scope="row" class="entabhead"><label><span
 			class="identify">*</span> 호텔</label></th>
 	<td><select id="selhotel">
-			<option value="">---- 선택하세요 ----</option>
 			<option value="sshihot">서울신라호텔</option>
 			<option value="jshihot">제주신라호텔</option>
 	</select>&nbsp;&nbsp;&nbsp; <label for="enq_opin"><input type="radio"
@@ -12,62 +11,11 @@
 <tr>
 	<th scope="row" class="entabhead"><label><span
 			class="identify">*</span> 관련문의</label></th>
-	<td><select id="selquest"></select></td>
+	<td><select id="selenq"></select></td>
 </tr>
 <tr>
 	<th scope="row" class="entabhead"><label for="enq_resnum">&nbsp;&nbsp;&nbsp;예약번호</label></th>
 	<td><input type="text" name="enq_resnum" id="enq_resnum" /></td>
-</tr>
-<tr>
-	<th scope="row" class="entabhead"><label for="enq_title"><span
-			class="identify">*</span> 제목</label></th>
-	<td><input type="text" name="enq_title" id="enq_title" /></td>
-</tr>
-<tr>
-	<th scope="row" class="entabhead"><label for="enq_content"><span
-			class="identify">*</span> 내용</label></th>
-	<td><input type="text" name="enq_content" id="enq_content" /></td>
-</tr>
-<tr>
-	<th scope="row" class="entabhead"><label for="enq_content"><span
-			class="identify">*</span> 성명</label></th>
-	<td><select name="mrmsdr" id="mrmsdr">
-			<option value="ms">Ms.</option>
-			<option value="mr">Mr.</option>
-			<option value="dr">Dr.</option>
-	</select> <input type="text" name="enq_uname" id="enq_uname" /></td>
-</tr>
-<tr>
-	<th scope="row" class="entabhead"><label for="enq_email"><span
-			class="identify">*</span> 이메일</label></th>
-	<td><input type="email" name="enq_email" id="enq_email1" /> @ <input
-		type="email" name="enq_email" id="enq_email2" /> <select
-		name="enq_elist" id="enq_elist">
-			<option>--- 직접입력 ---</option>
-			<option value="naver.com">naver.com</option>
-			<option value="hanmail.net">hanmail.net</option>
-			<option value="hotmail.com">hotmail.com</option>
-			<option value="nate.com">nate.com</option>
-			<option value="yahoo.co.kr">yahoo.co.kr</option>
-			<option value="empas.com">empas.com</option>
-			<option value="dreamwiz.com">dreamwiz.com</option>
-			<option value="freechal.com">freechal.com</option>
-			<option value="lycos.co.kr">lycos.co.kr</option>
-			<option value="korea.com">korea.com</option>
-			<option value="gmail.com">gmail.com</option>
-			<option value="hanmir.com">hanmir.com</option>
-			<option value="paran.com">paran.com</option>
-	</select></td>
-</tr>
-<tr>
-	<th scope="row" class="entabhead"><label for="enq_title"><span
-			class="identify">*</span> 휴대전화</label></th>
-	<td><input type="tel" name="enq_title" id="enq_title" /></td>
-</tr>
-<tr>
-	<th scope="row" class="entabhead"><label for="enq_title">&nbsp;&nbsp;
-			자택전화</label></th>
-	<td><input type="tel" name="enq_title" id="enq_title" /></td>
 </tr>
 
 <script id="category_item_tmpl" type="text/x-handlebars-template">
@@ -80,17 +28,17 @@
 	$(function() {
 		/* 드랍다운 선택 변경 이벤트 */
 		$("#selhotel").change(function() {
-			$("#selquest").empty();
+			$("#selenq").empty();
 			var choice = $(this).find("option:selected").val();
 			if (!choice) {
 				return false;
 			}
-			
-			$.get('../api/category.do', { type: choice }, function(req) {
+
+			$.get('../api/category.do', { type : choice }, function(req) {
 				var template = Handlebars.compile($("#category_item_tmpl").html());
 				var html = template(req);
-				$("#selquest").append(html);
-			}); // end $.get
+				$("#selenq").append(html);
+			}); // end $.get	
 		}); // end change
 	});
 </script>

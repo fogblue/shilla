@@ -7,11 +7,6 @@
 <%@ include file="../inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/css/enquiry.css" />
 <link rel="stylesheet" type="text/css" href="/iot5/css/info.css" />
-<!-- Ajax Helper -->
-<script src="/iot5/plugins/ajax/ajax_helper.js"></script>
-<link rel="stylesheet" type="text/css" href="/iot5/plugins/ajax/ajax_helper.css" />
-<!-- Handlebars -->
-<script src="/iot5/plugins/handlebars/handlebars-v4.0.5.js"></script>
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>
@@ -38,15 +33,69 @@
 				<tr>
 					<th scope="row" class="entabhead"><label for="ecategory"><span
 							class="identify">*</span> 구분</label></th>
-					<td><label> <input type="radio" name="ecategory"
-							id="ecategory1" value="hoteldevelop" checked> 호텔개발
+					<td><label> <input type="radio" class="ecategory"
+							name="ecategory" id="ecategory1" value="hoteldevelop" checked>
+							호텔개발
 					</label>&nbsp;&nbsp;&nbsp;&nbsp; <label> <input type="radio"
-							name="ecategory" id="ecategory2" value="askbouthotel" /> 신라호텔
+							class="ecategory" name="ecategory" id="ecategory2"
+							value="askbouthotel" /> 신라호텔
 					</label></td>
 				</tr>
 				<!-- HTML이 추가될 자리 -->
 				<tbody class="enq_target" id="enq_target"></tbody>
 				<!-- ending -->
+				<tr>
+					<th scope="row" class="entabhead"><label for="enq_title"><span
+							class="identify">*</span> 제목</label></th>
+					<td><input type="text" name="enq_title" id="enq_title" /></td>
+				</tr>
+				<tr>
+					<th scope="row" class="entabhead"><label for="enq_content"><span
+							class="identify">*</span> 내용</label></th>
+					<td><input type="text" name="enq_content" id="enq_content" /></td>
+				</tr>
+				<tr>
+					<th scope="row" class="entabhead"><label for="enq_content"><span
+							class="identify">*</span> 성명</label></th>
+					<td><select name="mrmsdr" id="mrmsdr">
+							<option value="ms">Ms.</option>
+							<option value="mr">Mr.</option>
+							<option value="dr">Dr.</option>
+					</select> <input type="text" name="enq_uname" id="enq_uname" /></td>
+				</tr>
+				<tr>
+					<th scope="row" class="entabhead"><label for="enq_email"><span
+							class="identify">*</span> 이메일</label></th>
+					<td><input type="email" name="enq_email" id="enq_email1" /> @
+						<input type="email" name="enq_email" id="enq_email2" /> <select
+						name="enq_elist" id="enq_elist">
+							<option>--- 직접입력 ---</option>
+							<option value="naver.com">naver.com</option>
+							<option value="hanmail.net">hanmail.net</option>
+							<option value="hotmail.com">hotmail.com</option>
+							<option value="nate.com">nate.com</option>
+							<option value="yahoo.co.kr">yahoo.co.kr</option>
+							<option value="empas.com">empas.com</option>
+							<option value="dreamwiz.com">dreamwiz.com</option>
+							<option value="freechal.com">freechal.com</option>
+							<option value="lycos.co.kr">lycos.co.kr</option>
+							<option value="korea.com">korea.com</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="hanmir.com">hanmir.com</option>
+							<option value="paran.com">paran.com</option>
+					</select></td>
+				</tr>
+				<tr>
+					<th scope="row" class="entabhead"><label for="enq_title"><span
+							class="identify">*</span> 휴대전화</label></th>
+					<td><input type="tel" name="enq_title" id="enq_title" /></td>
+				</tr>
+				<tr>
+					<th scope="row" class="entabhead"><label for="enq_title">&nbsp;&nbsp;
+							자택전화</label></th>
+					<td><input type="tel" name="enq_title" id="enq_title" /></td>
+				</tr>
+
 			</table>
 			<h5>필수적 개인정보 수집 및 이용에 대한 동의</h5>
 			<div class="enq_agreegathering"
@@ -58,27 +107,38 @@
 				경우 문의에 대한 안내 및 서비스 제공과 관련된 제반 절차 진행이 불가능 할 수 있음을 알려드립니다.
 			</div>
 			<div class="enq_checkbox">
-				<label><input type="checkbox" name="enq_agreeing" value="enq_agreeing">동의함</label>
+				<label><input type="checkbox" name="enq_agreeing"
+					value="enq_agreeing">동의함</label>
 			</div>
 		</div>
 	</div>
 	<!-- ==================================== -->
 	<%@ include file="../inc/footer.jsp"%>
-	
+<script id="category_item_tmpl" type="text/x-handlebars-template">
+	{{#each item}}
+	<option value="{{value}}">{{text}}</option>
+	{{/each}}
+</script>
 	<script type="text/javascript">
 		$(function() {
-			$("#ecategory1").change(function(e) {
+			$(".ecategory").change(function(e) {
 				$("#enq_target").empty();
-				$.get("/iot5/info/ecategory1.html", function(req) {
+				if ($(this).val() == "hoteldevelop") {
+					$.get("/iot5/info/ecategory1.html", function(req) {
 						$("#enq_target").append(req);
 					}, "html"); // end $.get
-				}); // end #ecategory2 click function
-			$("#ecategory2").change(function(e) {
-				$("#enq_target").empty();
-				$.get("/iot5/info/ecategory2.html", function(req) {
+				} else {
+					$("#enq_target").empty();
+					$.get("/iot5/info/ecategory2.html", function(req) {
 						$("#enq_target").append(req);
 					}, "html"); // end $.get
-				}); // end #ecategory2 click function
-			}); 
+				}
+			}); // end #ecategory2 click function
+			
+			$("#enq_elist").change(function() {
+				var sel = $(this).find("option:selected").val();
+				$("#enq_email2").val(sel);
+			});
+		});
 	</script>
 </body>

@@ -15,6 +15,7 @@
 		.log_top{
 			width:800px;
 			margin:auto;
+			padding-left:10px;
 		}
 		
 		.ind2{
@@ -23,17 +24,21 @@
 			display: inline;
 			float: right;
 			font-size: 10px;
+			padding-left:20px;
 		}
 		
 		.log_body{
 			width:850px;
 			margin:auto;
 			padding-left:2 0px;
+			
 		}
 		
 		.bdbb1{
 			border-bottom: 4px solid #987f66;	
 			margin-bottom: 20px;
+			padding-left:10px;
+			margin-top:10px;
 
 		}
 		.view_all{
@@ -51,6 +56,14 @@
 			background: url(../img/log_step1.png) no-repeat;
 			text-indent: -9999px;
 		}	
+		.log_step2 {
+			margin-top:15px;
+			display: block;
+			width: 866px;
+			height: 51px;
+			background: url(../img/log_step2.png) no-repeat;
+			text-indent: -9999px;
+		}
 		.log_h3{
 			font-size: 15px;
 			float:left;
@@ -58,6 +71,7 @@
 		}
 		.log_box1{
 			margin-left:130px;
+			margin-bottom:20px;
 		}
 		.log_box2{
 			width:800px;

@@ -38,7 +38,7 @@
 		<div class="log_body ">
 		<form class="form-horizontal" name="join_form" id="join_form">
 			<div class="bdbb1">
-				<h3>약관동의</h3>
+				<h4>약관동의</h4>
 			</div>
 			<div class="agree_box">
 				<h3 class="log_h3">
@@ -262,7 +262,7 @@
 		<div class="log_footer">
 			<div class="agree_submit">
 				<button type="button" class="btn btn_color4 btn-md" >취소</button>
-				<button type="submit" class="btn btn_color4 btn-md">다음</button>
+				<button type="submit" class="btn btn_color4 btn-md"  onclick="location.href='/iot5/login/log_join02.jsp' ">다음</button>
 			</div>
 		</div>
 
@@ -272,7 +272,12 @@
 
 	<script type="text/javascript">
 		
-		
+			$(function() {
+				$("#all_check").change(function() {
+					$(".agree").prop('checked', $(this).prop('checked'));
+				});
+			});
+			
 		 $(function() {
 
 	            /** 플러그인의 기본 설정 옵션 추가 */

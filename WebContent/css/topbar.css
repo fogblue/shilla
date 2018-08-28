@@ -174,9 +174,10 @@ a, a:link, a:hover, a:visited, a:active {
  | 하단바 설정
  -------------------------------------------------------------*/
 .bgc {
-	min-width: 1600px;
+	min-width: 1215px;
 	margin-top:20px;
 	background-color: rgb(241, 235, 214);
+	background-size: cover;
 }
 
 .fcontainer {
@@ -270,5 +271,7 @@ a, a:link, a:hover, a:visited, a:active {
 	font-size: 14px;
 	color: #ccc;
 	margin-bottom: 30px;
+}
+.address ul {
 }
 

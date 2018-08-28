@@ -174,10 +174,9 @@ a, a:link, a:hover, a:visited, a:active {
  | 하단바 설정
  -------------------------------------------------------------*/
 .bgc {
-	width: 100%;
+	min-width: 1600px;
 	margin-top:20px;
 	background-color: rgb(241, 235, 214);
-	
 }
 
 .fcontainer {

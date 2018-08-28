@@ -23,7 +23,7 @@
 			신라호텔 회원이 되시면 회원만을 위한 다양한 서비스와 혜택을 받으실 수 있습니다.</h2>
 		</div>
 		<div class="form-group">
-			<form class="form-horizontal log_form-horizontal" name="login_form" id="login_form">
+			<form class="log_form-horizontal" name="login_form" id="login_form">
 			<div>
 				<label><input type="radio" name="user" value="user" checked>회원</label>
 				<label><input type="radio" name="user" value="unuser">비회원(예약확인)</label>

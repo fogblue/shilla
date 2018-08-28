@@ -7,7 +7,7 @@ $(function() {
 	$.ajaxSetup( {
 		/** ajax 기본 옵션 */
 		cache: false,			// 캐쉬 사용 금지 처리
-		dataType: 'html',		// 읽어올 내용 형식 (html,xml,json)
+		dataType: 'json',		// 읽어올 내용 형식 (html,xml,json)
 		timeout: 30000,			// 타임아웃 (30초)
 
 		// 통신 시작전 실행할 기능 (ex: 로딩바 표시)

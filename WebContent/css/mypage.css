@@ -34,8 +34,9 @@
 }
 
 .mypg-loc-txt {
-	color: ;
+	color: #322223;
 	text-decoration: underline;
+	font-weight: bold;
 }
 
 .mypg-contents-txt {
@@ -91,13 +92,19 @@
 	color: #f1ebd6;
 }
 
-.mypg-rsvt-bd span,
-#datepicker,
-#show-cal {
+.mypg-rsvt-bd>div:first-child>* {
 	vertical-align: middle;
 }
 
-#show-cal img {
+.mypg-rsvt-bd>div:first-child>a {
+	display: inline;
+}
+
+.mypg-rsvt-bd>div:first-child>input {
+	width: 100px;
+}
+
+.mypg-rsvt-bd>div:first-child>a>img {
 	margin: 5px 0 8px 5px;
 }
 
@@ -222,6 +229,22 @@
 /*------------------------------------------------------------
 	| 컨텐츠 설정 - qna.jsp
 -------------------------------------------------------------*/
+.mypg-rsvt-bd>div:first-child>* {
+	vertical-align: middle;
+}
+
+.mypg-rsvt-bd>div:first-child>a {
+	display: inline;
+}
+
+.mypg-rsvt-bd>div:first-child>input {
+	width: 100px;
+}
+
+.mypg-rsvt-bd>div:first-child>a>img {
+	margin: 5px 0 8px 5px;
+}
+
 .mypg-qna-bd-search {
 	margin-bottom: 20px;
 }

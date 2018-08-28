@@ -36,9 +36,9 @@
 				<div>
 					<span>기간조회</span>
 					<button type="button" class="btn mypg-rsvt-whole">전체</button>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
+					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
+					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
 					<button type="button" class="btn mypg-rsvt-find">조회</button>
 				</div>
 				<div class="mypg-contents-table">
@@ -62,6 +62,27 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+    $(function() {
+        $("#datepicker-s").datepicker({
+            autoHide: true, // 날자 선택 후 자동 숨김 (true/false)
+            format: 'yyyy-mm-dd', // 날짜 형식
+            language: 'ko-KR', // 언어
+            weekStart: 0, // 시작요일(0=일요일~6=토요일)
+            trigger: '#show-cal-s' // 클릭 시 달력을 표시할 요소의 id
+        });
+    });
+    $(function() {
+        $("#datepicker-e").datepicker({
+            autoHide: true, // 날자 선택 후 자동 숨김 (true/false)
+            format: 'yyyy-mm-dd', // 날짜 형식
+            language: 'ko-KR', // 언어
+            weekStart: 0, // 시작요일(0=일요일~6=토요일)
+            trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
+        });
+    });
+    </script>
 	<!-- ==============끝================== -->
 	<%@ include file="../inc/footer.jsp" %>
 </body>

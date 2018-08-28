@@ -76,4 +76,13 @@
 			margin-top:15px;
 			border-bottom: 2px dotted #eee;
 		}
-		
+		.btn_color4{
+			background: #322223;
+			font-size:15px;
+			color:white;
+			margin:auto 120px;
+		}
+		.agree_submit{
+			width:800px;
+			margin:auto;	
+		}

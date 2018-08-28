@@ -184,6 +184,10 @@ a, a:link, a:hover, a:visited, a:active {
 	width: 1200px;
 	height: 200px;
 	padding-top: 30px;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .flogo {

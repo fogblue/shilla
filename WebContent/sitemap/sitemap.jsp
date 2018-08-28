@@ -19,7 +19,10 @@
 					<h4>로그인</h4>
 				</div>
 				<div class="stmp-contents-box-content">
-				
+					<h5>로그인</h5>
+					<ul>
+						<li><a href="#"></a></li>
+					</ul>
 				</div>
 			</div>
 			<div class="stmp-contents-box-up">
@@ -27,7 +30,14 @@
 					<h4>마이페이지</h4>
 				</div>
 				<div class="stmp-contents-box-content">
-				
+					<h5>예약확인</h5>
+					<h5>개인정보</h5>
+					<ul>
+						<li><a href="#">프로필 수정</a></li>
+						<li><a href="#">비밀번호 변경</a></li>
+						<li><a href="#">회원 탈퇴 요청</a></li>
+					</ul>
+					<h5>문의내역</h5>
 				</div>
 			</div>
 			<div class="stmp-contents-box-up">

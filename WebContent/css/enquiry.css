@@ -23,3 +23,7 @@
  #enq_target {
  	border-top: none;
  }
+ 
+ .enq_hidden {
+ 	display: none;
+ }

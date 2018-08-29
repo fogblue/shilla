@@ -4,9 +4,7 @@
 	<td><select id="selhotel">
 			<option value="sshihot">서울신라호텔</option>
 			<option value="jshihot">제주신라호텔</option>
-	</select>&nbsp;&nbsp;&nbsp; <label for="enq_opin"><input type="radio"
-			name="enq_why" id="enq_opin" /> 의견</label> <label for="enq_ques"><input
-			type="radio" name="enq_why" id="enq_ques" /> 문의</label></td>
+	</select>&nbsp;&nbsp;&nbsp; <label for="enq_opin"><input type="radio" name="enq_why" id="enq_opin" /> 의견</label> <label for="enq_ques"><input type="radio" name="enq_why" id="enq_ques" /> 문의</label></td>
 </tr>
 <tr>
 	<th scope="row" class="entabhead"><label><span
@@ -39,6 +37,6 @@
 				var html = template(req);
 				$("#selenq").append(html);
 			}); // end $.get	
-		}); // end change
+		}).change(); // end change
 	});
 </script>

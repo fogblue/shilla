@@ -1,5 +1,6 @@
 .stmp-container {
 	width: 880px;
+	margin: auto !important;
 }
 
 .stmp-contents-header {

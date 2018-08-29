@@ -43,15 +43,30 @@
 				<tr style="border-top: none; border-bottom: none;">
 					<th scope="row" class="entabhead"><label for="selhotel"><span
 							class="identify">*</span> 호텔</label></th>
-					<td><select name="selhotel" id="selhotel">
-							<option value="sshihot">서울신라호텔</option>
-							<option value="jshihot">제주신라호텔</option>
-					</select>&nbsp;&nbsp;&nbsp; <span id="enq_why" class="enq_hidden"><label for="enq_opin"><input type="radio" name="enq_why" id="enq_opin" /> 의견</label> <label for="enq_ques"><input type="radio" name="enq_why" id="enq_ques" /> 문의</label></span></td>
+					<td><select id="selhotel">
+							<option value="sshihot" id="sshihot">서울신라호텔</option>
+							<option value="jshihot" id="jshihot">제주신라호텔</option>
+					</select>&nbsp;&nbsp;&nbsp; <span id="enq_why" class="ecategory2 enq_hidden"><label
+							for="enq_opin"><input type="radio" value="enq_opin"
+								id="enq_opin" /> 의견</label> <label for="enq_ques"><input
+								type="radio" value="enq_ques" id="enq_ques" /> 문의</label></span></td>
 				</tr>
-				<!-- HTML이 추가될 자리 -->
-				<tbody class="enq_target" id="enq_target"></tbody>
-				<!-- ending -->
-				<tr>
+				<tr class="enq_hidden ecategory2 enq_ques">
+					<th scope="row" class="entabhead"><label><span
+							class="identify">*</span> 관련문의</label></th>
+					<td><select id="selenq">
+							<option value="enq_room" id="enq_room">객실/패키지문의</option>
+							<option value="enq_dining" id="enq_dining">다이닝문의</option>
+							<option value="enq_wedding" id="enq_wedding">웨딩문의</option>
+							<option value="enq_party" id="enq_party">연회/회의문의</option>
+							<option value="enq_web" id="enq_web">홈페이지문의</option>
+					</select></td>
+				</tr>
+				<tr class="enq_hidden enq_room enq_ques">
+					<th scope="row" class="entabhead"><label for="enq_resnum">&nbsp;&nbsp;&nbsp;예약번호</label></th>
+					<td><input type="text" name="enq_resnum" id="enq_resnum" /></td>
+				</tr>
+				<tr class="enq_ques">
 					<th scope="row" class="entabhead"><label for="enq_title"><span
 							class="identify">*</span> 제목</label></th>
 					<td><input type="text" name="enq_title" id="enq_title" /></td>
@@ -76,7 +91,7 @@
 					<td><input type="email" name="enq_email" id="enq_email1" /> @
 						<input type="email" name="enq_email" id="enq_email2" /> <select
 						name="enq_elist" id="enq_elist">
-							<option>--- 직접입력 ---</option>
+							<option value="">--- 직접입력 ---</option>
 							<option value="naver.com">naver.com</option>
 							<option value="hanmail.net">hanmail.net</option>
 							<option value="hotmail.com">hotmail.com</option>
@@ -119,35 +134,64 @@
 			</div>
 		</div>
 	</div>
-	<script id="enq_why_tmpl" type="text/x-handlebars-template">
-	{{#each item}}	
-	<label for="enq_opin"><input type="radio" name="enq_why" id="enq_opin" /> {{value}}</label> <label for="enq_ques"><input type="radio" name="enq_why" id="enq_ques" /> {{text}}</label></td>
-	{{/each}}	
-	</script>
+
+	<script id="category_item_tmpl" type="text/x-handlebars-template">
+	{{#each item}}
+	<option value="{{value}}">{{text}}</option>
+	{{/each}}
+</script>
 	<%@ include file="../inc/footer.jsp"%>
+
 	<script type="text/javascript">
 		$(function() {
-			$("#ecategory2").change(function(e) {
-				$("#enq_target").empty();
-				$.get("/iot5/info/ecategory2.html", function(req) {
-					$("#enq_target").append(req);
-				}, "html"); // end $.get
-				
-				$("#enq_why").empty();
-				var choice = $(this).val();
-
-				$.get('../api/category.do', { type : choice }, function(req) {
-					var template = Handlebars.compile($("#category_item_tmpl").html());
-					var html = template(req);
-					$("#enq_why").append(html);
-				}); // end $.get	
-			}).change(); // end #ecategory2 click function
-
-			// email selection
-			$("#enq_elist").change(function() {
-				var sel = $(this).find("option:selected").val();
-				$("#enq_email2").val(sel);
+			$(".ecategory").on('click', function(e) {
+				$(".ecategory1").toggleClass('enq_hidden');
+				$(".ecategory2").toggleClass('enq_hidden');
 			});
+			$("#enq_elist").change(enqEmailFilling); // email 자동채움
+			$("#selhotel").change(enqHotelSlct);
 		});
+
+		/* 호텔 드랍다운 선택지에 따른 관련문의 카테고리 표현 */
+		function enqHotelSlct() {
+			var sel = $(this).val();
+			if (sel == "jshihot") {
+				$("#enq_dining").addClass("enq_hidden");
+				$("#enq_wedding").addClass("enq_hidden");
+			} else if (sel == "sshihot") {
+				$("#enq_dining").removeClass("enq_hidden");
+				$("#enq_wedding").removeClass("enq_hidden");
+			}
+		} // end enqHotelSlct
+		
+		/* 의견/문의 라디오버튼에 따른 카테고리 표현 */
+		function enqQues() {
+			var sel = $(this).val();
+			if (sel == "enq_why") {
+				$("#enq_dining").addClass("enq_hidden");
+				$("#enq_wedding").addClass("enq_hidden");
+			} else if (sel == "sshihot") {
+				$("#enq_dining").removeClass("enq_hidden");
+				$("#enq_wedding").removeClass("enq_hidden");
+			}
+		} // end enqHotelSlct
+		
+		/* 구분에 따른 카테고리 표현 */
+		function enqCategory() {
+			var sel = $(this).val();
+			if (sel == "askbouthotel") {
+				$(".ecategory2").removeClass("enq_hidden");
+				$(".ecategory1").addClass("enq_hidden")
+			} else if (sel == "hoteldevelop"){
+				$(".ecategory1").removeClass("enq_hidden");
+				$(".ecategory2").addClass("enq_hidden");
+			}
+		} // end function enqCategory
+		
+		/* email 선택 시 자동 채움 */
+		function enqEmailFilling() {
+			var sel = $(this).find("option:selected").val();
+			$("#enq_email2").val(sel);
+		} // end function enqEmailFilling
 	</script>
 </body>

@@ -42,6 +42,8 @@ public class Category extends HttpServlet {
 			list.add(new CategoryItem("jshihot02", "연회/회의문의"));
 			list.add(new CategoryItem("jshihot03", "홈페이지문의"));
 			break;
+		case "askbouthotel":
+			list.add(new CategoryItem("의견", "문의"));
 		}
 
 		// JSON형식의 문자열 만들기

@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <div class="footer">
 	<div class="bgc">
-		<div class="container fcontainer">
+		<div class="fcontainer">
 			<div class="flogo">
 				<h1><a href="/iot5/index.jsp">THESHILLA HOTEL &amp; RESORTS</a></h1>
 			</div>
@@ -47,7 +47,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container fcontainer">
+	<div class="fcontainer">
 		<div class="bottom">
 			<ul class="list-inline">
 				<li class="border-right"><a href="#">개인정보처리방침</a></li>

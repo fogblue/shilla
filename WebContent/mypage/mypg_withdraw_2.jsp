@@ -8,7 +8,7 @@
 <body>
 	<%@ include file="../inc/topbar.jsp" %>
 	<!-- ============시작================== -->
-	<div class="container mypg-container main">
+	<div class="mypg-container main">
 		<div class="sidebar">
 			<div class="sidebar-cont">
 				<div class="bdb">

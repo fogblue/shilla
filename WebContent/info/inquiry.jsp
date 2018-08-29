@@ -148,6 +148,7 @@
 				$(".ecategory1").toggleClass('enq_hidden');
 				$(".ecategory2").toggleClass('enq_hidden');
 			});
+			
 			$("#enq_elist").change(enqEmailFilling); // email 자동채움
 			$("#selhotel").change(enqHotelSlct);
 		});
@@ -175,18 +176,6 @@
 				$("#enq_wedding").removeClass("enq_hidden");
 			}
 		} // end enqHotelSlct
-		
-		/* 구분에 따른 카테고리 표현 */
-		function enqCategory() {
-			var sel = $(this).val();
-			if (sel == "askbouthotel") {
-				$(".ecategory2").removeClass("enq_hidden");
-				$(".ecategory1").addClass("enq_hidden")
-			} else if (sel == "hoteldevelop"){
-				$(".ecategory1").removeClass("enq_hidden");
-				$(".ecategory2").addClass("enq_hidden");
-			}
-		} // end function enqCategory
 		
 		/* email 선택 시 자동 채움 */
 		function enqEmailFilling() {

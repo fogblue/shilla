@@ -1,6 +1,16 @@
 .stmp-container {
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.stmp-contents {
 	width: 880px;
-	margin: auto !important;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .stmp-contents-header {
@@ -22,31 +32,36 @@
 }
 
 .stmp-contents-box {
-	padding: 10px;
-	width: 100%;
-	margin-top: 15px;
+	padding: 10px 0;
 }
 
 .stmp-contents-box-up {
-	width: 200px;
-	min-height: 300px;
-	margin-right: 5px;
-	margin-bottom: 10px;
+	width: 205px;
+	height: 300px;
+	margin-right: 10px;
+	margin-bottom: 30px;
 	border-top: 1px solid #f1e3c4;
 	display: inline-block;
+	float: left;
 }
 
 .stmp-contents-box-up:nth-child(4) {
 	margin-right: 0;
 }
 
+.stmp-contents-box-up li {
+	margin-left: -27px;
+	list-style-image: url('/iot5/img/bulSqr.gif');
+}
+
 .stmp-contents-box-down {
-	width: 200px;
-	min-height: 300px;
-	margin-right: 5px;
-	margin-bottom: 10px;
+	width: 205px;
+	height: 300px;
+	margin-right: 10px;
+	margin-bottom: 30px;
 	border-top: 1px solid #cccccc;
 	display: inline-block;
+	float: left;
 }
 
 .stmp-contents-box-down:nth-child(3) {
@@ -54,10 +69,15 @@
 }
 
 .stmp-contents-box-header {
-	padding: 10px 0;
+	padding: 10px 10px;
 	border-bottom: 2px solid #876234;
 }
 
 .stmp-contents-box-content {
-	
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.stmp-contents-box-content h5{
+	font-weight: bold;
 }

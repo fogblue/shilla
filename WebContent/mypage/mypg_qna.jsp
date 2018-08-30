@@ -95,14 +95,6 @@
 	/* 오늘 날짜를 문자열로 반환 */
 	function today() {
 		var d = new Date()
-		// ===================고치는 부분=====================
-		if (d.getDate() < 10) {
-			d.getDate() = '0' + d.getDate()
-		} 
-		if ((d.getMonth() + 1) < 10) {
-			d.getMonth() = '0' + d.getMonth() + 1
-		}
-		// ===================고치는 부분=====================
 		return getDateStr(d)
 	}
 	

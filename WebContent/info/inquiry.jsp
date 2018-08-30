@@ -10,21 +10,21 @@
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>
-	<div class="main">
+	<div class="container main">
 		<!-- 사이드바 시작 -->
 		<div class="sidebar">
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">고객문의</h3>
 			<!-- 메뉴 들어갈 곳 -->
 			<a href="/iot5/info/contactinfo.jsp" class="imenu">연락처</a> <a
-				href="/iot5/info/enquiry.jsp" class="imenu">문의하기</a>
+				href="/iot5/info/inquiry.jsp" class="imenu">문의하기</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
 				<h3 class="conhead">문의하기</h3>
 				<div class="ind">
 					<span class="glyphicon glyphicon-home"></span> > 문의하기 > <span
-						class="orng">Contact Us</span>
+						class="orng">고객문의</span>
 				</div>
 			</div>
 			<!-- 사이드바 & 본문 상단 바 종료 -->
@@ -46,10 +46,11 @@
 					<td><select id="selhotel">
 							<option value="sshihot" id="sshihot">서울신라호텔</option>
 							<option value="jshihot" id="jshihot">제주신라호텔</option>
-					</select>&nbsp;&nbsp;&nbsp; <span id="enq_why" class="ecategory2 enq_hidden"><label
-							for="enq_opin"><input type="radio" value="enq_opin"
-								id="enq_opin" /> 의견</label> <label for="enq_ques"><input
-								type="radio" value="enq_ques" id="enq_ques" /> 문의</label></span></td>
+					</select>&nbsp;&nbsp;&nbsp; <span class="ecategory2 enq_hidden"><label
+							for="enq_opin"><input name="enq_why" type="radio"
+								value="enq_opin" id="enq_opin" class="enq_why" /> 의견</label> <label
+							for="enq_ques"><input name="enq_why" type="radio"
+								value="enq_ques" id="enq_ques" class="enq_why" checked /> 문의</label></span></td>
 				</tr>
 				<tr class="enq_hidden ecategory2 enq_ques">
 					<th scope="row" class="entabhead"><label><span
@@ -62,7 +63,7 @@
 							<option value="enq_web" id="enq_web">홈페이지문의</option>
 					</select></td>
 				</tr>
-				<tr class="enq_hidden enq_room enq_ques">
+				<tr class="enq_hidden ecategory2 enq_ques">
 					<th scope="row" class="entabhead"><label for="enq_resnum">&nbsp;&nbsp;&nbsp;예약번호</label></th>
 					<td><input type="text" name="enq_resnum" id="enq_resnum" /></td>
 				</tr>
@@ -78,6 +79,16 @@
 				</tr>
 				<tr>
 					<th scope="row" class="entabhead"><label for="enq_content"><span
+							class="identify">*</span> 파일첨부</label></th>
+					<td><form action="upload_ok.jsp" method="post"
+							enctype="multipart/form-data">
+							<input type="file" name="enq_upic" id="enq_upic"
+								class="form-control" /> <label for="photo" class="enq_upic">첨부
+								가능 파일 gif, jpg, jpeg, png, bmp 파일 첨부 용량 - 5MB 미만</label>
+						</form>
+				</tr>
+				<tr>
+					<th scope="row" class="entabhead"><label for="enq_uname"><span
 							class="identify">*</span> 성명</label></th>
 					<td><select name="mrmsdr" id="mrmsdr">
 							<option value="ms">Ms.</option>
@@ -86,11 +97,11 @@
 					</select> <input type="text" name="enq_uname" id="enq_uname" /></td>
 				</tr>
 				<tr>
-					<th scope="row" class="entabhead"><label for="enq_email"><span
+					<th scope="row" class="entabhead"><label for="enq_email1"><span
 							class="identify">*</span> 이메일</label></th>
-					<td><input type="email" name="enq_email" id="enq_email1" /> @
-						<input type="email" name="enq_email" id="enq_email2" /> <select
-						name="enq_elist" id="enq_elist">
+					<td><input type="email" name="enq_email1" id="enq_email1" />
+						@ <input type="email" id="enq_email" /> <select name="enq_elist"
+						id="enq_elist">
 							<option value="">--- 직접입력 ---</option>
 							<option value="naver.com">naver.com</option>
 							<option value="hanmail.net">hanmail.net</option>
@@ -108,14 +119,14 @@
 					</select></td>
 				</tr>
 				<tr>
-					<th scope="row" class="entabhead"><label for="enq_title"><span
+					<th scope="row" class="entabhead"><label for="enq_cellphone"><span
 							class="identify">*</span> 휴대전화</label></th>
-					<td><input type="tel" name="enq_title" id="enq_title" /></td>
+					<td><input type="tel" name="enq_cellphone" id="enq_cellphone" /></td>
 				</tr>
 				<tr>
-					<th scope="row" class="entabhead"><label for="enq_title">&nbsp;&nbsp;
+					<th scope="row" class="entabhead"><label for="enq_phone">&nbsp;&nbsp;
 							자택전화</label></th>
-					<td><input type="tel" name="enq_title" id="enq_title" /></td>
+					<td><input type="tel" name="enq_phone" id="enq_phone" /></td>
 				</tr>
 
 			</table>
@@ -132,55 +143,29 @@
 				<label><input type="checkbox" name="enq_agreeing"
 					value="enq_agreeing">동의함</label>
 			</div>
+			<hr />
+			<div class="enq_submit">
+				<button type="submit" id="enq_submit" class="btn btn-enq-submit">등록</button>
+			</div>
 		</div>
+		<!-- if-content ended -->
 	</div>
-
-	<script id="category_item_tmpl" type="text/x-handlebars-template">
-	{{#each item}}
-	<option value="{{value}}">{{text}}</option>
-	{{/each}}
-</script>
 	<%@ include file="../inc/footer.jsp"%>
 
 	<script type="text/javascript">
 		$(function() {
-			$(".ecategory").on('click', function(e) {
-				$(".ecategory1").toggleClass('enq_hidden');
-				$(".ecategory2").toggleClass('enq_hidden');
-			});
-			
-			$("#enq_elist").change(enqEmailFilling); // email 자동채움
-			$("#selhotel").change(enqHotelSlct);
-		});
+			$(".ecategory").change(function() {
+				$(".ecategory1, .ecategory2").toggleClass('enq_hidden');
+			}); // 구분에 따른 카테고리 변경
 
-		/* 호텔 드랍다운 선택지에 따른 관련문의 카테고리 표현 */
-		function enqHotelSlct() {
-			var sel = $(this).val();
-			if (sel == "jshihot") {
-				$("#enq_dining").addClass("enq_hidden");
-				$("#enq_wedding").addClass("enq_hidden");
-			} else if (sel == "sshihot") {
-				$("#enq_dining").removeClass("enq_hidden");
-				$("#enq_wedding").removeClass("enq_hidden");
-			}
-		} // end enqHotelSlct
-		
-		/* 의견/문의 라디오버튼에 따른 카테고리 표현 */
-		function enqQues() {
-			var sel = $(this).val();
-			if (sel == "enq_why") {
-				$("#enq_dining").addClass("enq_hidden");
-				$("#enq_wedding").addClass("enq_hidden");
-			} else if (sel == "sshihot") {
-				$("#enq_dining").removeClass("enq_hidden");
-				$("#enq_wedding").removeClass("enq_hidden");
-			}
-		} // end enqHotelSlct
-		
-		/* email 선택 시 자동 채움 */
-		function enqEmailFilling() {
-			var sel = $(this).find("option:selected").val();
-			$("#enq_email2").val(sel);
-		} // end function enqEmailFilling
+			$("#selhotel").change(function() {
+				$("#enq_dining, #enq_wedding").toggleClass('enq_hidden');
+			}); // 호텔 선택지에 따른 카테고리 변경
+
+			$("#enq_elist").change(function() {
+				var sel = $(this).find("option:selected").val();
+				$("#enq_email").val(sel);
+			}); // email 자동채움
+		});
 	</script>
 </body>

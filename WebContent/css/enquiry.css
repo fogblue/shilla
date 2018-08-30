@@ -12,18 +12,25 @@
 }
 
 .identify {
-            font-size: 14px;
-            color: #f00;
+	font-size: 14px;
+	color: #f00;
 }
 
- .con1 > .table .busihour {
- 	border-top: none;
- }
- 
- #enq_target {
- 	border-top: none;
- }
- 
- .enq_hidden {
- 	display: none;
- }
+.con1>.table .busihour {
+	border-top: none;
+}
+
+.enq_hidden {
+	display: none;
+}
+
+.btn-enq-submit {
+	background-color : #3e2b2c;
+	color: white;
+	font-size: 18px;
+	margin: 0 auto;
+}
+
+.main .if-contents .entabhead {
+	background: #f1ebd6;
+}

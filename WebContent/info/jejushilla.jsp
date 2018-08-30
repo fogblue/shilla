@@ -18,20 +18,20 @@
 			<!-- 메뉴 들어갈 곳 -->
 			<a href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a> <a
 				href="/iot5/info/seoulshilla.jsp" class="imenu">서울신라호텔</a> <a
-				href="/iot5/info/hotelinfo.jsp" class="imenu">제주신라호텔</a> <a
+				href="/iot5/info/jejushilla.jsp" class="imenu">제주신라호텔</a> <a
 				href="/iot5/info/hotelinfo.jsp" class="imenu">수상이력</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
-				<h3 class="conhead">서울신라호텔</h3>
+				<h3 class="conhead">제주신라호텔</h3>
 				<div class="ind">
 					<span class="glyphicon glyphicon-home"></span> > About The Shilla >
-					<span class="orng">서울신라호텔</span>
+					<span class="orng">제주신라호텔</span>
 				</div>
 			</div>
 			<!-- 본문 영역 -->
 			<div class="imgbox">
-				<img src="/iot5/img/seoulMainImg.jpg" alt="seoul main image" />
+				<img src="/iot5/img/seoulMainImg.jpg" alt="jeju main image" />
 			</div>
 			<br />
 			<table class="contentbox">

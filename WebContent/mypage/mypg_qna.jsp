@@ -8,7 +8,7 @@
 <body>
 	<%@ include file="../inc/topbar.jsp" %>
 	<!-- ============시작================== -->
-	<div class="container mypg-container main">
+	<div class="mypg-container main">
 		<div class="sidebar">
 			<div class="sidebar-cont">
 				<div class="bdb">
@@ -35,14 +35,14 @@
 			<div class="mypg-rsvt-bd">
 				<div class="mypg-qna-bd-search">
 					<span>기간조회</span>
-					<button type="button" class="btn mypg-rsvt-whole">1주</button>
-					<button type="button" class="btn mypg-rsvt-whole">1개월</button>
-					<button type="button" class="btn mypg-rsvt-whole">3개월</button>
-					<button type="button" class="btn mypg-rsvt-whole">6개월</button>
+					<button type="button" class="btn mypg-rsvt-whole" name="1week">1주</button>
+					<button type="button" class="btn mypg-rsvt-whole" name="1month">1개월</button>
+					<button type="button" class="btn mypg-rsvt-whole" name="3month">3개월</button>
+					<button type="button" class="btn mypg-rsvt-whole" name="6month">6개월</button>
 					<button type="button" class="btn mypg-rsvt-whole">전체</button>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
+					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
-					<input type="text" id="datepicker" /><span id="show-cal"><img src="../img/btnCalendar.gif" width="20" height="30"></span>
+					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
 					<button type="button" class="btn mypg-rsvt-find">조회</button>
 				</div>
 				<div class="mypg-contents-table">
@@ -66,6 +66,84 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	$(function() {
+		$("#datepicker-s").datepicker({
+			autoHide: true, // 날자 선택 후 자동 숨김 (true/false)
+			format: 'yyyy-mm-dd', // 날짜 형식
+			language: 'ko-KR', // 언어
+			weekStart: 0, // 시작요일(0=일요일~6=토요일)
+			trigger: "#show-cal-s" // 클릭 시 달력을 표시할 요소의 id
+		});
+	});
+	$(function() {
+		$("#datepicker-e").datepicker({
+			autoHide: true, // 날자 선택 후 자동 숨김 (true/false)
+			format: 'yyyy-mm-dd', // 날짜 형식
+			language: 'ko-KR', // 언어
+			weekStart: 0, // 시작요일(0=일요일~6=토요일)
+			trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
+		});
+	});
+
+	/* 날짜 객체 받아서 문자열로 리턴하는 함수 */
+	function getDateStr(myDate){
+		return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate())
+	}
+
+	/* 오늘 날짜를 문자열로 반환 */
+	function today() {
+		var d = new Date()
+		return getDateStr(d)
+	}
+	
+	/* 오늘로부터 1주일전 날짜 반환 */
+	function lastWeek() {
+		var d = new Date()
+		var dayOfMonth = d.getDate()
+		d.setDate(dayOfMonth - 7)
+		return getDateStr(d)
+	}
+
+	/* 오늘로부터 1개월전 날짜 반환 */
+	function lastMonth() {
+		var d = new Date()
+		var monthOfYear = d.getMonth()
+		d.setMonth(monthOfYear - 1)
+		return getDateStr(d)
+	}
+	
+	/* 오늘로부터 3개월전 날짜 반환 */
+	function last3Month() {
+		var d = new Date()
+		var monthOfYear = d.getMonth()
+		d.setMonth(monthOfYear - 3)
+		return getDateStr(d)
+	}
+	
+	/* 오늘로부터 6개월전 날짜 반환 */
+	function last6Month() {
+		var d = new Date()
+		var monthOfYear = d.getMonth()
+		d.setMonth(monthOfYear - 6)
+		return getDateStr(d)
+	}
+	
+	$(".mypg-qna-bd-search :button").click(function() {
+		var rname = $(this).attr("name")
+		$("#datepicker-e").val(today())
+		if (rname == "1week"){
+			$("#datepicker-s").val(lastWeek())
+		} else if (rname == "1month") {
+			$("#datepicker-s").val(lastMonth())
+		} else if (rname == "3month") {
+			$("#datepicker-s").val(last3Month())
+		} else if (rname == "6month") {
+			$("#datepicker-s").val(last6Month())
+		}
+	})
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="../inc/footer.jsp" %>
 </body>

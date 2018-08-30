@@ -3,13 +3,15 @@
 <!doctype html>
 <html>
 <head>
-	<%@ include file="inc/head.jsp" %>
+	<%@ include file="../inc/head.jsp" %>
 </head>
 <body>
-	<%@ include file="inc/topbar.jsp" %>
+	<%@ include file="../inc/topbar.jsp" %>
+	<!-- ============시작================== -->
 	<div class="container main">
 		<h1>내용영역</h1>
 	</div>
-	<%@ include file="inc/footer.jsp" %>
+	<!-- ==============끝================== -->
+	<%@ include file="../inc/footer.jsp" %>
 </body>
 </html>

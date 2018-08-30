@@ -3,6 +3,10 @@
 -------------------------------------------------------------*/
 .mypg-container {
 	width: 1200px;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .mypg-contents {
@@ -30,8 +34,9 @@
 }
 
 .mypg-loc-txt {
-	color: ;
+	color: #322223;
 	text-decoration: underline;
+	font-weight: bold;
 }
 
 .mypg-contents-txt {
@@ -87,13 +92,19 @@
 	color: #f1ebd6;
 }
 
-.mypg-rsvt-bd span,
-#datepicker,
-#show-cal {
+.mypg-rsvt-bd>div:first-child>* {
 	vertical-align: middle;
 }
 
-#show-cal img {
+.mypg-rsvt-bd>div:first-child>a {
+	display: inline;
+}
+
+.mypg-rsvt-bd>div:first-child>input {
+	width: 100px;
+}
+
+.mypg-rsvt-bd>div:first-child>a>img {
 	margin: 5px 0 8px 5px;
 }
 
@@ -218,6 +229,22 @@
 /*------------------------------------------------------------
 	| 컨텐츠 설정 - qna.jsp
 -------------------------------------------------------------*/
+.mypg-rsvt-bd>div:first-child>* {
+	vertical-align: middle;
+}
+
+.mypg-rsvt-bd>div:first-child>a {
+	display: inline;
+}
+
+.mypg-rsvt-bd>div:first-child>input {
+	width: 100px;
+}
+
+.mypg-rsvt-bd>div:first-child>a>img {
+	margin: 5px 0 8px 5px;
+}
+
 .mypg-qna-bd-search {
 	margin-bottom: 20px;
 }
@@ -245,3 +272,83 @@
 .mypg-rsvt-contents-table td:nth-child(6) {
 	width: 10%
 }
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - profile_edit_2.jsp
+-------------------------------------------------------------*/
+.mypg-pfed2-contents-table {
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+.mypg-pfed2-contents-table tr:nth-child(1),
+.mypg-pfed2-contents-table tr:nth-child(2),
+.mypg-pfed2-contents-table tr:nth-child(3),
+.mypg-pfed2-contents-table tr:nth-child(5) {
+	border-bottom: 1px solid #f1ebd6;
+}
+
+.mypg-pfed2-contents-table tr:nth-child(5) input:nth-child(1) {
+	width: 200px;
+}
+
+.mypg-pfed2-contents-table td:nth-child(1) {
+	font-weight: bold;
+	width: 15%;
+	background-color: #faf9f4;
+	padding-left: 15px;
+	text-align: left;
+}
+
+.mypg-pfed2-contents-table td:nth-child(2) {
+	width: 85%;
+	padding-left: 15px;
+	text-align: left;
+}
+
+.mypg-pfed2-contents-table tr:nth-child(5) td,
+.mypg-pfed2-contents-table tr:nth-child(7) td {
+	background-color: #fff;
+}
+
+#calling {
+	width: 80px;
+	height: 26px;
+}
+#email_select {
+	width: 130px;
+	height: 26px;
+}
+
+.mypg-pfed2-overlap {
+	height: 26px;
+	background-color: #9b7f5b;
+	color: #f1ebd6;
+}
+
+.mypg-pfed2-contents-table input[type="radio"] {
+	margin: 0 10px;
+}
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - withdraw_2.jsp
+-------------------------------------------------------------*/
+.mypg-wd-contents {
+	height: auto;
+	padding: 20px 20px 10px 25px;
+	border: 1px solid #f1ebd6;
+	background-color: #faf9f4;
+}
+
+.mypg-wd-contents p {
+	padding: 5px 0;
+}
+
+.mypg-wd-apply,
+.mypg-wd-apply:hover {
+	width: 70px;
+	background-color: #5d4930;
+	color: #f1ebd6;
+} 

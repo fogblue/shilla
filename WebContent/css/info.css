@@ -33,6 +33,7 @@
 .if-contents {
 	width: 870px;
 	display: inline-block;
+	margin-bottom: 150px;
 }
 
 .con1>h3 {
@@ -68,21 +69,10 @@
 	font-weight: bold;
 }
 
-.sidebar-header {
-	margin-top: 0;
-	padding-bottom: 20px;
-	border-bottom: 5px solid #3e2b2c;
-	font-size: 22px;
-	color: #865009;
-}
-
-.pridebox {
-	margin-bottom: 150px;
-}
-.pridebox>ul,li {
+.pridebox>ul, li {
 	list-style: disc;
 	margin-left: 10px;
-	padding:0;
+	padding: 0;
 }
 
 .list-group {

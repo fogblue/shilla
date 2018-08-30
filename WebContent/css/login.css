@@ -1,7 +1,7 @@
-		.form-horizontal{
+		.log_form-horizontal{
 			border-top: 5px solid #856f56;
 			width: 570px;
-			height:310px;
+			height:300px;
 			margin: auto;
 			padding:25px 45px;
 			background: #f1ebd6;
@@ -60,11 +60,16 @@
 			background: #322223;
 			font-size:15px;
 			color:white;
+	
 		}
 		.btn_color3{
 			background: #6e583e;
 			font-size:15px;
 			color:white;
+	
+		}
+		.log_button{
+			display:inline;
 		}
 		.ind1{
 			margin-top: -50px;
@@ -82,6 +87,7 @@
 		}
 		.text-center{
 			text-align: center;
+
 		}
 		.notice1{
 			border: 3px solid #eee;
@@ -94,3 +100,4 @@
 			border-bottom: 4px solid #3e2b2c;
 			padding-bottom: 15px;
 		}
+		

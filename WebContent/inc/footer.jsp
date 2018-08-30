@@ -3,10 +3,9 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <div class="footer">
 	<div class="bgc">
-		<div class="container fcontainer">
+		<div class="fcontainer">
 			<div class="flogo">
-				<h1>THESHILLA</h1>
-				<h5>HOTEL &amp; RESORTS</h5>
+				<h1><a href="/iot5/index.jsp">THESHILLA HOTEL &amp; RESORTS</a></h1>
 			</div>
 			<div class="pull-left hotelList clearfix">
 				<ul>
@@ -29,9 +28,9 @@
 				</div>
 				<div class="info border-right">
 					<ul class="list-inline">
-						<li><a href="#">호텔신라 소개</a></li>
-						<li><a href="#">고객문의</a></li>
-						<li><a href="#">사이트맵</a></li>
+						<li><a href="/iot5/info/hotelinfo.jsp">호텔신라 소개</a></li>
+						<li><a href="/iot5/info/contactinfo.jsp">고객문의</a></li>
+						<li><a href="/iot5/sitemap/sitemap.jsp">사이트맵</a></li>
 					</ul>
 				</div>
 				<div class="sns">
@@ -48,7 +47,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container fcontainer">
+	<div class="fcontainer">
 		<div class="bottom">
 			<ul class="list-inline">
 				<li class="border-right"><a href="#">개인정보처리방침</a></li>

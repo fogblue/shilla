@@ -4,8 +4,9 @@
 <html>
 <head>
 	<%@ include file="../inc/head.jsp" %>
-	<link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
-	<link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link rel="stylesheet" type="text/css" href="../css/LogJoin.css">
+	<link rel="stylesheet" type="text/css" href="../css/join.css">
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp" %>
@@ -45,13 +46,13 @@
 				<label><input type="checkbox" name="save" id="save" value="save" >
 				 아이디 저장</label>
 			</div>
-			<div class="form-group">
+
 				<div class="text-center">
 					<button class="btn btn_color2 btn-md" type="button"  onclick="location.href='/iot5/login/log_join01.jsp' ">회원가입</button>
 					<button class="btn btn_color3 btn-md"  type="button" onclick="location.href='/iot5/login/log_join01.jsp' ">아이디 찾기</button>
 					<button class="btn btn_color3 btn-md"  type="button" onclick="location.href='/iot5/login/log_join01.jsp' ">비밀번호 찾기</button>
 				</div>
-			</div>
+
 		</form>
 			<br/>
 			<div class="notice1" >

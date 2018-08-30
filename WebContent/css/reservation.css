@@ -1,0 +1,143 @@
+.rsv_stepimg {
+	margin-top:5px;
+	display: block;
+	width: 1200px;
+	height: 47px;
+	background: url(../img/rsvstep1.gif) no-repeat;
+	text-indent: -9999px;
+}
+
+.rsv_search {
+	float: right;
+	margin-top:15px;
+	margin-right: 30px;
+	width: 160px;
+	height: 50px;
+	background: url(../img/rsvsearch.gif) no-repeat;
+	text-indent: -9999px;
+}
+
+.rsv_selectbox {
+	margin-top: 30px;
+	display: block;
+	width: 1200px;
+	height: 142px;
+	background-color: #efefef;
+}
+
+.rsv_hotelselect_hangel {
+	display:block;
+	font-size: 14px;
+	color: #727272;
+	margin-left: 25px; 
+	padding-top: 25px !important;
+}
+
+.rsv_hotelselect_dropdown {
+	float: left;
+	margin-top: 20px;
+	margin-left: 25px;
+	dispaly: block;
+	width: 225px;
+	height: 50px;
+}
+
+.rsv_calendarinner {
+	float: left;
+	margin-right: 45px;
+}
+
+.rsv_datepicker {
+	float: left;
+	display: block;
+	margin-left: 50px;
+}
+
+.rsv_datepicker2 {
+	float: left;
+	display: block;
+	margin-left: 10px;
+}
+
+
+.rsv_discriptionbox {
+	margin-top: 20px;
+	border-top: 1px solid #e6e5de;
+    border-bottom: 1px solid #e6e5de;
+    width: 1200px;
+    height: 350px;
+}
+
+
+.rsv_discription {
+	margin: 175px auto;
+	display: block;
+	width: 501px;
+	height: 30px;
+	text-indent: -9999px;
+    background: url(../img/rsvdescmsg.gif) no-repeat;
+
+}
+
+.rsv_personcount {
+	display: block;
+	margin-left: 30px;
+}
+
+.rsv_adult {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin-left: 30px;
+		float: left;
+}
+
+.rsv_child {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin-left: 20px;
+	float: left;
+}
+
+.rsv_baby {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin-left: 20px;
+		float: left;
+}
+
+.rsv_numbox {
+	font-size: 40px;
+	font-weight: bold;
+	width: 45px;
+display: inline-block;
+}
+
+.rsv_pmbotton2{
+	display: block;
+	width: 45px;
+	display: inline-block;
+}
+
+.rsv_pmbutton {
+	width: 100px;
+}
+
+.rsv_plus {
+	width: 40px;
+	height: 25px;
+	font-size: 15px;
+	text-align: center;
+	background-color: white;
+}
+
+.rsv_minus {
+	width: 40px;
+	height: 25px;
+	font-size: 15px;
+	text-align: center;
+	background-color: white;
+}
+

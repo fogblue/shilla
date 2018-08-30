@@ -18,15 +18,29 @@
 
 <!-- CSS 참조 -->
 <link rel="stylesheet" type="text/css" href="/iot5/css/topbar.css">
+
+<link rel="stylesheet" type="text/css" href="/iot5/css/datepicker.min.css">
+
+
 <link rel="stylesheet" type="text/css" href="/iot5/css/info.css" />
 <link rel="stylesheet" type="text/css" href="/iot5/css/sidebar.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/mypage.css">
+
+
+<link rel="stylesheet" type="text/css" href="/iot5/css/reservation.css">
+
+<link rel="stylesheet"
+	href="/iot5/plugins/superslides/stylesheets/superslides.css">
+
 <link rel="stylesheet" type="text/css" href="/iot5/css/sitemap.css">
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/superslides/stylesheets/superslides.css">
+
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/animate/animate.css" />
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/datepicker/datepicker.min.css" />
 
 <!-- 플러그인 JS 참조 -->
+<script src="/iot5/plugins/datepicker/datepicker.min.js"></script>
+<script src="/iot5/plugins/i18n/datepicker.ko-KR.js"></script>
 <script src="/iot5/plugins/headroom/features.js"></script>
 <script src="/iot5/plugins/headroom/Debouncer.js"></script>
 <script src="/iot5/plugins/headroom/Headroom.js"></script>

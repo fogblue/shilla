@@ -29,9 +29,9 @@
 			<td>
 				<input type="text" />
 				<span>@</span>
-				<input type="text" />
+				<input type="text" id="selected_email" />
 				<select name="email_select" id="email_select">
-					<option>직접입력</option>
+					<option value="">직접입력</option>
 					<option value="naver.com">naver.com</option>
 					<option value="hanmail.net">hanmail.net</option>
 					<option value="hotmail.com">hotmail.com</option>
@@ -75,3 +75,12 @@
 	<button type="submit" class="btn btn-lg mypg-pwed-change">비밀번호변경</button>
 	<button type="reset" class="btn btn-lg mypg-pwed-cancel">취소</button>
 </div>
+
+<script>	
+$(function() {
+	$("#email_select").change(function(){
+		var sel = $(this).find("option:selected").val();
+		$("#selected_email").val(sel);
+	});
+});
+</script>

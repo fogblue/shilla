@@ -56,9 +56,9 @@
 						<td>
 							<input type="text" />
 							<span>@</span>
-							<input type="text" />
+							<input type="text" id="selected_email" />
 							<select name="email_select" id="email_select">
-								<option>직접입력</option>
+								<option value="">직접입력</option>
 								<option value="naver.com">naver.com</option>
 								<option value="hanmail.net">hanmail.net</option>
 								<option value="hotmail.com">hotmail.com</option>
@@ -104,6 +104,15 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>	
+	$(function() {
+		$("#email_select").change(function(){
+			var sel = $(this).find("option:selected").val();
+			$("#selected_email").val(sel);
+		});
+	});
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="../inc/footer.jsp" %>
 </body>

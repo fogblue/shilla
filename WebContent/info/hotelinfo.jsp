@@ -17,7 +17,7 @@
 			<!-- 메뉴 들어갈 곳 -->
 			<a href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a>
 			<a href="/iot5/info/seoulshilla.jsp" class="imenu">서울신라호텔</a>
-			<a href="/iot5/info/hotelinfo.jsp" class="imenu">제주신라호텔</a>
+			<a href="/iot5/info/jejushilla.jsp" class="imenu">제주신라호텔</a>
 			<a href="/iot5/info/hotelinfo.jsp" class="imenu">수상이력</a>
 		</div>
 		<div class="if-contents">

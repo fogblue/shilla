@@ -35,6 +35,9 @@
 
         .text-center {
             text-align: center;
+            vertical-align:middle;
+            width:auto;
+            margin:0 auto;
         }
 
         .identify {

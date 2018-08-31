@@ -21,45 +21,53 @@
 }
 
 /** 서울 신라 SNS 이미지 */
+.shillainfo .i_logo {
+	margin-left: 450px;
+	margin-top: -100px;
+	z-index: 10;
+	display: inline-block;
+}
 
-.i_fb, .i_is, .i_gg, .i_wb {
+.i_fb, .i_ta, .i_gg, .i_wb {
 	width: 25px;
 	height: 25px;
-	background: url(../img/HublocalBoxSnsNews.gif) no-repeat;
+	background: url(../img/i_seoul.png) no-repeat;
 	text-indent: -9999px;
-	margin: 0 5px;
-	float: right;
+	margin: 0;
 }
 
 .shillainfo .i_fb {
-	background-position: -25px -60px;
+	background-position: 0;
 }
 
-.shillainfo .i_is {
-	background-position: -53px -60px;
+.shillainfo .i_ta {
+	background-position: -27px;
 }
 
 .shillainfo .i_gg {
-	background-position: -81px -60px;
+	background-position: -56px;
 }
 
 .shillainfo .i_wb {
-	background-position: -109px -60px;
+	background-position: -84px;
 }
 
-.shillainfo .i_logo {
-	margin-right: 300px;
-	margin-top: 0;
-}
+
 
 /** 제주신라 SNS 이미지 */
+.shillainfo .ij_logo {
+	margin-left: 450px;
+	margin-top: -50px;
+	z-index: 10;
+	display: inline-block;
+}
+
 .ij_fb, .ij_bl, .ij_gg, .ij_wb, .ij_ta {
 	width: 26px;
 	height: 25px;
 	background: url(../img/i_sns.png) no-repeat;
 	text-indent: -9999px;
 	margin: 0;
-	float: right;
 }
 
 .shillainfo .ij_fb {
@@ -82,9 +90,20 @@
 	background-position: -112px 0;
 }
 
-.shillainfo .ij_logo {
-	margin-left: 450px;
-	margin-top: -50px;
-	z-index: 10;
+/** 공유하기 버튼 */
+.i_face, .i_twit {
+	width: 26px;
+	height: 25px;
+	background: url(../img/facetwit.png) no-repeat;
+	text-indent: -9999px;
 	display: inline-block;
+	margin: 0;
+}
+
+.main .if-contents  .i_face {
+	background-position: 0;
+}
+
+.main .if-contents .i_twit {
+	background-position: -26px;
 }

@@ -60,18 +60,20 @@
 			<div class="shillainfo">
 				<img src="/iot5/img/jejuInfo.jpg" alt="The Shilla Info" />
 				<ul class="list-inline ij_logo">
-					<li class="ij_gg"><a
-						href="https://plus.google.com/+TheShillaHotelsResorts" target="_blank">Google+</a></li>
-					<li class="ij_wb"><a
-						href="https://weibo.com/shillahote/" target="_blank">Weibo</a></li>
-					<li class="ij_ta"><a
-						href="https://www.tripadvisor.co.kr/Hotel_Review-g297892-d301723-Reviews-The_Shilla_Jeju-Seogwipo_Jeju_Island.html?m=19905" target="_blank">Trip Advisor</a></li>
-					<li class="ij_bl"><a href="https://blog.naver.com/shillajeju_" target="_blank">Blog</a></li>
 					<li class="ij_fb"><a
-						href="https://www.facebook.com/theshillahotels" target="_blank">Facebook</a></li>
+						href="https://www.facebook.com/theshillajeju" target="_blank">Facebook</a></li>
+					<li class="ij_bl"><a href="https://blog.naver.com/shillajeju_"
+						target="_blank">Blog</a></li>
+					<li class="ij_ta"><a
+						href="https://www.tripadvisor.co.kr/Hotel_Review-g297892-d301723-Reviews-The_Shilla_Jeju-Seogwipo_Jeju_Island.html"
+						target="_blank">Trip Advisor</a></li>
+					<li class="ij_wb"><a href="https://weibo.com/shillahotel/"
+						target="_blank">Weibo</a></li>
+					<li class="ij_gg"><a
+						href="https://plus.google.com/116571259877956708092"
+						target="_blank">Google+</a></li>
 				</ul>
 			</div>
-			<br>
 			<hr />
 			<div class="facetwit">
 				<ul class="list-inline i_facetwit">

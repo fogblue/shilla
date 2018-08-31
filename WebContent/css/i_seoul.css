@@ -28,7 +28,6 @@
 	background: url(../img/HublocalBoxSnsNews.gif) no-repeat;
 	text-indent: -9999px;
 	margin: 0 5px;
-	float: right;
 }
 
 .shillainfo .i_fb {
@@ -59,7 +58,6 @@
 	background: url(../img/i_sns.png) no-repeat;
 	text-indent: -9999px;
 	margin: 0;
-	float: right;
 }
 
 .shillainfo .ij_fb {
@@ -88,3 +86,5 @@
 	z-index: 10;
 	display: inline-block;
 }
+
+/** 공유하기 버튼 */

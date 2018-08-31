@@ -71,7 +71,6 @@
 						href="https://www.facebook.com/theshillahotels" target="_blank">Facebook</a></li>
 				</ul>
 			</div>
-			<br>
 			<hr />
 			<div class="facetwit">
 				<ul class="list-inline i_facetwit">

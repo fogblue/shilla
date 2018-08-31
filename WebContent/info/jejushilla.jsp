@@ -31,24 +31,32 @@
 			</div>
 			<!-- 본문 영역 -->
 			<div class="imgbox">
-				<img src="/iot5/img/seoulMainImg.jpg" alt="jeju main image" />
+				<img src="/iot5/img/jejuMainImg.jpg" alt="jeju main image" />
 			</div>
 			<br />
 			<table class="contentbox">
 				<tr>
-					<td class="subconhead">Urban Lifestyle Hotel</td>
+					<td class="subconhead">An Exclusive Getaway</td>
 					<td class="subconhead">A Leading Global Property</td>
 				</tr>
 				<tr>
-					<td class="subcon">한국의 전통미와 현대적 감각을 겸비하고 있는 세계 속의 명문호텔 서울신라호텔은
-						세계 최고의 어번(Urban) 라이프스타일 호텔로 고객들에게 최고급 Hospitality 서비스를 제공합니다.<br>
-						한국을 대표하는 럭셔리 호텔로서 '일상이 최고의 순간이 되는 곳' 이라는 컨셉을 새롭게 선보이며 휴식은 물론 고급
-						식문화, 예술, 뷰티, 쇼핑, 웨딩, 엔터테인먼트 등 고객의 고품격 라이프스타일을 제안하는 공간으로 거듭나고 있습니다.<br>
+					<td class="subcon">휴양지에서의 품격있는 리조트 호텔 문화를 정착하기 위해 연중<br>
+					문화 및 엔터테인먼트 프로그램을 상설해 고객들에게 제공하고<br>
+					있는 제주신라호텔은 레저 전문 직원인 G.A.O(Guest Activity<br>
+					Organizer), 항공예약부터 여행의 풀 서비스를 제공하는 T.P.O<br>
+					(Travel Plan Office)등 소프트웨어 부분의 혁신과 문라이트 스위밍,<br>
+					글램핑, 와이너리 투어 등 다양한 프로그램을 국내 최초로 운영하여<br>
+					사계절 체재형 리조트로서의 트랜드를 이끌어 가고 있습니다.<br>
+					누구나 한 번쯤 꿈꾸는 품격있고 화려한 일상 탈출, 제주신라호텔<br>
+					에서 경험하실 수 있습니다.<br>
 					</td>
-					<td class="subcon">LHW의 멤버로 세계 럭셔리 호텔들과 어깨를 나란히 하고 있는 서울신라호텔은
-						고객 한 분 한분을 배려하는 기품있는 서비스로 세계 각국의 수반들과 외교, 경제, 문화 등의 분야의 명사로부터 찬사를
-						받고 있으며, Conde Nast Traveler, Travel &amp; Leisure, Zagat,
-						Euromoney등 권위 있는 해외 매체로부터 매년 한국 최고의 호텔로 선정되고 있습니다.<br>
+					<td class="subcon">세계자연문화유산인 제주의 아름다운 풍광을 담은 리조트로써 그<br>
+					명성을 쌓아가고 있는 제주신라호텔은 '90년 개관 후부터 지금까지<br>
+					품격과 문화가 있는 휴식지로써 수많은 굵직한 국제행사를 성공적으로<br>
+					치러온 최고의 리조트'입니다.<br>
+					이국적인 분위기와 최고의 시설을 선보이며 고객에게 먼저 다가가는<br>
+					리조트에 특화된 서비스에 호텔에 다녀간 세계의 국가 수반을 비롯<br>
+					많은 VIP들에게 크나 큰 찬사를 받아 왔습니다.<br>
 					</td>
 				</tr>
 			</table>

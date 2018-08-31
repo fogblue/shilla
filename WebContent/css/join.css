@@ -1,4 +1,4 @@
-		
+
 		.form-horizontal {
 
             width: 800px;
@@ -19,13 +19,23 @@
             padding-bottom: 10px;
             border-bottom: 1px dotted #eee;
         }
-
+        
+		.calendar_img{
+			display:inline-block;
+			cursor:pointer;
+		}
         .form-group:last-child {
             border-bottom: 0;
         }
 
+        .postcodify_address{
+        	width:400px;
+        }
         
-
+		.postcodify_details{
+			width:400px;
+		}
+		
         .form-control {
             width: 100%;
             padding: 5px 0;

@@ -15,18 +15,18 @@
 					<h3>마이페이지</h3>
 				</div>
 				<div class="mypg-sidebar-menu">
-					<a>예약 확인/취소</a>
+					<a href="/iot5/mypage/mypg_reservation.jsp" >예약 확인/취소</a>
 					<a>개인정보</a>
-					<a>프로필 수정</a>
-					<a>비밀번호 변경</a>
-					<a>회원 탈퇴 요청</a>
-					<a>문의 내역</a>
+					<a href="/iot5/mypage/mypg_profile_edit.jsp">프로필 수정</a>
+					<a href="/iot5/mypage/mypg_password_edit.jsp">비밀번호 변경</a>
+					<a href="/iot5/mypage/mypg_withdraw.jsp">회원 탈퇴 요청</a>
+					<a href="/iot5/mypage/mypg_qna.jsp">문의 내역</a>
 				</div>
 			</div>
 		</div>
 		<div class="mypg-contents">
 			<div class="bdb mypg-contents-header">
-				<h3>예약확인/취소</h3>
+				<h3>문의 내역</h3>
 				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">문의 내역</span></div>
 			</div>
 			<div class="mypg-contents-txt">

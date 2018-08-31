@@ -36,14 +36,14 @@
 						<h4>마이페이지</h4>
 					</div>
 					<div class="stmp-contents-box-content">
-						<h5><a href="#">예약확인</a></h5>
-						<h5><a href="#">개인정보</a></h5>
+						<h5><a href="/iot5/mypage/mypg_reservation.jsp">예약확인</a></h5>
+						<h5><a href="/iot5/mypage/mypg_profile_edit.jsp">개인정보</a></h5>
 						<ul>
-							<li><a href="#">프로필 수정</a></li>
-							<li><a href="#">비밀번호 변경</a></li>
-							<li><a href="#">회원 탈퇴 요청</a></li>
+							<li><a href="/iot5/mypage/mypg_profile_edit.jsp">프로필 수정</a></li>
+							<li><a href="/iot5/mypage/mypg_password_edit.jsp">비밀번호 변경</a></li>
+							<li><a href="/iot5/mypage/mypg_withdraw.jsp">회원 탈퇴 요청</a></li>
 						</ul>
-						<h5><a href="#">문의내역</a></h5>
+						<h5><a href="/iot5/mypage/mypg_qna.jsp">문의내역</a></h5>
 					</div>
 				</div>
 				<div class="stmp-contents-box-up">

@@ -49,10 +49,98 @@
 
 				<div class="text-center">
 					<button class="btn btn_color2 btn-md" type="button"  onclick="location.href='/iot5/login/log_join01.jsp' ">회원가입</button>
-					<button class="btn btn_color3 btn-md"  type="button" onclick="location.href='/iot5/login/log_join01.jsp' ">아이디 찾기</button>
-					<button class="btn btn_color3 btn-md"  type="button" onclick="location.href='/iot5/login/log_join01.jsp' ">비밀번호 찾기</button>
+					<button id="open_modal_btn"  class="btn btn_color3 btn-md "  type="button" >아이디 찾기</button>
+					<button id="open_modal_btn1" class="btn btn_color3 btn-md "  type="button" >비밀번호 찾기</button>
 				</div>
+				<div class="modal fade" id="myModal1">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title">아이디 찾기</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label for='user_name' class="col-md-2"><span
+										class='identify'>*</span>성명(한글) </label>
+									<div class="col-md-10">
+										<input type="text" name="user_name" id="user_name"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for='user_name' class="col-md-2"><span
+										class='identify'>*</span>이메일 </label>
+									<div class="col-md-10">
+										<input type="text" name="user_name" id="user_name"
+											class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn_color2"
+									data-dismiss="modal">확인</button>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+				<div class="modal fade" id="myModal2">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title">비밀번호 찾기</h4>
+							</div>
+							<div class="modal-body">
+							<h5>회원가입 시 등록하신 이메일로 임시비밀번호를 발급해드립니다.</h5>
+								<div class="form-group">
+									<label for='user_name' class="col-md-2"><span
+										class='identify'>*</span>아이디</label>
+									<div class="col-md-10">
+										<input type="text" name="user_name" id="user_name"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for='user_name' class="col-md-2"><span
+										class='identify'>*</span>성명</label>
+									<div class="col-md-10">
+										<input type="text" name="user_name" id="user_name"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for='user_name' class="col-md-2"><span
+										class='identify'>*</span>이메일</label>
+									<div class="col-md-10">
+										<input type="text" name="user_name" id="user_name"
+											class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn_color2"
+									data-dismiss="modal">확인</button>
+							</div>
+							
+							<div class="modal-footer1">
+									<button type="button" class="btn  btn_color2"
+										data-dismiss="modal" >로그인</button>
+										
+									<button type="button" class="btn btn_color3"
+										data-dismiss="modal" id="find_id">아이디 찾기</button>
+							</div>
 
+						</div>
+					
+					</div>
+				</div>
+	
 		</form>
 			<br/>
 			<div class="notice1" >
@@ -61,5 +149,20 @@
 		</div>
 	</div>
 	<%@ include file="../inc/footer.jsp" %>
+	
+	
+	<script type="text/javascript">
+		$(function(){
+			$("#open_modal_btn").click(function(e){
+				$("#myModal1").modal('show');
+			});
+			$("#open_modal_btn1").click(function(e){
+				$("#myModal2").modal('show');
+			});
+			$("#find_id").click(function(e){
+				$("#myModal1").modal('show');
+			});
+		});
+	</script>
 </body>
 </html>

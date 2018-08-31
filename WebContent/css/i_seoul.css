@@ -1,8 +1,8 @@
-.main table.contentbox {
+.main .if-contents table.contentbox {
 	width: 870px;
 	height: 150px;
 	border: 1px solid #fba;
-	margin: 0;
+	margin: 50px 0;
 }
 
 .main table.contentbox td.subcon {
@@ -20,10 +20,7 @@
 	padding-left: 30px;
 }
 
-/** 호텔 이미지 */
-.shillainfo {
-	margin-top: 50px;
-}
+/** 서울 신라 SNS 이미지 */
 
 .i_fb, .i_is, .i_gg, .i_wb {
 	width: 25px;
@@ -53,4 +50,41 @@
 .shillainfo .i_logo {
 	margin-right: 300px;
 	margin-top: 0;
+}
+
+/** 제주신라 SNS 이미지 */
+.ij_fb, .ij_bl, .ij_gg, .ij_wb, .ij_ta {
+	width: 26px;
+	height: 25px;
+	background: url(../img/i_sns.png) no-repeat;
+	text-indent: -9999px;
+	margin: 0;
+	float: right;
+}
+
+.shillainfo .ij_fb {
+	background-position: 0;
+}
+
+.shillainfo .ij_bl {
+	background-position: -27px 0;
+}
+
+.shillainfo .ij_ta {
+	background-position: -55px 0;
+}
+
+.shillainfo .ij_wb {
+	background-position: -84px 0;
+}
+
+.shillainfo .ij_gg {
+	background-position: -112px 0;
+}
+
+.shillainfo .ij_logo {
+	margin-left: 450px;
+	margin-top: -50px;
+	z-index: 10;
+	display: inline-block;
 }

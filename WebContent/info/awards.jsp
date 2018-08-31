@@ -22,14 +22,14 @@
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
-				<h3 class="conhead">개요</h3>
+				<h3 class="conhead">수상이력</h3>
 				<div class="ind">
 					<span class="glyphicon glyphicon-home"></span> > About The Shilla >
-					<span class="orng">Overview</span>
+					<span class="orng">Awards</span>
 				</div>
 			</div>
 			<div class="imgbox">
-				<img src="/iot5/img/brandMainImg.jpg" alt="exmimg" />
+				<img src="/iot5/img/awardsMainImg.jpg" alt="awards main image" />
 			</div>
 			<br />
 			<div class="con1">

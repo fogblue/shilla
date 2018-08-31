@@ -19,7 +19,7 @@
 			<a href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a> <a
 				href="/iot5/info/seoulshilla.jsp" class="imenu">서울신라호텔</a> <a
 				href="/iot5/info/jejushilla.jsp" class="imenu">제주신라호텔</a> <a
-				href="/iot5/info/hotelinfo.jsp" class="imenu">수상이력</a>
+				href="/iot5/info/awards.jsp" class="imenu">수상이력</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
@@ -67,7 +67,6 @@
 					<li class="i_wb"><a href="https://www.weibo.com/shillahotel">Weibo</a></li>
 				</ul>
 			</div>
-			<br>
 			<hr />
 		</div>
 	</div>

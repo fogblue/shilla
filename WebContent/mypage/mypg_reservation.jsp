@@ -15,7 +15,7 @@
 					<h3>마이페이지</h3>
 				</div>
 				<div class="mypg-sidebar-menu">
-					<a href="/iot5/mypage/mypg_reservation.jsp">예약 확인/취소</a>
+					<a href="/iot5/mypage/mypg_reservation.jsp" class="mypg-sidebar-open">예약 확인/취소<img src="/iot5/img/sidebar_arr.gif" class="sidebar-arrow"></a>
 					<a>개인정보</a>
 					<a href="/iot5/mypage/mypg_profile_edit.jsp">프로필 수정</a>
 					<a href="/iot5/mypage/mypg_password_edit.jsp">비밀번호 변경</a>

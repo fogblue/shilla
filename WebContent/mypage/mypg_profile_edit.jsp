@@ -17,7 +17,7 @@
 				<div class="mypg-sidebar-menu">
 					<a href="/iot5/mypage/mypg_reservation.jsp">예약 확인/취소</a>
 					<a>개인정보</a>
-					<a href="/iot5/mypage/mypg_profile_edit.jsp">프로필 수정</a>
+					<a href="/iot5/mypage/mypg_profile_edit.jsp" class="mypg-sidebar-open">프로필 수정<img src="/iot5/img/sidebar_arr.gif" class="sidebar-arrow"></a>
 					<a href="/iot5/mypage/mypg_password_edit.jsp">비밀번호 변경</a>
 					<a href="/iot5/mypage/mypg_withdraw.jsp">회원 탈퇴 요청</a>
 					<a href="/iot5/mypage/mypg_qna.jsp">문의 내역</a>

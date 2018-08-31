@@ -71,10 +71,15 @@
 }
 
 .sidebar-arrow {
-	width: 5px;
-	height: 5px;
-	vertical-align: middle;
+	width: 20px;
+	height: 20px;
 	float: right;
+	vertical-align: middle;
+}
+
+.mypg-sidebar-open {
+	background-color: #d3c09a;
+	
 }
 
 /*------------------------------------------------------------

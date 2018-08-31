@@ -39,8 +39,6 @@
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/datepicker/datepicker.min.css" />
 
 <!-- 플러그인 JS 참조 -->
-<script src="/iot5/plugins/datepicker/datepicker.min.js"></script>
-<script src="/iot5/plugins/i18n/datepicker.ko-KR.js"></script>
 <script src="/iot5/plugins/headroom/features.js"></script>
 <script src="/iot5/plugins/headroom/Debouncer.js"></script>
 <script src="/iot5/plugins/headroom/Headroom.js"></script>

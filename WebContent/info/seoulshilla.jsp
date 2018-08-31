@@ -61,10 +61,11 @@
 					<li class="i_fb"><a
 						href="https://www.facebook.com/theshillahotels">Facebook</a></li>
 					<li class="i_ta"><a
-						href="http://www.tripadvisor.co.kr/Hotel_Review-g294197-d301253-Reviews-The_Shilla_Seoul-Seoul.html">Trip Advisor</a></li>
+						href="http://www.tripadvisor.co.kr/Hotel_Review-g294197-d301253-Reviews-The_Shilla_Seoul-Seoul.html">Trip
+							Advisor</a></li>
+					<li class="i_wb"><a href="https://www.weibo.com/shillahotel">Weibo</a></li>
 					<li class="i_gg"><a
 						href="https://plus.google.com/+TheShillaHotelsResorts">Google+</a></li>
-					<li class="i_wb"><a href="https://www.weibo.com/shillahotel">Weibo</a></li>
 				</ul>
 			</div>
 			<hr />

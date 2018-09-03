@@ -4,6 +4,7 @@
 <html>
 <head>
 	<%@ include file="../inc/head.jsp" %>
+<link rel="stylesheet" type="text/css" href="/iot5/css/mypage.css">
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp" %>
@@ -37,11 +38,7 @@
 				<table class="mypg-pfed2-contents-table">
 					<tr>
 						<td>성명(한글)</td>
-						<td><select name="calling" id="calling" disabled>
-							<option value="Mr.">Mr.</option>
-							<option value="Mrs.">Mrs.</option>
-							<option value="Ms.">Ms.</option>
-						</select></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>성명(영문)</td>

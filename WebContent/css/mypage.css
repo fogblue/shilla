@@ -62,7 +62,7 @@
 }
 
 .mypg-contents-btn {
-	margin: 40px 430px;
+	margin: 40px 415px;
 }
 
 .mypg-contents-btn2 {
@@ -378,6 +378,7 @@
 
 .withdraw-msg-con h3 {
 	margin: 0 0 10px 0;
+	color: #f1ebd6;
 }
 
 .mypg-wd-apply,

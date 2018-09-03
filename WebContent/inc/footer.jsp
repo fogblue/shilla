@@ -5,7 +5,7 @@
 	<div class="bgc">
 		<div class="fcontainer">
 			<div class="flogo">
-				<h1><a href="/iot5/index.jsp">THESHILLA HOTEL &amp; RESORTS</a></h1>
+				<a href="/iot5/index.jsp">THESHILLA HOTEL &amp; RESORTS</a>
 			</div>
 			<div class="pull-left hotelList clearfix">
 				<ul>

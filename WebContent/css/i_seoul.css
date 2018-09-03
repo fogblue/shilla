@@ -1,12 +1,12 @@
-.main .if-contents table.contentbox {
+#main .if-contents table.contentbox {
 	width: 870px;
 	height: 150px;
 	border: 1px solid #fba;
 	margin: 50px 0;
 }
 
-.main table.contentbox td.subcon {
-	width: 4000px;
+#main table.contentbox td.subcon {
+	width: 400px;
 	height: 200px;
 	margin: 0;
 	padding-left: 30px;

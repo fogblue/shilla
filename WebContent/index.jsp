@@ -21,7 +21,7 @@
 		<h1 class="page-header">갤러리</h1>
 		<h3 class="sm-header">GALLERY</h3>
 		<div class="my-youtube-wrapper">
-			<div data-youcover data-id="81xxCLvADlU"></div>
+			<div class="my-youtube" data-youcover data-id='81xxCLvADlU'></div>
 		</div>
 	</div>
 	<!-- ==============끝================== -->
@@ -31,9 +31,13 @@
 	<script type="text/x-handlebars-template" id="list-item-tmpl">
         {{#item}}
             <li class="item">
+                <div class="item-box">
                     <div class="item-content">
                         <img src="{{img}}" class="img" />
+                        <h3 class="title">{{title}}</h3>
+                        <p class="desc">{{desc}}</p>
                     </div>
+                </div>
             </li>
         {{/item}}
     </script>

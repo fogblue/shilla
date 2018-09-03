@@ -1,0 +1,33 @@
+.pol-bdb {
+	width: 1000px;
+	border-bottom: 5px solid #3e2b2c;
+	padding-bottom: 15px;
+	margin: 20px auto;
+	padding: auto;
+}
+
+.pol-bdb h3 {
+	display: inline-block;
+	margin: 0;
+}
+
+.pol-conhead {
+	width: 100%;
+	color: #865009;
+	font-weight: bold;
+}
+
+#main>div.contentbox {
+	width: 1000px;
+	height: 300px;
+	border: 1px solid #fba;
+	margin: auto;
+	padding: auto;
+}
+
+#main>div.contentbox>p.subcon {
+	width: 1000px;
+	margin: 50;
+	padding: 20px 10px 0 10px;;
+	font-size: 12px;
+}

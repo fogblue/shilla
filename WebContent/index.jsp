@@ -48,6 +48,12 @@
                 $("#grid").append(el).masonry('appended', el).masonry();
             });
         } // end function
+        
+        $(function() {
+        	$("#grid").masonry({
+        		itemSelector: ".item"
+        	});
+        });
         </script>
 </body>
 </html>

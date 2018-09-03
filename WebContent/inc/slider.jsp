@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<link rel="stylesheet" href="/iot5/css/slider.css" />
 <!-- 슬라이드의 부모(높이와 넓이를 구성한다) -->
 <div id="slide-container">
 	<div id="slides">

@@ -36,9 +36,9 @@
 				<div>
 					<span>기간조회</span>
 					<button type="button" class="btn mypg-rsvt-whole">전체</button>
-					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
+					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
-					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
+					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
 					<button type="button" class="btn mypg-rsvt-find">조회</button>
 				</div>
 				<div class="mypg-contents-table">

@@ -35,14 +35,14 @@
 			<div class="mypg-rsvt-bd">
 				<div class="mypg-qna-bd-search">
 					<span>기간조회</span>
-					<button type="button" class="btn mypg-rsvt-whole" name="1week">1주</button>
-					<button type="button" class="btn mypg-rsvt-whole" name="1month">1개월</button>
-					<button type="button" class="btn mypg-rsvt-whole" name="3month">3개월</button>
-					<button type="button" class="btn mypg-rsvt-whole" name="6month">6개월</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="1week">1주</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="1month">1개월</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="3month">3개월</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="6month">6개월</button>
 					<button type="button" class="btn mypg-rsvt-whole">전체</button>
-					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
+					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
-					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="../img/btnCalendar.gif" width="20" height="30"></a>
+					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
 					<button type="button" class="btn mypg-rsvt-find">조회</button>
 				</div>
 				<div class="mypg-contents-table">
@@ -130,7 +130,7 @@
 		return getDateStr(d)
 	}
 	
-	$(".mypg-qna-bd-search :button").click(function() {
+	$(".mypg-qna-bd-search .datepicker-btnbtn").click(function() {
 		var rname = $(this).attr("name")
 		$("#datepicker-e").val(today())
 		if (rname == "1week"){

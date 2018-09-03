@@ -37,11 +37,43 @@
 				<p>- 개인정보보호법에 따라 고객님의 호텔 이용기록, 개인정보 및 문의내역 기록도 모두 삭제됩니다.</p>
 				<p>- 탈퇴 신청이 완료되면 즉시 홈페이지 로그인이 제한됩니다.</p>
 			</div>
+			<div id="withdraw-msg"></div>
 			<div class="mypg-contents-btn">
-				<button type="submit" class="btn mypg-wd-apply">신청</button>
+				<button type="submit" class="btn mypg-wd-apply" onclick="withdraw()">신청</button>
 			</div>
 		</div>
 	</div>
+	
+	<script>
+	function wd_msg_t() {
+		alert("탈퇴신청이 접수되었습니다.");
+		$.ajax({
+			url: "/iot5/mypage/mypg_withdraw_msg.html",
+			method: "get",
+			data: {},
+			dataType: "html",
+			success: function(req) {
+				$("#withdraw-msg").append(req);
+			}
+		});
+		setTimeout(function() {
+			location.href="/iot5/mypage/mypg_withdraw.jsp"
+			}, 500);
+	}
+	
+	function wd_msg_f() {
+		alert("탈퇴신청이 취소되었습니다.");
+	}
+	
+	function withdraw() {
+		var wd_msg = confirm("신청이 완료되면 취소가 불가능합니다. 계속 하시겠습니까?")
+		if (wd_msg == true) {
+			wd_msg_t();
+		} else {
+			wd_msg_f();
+		}
+	}
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="../inc/footer.jsp" %>
 </body>

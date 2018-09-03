@@ -45,7 +45,7 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<button type="submit" class="btn mypg-pfed-confirm">확인</button>
+				<button type="submit" class="btn mypg-pfed-confirm" onclick="location.href='/iot5/mypage/mypg_withdraw_2.jsp'">확인</button>
 			</div>
 		</div>
 	</div>

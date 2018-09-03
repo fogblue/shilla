@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<link rel="stylesheet" type="text/css" href="/iot5/css/slider.css" />
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/superslides/stylesheets/superslides.css">
 <script src="/iot5/plugins/superslides/jquery.easing.1.3.js"></script>
 <script src="/iot5/plugins/superslides/jquery.superslides.min.js"></script>

@@ -51,6 +51,7 @@
 #main > div.firstone {
 	width: 850px;
 	margin: auto;
+	font-size: 12px;
 }
 
 #main > div.firstone th.f-theader {
@@ -71,4 +72,8 @@
 
 #main > div.firstone > p {
 	line-height: 2.3;
+}
+
+#main > div.firstone > hr {
+	border: 1px solid #d3c09a;
 }

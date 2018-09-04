@@ -50,8 +50,8 @@
 	<div class="fcontainer">
 		<div class="bottom">
 			<ul class="list-inline">
-				<li class="border-right"><a href="#">개인정보처리방침</a></li>
-				<li class="border-right"><a href="#">이메일무단수집금지</a></li>
+				<li class="border-right"><a href="../inc/mem_policy.jsp">개인정보처리방침</a></li>
+				<li class="border-right"><a href="#f_spamming" id="spamwaring">이메일무단수집금지</a></li>
 				<li><a href="#">윤리경영(부정제보)</a></li>
 			</ul>
 		</div>
@@ -67,3 +67,36 @@
 		</div>
 	</div>
 </div>
+
+<!-- HTML for Modal -->
+<div class="modal" id="f_spamming">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">이메일 주소 무단 수집</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<p>
+						<span class="f-bold">이메일 주소 무단 수집을 거부합니다.</span>
+					</p>
+					<p>본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그밖의 기술적 장치를 이용하여 무단으로
+						수집되는 것을 거부하며, 이를 위반시 정보통신망법에 의해 처벌을 유념하시기 바랍니다.</p>
+					<p>2015년 7월 27일 게시</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type=text/javascript>
+	$(function() {
+		$("#spamwaring").click(function() {
+			$("#f_spamming").modal('show');
+		});
+	});
+</script>

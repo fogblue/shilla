@@ -21,6 +21,7 @@
 <link rel="stylesheet" type="text/css" href="/iot5/css/datepicker.min.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/sidebar.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/reservation.css">
+<link rel="stylesheet" type="text/css" href="/iot5/css/join.css" />
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/animate/animate.css" />
 <link rel="stylesheet" type="text/css" href="/iot5/plugins/datepicker/datepicker.min.css" />
 

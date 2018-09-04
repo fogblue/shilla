@@ -6,3 +6,13 @@
 .con1 .table {
 	margin-top: 50px;
 }
+
+.i_awardsyr {
+	font-size: 26px;
+	text-decoration: underline double #eee;
+	font-weight: bold;
+}
+
+.i_awardsmth {
+	font-size: 18px;
+}

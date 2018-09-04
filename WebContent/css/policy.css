@@ -1,5 +1,5 @@
 .pol-bdb {
-	width: 1000px;
+	width: 850px;
 	border-bottom: 5px solid #3e2b2c;
 	padding-bottom: 15px;
 	margin: 20px auto;
@@ -18,7 +18,7 @@
 }
 
 #main>div.contentbox {
-	width: 1000px;
+	width: 850px;
 	height: 300px;
 	border: 1px solid #fba;
 	margin: auto;
@@ -26,8 +26,49 @@
 }
 
 #main>div.contentbox>p.subcon {
-	width: 1000px;
-	margin: 50;
-	padding: 20px 10px 0 10px;;
+	width: 850px;
+	padding: 30px 30px 0;
 	font-size: 12px;
+}
+
+#main>div.sndconbox {
+	width: 850px;
+	margin: 20px auto;
+	padding: auto;
+}
+
+#main div.sndconbox1, #main div.sndconbox2 {
+	width: 425px;
+	height: 150px;
+	background: #eee;
+	margin: auto;
+	padding: 20px;
+	font-size: 11px;
+	float: left;
+	font-size: 11px;
+}
+
+#main > div.firstone {
+	width: 850px;
+	margin: auto;
+}
+
+#main > div.firstone th.f-theader {
+	background: #eee;
+	text-align: center;
+}
+
+#main > div.firstone > table {
+	border-bottom: 1px solid #eee;
+	text-align: center;
+	font-size: 12px;
+}
+
+#main > div.firstone > h5 {
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+#main > div.firstone > p {
+	line-height: 2.3;
 }

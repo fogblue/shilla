@@ -41,15 +41,29 @@
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" /></td>
+						<td><input type="password" id="pswd_confirm" /></td>
 					</tr>
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<button type="submit" class="btn mypg-pfed-confirm" onclick="location.href='/iot5/mypage/mypg_withdraw_2.jsp'">확인</button>
+				<button type="submit" class="btn mypg-pfed-confirm" onclick=doSubmit()>확인</button>
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	function doSubmit() {
+		var p_pswd = 1234;
+		var i_pswd = $("#pswd_confirm").val();
+		if (i_pswd == p_pswd) {
+			location.href='/iot5/mypage/mypg_profile_edit_2.jsp'
+		} else if (i_pswd == "") {
+			alert("비밀번호는 필수입력항목입니다.");
+		} else {
+			alert("비밀번호가 일치하지 않습니다.");
+		}
+	}
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="../inc/footer.jsp" %>
 </body>

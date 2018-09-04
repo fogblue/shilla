@@ -41,10 +41,14 @@
 					</tr>
 					<tr>
 						<td><label for="new_pw">새 비밀번호</label></td>
-						<td><input type="password" id="new_pw" /><span>비밀번호입력안내<span class="glyphicon glyphicon-question-sign"></span></span><span>8~20자 이내 영문/숫자 조합</span></td>
+						<td><input type="password" id="new_pw" />
+							<div class="info-modal"><a href="#info-modal" data-toggle="modal">비밀번호입력안내<span class="glyphicon glyphicon-question-sign"></span></a>
+								
+							</div><span>8~20자 이내 영문/숫자 조합</span>
+						</td>
 					</tr>
 					<tr>
-						<td>새 비밀번호 확인</td>
+						<td><label for="re_new_pw">새 비밀번호 확인</label></td>
 						<td><input type="password" id="re_new_pw" /></td>
 					</tr>
 				</table>
@@ -52,6 +56,21 @@
 			<div class="mypg-contents-btn2">
 				<button type="submit" class="btn btn-lg mypg-pwed-change">비밀번호변경</button>
 				<button type="reset" class="btn btn-lg mypg-pwed-cancel">취소</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal" id="info-modal">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content" id="info-modal-cont">
+				<h4>비밀번호 입력 시 아래의 사항을 참고하시어 안전한 정보 입력을 권장합니다.</h4>
+				<ul>
+					<li>아이디 및 아이디를 포함한 문자/숫자는 비밀번호로 사용할 수 없습니다.</li>
+					<li>동일하거나 연속되는 문자 또는 숫자는 사용 불가능합니다. 예) aaa,111</li>
+					<li>생일, 주민등록번호 등 타인이 알아내기 쉬운 비밀번호는 사용을 자제해 주시기 바랍니다.	</li>
+					<li>비밀번호는 3~6개월에 한번씩 주기적으로 바꾸어 사용	하시는 것이 안전합니다. </li>
+				</ul>
+				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
 			</div>
 		</div>
 	</div>

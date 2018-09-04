@@ -96,7 +96,7 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn2">
-				<button type="submit" class="btn btn-lg mypg-pwed-change">비밀번호변경</button>
+				<button type="submit" class="btn btn-lg mypg-pwed-change">변경</button>
 				<button type="reset" class="btn btn-lg mypg-pwed-cancel">취소</button>
 			</div>
 		</div>

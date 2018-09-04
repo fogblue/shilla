@@ -31,25 +31,39 @@
 				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;개인정보&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">프로필 수정</span></div>
 			</div>
 			<div class="mypg-contents-txtbox">
-				<p> 님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</p>
+				<p><% %> 님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</p>
 			</div>
 			<div class="mypg-contents-table">
 				<table class="mypg-pfed-contents-table">
 					<tr>
 						<td>회원 번호</td>
-						<td></td>
+						<td><% %></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" /></td>
+						<td><input type="password" id="pswd_confirm" /></td>
 					</tr>
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<button type="submit" class="btn mypg-pfed-confirm" onclick="location.href='/iot5/mypage/mypg_profile_edit_2.jsp'">확인</button>
+				<button type="submit" class="btn mypg-pfed-confirm" onclick=doSubmit()>확인</button>
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	function doSubmit() {
+		var p_pswd = 1234;
+		var i_pswd = $("#pswd_confirm").val();
+		if (i_pswd == p_pswd) {
+			location.href='/iot5/mypage/mypg_profile_edit_2.jsp'
+		} else if (i_pswd == "") {
+			alert("비밀번호는 필수입력항목입니다.");
+		} else {
+			alert("비밀번호가 일치하지 않습니다.");
+		}
+	}
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="../inc/footer.jsp" %>
 </body>

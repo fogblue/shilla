@@ -146,6 +146,17 @@
 			background: #322223;
 			font-size:15px;
 			color:white;
-			margin:5px 500px;
+			margin:5px 300px;
 		}
-		
+		.btn_color6{
+			background: #322223;
+			font-size:15px;
+			color:white;
+			margin:5px 300px;;
+		}
+		.error{
+			color:#5d4930 ;
+		}
+		input.error{
+			background-color: #f1ebd6;
+		}

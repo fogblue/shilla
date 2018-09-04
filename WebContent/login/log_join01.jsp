@@ -7,7 +7,7 @@
 <%@ include file="../inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
-<script src="/iot5/login/regex.js"></script>
+
   
 </head>
 <body>
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="log_body">
-		<form class="form-horizontal" name="join_form" id="join_form">
+		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="log_join02.jsp">
 			<div class="bdbb1">
 				<h4>약관동의</h4>
 			</div>
@@ -258,15 +258,17 @@
 					동시 진행됩니다.</p>
 
 			</div>
-			</form>
-		</div>
-		<!-- log_body end -->
-		<div class="log_footer">
+			<div class="log_footer">
 			<div class="agree_submit">
 				<button type="button" class="btn btn_color4 btn-md"  onclick="location.href='/iot5/login/log_main.jsp' " >취소</button>
-				<button type="submit" class="btn btn_color4 btn-md"   onclick="location.href='/iot5/login/log_join02.jsp' ">다음</button>
+				<button type="submit" class="btn btn_color4 btn-md"   >다음</button>
 			</div>
 		</div>
+			</form>
+			
+		</div>
+		<!-- log_body end -->
+		
 
 	</div>
 	<!-- container end -->
@@ -281,13 +283,10 @@
 				
 				$("#join_form").submit(function(e) {
 	                // 기본동작 수행 방식
-	                e.preventDefault();
-	                if (!regex.check('input[name=agree]', '동의하세요.')) { return false; }
+	               
+	                if (!regex.check('input[name=agree]', '필수항목 동의는 필수사항입니다.')) { return false; }
 	                if (!regex.check_min('input[name=agree]', 3, '모든 필수 항목에 동의하셔야 합니다.')) { return false; }
-	                
-
-	                // 처리 완료
-	                alert("입력형식 검사 완료!!!");
+	               
 				  });
 			});
 		

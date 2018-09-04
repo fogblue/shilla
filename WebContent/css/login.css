@@ -90,7 +90,8 @@
 
 		}
 		.notice1{
-			border: 3px solid #eee;
+			border: 1px solid #46464f;
+			background:#eee;
 			width: 570px;
 			margin: auto;
 			padding:5px;

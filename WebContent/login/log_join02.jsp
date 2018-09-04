@@ -150,7 +150,7 @@
 
 				<div class="form-group">
 					<div class="text-center">
-						<button type="submit">가입신청</button>
+						<button type="submit" onclick="location.href='/iot5/login/log_join03.jsp' ">가입신청</button>
 					</div>
 				</div>
 			</form>

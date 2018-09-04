@@ -64,6 +64,14 @@
 			background: url(../img/log_step2.png) no-repeat;
 			text-indent: -9999px;
 		}
+		.log_step3{
+			margin-top:15px;
+			display: block;
+			width: 866px;
+			height: 51px;
+			background: url(../img/log_step3.png) no-repeat;
+			text-indent: -9999px;
+		}
 		.log_h3{
 			font-size: 15px;
 			float:left;
@@ -99,4 +107,9 @@
 		.agree_submit{
 			width:800px;
 			margin:auto;	
+		}
+		.logjoin3_body{
+			margin:auto;
+			width:700px;
+			border: 2px solid #856f56;
 		}

@@ -73,5 +73,7 @@
        		 text-align: center;
        		 margin-bottom: 20px;
         }
-        
+        .log_hidden{
+        	display:none;
+        }
         

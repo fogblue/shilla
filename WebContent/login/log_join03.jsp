@@ -36,13 +36,18 @@
 
 		<div class="logjoin3_body ">
 			<div class="finish_box">
-				<table>
+				<table class="finish_table">
 					<tr>
-						<td></td>
+						<td class="space">회원 번호&nbsp;&nbsp;&nbsp;</td>
+						<td class="users_info">&nbsp;&nbsp;&nbsp;(6자리 랜덤)</td>
+					</tr>
+					<tr>
+						<td class="space">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="users_info">&nbsp;&nbsp;&nbsp;(사용자 아이디)</td>
 					</tr>
 				</table>
 			</div>
-			<div class="notice1 " >
+			<div class="notice1" >
 				<p>회원번호는 가입 시 기재하신 이메일로도 발송 되었습니다.</p>
 				<p>로그인 하신 후 다양한 혜택과 서비스를 경험해보시기 바랍니다.</p>
 			</div>
@@ -50,7 +55,7 @@
 		<!-- log_body end -->
 		<div class="log_footer">
 			<div class="agree_submit">
-				<button type="submit" class="btn btn_color4 btn-md"  onclick="location.href='/iot5/login/log_main.jsp' ">로그인</button>
+				<button type="submit" class="btn btn_color5 btn-md"  onclick="location.href='/iot5/login/log_main.jsp' ">로그인</button>
 			</div>
 		</div>
 

@@ -98,18 +98,54 @@
 			margin-top:15px;
 			border-bottom: 2px dotted #eee;
 		}
+		
 		.btn_color4{
 			background: #322223;
 			font-size:15px;
 			color:white;
-			margin:auto 120px;
+			margin:auto 100px;
 		}
-		.agree_submit{
-			width:800px;
-			margin:auto;	
-		}
+		
 		.logjoin3_body{
 			margin:auto;
 			width:700px;
 			border: 2px solid #856f56;
 		}
+		
+		.finish_box{
+			width:500px;
+			margin:auto;
+		}
+		
+		.finish_table{
+			margin:10px auto;
+			
+		}
+		.space{
+			border-right: 2px solid #856f56;
+		
+			font-size:15px;
+		}
+		
+		.users_info{
+			margin:auto 10px;
+			font-size:13px;
+			color:#856f56;
+			font-size:15px;
+		}
+		.log_footer{
+			width:700px;
+		}
+		.agree_submit{
+			width:700px;
+			margin:auto;
+			padding-left: 150px;
+		}
+		
+		.btn_color5{
+			background: #322223;
+			font-size:15px;
+			color:white;
+			margin:5px 500px;
+		}
+		

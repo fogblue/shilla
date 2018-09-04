@@ -71,6 +71,7 @@
 		.log_button{
 			display:inline;
 		}
+		
 		.ind1{
 			margin-top: -50px;
 			display: inline;
@@ -96,6 +97,7 @@
 			margin: auto;
 			padding:5px;
 			text-align: center;
+			margin: 10px auto;
 		}
 		.log_bdb{
 			border-bottom: 4px solid #3e2b2c;

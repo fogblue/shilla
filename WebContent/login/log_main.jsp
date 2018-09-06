@@ -7,6 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 	<link rel="stylesheet" type="text/css" href="../css/LogJoin.css">
 	<link rel="stylesheet" type="text/css" href="../css/join.css">
+	<!-- validate 플러그인 참조 -->
+<script src="../plugins/validate/jquery.validate.min.js"></script>
+<script src="../plugins/validate/additional-methods.min.js"></script>
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp" %>
@@ -25,7 +28,7 @@
 		</div>
 		
 		<div class="form-group">
-			<form class="log_form-horizontal" name="login_form" id="login_form">
+			<form class="log_form-horizontal" name="login_form" id="login_form" method="post" action="log_join02.jsp">
 				<div>
 					<label><input type="radio" name="user"  id="user" class="uorunu" value="user" checked>회원</label>
 					<label><input type="radio" name="user" id="unuser" class="uorunu" value="unuser">비회원(예약확인)</label>

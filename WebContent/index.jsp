@@ -7,6 +7,8 @@
 <%@ include file="../inc/head.jsp"%>
 <link rel="stylesheet" href="/iot5/css/index.css" />
 <link rel="stylesheet" href="/iot5/plugins/youcover/youCover.css" />
+<link rel="stylesheet"
+	href="/iot5/plugins/lightbox/css/lightbox.min.css" />
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>
@@ -16,7 +18,13 @@
 		<h1 class="page-header">스페셜 오퍼</h1>
 		<h3 class="sm-header">SPECIAL OFFERS</h3>
 		<div class="main_soffcon">
-			<ul class="main_mconts" id="main_mconts"></ul>
+			<div id="main_mconts">
+				<a href="/iot5/img/main_ma1.jpg" data-lightbox="shilla-gallery" data-title="방1"><img src="/iot5/img/main_ma1.jpg" /></a>
+				<a href="/iot5/img/main_ma2.jpg" data-lightbox="shilla-gallery" data-title="방2"><img src="/iot5/img/main_ma2.jpg" /></a>
+				<a href="/iot5/img/main_ma3.jpg" data-lightbox="shilla-gallery" data-title="방3"><img src="/iot5/img/main_ma3.jpg" /></a>
+				<a href="/iot5/img/main_ma4.jpg" data-lightbox="shilla-gallery" data-title="방4"><img src="/iot5/img/main_ma4.jpg" /></a>
+				<a href="/iot5/img/main_ma5.jpg" data-lightbox="shilla-gallery" data-title="방5"><img src="/iot5/img/main_ma5.jpg" /></a>
+			</div>
 		</div>
 		<h1 class="page-header">갤러리</h1>
 		<h3 class="sm-header">GALLERY</h3>
@@ -30,41 +38,23 @@
 	<!-- 동적으로 생성될 HTML의 기본 틀 -->
 	<script type="text/x-handlebars-template" id="list-item-tmpl">
         {{#item}}
-            <li class="item">
                 <div class="item-box">
                     <div class="item-content">
-                        <img src="{{img}}" class="img" />
-                        <h3 class="title">{{title}}</h3>
-                        <p class="desc">{{desc}}</p>
+                        <img src="{{img}}" class="soff_img" />
                     </div>
                 </div>
-            </li>
         {{/item}}
     </script>
 	<!-- Script codes -->
-	<script src="/iot5/plugins/masonry/masonry.pkgd.min.js"></script>
-	<script src="/iot5/plugins/imagesloaded/imagesloaded.pkgd.min.js"></script>
 	<script src="/iot5/plugins/youcover/youCover.js"></script>
 	<!-- json 데이터를 정의한 외부 파일 로드하기 -->
-	<script src="/iot5/inc/item.js"></script>
+	<script src="/iot5/plugins/lightbox/js/lightbox.js"></script>
 	<script>
-		/** json 데이터의 배열만큼 컨텐츠를 동적으로 추가하기 위한 함수 */
-		function add_item() {
-			var template = Handlebars.compile($("#list-item-tmpl").html());
-			var html = template(data);
-			var el = $(html);
-
-			// 이미지 로딩이 완료됨을 감지함
-			el.imagesLoaded(function() {
-				$("#main_mconts").append(el).masonry('appended', el).masonry();
-			});
-		} // end function
-
-		$(function() {
-			$("#main_mconts").masonry({
-				itemSelector : ".item"
-			});
-			add_item();
+		lightbox.option({
+			'resizeDuration' : 200,
+			'wrapAround' : true,
+			'max-Height' : 500,
+			'fitViewport' : true
 		});
 	</script>
 </body>

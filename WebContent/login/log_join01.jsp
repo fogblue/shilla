@@ -7,7 +7,7 @@
 <%@ include file="../inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
-
+<script src="regex.js"></script>
   
 </head>
 <body>

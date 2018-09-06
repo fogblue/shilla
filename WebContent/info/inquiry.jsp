@@ -56,17 +56,14 @@
 					<th scope="row" class="entabhead"><label><span
 							class="identify">*</span> 관련문의</label></th>
 					<td><select id="selenq">
-							<option value="enq_room" id="enq_room">객실/패키지문의</option>
-							<option value="enq_dining" id="enq_dining">다이닝문의</option>
-							<option value="enq_wedding" id="enq_wedding">웨딩문의</option>
-							<option value="enq_party" id="enq_party">연회/회의문의</option>
-							<option value="enq_web" id="enq_web">홈페이지문의</option>
+							<option value="enq_room" id="enq_room" value="enq_room">객실/패키지문의</option>
+							<option value="enq_dining" id="enq_dining" value="enq_dining">다이닝문의</option>
+							<option value="enq_wedding" id="enq_wedding" value="enq_wedding">웨딩문의</option>
+							<option value="enq_party" id="enq_party" value="enq_party">연회/회의문의</option>
+							<option value="enq_web" id="enq_web" value="enq_web">홈페이지문의</option>
 					</select></td>
 				</tr>
-				<tr class="enq_hidden ecategory2 enq_ques">
-					<th scope="row" class="entabhead"><label for="enq_resnum">&nbsp;&nbsp;&nbsp;예약번호</label></th>
-					<td><input type="text" name="enq_resnum" id="enq_resnum" /></td>
-				</tr>
+				<tbody id="enq_ajax"></tbody>
 				<tr class="enq_ques">
 					<th scope="row" class="entabhead"><label for="enq_title"><span
 							class="identify">*</span> 제목</label></th>
@@ -166,6 +163,18 @@
 				var sel = $(this).find("option:selected").val();
 				$("#enq_email").val(sel);
 			}); // email 자동채움
+			
+			$("#selenq").change(function() {
+				var sel = $(this).find("option:selected").val();
+				if (sel != "enq_party" && sel != "enq_web") {
+					$("#enq_ajax").empty();
+					$.get(sel + ".html", function(req) {
+						$("#enq_ajax").append(req);
+					}, "html"); // end $.get	
+				} else {
+					$("#enq_ajax").empty();
+				}
+			});
 		});
 	</script>
 </body>

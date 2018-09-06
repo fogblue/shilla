@@ -50,7 +50,7 @@
 	<div class="fcontainer">
 		<div class="bottom">
 			<ul class="list-inline">
-				<li class="border-right"><a href="../inc/mem_policy.jsp">개인정보처리방침</a></li>
+				<li class="border-right"><a href="/iot5/inc/mem_policy.jsp">개인정보처리방침</a></li>
 				<li class="border-right"><a href="#f_spamming" id="spamwaring">이메일무단수집금지</a></li>
 				<li><a href="#">윤리경영(부정제보)</a></li>
 			</ul>

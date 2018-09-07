@@ -6,7 +6,7 @@
 	<%@ include file="../inc/head.jsp" %>
 <link rel="stylesheet" type="text/css" href="/iot5/css/mypage.css">
 </head>
-<body>
+<body style="overflow-y: hidden;">
 	<%@ include file="../inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
@@ -59,10 +59,14 @@
 			</div>
 		</div>
 	</div>
-	
+	<!-- ==============끝================== -->
+	<%@ include file="../inc/footer.jsp" %>
+</body>
+
 	<div class="modal" id="info-modal">
 		<div class="modal-dialog modal-sm">
-			<div class="modal-content" id="info-modal-cont">
+			<div class="info-modal-content">
+			<button type="button" class="info-modal-close pull-right" data-dismiss="modal"><span>&times;</span></button>
 				<h4>비밀번호 입력 시 아래의 사항을 참고하시어 안전한 정보 입력을 권장합니다.</h4>
 				<ul>
 					<li>아이디 및 아이디를 포함한 문자/숫자는 비밀번호로 사용할 수 없습니다.</li>
@@ -70,11 +74,8 @@
 					<li>생일, 주민등록번호 등 타인이 알아내기 쉬운 비밀번호는 사용을 자제해 주시기 바랍니다.	</li>
 					<li>비밀번호는 3~6개월에 한번씩 주기적으로 바꾸어 사용	하시는 것이 안전합니다. </li>
 				</ul>
-				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+				
 			</div>
 		</div>
 	</div>
-	<!-- ==============끝================== -->
-	<%@ include file="../inc/footer.jsp" %>
-</body>
 </html>

@@ -234,14 +234,14 @@
 }
 
 .mypg-pwed-contents-table .info-modal {
-	position: relative;	
+	
 }
 
 .modal-backdrop {
 	background-color: rgba(0, 0, 0, 0);
 }
 
-#info-modal-cont {
+.info-modal-content {
 	border: 1px solid #a1886f;
 	border-radius: 0;
 	width: 490px;
@@ -249,12 +249,12 @@
 	padding: 19px;
 	position: absolute;
 	z-index: 100;
-	left: 75px;
-    top: 26px;
+	left: 165px;
+    top: 295px;
     background: #f7f4ea;
 }
 
-#info-modal-cont h4 {
+.info-modal-content h4 {
 	font-size: 11px;
 	font-weight: bold;
 	height: 20px;
@@ -262,20 +262,25 @@
 	margin: 0 0 10px 0;
 }
 
-#info-modal-cont ul {
+.info-modal-content ul {
 	margin: 0;
 	padding: 0;
 }
 
-#info-modal-cont li {
+.info-modal-content li {
 	font-size: 11px;
 	height: 20px;
 	line-height: 20px;
 	padding: 0 0 0 8px;
 }
 
-#info-modal-cont button {
-	
+.info-modal-close {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	display: inline-block;
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
 
 .mypg-pwed-contents-table span {

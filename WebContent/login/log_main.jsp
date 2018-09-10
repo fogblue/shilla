@@ -11,7 +11,7 @@
 <script src="../plugins/validate/jquery.validate.min.js"></script>
 <script src="../plugins/validate/additional-methods.min.js"></script>
 </head>
-<body>
+<body style="overflow-y: hidden;">
 	<%@ include file="../inc/topbar.jsp" %>
 	<div class="container main">
 		<div class="form-group log-form">
@@ -28,15 +28,18 @@
 		</div>
 		
 		<div class="form-group">
-			<form class="log_form-horizontal" name="login_form" id="login_form" method="post" action="log_join02.jsp">
+			<div class="log_form-horizontal" >
 				<div>
 					<label><input type="radio" name="user"  id="user" class="uorunu" value="user" checked>회원</label>
 					<label><input type="radio" name="user" id="unuser" class="uorunu" value="unuser">비회원(예약확인)</label>
+				
 				</div>
 				<div class="form-group" id="form-group-box">
 					
 				</div>
-			</form>
+			</div>
+				
+			
 			<br/>
 			<div class="notice1 log_hidden" id="notice1" >
 				이메일, 연락처 등의 정보가 변경되면 웹사이트에서 회원정보를 수정해주시기 바랍니다.

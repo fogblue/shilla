@@ -1,3 +1,4 @@
+			<!--회원일 경우의 로그인창-->
 			<div class="form-group">
 				<div class="col-md-10">
 					<input type="text" name="user_id" id="user_id" class="form-control log-form-control"  
@@ -22,6 +23,8 @@
 					<button id="open_modal_btn"  class="btn btn_color3 btn-md "  type="button" >아이디 찾기</button>
 					<button id="open_modal_btn1" class="btn btn_color3 btn-md "  type="button" >비밀번호 찾기</button>
 				</div>
+				
+				<!--아이디 찾기 modal1-->
 				<div class="modal fade" id="myModal1">
 					<div class="modal-dialog modal-md">
 						<div class="modal-content">
@@ -50,13 +53,15 @@
 								</div>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn_color2"
+								<button type="submit" class="btn btn_color2"
 									data-dismiss="modal" id="modal_id_ok">확인</button>
 							</div>
 						</div>
 					
 					</div>
 				</div>
+				
+				<!--아이디 찾기 modal1의 결과창-->
 				<div class="modal fade" id="myModal1_1">
 					<div class="modal-dialog modal-md">
 						<div class="modal-content">
@@ -88,6 +93,8 @@
 					
 					</div>
 				</div>
+				
+				<!--비밀번호 찾기 modal2-->
 				<div class="modal fade" id="myModal2">
 					<div class="modal-dialog modal-md">
 						<div class="modal-content">
@@ -103,7 +110,7 @@
 									<label for='user_name' class="col-md-2"><span
 										class='identify'>*</span>아이디</label>
 									<div class="col-md-10">
-										<input type="text" name="user_name" id="find_user_id"
+										<input type="text" name="user_name" id="find_user_pw"
 											class="form-control" />
 									</div>
 								</div>
@@ -111,7 +118,7 @@
 									<label for='user_name' class="col-md-2"><span
 										class='identify'>*</span>성명</label>
 									<div class="col-md-10">
-										<input type="text" name="user_name" id="find_user_name"
+										<input type="text" name="user_name" id="find_user_pw_name"
 											class="form-control" />
 									</div>
 								</div>
@@ -119,7 +126,7 @@
 									<label for='user_name' class="col-md-2"><span
 										class='identify'>*</span>이메일</label>
 									<div class="col-md-10">
-										<input type="text" name="email" id="email"
+										<input type="text" name="email" id="find_user_pw_email"
 											class="form-control" />
 									</div>
 								</div>
@@ -142,6 +149,39 @@
 					</div>
 					
 			</div>
+			<!--비밀번호 찾기 modal2의 결과창-->
+			<div class="modal fade" id="myModal2_1">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title">비밀번호 찾기</h4>
+							</div>
+							<div class="modal-body">
+								<table class="modal_table">
+									<tr>
+										<td class="space">(이름)님의 회원 번호&nbsp;&nbsp;&nbsp;</td>
+										<td class="users_info">&nbsp;&nbsp;&nbsp;(6자리 랜덤form DB)</td>
+									</tr>
+									<tr>
+										<td class="space">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td class="users_info">&nbsp;&nbsp;&nbsp;(사용자 아이디)</td>
+									</tr>
+								</table>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn_color2"
+								data-dismiss="modal" id="modal_ok">확인</button>
+								<button type="button" class="btn btn_color2"
+								data-dismiss="modal" id="modal_pw_find">비밀번호 찾기</button>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			
 <script type="text/javascript">
 		$(function(){
 			

@@ -13,8 +13,7 @@
 <!-- validate 플러그인 참조 -->
 <script src="../plugins/validate/jquery.validate.min.js"></script>
 <script src="../plugins/validate/additional-methods.min.js"></script>
-<!-- sweetalert 플러그인 참조 -->
-<script src="../plugins/sweetalert/sweetalert2.min.js"></script>
+
 <!-- datepicker 플러그인 참조 -->
 <script src="../plugins/datepicker/datepicker.min.js"></script>
 <script src="../plugins/datepicker/i18n/datepicker.ko-KR.js"></script>

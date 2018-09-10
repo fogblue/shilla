@@ -10,8 +10,7 @@
     <!-- validate 플러그인 참조 -->
     <script src="plugins/validate/jquery.validate.min.js"></script>
     <script src="plugins/validate/additional-methods.min.js"></script>
-    <!-- sweetalert 플러그인 참조 -->
-    <script src="plugins/sweetalert/sweetalert2.min.js"></script>
+
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>

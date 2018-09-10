@@ -103,4 +103,12 @@
 			border-bottom: 4px solid #3e2b2c;
 			padding-bottom: 15px;
 		}
-		
+		.find_pw{
+			border: 1px solid #46464f;
+			background:#eee;
+			width: 400px;
+			margin: auto;
+			padding:5px;
+			text-align: center;
+			margin: 10px auto;
+		}

@@ -56,7 +56,7 @@
 		var p_pswd = 1234;
 		var i_pswd = $("#pswd_confirm").val();
 		if (i_pswd == p_pswd) {
-			location.href='/iot5/mypage/mypg_profile_edit_2.jsp'
+			location.href='/iot5/mypage/mypg_withdraw_2.jsp'
 		} else if (i_pswd == "") {
 			alert("비밀번호는 필수입력항목입니다.");
 		} else {

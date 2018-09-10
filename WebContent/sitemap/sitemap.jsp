@@ -17,7 +17,7 @@
 			</div>
 			<div class="stmp-contents-box clearfix">
 				<div class="stmp-contents-box-up">
-					<div class="stmp-contents-box-header">
+					<div class="stmp-contents-box-up-header">
 						<h4>로그인</h4>
 					</div>
 					<div class="stmp-contents-box-content">
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				<div class="stmp-contents-box-up">
-					<div class="stmp-contents-box-header">
+					<div class="stmp-contents-box-up-header">
 						<h4>마이페이지</h4>
 					</div>
 					<div class="stmp-contents-box-content">
@@ -48,7 +48,7 @@
 					</div>
 				</div>
 				<div class="stmp-contents-box-up">
-					<div class="stmp-contents-box-header">
+					<div class="stmp-contents-box-up-header">
 						<h4>신라리워즈</h4>
 					</div>
 					<div class="stmp-contents-box-content">
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				<div class="stmp-contents-box-up">
-					<div class="stmp-contents-box-header">
+					<div class="stmp-contents-box-up-header">
 						<h4>호텔신라소개</h4>
 					</div>
 					<div class="stmp-contents-box-content">
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 				<div class="stmp-contents-box-down">
-					<div class="stmp-contents-box-header">
+					<div class="stmp-contents-box-down-header">
 						<h4>고객문의</h4>
 					</div>
 					<div class="stmp-contents-box-content">
@@ -86,7 +86,7 @@
 					</div>
 				</div>
 				<div class="stmp-contents-box-down">
-					<div class="stmp-contents-box-header">
+					<div class="stmp-contents-box-down-header">
 						<h4>예약</h4>
 					</div>
 					<div class="stmp-contents-box-content">
@@ -95,7 +95,7 @@
 					</div>
 				</div>
 				<div class="stmp-contents-box-down">
-					<div class="stmp-contents-box-header">
+					<div class="stmp-contents-box-down-header">
 						<h4>법적 고지 확인</h4>
 					</div>
 					<div class="stmp-contents-box-content">

@@ -97,7 +97,7 @@
 			</div>
 			<div class="mypg-contents-btn2">
 				<button type="submit" class="btn btn-lg mypg-pwed-change">변경</button>
-				<button type="reset" class="btn btn-lg mypg-pwed-cancel">취소</button>
+				<button type="reset" class="btn btn-lg mypg-pwed-cancel"  onclick = "location.href = '/iot5/mypage/mypg_profile_edit.jsp'">취소</button>
 			</div>
 		</div>
 	</div>

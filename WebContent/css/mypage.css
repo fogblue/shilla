@@ -102,6 +102,7 @@
 	background-color: #727272;
 	color: #ffffff;
 	padding: 0;
+	border-radius: 0;
 }
 
 .mypg-rsvt-find,
@@ -111,6 +112,7 @@
 	background-color: #3a3125;
 	color: #f1ebd6;
 	padding: 0;
+	border-radius: 0;
 }
 
 .mypg-rsvt-bd>div:first-child>* {
@@ -197,6 +199,7 @@
 	background-color: #3a3125;
 	color: #f1ebd6;
 	padding: 0;
+	border-radius: 0;
 }
 
 /*------------------------------------------------------------
@@ -238,8 +241,12 @@
 	font-size: 12px;
 }
 
-.mypg-pwed-contents-table .info-modal {
-	
+.info-modal a {
+	color: #806925;
+}
+
+.info-modal a span {
+	color: #bb9761;
 }
 
 .modal-backdrop {
@@ -302,6 +309,7 @@
 	margin-right: 10px;
 	float:left;
 	padding: 0;
+	border-radius: 0;
 }
 
 .mypg-pwed-cancel,
@@ -311,6 +319,7 @@
 	background-color: #7c6347;
 	color: #f1ebd6;
 	padding: 0;
+	border-radius: 0;
 }
 
 /*------------------------------------------------------------
@@ -453,4 +462,14 @@
 	background-color: #3e2b2c;
 	color: #f1ebd6;
 	padding: 0;
+	border-radius: 0;
+}
+
+body {
+	-ms-overflow-style: none;	/* IE 10+ */
+    overflow: hidden scroll;	/* Firefox */
+}
+
+body::-webkit-scrollbar { 
+    display: none;	/* Safari and Chrome */
 }

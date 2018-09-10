@@ -6,7 +6,7 @@
 	<%@ include file="../inc/head.jsp" %>
 <link rel="stylesheet" type="text/css" href="/iot5/css/mypage.css">
 </head>
-<body style="overflow-y: hidden;">
+<body>
 	<%@ include file="../inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
@@ -42,8 +42,8 @@
 					<tr>
 						<td><label for="new_pw">새 비밀번호</label></td>
 						<td><input type="password" id="new_pw" />
-							<div class="info-modal"><a href="#info-modal" data-toggle="modal">비밀번호입력안내<span class="glyphicon glyphicon-question-sign"></span></a>
-								
+							<div class="info-modal">
+								<a href="#info-modal" data-toggle="modal">비밀번호입력안내<span class="glyphicon glyphicon-question-sign"></span></a>								
 							</div><span>8~20자 이내 영문/숫자 조합</span>
 						</td>
 					</tr>
@@ -74,7 +74,6 @@
 					<li>생일, 주민등록번호 등 타인이 알아내기 쉬운 비밀번호는 사용을 자제해 주시기 바랍니다.	</li>
 					<li>비밀번호는 3~6개월에 한번씩 주기적으로 바꾸어 사용	하시는 것이 안전합니다. </li>
 				</ul>
-				
 			</div>
 		</div>
 	</div>

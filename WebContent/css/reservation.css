@@ -141,3 +141,40 @@ display: inline-block;
 	background-color: white;
 }
 
+.rsv_roomarea_list_img {
+	width: 212px;
+	height: 118px;
+	float: left;
+}
+
+.rsv_roomarea_listname {
+	display: block;
+	float: left;
+}
+
+.rsv_roomarea_listtext {
+	display: block;
+	float: left;
+}
+
+.rsv_roomarea_price {
+	display: block;
+	float: left;
+}
+
+.rsv_roomarea_pricetext {
+	display: block;
+	float: left;
+}
+
+.class=rsv_roomarea_price {
+	display: block;
+	float: left;
+}
+
+.rsv_roomrsvimg {
+	display: block;
+	float: left;
+}
+
+

@@ -10,6 +10,7 @@
 	<!-- validate 플러그인 참조 -->
 <script src="../plugins/validate/jquery.validate.min.js"></script>
 <script src="../plugins/validate/additional-methods.min.js"></script>
+<script src="../plugins/ajax-form/jquery.form.min.js"></script>
 </head>
 <body style="overflow-y: hidden;">
 	<%@ include file="../inc/topbar.jsp" %>
@@ -80,7 +81,77 @@
 					}
 				});
 			});
-		
+			
+			$.validator.addMethod("kor", function(value, element) {
+				return this.optional(element) || /^[ㄱ-ㅎ가-힣]*$/i.test(value);
+			});
+			
+			$(document).on('submit', "#myModal1_vali", function(){
+				$(this).ajaxSubmit(function(){
+					$("#myModal1_vali").validate({
+						rules : {
+							find_id_name_kor : {
+								required : true,
+								kor : true
+							},
+
+							find_id_email : {
+								required : true,
+								email : true
+							}
+						},
+
+						messages : {
+							find_id_name_kor : {
+								required : "이름을 입력하세요",
+								kor : "한글만 입력 가능합니다."
+							},
+
+							find_id_email : {
+								required : "이메일을 입력하세요",
+								email : "이메일 형식이 잘못되었습니다"
+							}
+						}
+
+					});
+				});
+			});
+			$(document).on('submit', "#myModal2_vali", function(){
+				$(this).ajaxSubmit(function(){
+					$("#myModal2_vali").validate({
+						rules : {
+							find_pw_id : {
+								required : true,
+								alphanumeric : true
+							},
+							find_pw_name : {
+								required : true,
+								kor : true
+							},
+							find_pw_email : {
+								required : true,
+								email : true
+							},
+						},
+
+						messages : {
+							find_pw_id : {
+								required : "아이디를 입력하세요",
+								alphanumeric : "아이디는 영어, 숫자만 입력 가능합니다."
+							},
+							find_pw_name : {
+								required : "이름을 입력하세요",
+								kor : "한글만 입력 가능합니다."
+							},
+							find_pw_email : {
+								required : "이메일을 입력하세요",
+								email : "이메일 형식이 잘못되었습니다"
+							}
+						}
+
+					});
+				});
+			});
 		});
 	</script>
 </body>

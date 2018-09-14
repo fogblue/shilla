@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
 <header id="site-header">
 	<div class="tcontainer clearfix">
 		<div class="menu1 list-inline downrow dropdown">

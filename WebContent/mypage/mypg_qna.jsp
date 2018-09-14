@@ -40,7 +40,7 @@
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="1month">1개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="3month">3개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="6month">6개월</button>
-					<button type="button" class="btn mypg-rsvt-whole">전체</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all">전체</button>
 					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
 					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
@@ -142,6 +142,9 @@
 			$("#datepicker-s").val(last3Month())
 		} else if (rname == "6month") {
 			$("#datepicker-s").val(last6Month())
+		} else if (rname == "all") {
+			$("#datepicker-s").val("");
+			$("#datepicker-e").val("");
 		}
 	})
 	</script>

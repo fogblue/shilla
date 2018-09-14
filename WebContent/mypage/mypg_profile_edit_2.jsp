@@ -83,7 +83,7 @@
 					<tr>
 						<td rowspan="2">휴대전화</td>
 						<td>
-							<input type="text" />
+							<input type="text" placeholder="&nbsp;'-' 없이 입력"/>
 						</td>
 					</tr>
 					<tr>

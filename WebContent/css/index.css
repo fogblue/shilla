@@ -43,6 +43,9 @@
 	margin-bottom: 5px;
 }
 
+#main>.main_soffcon>#main_mconts {
+margin-left: 175px;
+}
 #main>.main_soffcon>#main_mconts a {
 	display: inline;
 }

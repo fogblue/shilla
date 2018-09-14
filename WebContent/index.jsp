@@ -15,8 +15,8 @@
 	<%@ include file="../inc/slider.jsp"%>
 	<!-- ==============시작================== -->
 	<div class="container main" id="main">
-		<h1 class="page-header">스페셜 오퍼</h1>
-		<h3 class="sm-header">SPECIAL OFFERS</h3>
+		<h1 class="page-header">갤러리</h1>
+		<h3 class="sm-header">GALLERY</h3>
 		<div class="main_soffcon">
 			<div id="main_mconts">
 				<a href="/iot5/img/main_ma1.jpg" data-lightbox="shilla-gallery" data-title="방1"><img src="/iot5/img/main_ma1.jpg" /></a>
@@ -26,8 +26,8 @@
 				<a href="/iot5/img/main_ma5.jpg" data-lightbox="shilla-gallery" data-title="방5"><img src="/iot5/img/main_ma5.jpg" /></a>
 			</div>
 		</div>
-		<h1 class="page-header">갤러리</h1>
-		<h3 class="sm-header">GALLERY</h3>
+		<h1 class="page-header">홍보영상</h1>
+		<h3 class="sm-header">VIDEOS</h3>
 		<div class="my-youtube-wrapper">
 			<div class="my-youtube" data-youcover data-id='81xxCLvADlU'></div>
 		</div>

@@ -5,7 +5,7 @@
 
 /* 슬라이드 영역의 크기. 여기서 설정한 크기 만큼 슬라이드가 표시된다. */
 #slide-container {
-	width: 100%;
+	min-width: 1215px;
 	height: 650px;
 	margin-top: 100px
 }

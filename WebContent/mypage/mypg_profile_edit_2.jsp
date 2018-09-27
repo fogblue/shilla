@@ -35,6 +35,7 @@
 			</div>
 			<div class="mypg-contents-table">
 				<span>기본 정보</span>
+				<form action="#">
 				<table class="mypg-pfed2-contents-table">
 					<tr>
 						<td>성명(한글)</td>
@@ -94,6 +95,7 @@
 						</td>
 					</tr>
 				</table>
+				</form>
 			</div>
 			<div class="mypg-contents-btn2">
 				<button type="submit" class="btn btn-lg mypg-pwed-change">변경</button>

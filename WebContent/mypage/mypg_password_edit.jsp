@@ -34,6 +34,7 @@
 				<p>고객님의 정보를 언제든지 확인, 변경하실 수 있습니다.</p>
 			</div>
 			<div class="mypg-contents-table">
+				<form action="#">
 				<table class="mypg-pwed-contents-table">
 					<tr>
 						<td><label for="now_pw">현재 비밀번호</label></td>
@@ -52,6 +53,7 @@
 						<td><input type="password" id="re_new_pw" /></td>
 					</tr>
 				</table>
+				</form>
 			</div>
 			<div class="mypg-contents-btn2">
 				<button type="submit" class="btn btn-lg mypg-pwed-change">비밀번호변경</button>

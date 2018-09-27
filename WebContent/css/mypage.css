@@ -72,7 +72,7 @@
 
 .mypg-contents-btn2 {
 	width: 284px;
-	margin: 40px 330px;
+	margin: 40px 300px;
 }
 
 .sidebar-arrow {
@@ -402,6 +402,11 @@
 	width: 85%;
 	padding-left: 15px;
 	text-align: left;
+}
+
+.mypg-pfed2-contents-table tr:nth-child(4) td:last-child,
+.mypg-pfed2-contents-table tr:nth-child(6) td:last-child {
+	padding-top: 8px;
 }
 
 .mypg-pfed2-contents-table tr:nth-child(5) td,

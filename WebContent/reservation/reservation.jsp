@@ -6,7 +6,9 @@
 
 <head>
 <%@ include file="../inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/aaaaaa.css">
+<link rel="stylesheet" type="text/css" href="/iot5/reservation.css">
+<link rel="stylesheet" type="text/css" href="/iot5/rsv_room.css">
+<link rel="stylesheet" type="text/css" href="/iot5/.css">
 </head>
 
 <body>
@@ -168,21 +170,12 @@
 				</script>
 			</div>
 
-
-
-
-
-
 			<div class="rsv_search">
 				<a href="#" id="rsv_roomsearchbtn">검색</a>
 			</div>
 
-
-
-
 		</div>
 		<%-- selectbox end --%>
-
 
 		<script type="text/javascript">
 			$(function() {
@@ -201,19 +194,10 @@
 			});
 		</script>
 
-
 		<div class="rsv_discriptionbox" id="rsv_contents_box2">
 			<span class="rsv_discription">예약을 원하시는 호텔, 날짜, 인원을 선택 후 검색 버튼을
 				눌러주세요.</span>
 		</div>
-
-
-
-
-
-
-
-
 
 	</div>
 	<%-- container end --%>

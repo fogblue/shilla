@@ -1,0 +1,93 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.rsv_packagetextdiv{
+	width: 1200px;
+	height: 40px;
+	background-color: #f4eee3;
+}
+
+.rsv_packagetextdiv_text {
+	float: left;
+	font-size: 20px;
+	margin-left: 28px;
+	margin-top: 5.5px;
+	text-decoration-style: bold;
+	font-weight: bold;
+}
+
+.rsv_packagetextdiv_text2 {
+	float: right;
+	margin-right: 28px;
+	margin-top: 10px;
+	text-align: center;
+	color: rgba(100, 100, 100);
+}
+
+.rsv_roomlistbox {
+	width: 1200px;
+	margin-top: 20px;
+}
+
+.rsv_thumb {
+	width: 212px;
+	height: 118px;
+	float: left;
+}
+
+.rsv_thumb img {
+	width: 100%;
+	height: 100%;
+
+}
+
+.rsv_text {
+	float: left;
+	margin-top: 10px;
+	margin-left: 25px;
+}
+
+.rsv_thumb2 {
+	width: 100px;
+	height: 100px;
+	float: right;
+}
+
+.rsv_thumb2 img {
+	width: 100%;
+	height: 100%;
+}
+
+.rsv_text2_0 {
+	float: right;
+	padding: 100px;
+}
+
+.rsv_text2 {
+	margin-right: 200px;
+	float: right;
+}
+
+.rsv_text_1 {
+	font-size: 25px;
+	list-style: none;
+	text-align: left;
+	margin-left: -15px;
+	font-weight: bold;
+}
+
+.rsv_text2_1 {
+	font-size: 25px;
+	list-style: none;
+	text-align: right;
+
+}
+
+.rsv_text2_2 {
+	list-style: none;
+	text-align: right;
+	color: rgba(100, 100, 100);
+}

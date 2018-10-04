@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 <head>
-<%@ include file="../inc/head.jsp"%>
+<%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/join.css">
@@ -20,7 +20,7 @@
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 </head>
 <body>
-	<%@ include file="../inc/topbar.jsp"%>
+	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<div class="container main_box ">
 
 		<div class="log_top">
@@ -242,6 +242,6 @@
 			});
 		});
 	</script>
-	<%@ include file="../inc/footer.jsp"%>
+	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 <head>
-<%@ include file="../inc/head.jsp"%>
+<%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
     <!-- validate 플러그인 참조 -->
@@ -13,7 +13,7 @@
 
 </head>
 <body>
-	<%@ include file="../inc/topbar.jsp"%>
+	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<div class="container main_box ">
 
 		<div class="log_top">
@@ -65,6 +65,6 @@
 	<script type="text/javascript">
 		
 	</script>
-	<%@ include file="../inc/footer.jsp"%>
+	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>
 </html>

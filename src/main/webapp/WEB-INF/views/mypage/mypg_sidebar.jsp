@@ -3,10 +3,10 @@
 <!doctype html>
 <html>
 <head>
-	<%@ include file="../inc/head.jsp" %>
+	<%@ include file="/WEB-INF/inc/head.jsp" %>
 </head>
 <body>
-	<%@ include file="../inc/topbar.jsp" %>
+	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
 		<div class="sidebar">
@@ -108,6 +108,6 @@
 	});
 	</script>
 	<!-- ==============끝================== -->
-	<%@ include file="../inc/footer.jsp" %>
+	<%@ include file="/WEB-INF/inc/footer.jsp" %>
 </body>
 </html>

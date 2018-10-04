@@ -4,12 +4,12 @@
 <!doctype html>
 <html>
 <head>
-<%@ include file="../inc/head.jsp"%>
+<%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/css/enquiry.css" />
 <link rel="stylesheet" type="text/css" href="/iot5/css/info.css" />
 </head>
 <body>
-	<%@ include file="../inc/topbar.jsp"%>
+	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<div class="container main">
 		<!-- 사이드바 시작 -->
 		<div class="sidebar">
@@ -147,7 +147,7 @@
 		</div>
 		<!-- if-content ended -->
 	</div>
-	<%@ include file="../inc/footer.jsp"%>
+	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 
 	<script type="text/javascript">
 		$(function() {

@@ -4,14 +4,14 @@
 <!doctype html>
 <html>
 <head>
-<%@ include file="../inc/head.jsp"%>
+<%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
 <link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
 <script src="regex.js"></script>
   
 </head>
 <body>
-	<%@ include file="../inc/topbar.jsp"%>
+	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<div class="container main_box ">
 
 		<div class="log_top">
@@ -59,14 +59,14 @@
 								<h4 class="modal-title" id="myModalLabel">신라리워즈 이용약관에 관한 동의</h4>
 							</div>
 							<div class="modal-body">
-								<%@ include file="../inc/log_text01.jsp"%>
+								<%@ include file="/WEB-INF/inc/log_text01.jsp"%>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="log_text1"
 					style="overflow: scroll; width: 850px; height: 150px;">
-					<%@ include file="../inc/log_text01.jsp"%>
+					<%@ include file="/WEB-INF/inc/log_text01.jsp"%>
 				</div>
 
 				
@@ -103,14 +103,14 @@
 									동의</h4>
 							</div>
 							<div class="modal-body">
-								<%@ include file="../inc/log_text02.jsp"%>
+								<%@ include file="/WEB-INF/inc/log_text02.jsp"%>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="log_text2"
 					style="overflow: scroll; width: 850px; height: 150px;">
-					<%@ include file="../inc/log_text02.jsp"%>
+					<%@ include file="/WEB-INF/inc/log_text02.jsp"%>
 				</div>
 
 				<div class="agree_checkbox">
@@ -146,14 +146,14 @@
 									동의</h4>
 							</div>
 							<div class="modal-body">
-								<%@ include file="../inc/log_text03.jsp"%>
+								<%@ include file="/WEB-INF/inc/log_text03.jsp"%>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="log_text3"
 					style="overflow: scroll; width: 850px; height: 150px;">
-					<%@ include file="../inc/log_text03.jsp"%>
+					<%@ include file="/WEB-INF/inc/log_text03.jsp"%>
 				</div>
 				
 	
@@ -189,14 +189,14 @@
 								<h4 class="modal-title" id="myModalLabel">개인정보 마케팅 활용 동의</h4>
 							</div>
 							<div class="modal-body">
-								<%@ include file="../inc/log_text04.jsp"%>
+								<%@ include file="/WEB-INF/inc/log_text04.jsp"%>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="log_text4"
 					style="overflow: scroll; width: 850px; height: 150px;">
-					<%@ include file="../inc/log_text04.jsp"%>
+					<%@ include file="/WEB-INF/inc/log_text04.jsp"%>
 				</div>
 
 				<div class="agree_checkbox">
@@ -231,14 +231,14 @@
 								<h4 class="modal-title" id="myModalLabel">고객정보 국외이전 동의</h4>
 							</div>
 							<div class="modal-body">
-								<%@ include file="../inc/log_text05.jsp"%>
+								<%@ include file="/WEB-INF/inc/log_text05.jsp"%>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="log_text5"
 					style="overflow: scroll; width: 850px; height: 150px;">
-					<%@ include file="../inc/log_text05.jsp"%>
+					<%@ include file="/WEB-INF/inc/log_text05.jsp"%>
 				</div>
 	
 				<div class="agree_checkbox">
@@ -293,6 +293,6 @@
 			
 			
 	</script>
-	<%@ include file="../inc/footer.jsp"%>
+	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>
 </html>

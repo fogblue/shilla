@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-	<%@ include file="../inc/head.jsp" %>
+	<%@ include file="/WEB-INF/inc/head.jsp" %>
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 	<link rel="stylesheet" type="text/css" href="../css/LogJoin.css">
 	<link rel="stylesheet" type="text/css" href="../css/join.css">
@@ -13,7 +13,7 @@
 <script src="../plugins/ajax-form/jquery.form.min.js"></script>
 </head>
 <body style="overflow-y: hidden;">
-	<%@ include file="../inc/topbar.jsp" %>
+	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<div class="container main">
 		<div class="form-group log-form">
 			<div class="log_bdb">
@@ -47,7 +47,7 @@
 			</div>
 		</div>
 	</div>
-	<%@ include file="../inc/footer.jsp" %>
+	<%@ include file="/WEB-INF/inc/footer.jsp" %>
 	
 	
 	<script type="text/javascript">

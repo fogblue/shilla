@@ -6,7 +6,7 @@
 
 
 <head>
-<%@ include file="../inc/head.jsp"%>
+<%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/iot5/reservation.css">
 <link rel="stylesheet" type="text/css" href="/iot5/rsv_room.css">
 <link rel="stylesheet" type="text/css" href="/iot5/.css">
@@ -186,7 +186,7 @@
 </head>
 
 <body>
-	<%@ include file="../inc/topbar.jsp"%>
+	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<div class="container main">
 		<%-- container start --%>
 
@@ -416,7 +416,7 @@
 		</div>
 	</div>
 	<%-- container end --%>
-	<%@ include file="../inc/footer.jsp"%>
+	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>
 
 </html>

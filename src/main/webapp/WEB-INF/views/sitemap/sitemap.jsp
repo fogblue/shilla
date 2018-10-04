@@ -3,11 +3,11 @@
 <!doctype html>
 <html>
 <head>
-	<%@ include file="../inc/head.jsp" %>
+	<%@ include file="/WEB-INF/inc/head.jsp" %>
 <link rel="stylesheet" type="text/css" href="/iot5/css/sitemap.css">
 </head>
 <body>
-	<%@ include file="../inc/topbar.jsp" %>
+	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="stmp-container main">
 		<div class="stmp-contents">
@@ -108,6 +108,6 @@
 		</div>
 	</div>
 	<!-- ==============끝================== -->
-	<%@ include file="../inc/footer.jsp" %>
+	<%@ include file="/WEB-INF/inc/footer.jsp" %>
 </body>
 </html>

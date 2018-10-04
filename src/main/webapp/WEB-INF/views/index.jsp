@@ -5,10 +5,10 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" href="/assets/css/index.css" />
-<link rel="stylesheet" href="/assets/plugins/youcover/youCover.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/index.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/youcover/youCover.css" />
 <link rel="stylesheet"
-	href="/assets/plugins/lightbox/css/lightbox.min.css" />
+	href="${pageContext.request.contextPath }/assets/plugins/lightbox/css/lightbox.min.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
@@ -19,11 +19,11 @@
 		<h3 class="sm-header">GALLERY</h3>
 		<div class="main_soffcon">
 			<div id="main_mconts">
-				<a href="/assets/img/main_ma1.jpg" data-lightbox="shilla-gallery" data-title="방1"><img src="/assets/img/main_ma1.jpg" /></a>
-				<a href="/assets/img/main_ma2.jpg" data-lightbox="shilla-gallery" data-title="방2"><img src="/assets/img/main_ma2.jpg" /></a>
-				<a href="/assets/img/main_ma3.jpg" data-lightbox="shilla-gallery" data-title="방3"><img src="/assets/img/main_ma3.jpg" /></a>
-				<a href="/assets/img/main_ma4.jpg" data-lightbox="shilla-gallery" data-title="방4"><img src="/assets/img/main_ma4.jpg" /></a>
-				<a href="/assets/img/main_ma5.jpg" data-lightbox="shilla-gallery" data-title="방5"><img src="/assets/img/main_ma5.jpg" /></a>
+				<a href="${pageContext.request.contextPath }/assets/img/main_ma1.jpg" data-lightbox="shilla-gallery" data-title="방1"><img src="${pageContext.request.contextPath }/assets/img/main_ma1.jpg" /></a>
+				<a href="${pageContext.request.contextPath }/assets/img/main_ma2.jpg" data-lightbox="shilla-gallery" data-title="방2"><img src="${pageContext.request.contextPath }/assets/img/main_ma2.jpg" /></a>
+				<a href="${pageContext.request.contextPath }/assets/img/main_ma3.jpg" data-lightbox="shilla-gallery" data-title="방3"><img src="${pageContext.request.contextPath }/assets/img/main_ma3.jpg" /></a>
+				<a href="${pageContext.request.contextPath }/assets/img/main_ma4.jpg" data-lightbox="shilla-gallery" data-title="방4"><img src="${pageContext.request.contextPath }/assets/img/main_ma4.jpg" /></a>
+				<a href="${pageContext.request.contextPath }/assets/img/main_ma5.jpg" data-lightbox="shilla-gallery" data-title="방5"><img src="${pageContext.request.contextPath }/assets/img/main_ma5.jpg" /></a>
 			</div>
 		</div>
 		<h1 class="page-header">홍보영상</h1>
@@ -46,9 +46,9 @@
         {{/item}}
     </script>
 	<!-- Script codes -->
-	<script src="/assets/plugins/youcover/youCover.js"></script>
+	<script src="${pageContext.request.contextPath }/assets/plugins/youcover/youCover.js"></script>
 	<!-- json 데이터를 정의한 외부 파일 로드하기 -->
-	<script src="/assets/plugins/lightbox/js/lightbox.js"></script>
+	<script src="${pageContext.request.contextPath }/assets/plugins/lightbox/js/lightbox.js"></script>
 	<script>
 		lightbox.option({
 			'resizeDuration' : 200,

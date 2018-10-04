@@ -5,7 +5,7 @@
 	<div class="bgc">
 		<div class="fcontainer">
 			<div class="flogo">
-				<a href="/iot5/index.jsp">THESHILLA HOTEL &amp; RESORTS</a>
+				<a href="/WEB-INF/views/index.jsp">THESHILLA HOTEL &amp; RESORTS</a>
 			</div>
 			<div class="pull-left hotelList clearfix">
 				<ul>
@@ -28,9 +28,9 @@
 				</div>
 				<div class="info border-right">
 					<ul class="list-inline">
-						<li><a href="/iot5/info/hotelinfo.jsp">호텔신라 소개</a></li>
-						<li><a href="/iot5/info/contactinfo.jsp">고객문의</a></li>
-						<li><a href="/iot5/sitemap/sitemap.jsp">사이트맵</a></li>
+						<li><a href="/WEB-INF/views/info/hotelinfo.jsp">호텔신라 소개</a></li>
+						<li><a href="/WEB-INF/views/info/contactinfo.jsp">고객문의</a></li>
+						<li><a href="/WEB-INF/views/sitemap/sitemap.jsp">사이트맵</a></li>
 					</ul>
 				</div>
 				<div class="sns">
@@ -50,7 +50,7 @@
 	<div class="fcontainer">
 		<div class="bottom">
 			<ul class="list-inline">
-				<li class="border-right"><a href="/iot5/inc/mem_policy.jsp">개인정보처리방침</a></li>
+				<li class="border-right"><a href="/WEB-INF/inc/mem_policy.jsp">개인정보처리방침</a></li>
 				<li class="border-right"><a href="#f_spamming" id="spamwaring">이메일무단수집금지</a></li>
 				<li><a href="https://www.shillaaudit.com/audit/inf_information.do">윤리경영(부정제보)</a></li>
 			</ul>

@@ -17,20 +17,20 @@
 			<button class="btn btn-topbar1">예약</button>
 		</div>
 		<div class="box1">
-			<a href="/iot5/index.jsp"><span class="pull-left logo">My
+			<a href="/WEB-INF/views/index.jsp"><span class="pull-left logo">My
 					Site</span></a>
 		</div>
 		<ul class="menu2 list-inline pull-right">
-			<li class="menu-item2 br"><a href="/iot5/login/log_main.jsp">로그인&nbsp;</a></li>
-			<li class="menu-item2 br"><a href="/iot5/login/log_join01.jsp">회원 가입&nbsp;</a></li>
-			<li class="menu-item2"><a href="/iot5/mypage/mypg_reservation.jsp">예약 확인</a></li>
+			<li class="menu-item2 br"><a href="/WEB-INF/views/login/log_main.jsp">로그인&nbsp;</a></li>
+			<li class="menu-item2 br"><a href="/WEB-INF/views/login/log_join01.jsp">회원 가입&nbsp;</a></li>
+			<li class="menu-item2"><a href="/WEB-INF/views/mypage/mypg_reservation.jsp">예약 확인</a></li>
 
 		</ul>
 		<div>
 			<ul class="menu3 list-inline pull-right downrow">
-				<li class="menu-item"><a href="/iot5/info/hotelinfo.jsp"><button
+				<li class="menu-item"><a href="/WEB-INF/views/info/hotelinfo.jsp"><button
 							class="btn btn-topbar">호텔신라 소개</button></a></li>
-				<li class="menu-item"><a href="/iot5/info/contactinfo.jsp"><button
+				<li class="menu-item"><a href="/WEB-INF/views/info/contactinfo.jsp"><button
 							class="btn btn-topbar">고객문의</button></a></li>
 				<li class="menu-item"><button class="btn btn-topbar">신라리워즈</button></li>
 			</ul>

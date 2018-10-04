@@ -17,23 +17,23 @@
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 
 <!-- CSS 참조 -->
-<link rel="stylesheet" type="text/css" href="/iot5/css/topbar.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/sidebar.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/reservation.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/join.css" />
-<link rel="stylesheet" type="text/css" href="/iot5/plugins/animate/animate.css" />
-<link rel="stylesheet" type="text/css" href="/iot5/plugins/datepicker/datepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/topbar.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/sidebar.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/join.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/animate/animate.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/datepicker/datepicker.min.css" />
 
 <!-- 플러그인 JS 참조 -->
-<script src="/iot5/plugins/headroom/features.js"></script>
-<script src="/iot5/plugins/headroom/Debouncer.js"></script>
-<script src="/iot5/plugins/headroom/Headroom.js"></script>
-<script src="/iot5/plugins/headroom/jQuery.headroom.js"></script>
-<script src="/iot5/plugins/animate/jquery.animatecss.min.js"></script>
-<script src="/iot5/plugins/handlebars/handlebars-v4.0.5.js"></script>
-<script src="/iot5/plugins/datepicker/datepicker.min.js"></script>
-<script src="/iot5/plugins/datepicker/i18n/datepicker.ko-KR.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/features.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/Debouncer.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/Headroom.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/jQuery.headroom.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/animate/jquery.animatecss.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/handlebars/handlebars-v4.0.5.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/datepicker/datepicker.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/datepicker/i18n/datepicker.ko-KR.js"></script>
 
 <!-- Ajax Helper -->
-<script src="/iot5/plugins/ajax/ajax_helper.js"></script>
-<link rel="stylesheet" type="text/css" href="/iot5/plugins/ajax/ajax_helper.css" />
+<script src="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.css" />

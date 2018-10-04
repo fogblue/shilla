@@ -17,6 +17,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 
 <!-- CSS 참조 -->
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/assets/css/topbar.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/sidebar.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/reservation.css">
@@ -37,3 +38,25 @@
 <!-- Ajax Helper -->
 <script src="/assets/plugins/ajax/ajax_helper.js"></script>
 <link rel="stylesheet" type="text/css" href="/assets/plugins/ajax/ajax_helper.css" />
+=======
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/topbar.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/sidebar.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/join.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/animate/animate.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/datepicker/datepicker.min.css" />
+
+<!-- 플러그인 JS 참조 -->
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/features.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/Debouncer.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/Headroom.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/headroom/jQuery.headroom.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/animate/jquery.animatecss.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/handlebars/handlebars-v4.0.5.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/datepicker/datepicker.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/datepicker/i18n/datepicker.ko-KR.js"></script>
+
+<!-- Ajax Helper -->
+<script src="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.css" />
+>>>>>>> 05920355866b54a5389dbd4190dd434fca993640

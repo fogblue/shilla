@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<link rel="stylesheet" type="text/css" href="/iot5/plugins/superslides/stylesheets/superslides.css">
-<script src="/iot5/plugins/superslides/jquery.easing.1.3.js"></script>
-<script src="/iot5/plugins/superslides/jquery.superslides.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/superslides/stylesheets/superslides.css">
+<script src="${pageContext.request.contextPath }/assets/plugins/superslides/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/superslides/jquery.superslides.min.js"></script>
 
 <!-- 슬라이드의 부모(높이와 넓이를 구성한다) -->
 <div id="slide-container">
@@ -13,19 +13,19 @@
 			<li>
 				<div class="slide-contents">
 					<div class="slide-contents-cell"></div>
-				</div> <img src="img/R0000000P5J9_KR.jpg" />
+				</div> <img src="${pageContext.request.contextPath }/assets/img/R0000000P5J9_KR.jpg" />
 			</li>
 			<!-- 슬라이드 2 -->
 			<li>
 				<div class="slide-contents">
 					<div class="slide-contents-cell"></div>
-				</div> <img src="img/R0000000P5J1_KR.jpg" />
+				</div> <img src="${pageContext.request.contextPath }/assets/img/R0000000P5J1_KR.jpg" />
 			</li>
 			<!-- 슬라이드 3 -->
 			<li>
 				<div class="slide-contents">
 					<div class="slide-contents-cell"></div>
-				</div> <img src="img/R0000000P5VD_KR.jpg" />
+				</div> <img src="${pageContext.request.contextPath }/assets/img/R0000000P5VD_KR.jpg" />
 			</li>
 		</ul>
 	</div>

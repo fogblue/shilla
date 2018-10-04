@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 
 <!-- CSS 참조 -->
-<<<<<<< HEAD
+
 <link rel="stylesheet" type="text/css" href="/assets/css/topbar.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/sidebar.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/reservation.css">
@@ -36,9 +36,6 @@
 <script src="/assets/plugins/datepicker/i18n/datepicker.ko-KR.js"></script>
 
 <!-- Ajax Helper -->
-<script src="/assets/plugins/ajax/ajax_helper.js"></script>
-<link rel="stylesheet" type="text/css" href="/assets/plugins/ajax/ajax_helper.css" />
-=======
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/topbar.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/sidebar.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/reservation.css">
@@ -59,4 +56,4 @@
 <!-- Ajax Helper -->
 <script src="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.css" />
->>>>>>> 05920355866b54a5389dbd4190dd434fca993640
+

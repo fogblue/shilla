@@ -55,7 +55,7 @@
 								<td>예약상태</td>
 							</tr>
 							<tr>
-								<td colspan="5">자료가 없습니다.</td>
+								<td colspan="5"><a href="/iot5/mypage/mypg_reservation_2.jsp">자료가 없습니다.</a></td>
 							</tr>
 						</table>
 					</div>

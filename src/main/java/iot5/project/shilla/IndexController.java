@@ -16,15 +16,16 @@ public class IndexController {
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+
 	public ModelAndView home(Locale locale, Model model) {
-		logger.debug("대문입장");
+		logger.info("대문입장");
 		
 		return new ModelAndView("index");
 	}
 	
 	@RequestMapping(value = "/mem_policy.do", method = RequestMethod.GET)
 	public ModelAndView policy(Locale locale, Model model) {
-		logger.debug("개인정보");
+		logger.info("개인정보");
 		
 		return new ModelAndView("mem_policy");
 	}

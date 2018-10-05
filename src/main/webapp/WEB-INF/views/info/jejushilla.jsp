@@ -5,8 +5,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" href="/iot5/css/info.css" />
-<link rel="stylesheet" href="/iot5/css/i_seoul.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/info.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/i_seoul.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
@@ -16,10 +16,10 @@
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">호텔신라 소개</h3>
 			<!-- 메뉴 들어갈 곳 -->
-			<a href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a> <a
-				href="/iot5/info/seoulshilla.jsp" class="imenu">서울신라호텔</a> <a
-				href="/iot5/info/jejushilla.jsp" class="imenu">제주신라호텔</a> <a
-				href="/iot5/info/awards.jsp" class="imenu">수상이력</a>
+			<a href="${pageContext.request.contextPath}/info/hotelinfo.do" class="imenu">개요</a> <a
+				href="${pageContext.request.contextPath}/info/seoulshilla.do" class="imenu">서울신라호텔</a> <a
+				href="${pageContext.request.contextPath}/info/jejushilla.do" class="imenu">제주신라호텔</a> <a
+				href="${pageContext.request.contextPath}/info/awards.do" class="imenu">수상이력</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
@@ -31,7 +31,7 @@
 			</div>
 			<!-- 본문 영역 -->
 			<div class="imgbox">
-				<img src="/iot5/img/jejuMainImg.jpg" alt="jeju main image" />
+				<img src="${pageContext.request.contextPath}/assets/img/jejuMainImg.jpg" alt="jeju main image" />
 			</div>
 			<br />
 			<table class="contentbox">
@@ -58,7 +58,7 @@
 			</table>
 			<hr />
 			<div class="shillainfo">
-				<img src="/iot5/img/jejuInfo.jpg" alt="The Shilla Info" />
+				<img src="${pageContext.request.contextPath}/assets/img/jejuInfo.jpg" alt="The Shilla Info" />
 				<ul class="list-inline ij_logo">
 					<li class="ij_fb"><a
 						href="https://www.facebook.com/theshillajeju" target="_blank">Facebook</a></li>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" href="/iot5/css/info.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/info.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
@@ -15,10 +15,10 @@
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">호텔신라 소개</h3>
 			<!-- 메뉴 들어갈 곳 -->
-			<a href="/iot5/info/hotelinfo.jsp" class="imenu">개요</a>
-			<a href="/iot5/info/seoulshilla.jsp" class="imenu">서울신라호텔</a>
-			<a href="/iot5/info/jejushilla.jsp" class="imenu">제주신라호텔</a>
-			<a href="/iot5/info/awards.jsp" class="imenu">수상이력</a>
+			<a href="${pageContext.request.contextPath}/info/hotelinfo.do" class="imenu">개요</a>
+			<a href="${pageContext.request.contextPath}/info/seoulshilla.do" class="imenu">서울신라호텔</a>
+			<a href="${pageContext.request.contextPath}/info/jejushilla.do" class="imenu">제주신라호텔</a>
+			<a href="${pageContext.request.contextPath}/info/awards.do" class="imenu">수상이력</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div class="imgbox">
-				<img src="/iot5/img/brandMainImg.jpg" alt="exmimg" />
+				<img src="${pageContext.request.contextPath}/assets/img/brandMainImg.jpg" alt="exmimg" />
 			</div>
 			<br />
 			<div class="con1">

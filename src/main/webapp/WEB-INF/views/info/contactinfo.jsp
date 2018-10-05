@@ -5,8 +5,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" href="/iot5/css/info.css" />
-<link rel="stylesheet" type="text/css" href="/iot5/css/enquiry.css" />
+<link rel="stylesheet" href="/${pageContext.request.contextPath}/assets/css/info.css" />
+<link rel="stylesheet" type="text/css" href="/${pageContext.request.contextPath}/assets/css/enquiry.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
@@ -16,8 +16,8 @@
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">고객문의</h3>
 			<!-- 메뉴 들어갈 곳 -->
-			<a href="/iot5/info/contactinfo.jsp" class="imenu">연락처</a>
-			<a href="/iot5/info/inquiry.jsp" class="imenu">문의하기</a>
+			<a href="/${pageContext.request.contextPath}/info/contactinfo.do" class="imenu">연락처</a>
+			<a href="/${pageContext.request.contextPath}/info/inquiry.do" class="imenu">문의하기</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">

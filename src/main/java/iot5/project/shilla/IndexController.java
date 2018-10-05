@@ -16,7 +16,7 @@ public class IndexController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.debug("대문입장");
+		logger.info("대문입장");
 		
 		return "index";
 	}

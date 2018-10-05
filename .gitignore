@@ -40,3 +40,4 @@ local.properties
 .target
 /build/
 pom.properties
+pom.xml

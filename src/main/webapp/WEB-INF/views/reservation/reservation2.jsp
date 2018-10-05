@@ -7,9 +7,8 @@
 
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/reservation.css">
-<link rel="stylesheet" type="text/css" href="/iot5/rsv_room.css">
-<link rel="stylesheet" type="text/css" href="/iot5/.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/rsv_room.css">
 <style>
 .rsv_cont {
 	margin-top: 30px;
@@ -192,7 +191,7 @@
 
 
 		<div class="rsv_step">
-			<span class="rsv_stepimg">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
+			<span class="rsv_step2img">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
 				Step3. 고객 정보 입력 Step4. 예약 완료 /확인</span>
 		</div>
 		<div class="rsv_cont">
@@ -317,6 +316,12 @@
 							</ul>
 						</div>
 					</div>
+				</div>
+				<div>
+					<button class="btn btn-md rsv_prevbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.jsp">&lt;SETP 1</button>
+				</div>
+				<div>
+					<button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation3.jsp'">회원예약</button>
 				</div>
 			</div>
 

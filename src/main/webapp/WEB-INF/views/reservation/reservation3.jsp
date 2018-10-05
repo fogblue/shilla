@@ -7,9 +7,8 @@
 
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/reservation.css">
-<link rel="stylesheet" type="text/css" href="/iot5/rsv_room.css">
-<link rel="stylesheet" type="text/css" href="/iot5/.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/rsv_room.css">
 <style>
 .rsv_cont {
 	margin-top: 30px;
@@ -192,7 +191,7 @@
 
 
 		<div class="rsv_step">
-			<span class="rsv_stepimg">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
+			<span class="rsv_step3img">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
 				Step3. 고객 정보 입력 Step4. 예약 완료 /확인</span>
 		</div>
 		<div class="rsv_cont">
@@ -275,7 +274,7 @@
 <li>어린이 동반 고객을 위한 영유아 용품(아기 욕조, 아기 침대, 어린이 베개<br>
  및 아동용 배스로브와 슬리퍼)은&nbsp;객실예약과를&nbsp;통해 사전&nbsp;요청 가능하며,<br>
  이용 상황에 따라 조기 마감될 수 있습니다.<br> (단, 유모차는 현장에서만 대여 가능합니다.)</li> 
-<li class="last">자세한 객실안내는 객실예약과(02-2230-3310)로 문의 바랍니다.</li> 
+<li class="last">자세한 객실안내는 객실예약과(02-2230-3310)로 문의 바랍니다.</li>  
 </ul> </li> 
 <li class="last"> 
 <ul class="addDesc"> 

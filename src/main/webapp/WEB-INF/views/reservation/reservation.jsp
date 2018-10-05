@@ -6,9 +6,8 @@
 
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/reservation.css">
-<link rel="stylesheet" type="text/css" href="/iot5/rsv_room.css">
-<link rel="stylesheet" type="text/css" href="/iot5/.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_roomselect.css">
 </head>
 
 <body>
@@ -182,7 +181,7 @@
 				$("#rsv_roomsearchbtn").click(function(e) {
 					$("#rsv_contents_box2").empty();
 					$.ajax({
-						url : "/iot5/reservation/rsv_roomselect.html",
+						url : "${pageContext.request.contextPath}/reservation/rsv_roomselect.html",
 						method : "get",
 						data : {},
 						dataType : "html",

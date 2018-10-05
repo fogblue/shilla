@@ -17,20 +17,23 @@
 			<button class="btn btn-topbar1">예약</button>
 		</div>
 		<div class="box1">
-			<a href="${pageContext.request.contextPath }/WEB-INF/views/index.jsp"><span class="pull-left logo">My
+
+			<a href="${pageContext.request.contextPath}/"><span class="pull-left logo">My
 					Site</span></a>
 		</div>
 		<ul class="menu2 list-inline pull-right">
-			<li class="menu-item2 br"><a href="${pageContext.request.contextPath }/WEB-INF/views/login/log_main.jsp">로그인&nbsp;</a></li>
-			<li class="menu-item2 br"><a href="${pageContext.request.contextPath }/WEB-INF/views/login/log_join01.jsp">회원 가입&nbsp;</a></li>
-			<li class="menu-item2"><a href="${pageContext.request.contextPath }/WEB-INF/views/mypage/mypg_reservation.jsp">예약 확인</a></li>
+			<li class="menu-item2 br"><a href="${pageContext.request.contextPath }/login/log_main.do">로그인&nbsp;</a></li>
+			<li class="menu-item2 br"><a href="${pageContext.request.contextPath }/login/log_join01.do">회원 가입&nbsp;</a></li>
+			<li class="menu-item2"><a href="${pageContext.request.contextPath }/mypage/mypg_reservation.do">예약 확인</a></li>
+
 
 		</ul>
 		<div>
 			<ul class="menu3 list-inline pull-right downrow">
-				<li class="menu-item"><a href="${pageContext.request.contextPath }/WEB-INF/views/info/hotelinfo.jsp"><button
+
+				<li class="menu-item"><a href="${pageContext.request.contextPath }/info/hotelinfo.do"><button
 							class="btn btn-topbar">호텔신라 소개</button></a></li>
-				<li class="menu-item"><a href="${pageContext.request.contextPath }/WEB-INF/views/info/contactinfo.jsp"><button
+				<li class="menu-item"><a href="${pageContext.request.contextPath }/info/contactinfo.do"><button
 							class="btn btn-topbar">고객문의</button></a></li>
 				<li class="menu-item"><button class="btn btn-topbar">신라리워즈</button></li>
 			</ul>

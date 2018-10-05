@@ -5,8 +5,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
 <script src="regex.js"></script>
   
 </head>
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="log_body">
-		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="log_join02.jsp">
+		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="log_join02.do">
 			<div class="bdbb1">
 				<h4>약관동의</h4>
 			</div>

@@ -54,7 +54,7 @@
 		<div class="bottom">
 			<ul class="list-inline">
 
-				<li class="border-right"><a href="${pageContext.request.contextPath}/inc/mem_policy.do">개인정보처리방침</a></li>
+				<li class="border-right"><a href="${pageContext.request.contextPath}/mem_policy.do">개인정보처리방침</a></li>
 				<li class="border-right"><a href="#f_spamming" id="spamwaring">이메일무단수집금지</a></li>
 				<li><a href="https://www.shillaaudit.com/audit/inf_information.do">윤리경영(부정제보)</a></li>
 			</ul>

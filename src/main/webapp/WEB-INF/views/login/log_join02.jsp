@@ -92,7 +92,7 @@
 						</label>
 						<div class="col-md-10 calendar_box">
 							<input type="text" id="datepicker" readonly /> <img
-								id="show-cal" class="calendar_img" src="../img/calendar.png"
+								id="show-cal" class="calendar_img" src="${pageContext.request.contextPath}/assets/img/calendar.png"
 								height="20">
 						</div>
 					</div>

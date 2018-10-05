@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
 
 
 @Controller
@@ -17,24 +19,34 @@ private static final Logger logger = LoggerFactory.getLogger(loginController.cla
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/login/log_main.do", method = RequestMethod.GET)
-	public String log_main(Locale locale, Model model) {
+	public ModelAndView log_main(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {log_main}.", locale);
-		return "login/log_main";
+		return new ModelAndView("login/log_main");
+	}
+	@RequestMapping(value = "/login/log_user",method = RequestMethod.GET)
+	public ModelAndView log_user(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {log_join01}.", locale);
+		return new ModelAndView("login/log_user");
+	}
+	@RequestMapping(value = "/login/log_unuser",method = RequestMethod.GET)
+	public ModelAndView log_unuser(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {log_join01}.", locale);
+		return new ModelAndView("login/log_unuser");
 	}
 	@RequestMapping(value = "/login/log_join01.do", method = RequestMethod.GET)
-	public String log_join01(Locale locale, Model model) {
+	public ModelAndView log_join01(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {log_join01}.", locale);
-		return "login/log_join01";
+		return new ModelAndView("login/log_join01");
 	}
-	@RequestMapping(value = "/login/log_join02.do", method = RequestMethod.GET)
-	public String log_join02(Locale locale, Model model) {
+	@RequestMapping(value = "/login/log_join02.do", method = RequestMethod.POST)
+	public ModelAndView log_join02(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {log_join02}.", locale);
-		return "login/log_join02";
+		return new ModelAndView("login/log_join02");
 	}
-	@RequestMapping(value = "/login/log_join03.do", method = RequestMethod.GET)
-	public String log_join03(Locale locale, Model model) {
+	@RequestMapping(value = "/login/log_join03.do", method = RequestMethod.POST)
+	public ModelAndView log_join03(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {log_join03}.", locale);
-		return "login/log_join03";
+		return new ModelAndView("login/log_join03");
 	}
 	
 }

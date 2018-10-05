@@ -7,8 +7,8 @@
 <meta charset="utf-8" />
 <title>개인정보처리방침</title>
 <%@ include file="../inc/head.jsp"%>
-<link rel="stylesheet" href="/iot5/css/info.css" />
-<link rel="stylesheet" href="/iot5/css/policy.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/info.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/policy.css" />
 </head>
 <body>
 	<%@ include file="../inc/topbar.jsp"%>

@@ -12,21 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
-	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
-	/*@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("대문입장");
-		
-		return "index";
-	}*/
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(Locale locale, Model model) {
+	public ModelAndView index(Locale locale, Model model) {
 		logger.info("대문입장");
-		
 		return new ModelAndView("index");
 	}
 	
+	@RequestMapping(value = "/mem_policy.do", method = RequestMethod.GET)
+	public ModelAndView policy(Locale locale, Model model) {
+		logger.info("개인정보");
+		
+		return new ModelAndView("mem_policy");
+	}
 }

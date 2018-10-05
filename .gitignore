@@ -39,5 +39,4 @@ local.properties
 .buildpath
 .target
 /build/
-pom.xml
 pom.properties

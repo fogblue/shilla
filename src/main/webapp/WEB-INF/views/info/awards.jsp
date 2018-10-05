@@ -5,8 +5,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/info.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/awards.css" />
+<link rel="stylesheet" href="/assets/css/info.css" />
+<link rel="stylesheet" href="/assets/css/awards.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
@@ -174,3 +174,4 @@
 	<!-- ==================================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>
+</html>

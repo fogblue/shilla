@@ -16,43 +16,32 @@ public class InfoController {
 
 	@RequestMapping(value = "/info/awards.do", method = RequestMethod.GET)
 	public ModelAndView awards(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("Welcome to awards page! The client locale is {}.", locale);
 
 		return new ModelAndView("info/awards");
 	}
 
 	@RequestMapping(value = "/info/hotelinfo.do", method = RequestMethod.GET)
 	public ModelAndView hotelinfo(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("Welcome to hotel info page! The client locale is {}.", locale);
 
 		return new ModelAndView("info/hotelinfo");
 	}
 
-	@RequestMapping(value = "/info/inquiry.do", method = RequestMethod.GET)
-	public ModelAndView inquiry(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
-		return new ModelAndView("info/inquiry");
-	}
+	
 
 	@RequestMapping(value = "/info/jejushilla.do", method = RequestMethod.GET)
 	public ModelAndView jejushilla(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("Welcome to jeju shilla page! The client locale is {}.", locale);
 		
 		return new ModelAndView("info/jejushilla");
 	}
 
 	@RequestMapping(value = "/info/seoulshilla.do", method = RequestMethod.GET)
 	public ModelAndView seoulshilla(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("Welcome to seoul shilla page! The client locale is {}.", locale);
 
 		return new ModelAndView("info/seoulshilla");
 	}
 	
-	@RequestMapping(value = "/info/contactinfo.do", method = RequestMethod.GET)
-	public ModelAndView contactinfo(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		return new ModelAndView("info/contactinfo");
-	}
 }

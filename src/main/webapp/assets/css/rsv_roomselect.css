@@ -1,16 +1,17 @@
-
-
 .rsv_roomlistbox {
 	width: 1200px;
-	height: 350px;
-	margin-top: 20px;
+	height: 375px;
+	margin-top: 30px;
+	border-bottom: 1px solid #c0b7ab;
 }
 
 .rsv_roomlistbox2 {
 	width: 1200px;
-	height: 350px;
-	margin-top: 20px;
+	height: 600px;
+	margin-top: 30px;
+	border-bottom: 1px solid #c0b7ab;
 }
+
 
 .clearfix:after {
 	content: '';
@@ -122,6 +123,10 @@
 	border-bottom: 1px solid #81725f;
 }
 
+
+.rsv_content1_2 {
+	border-top: 1px solid #81725f;
+}
 .rsv_content1-1-1 {
 	float: left;
 	margin-top: 15px;

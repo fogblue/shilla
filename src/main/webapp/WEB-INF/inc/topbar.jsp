@@ -25,11 +25,6 @@
 			<li class="menu-item2 br"><a href="${pageContext.request.contextPath }/login/log_main.do">로그인&nbsp;</a></li>
 			<li class="menu-item2 br"><a href="${pageContext.request.contextPath }/login/log_join01.do">회원 가입&nbsp;</a></li>
 			<li class="menu-item2"><a href="${pageContext.request.contextPath }/mypage/mypg_reservation.do">예약 확인</a></li>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> b437ef7293ba6a033f5e6777f24d5219bca28866
 		</ul>
 		<div>
 			<ul class="menu3 list-inline pull-right downrow">

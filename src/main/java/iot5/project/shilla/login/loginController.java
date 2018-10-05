@@ -8,11 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import iot5.project.shilla.HomeController;
 
 @Controller
 public class loginController {
-private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+private static final Logger logger = LoggerFactory.getLogger(loginController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.

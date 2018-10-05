@@ -23,7 +23,7 @@
 		<ul class="menu2 list-inline pull-right">
 			<li class="menu-item2 br"><a href="/WEB-INF/views/login/log_main.jsp">로그인&nbsp;</a></li>
 			<li class="menu-item2 br"><a href="/WEB-INF/views/login/log_join01.jsp">회원 가입&nbsp;</a></li>
-			<li class="menu-item2"><a href="/WEB-INF/views/mypage/mypg_reservation.jsp">예약 확인</a></li>
+			<li class="menu-item2"><a href="/WEB-INF/views/mypage/mypg_reservation.do">예약 확인</a></li>
 
 		</ul>
 		<div>

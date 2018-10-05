@@ -15,10 +15,31 @@ public class ReservController {
 	private static final Logger logger = LoggerFactory.getLogger(ReservController.class);
 
 	@RequestMapping(value = "/reservation/reservation.do", method = RequestMethod.GET)
-	public ModelAndView reserv(Locale locale, Model model) {
+	public ModelAndView reservation(Locale locale, Model model) {
 		logger.info("Your locale is", locale);
 
 		return new ModelAndView("reservation/reservation");
+	}
+	
+	@RequestMapping(value = "/reservation/rsv_roomselect.do", method = RequestMethod.GET)
+	public ModelAndView rsv_roomselect(Locale locale, Model model) {
+		logger.info("Your locale is", locale);
+
+		return new ModelAndView("reservation/rsv_roomselect");
+	}
+	
+	@RequestMapping(value = "/reservation/reservation2.do", method = RequestMethod.GET)
+	public ModelAndView reservation2(Locale locale, Model model) {
+		logger.info("Your locale is", locale);
+
+		return new ModelAndView("reservation/reservation2");
+	}
+	
+	@RequestMapping(value = "/reservation/reservation3.do", method = RequestMethod.GET)
+	public ModelAndView reservation3(Locale locale, Model model) {
+		logger.info("Your locale is", locale);
+
+		return new ModelAndView("reservation/reservation3");
 	}
 
 }

@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
 	<div class="container2">
 		<div>
 			<!-- 탭 버튼 구성 -->
@@ -16,14 +18,14 @@
 					</div>
 					
 					<!-- rsv_roomlistbox start -->
-<!-- 리스트 1개 시작 ============================================================================================================================================================================== -->
+
 					<div class="rsv_roomlistbox">
 						<div class="rlbox ">
-<!-- ----------------------------------------------------------------------------------------------------- -->
+
 						<div class="rsv_thumb clearfix">
-							<img src="../img/rsv_packageimg1.jpg" alt="이미지1" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
 						</div>
-<!-- ----------------------------------------------------------------------------------------------------- -->
+
 						<div class="rsv_text">
 							<ul>
 								<li class="rsv_text_1">Autumn Rooftop</li>
@@ -34,7 +36,7 @@
 <!-- ----------------------------------------------------------------------------------------------------- -->						
 						<div class="rsv_thumb2 clearfix">
 							<!-- 예약하기 버튼 시작 -->
-							<img src="../img/rsv_roomrsvimg1.gif" alt="이미지2" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_roomrsvimg1.gif" alt="이미지2" />
 						</div>
 						<!--// 예약하기 버튼 끝 -->
 						</div>
@@ -65,7 +67,7 @@
 											<h4 class="modal-title">혜택 및 이용안내</h4>
 										</div>
 										<div class="modal-body">
-											<img src="../img/rsv_autumnrooftop.jpg" alt="이미지1" /> </br> </br>
+											<img src="${pageContext.request.contextPath}/assets/img/rsv_autumnrooftop.jpg" alt="이미지1" /> </br> </br>
 											<p>석양을 눈에 담으며 즐기는 시원한 맥주와 풍성한 메뉴</p>
 											</br>
 											<p>2018-09-07 ~ 2018-10-21</p>
@@ -105,7 +107,7 @@
 								<div class='rsv_collapse-item'>
 									<!-- 게시글 제목영역 -->
 									<div class='rsv_collapse-title'>
-										[Standard] Business Deluxe<button class="btn btn-sm rsv_selectbtn" onclick="location.href='/iot5/reservation/reservation2.jsp'">선택</button>
+										[Standard] Business Deluxe<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 									</div>
 									<!-- 게시글 내용영역 -->
 									<div id="rsv_content1" class="rsv_content">
@@ -145,7 +147,7 @@
 					
 					<div class="rsv_roomlistbox2">
 						<div class="rsv_thumb clearfix">
-							<img src="../img/rsv_packageimg2.jpg" alt="이미지1" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg2.jpg" alt="이미지1" />
 						</div>
 						<div class="rsv_text">
 							<ul>
@@ -159,7 +161,7 @@
 						</div>
 						<div class="rsv_thumb2">
 							<!-- 예약하기 버튼 시작 -->
-							<img src="../img/rsv_roomrsvimg1.gif" alt="이미지2" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_roomrsvimg1.gif" alt="이미지2" />
 						</div>
 						<!--// 예약하기 버튼 끝 -->
 
@@ -186,7 +188,7 @@
 											<h4 class="modal-title">혜택 및 이용안내</h4>
 										</div>
 										<div class="modal-body">
-											<div class="rsv_modal2img"><img src="../img/rsv_rewardsurbanrooftop.jpg" alt="이미지1" /></div> </br> </br>
+											<div class="rsv_modal2img"><img src="${pageContext.request.contextPath}/assets/img/rsv_rewardsurbanrooftop.jpg" alt="이미지1" /></div> </br> </br>
 											<p>어번 아일랜드에서의 여유로운 수영과 루프탑에서 즐기는 풍성한 메뉴로 가을 밤의 정취를 만끽해 보세요.</p>
 											</br>
 											<p>기간 : 2018년 9월 7일 ~ 10월 21일</p>
@@ -229,7 +231,7 @@
 								<div class='rsv_collapse-item'>
 									<!-- 게시글 제목영역 -->
 									<div class='rsv_collapse-title'>
-										[Standard] Business Deluxe<button class="btn btn-sm rsv_selectbtn" onclick="location.href='/iot5/reservation/reservation2.jsp'">선택</button>
+										[Standard] Business Deluxe<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 									</div>
 									<!-- 게시글 내용영역 -->
 									<div id="rsv_content1" class="rsv_content">
@@ -266,7 +268,7 @@
 					</div>
 					<div class="rsv_roomlistbox">
 						<div class="rsv_thumb">
-							<img src="../img/rsv_packageimg1.jpg" alt="이미지1" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
 						</div>
 						<div class="rsv_text">
 							<ul>
@@ -276,7 +278,7 @@
 							</ul>
 						</div>
 						<div class="rsv_thumb2">
-							<img src="../img/rsv_roomrsvimg1.gif" alt="이미지2" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_roomrsvimg1.gif" alt="이미지2" />
 						</div>
 						<div class="rsv_text2">
 							<ul>
@@ -296,7 +298,7 @@
 					</div>
 					<div class="rsv_roomlistbox">
 						<div class="rsv_thumb">
-							<img src="../img/rsv_packageimg1.jpg" alt="이미지1" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
 						</div>
 						<div class="rsv_text">
 							<ul>
@@ -306,7 +308,7 @@
 							</ul>
 						</div>
 						<div class="rsv_thumb2">
-							<img src="../img/rsv_roomrsvimg1.gif" alt="이미지2" />
+							<img src="${pageContext.request.contextPath}/assets/img/rsv_roomrsvimg1.gif" alt="이미지2" />
 						</div>
 						<div class="rsv_text2">
 							<ul>

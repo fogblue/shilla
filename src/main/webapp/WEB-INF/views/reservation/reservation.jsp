@@ -181,7 +181,7 @@
 				$("#rsv_roomsearchbtn").click(function(e) {
 					$("#rsv_contents_box2").empty();
 					$.ajax({
-						url : "${pageContext.request.contextPath}/reservation/rsv_roomselect.html",
+						url : "${pageContext.request.contextPath}/reservation/rsv_roomselect.do",
 						method : "get",
 						data : {},
 						dataType : "html",

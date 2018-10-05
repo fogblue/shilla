@@ -1,10 +1,6 @@
-body {
-	-ms-overflow-style: none; /* IE 10+ */
-	overflow: hidden scroll; /* Firefox */
-}
 
-body::-webkit-scrollbar {
-	display: none; /* Safari and Chrome */
+ul, li {
+	list-style: none;
 }
 
 .bdb h3 {

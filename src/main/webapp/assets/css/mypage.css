@@ -488,57 +488,196 @@ body::-webkit-scrollbar {
 /*------------------------------------------------------------
 	| 컨텐츠 설정 - mypg_reservation_2.jsp
 -------------------------------------------------------------*/
-.mypg-rsvt-2-title {
+.mypg-rsvt2-title {
 	margin: 0;
 	font-weight: bold;
 }
 
-.mypg-rsvt-2-txtbox {
+.mypg-rsvt2-txtbox {
 	height: 35px;
 	border: 1px solid #e9e9e9;
 	background-color: #fbfbfb;
-	margin: 20px 0;
+	margin: 15px 0 10px 0;
 	padding-left: 20px;
 	line-height: 35px;
 }
 
-.mypg-rsvt-2-modal-link {
+.mypg-rsvt2-modal-link {
 	display: inline !important;
 	font-weight: bold;
 	text-decoration: underline !important;
 	color: #6e583e !important;
 }
 
-.mypg-rsvt-2-title-1 {
+.mypg-rsvt2-title-1 {
 	font-size: 15px !important;
 	font-weight: bold;
+	display: inline-block;
 }
 
-.mypg-rsvt-2-contents-table {
+.mypg-rsvt2-bd {
+	border: 1px solid #e3d6c6;
+	padding: 20px 20px 50px 20px;
+	min-height: 840px;
+}
+
+.mypg-rsvt2-bd div:nth-child(3) button {
+	margin-top: 5px;;
+}
+/*--------------------- table-1 ------------------------*/
+.mypg-rsvt2-contents-table {
 	width: 100%;
 	border-top: 1px solid #cdcbbe;
 	border-bottom: 1px solid #cdcbbe;
 }
 
-.mypg-rsvt-2-contents-table tr:nth-child(1) {
+.mypg-rsvt2-contents-table tr:nth-child(1) {
 	min-height: 35px;
 }
 
-.mypg-rsvt-2-contents-table tr:nth-child(1),
-.mypg-rsvt-2-contents-table tr:nth-child(2),
-.mypg-rsvt-2-contents-table tr:nth-child(3),
-.mypg-rsvt-2-contents-table tr:nth-child(4),
-.mypg-rsvt-2-contents-table tr:nth-child(5) {
+.mypg-rsvt2-contents-table tr:nth-child(1),
+.mypg-rsvt2-contents-table tr:nth-child(2),
+.mypg-rsvt2-contents-table tr:nth-child(3),
+.mypg-rsvt2-contents-table tr:nth-child(4),
+.mypg-rsvt2-contents-table tr:nth-child(5) {
 	border-bottom: 1px solid #eceae1;
 } 
 
-.mypg-rsvt-2-contents-table td {
+.mypg-rsvt2-contents-table td {
 	padding-left: 15px;
 }
 
-.mypg-rsvt-2-contents-table td:nth-child(1),
-.mypg-rsvt-2-contents-table td:nth-child(3) {
+.mypg-rsvt2-contents-table td:nth-child(1),
+.mypg-rsvt2-contents-table td:nth-child(3) {
 	background-color: #faf9f4;
 	color: #666666;
 	font-weight: bold;
+}
+/*--------------------- table-2 ------------------------*/
+.mypg-rsvt2-contents-table-2 {
+	width: 100%;
+	border-top: 1px solid #9c8874;
+	margin-top: 20px;
+}
+
+.mypg-rsvt2-contents-table-2 tr td {
+	padding: 0 20px;
+}
+
+.mypg-rsvt2-contents-table-2 tr:nth-child(2) {
+	background-color: #fdf8ef;
+	border: 1px solid #eceae1;
+	color: #7e4f15;
+	height: 45px;
+}
+
+.mypg-rsvt2-contents-table-2 tr:nth-child(3) {
+	background-color: #a1886f;
+	color: #fdf8ef;
+	height: 45px;
+}
+/*--------------------- table-3 ------------------------*/
+.mypg-rsvt2-contents-table-3 {
+	width: 100%;
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+}
+
+.mypg-rsvt2-contents-table-3 tr:nth-child(1) {
+	border-bottom: 1px solid #eceae1;
+} 
+
+.mypg-rsvt2-contents-table-3 td {
+	padding-left: 15px;
+}
+
+.mypg-rsvt2-contents-table-3 tr:nth-child(1) td:nth-child(1),
+.mypg-rsvt2-contents-table-3 tr:nth-child(2) td:nth-child(1),
+.mypg-rsvt2-contents-table-3 tr:nth-child(2) td:nth-child(3) {
+	background-color: #faf9f4;
+	color: #666666;
+	font-weight: bold;
+}
+/*--------------------- table-4 ------------------------*/
+.mypg-rsvt2-contents-table-4 {
+	width: 100%;
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+}
+
+.mypg-rsvt2-contents-table-4 td {
+	padding-left: 15px;
+}
+
+.mypg-rsvt2-contents-table-4 tr td:nth-child(1) {
+	background-color: #faf9f4;
+	color: #666666;
+	font-weight: bold;
+}
+
+.mypg-contents-btn3 {
+	margin: 40px 0;
+}
+
+.mypg-rsvt2-list {
+	width: 50px;
+	height: 26px;
+	background-color: #7c6347;
+	color: #ffffff;
+	padding: 0;
+	border-radius: 0;
+}
+/*--------------------- cancel-modal ------------------------*/
+.cancel-modal-content {
+	background-color: #9b7f5b;
+	width: 700px;
+	height: 200px;
+	padding: 5px;
+}
+
+.cancel-modal-content-header {
+	height: 40px;
+}
+
+.cancel-modal-content-header h3 {
+	height: 100%;
+	color: #fff;
+	display: inline-block;
+	line-height: 40px;
+	margin: 0 0 0 25px;
+	
+}
+
+.cancel-modal-content-bottom {
+	width: 690px;
+	height: 150px;
+	background-color: #fff;
+	padding: 20px;
+}
+
+.cancel-modal-content-bottom h5 {
+	margin: 0 0 10px;
+	font-weight: bold;
+}
+
+.cancel-modal-content-bottom ul {
+	padding: 0px;
+}
+
+.cancel-modal-close {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0;
+	margin: 0 10px 0 0;
+}
+
+.cancel-modal-close span {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	font-size: 50px;
+	color: #ffffff;
 }

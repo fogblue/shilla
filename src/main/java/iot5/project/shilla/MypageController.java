@@ -29,6 +29,6 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_profile_edit.do", method = RequestMethod.GET)
 	public String mypg_profile_edit(Locale locale, Model model) {
 		logger.debug("프로필변경페이지 입장");
-		return "mypage/mypg_profile_edit";
+		return "mypage/mypg_profile_edit"; 
 	}
 }

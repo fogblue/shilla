@@ -4,7 +4,7 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/inc/head.jsp" %>
-<link rel="stylesheet" type="text/css" href="/iot5/css/mypage.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/mypage.css">
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
@@ -16,12 +16,12 @@
 					<h3>마이페이지</h3>
 				</div>
 				<div class="mypg-sidebar-menu">
-					<a href="/iot5/mypage/mypg_reservation.jsp">예약 확인/취소</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약 확인/취소</a>
 					<a>개인정보</a>
-					<a href="/iot5/mypage/mypg_profile_edit.jsp">프로필 수정</a>
-					<a href="/iot5/mypage/mypg_password_edit.jsp" class="mypg-sidebar-open">비밀번호 변경<img src="/iot5/img/sidebar_arr.gif" class="sidebar-arrow"></a>
-					<a href="/iot5/mypage/mypg_withdraw.jsp">회원 탈퇴 요청</a>
-					<a href="/iot5/mypage/mypg_qna.jsp">문의 내역</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do">프로필 수정</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_password_edit.do" class="mypg-sidebar-open">비밀번호 변경<img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do">회원 탈퇴 요청</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_qna.do">문의 내역</a>
 				</div>
 			</div>
 		</div>

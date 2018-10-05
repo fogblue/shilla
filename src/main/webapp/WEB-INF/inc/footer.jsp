@@ -5,7 +5,7 @@
 	<div class="bgc">
 		<div class="fcontainer">
 			<div class="flogo">
-				<a href="/WEB-INF/views/index.jsp">THESHILLA HOTEL &amp; RESORTS</a>
+				<a href="${pageContext.request.contextPath}/">THESHILLA HOTEL &amp; RESORTS</a>
 
 			</div>
 			<div class="pull-left hotelList clearfix">
@@ -30,9 +30,9 @@
 				<div class="info border-right">
 					<ul class="list-inline">
 
-						<li><a href="/WEB-INF/views/info/hotelinfo.jsp">호텔신라 소개</a></li>
-						<li><a href="/WEB-INF/views/info/contactinfo.jsp">고객문의</a></li>
-						<li><a href="/WEB-INF/views/sitemap/sitemap.jsp">사이트맵</a></li>
+						<li><a href="${pageContext.request.contextPath}/info/hotelinfo.do">호텔신라 소개</a></li>
+						<li><a href="${pageContext.request.contextPath}/info/contactinfo.do">고객문의</a></li>
+						<li><a href="${pageContext.request.contextPath}/sitemap/sitemap.do">사이트맵</a></li>
 
 					</ul>
 				</div>
@@ -54,7 +54,7 @@
 		<div class="bottom">
 			<ul class="list-inline">
 
-				<li class="border-right"><a href="/WEB-INF/inc/mem_policy.jsp">개인정보처리방침</a></li>
+				<li class="border-right"><a href="${pageContext.request.contextPath}/inc/mem_policy.do">개인정보처리방침</a></li>
 				<li class="border-right"><a href="#f_spamming" id="spamwaring">이메일무단수집금지</a></li>
 				<li><a href="https://www.shillaaudit.com/audit/inf_information.do">윤리경영(부정제보)</a></li>
 			</ul>

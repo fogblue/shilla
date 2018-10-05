@@ -4,7 +4,7 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/inc/head.jsp" %>
-<link rel="stylesheet" type="text/css" href="/iot5/css/mypage.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/mypage.css">
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
@@ -16,12 +16,12 @@
 					<h3>마이페이지</h3>
 				</div>
 				<div class="mypg-sidebar-menu">
-					<a href="/iot5/mypage/mypg_reservation.jsp">예약 확인/취소</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약 확인/취소</a>
 					<a>개인정보</a>
-					<a href="/iot5/mypage/mypg_profile_edit.jsp">프로필 수정</a>
-					<a href="/iot5/mypage/mypg_password_edit.jsp">비밀번호 변경</a>
-					<a href="/iot5/mypage/mypg_withdraw.jsp">회원 탈퇴 요청</a>
-					<a href="/iot5/mypage/mypg_qna.jsp" class="mypg-sidebar-open">문의 내역<img src="/iot5/img/sidebar_arr.gif" class="sidebar-arrow"></a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do">프로필 수정</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_password_edit.do">비밀번호 변경</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do">회원 탈퇴 요청</a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_qna.do" class="mypg-sidebar-open">문의 내역<img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
 				</div>
 			</div>
 		</div>
@@ -41,9 +41,9 @@
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="3month">3개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="6month">6개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all">전체</button>
-					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
+					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
-					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="/iot5/img/btnCalendar.gif" width="20" height="30"></a>
+					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<button type="button" class="btn mypg-rsvt-find">조회</button>
 				</div>
 				<div class="mypg-contents-table">

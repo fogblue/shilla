@@ -1,3 +1,12 @@
+body {
+	-ms-overflow-style: none; /* IE 10+ */
+	overflow: hidden scroll; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+	display: none; /* Safari and Chrome */
+}
+
 .bdb h3 {
 	display: inline-block;
 	margin: 0;
@@ -69,7 +78,7 @@
 	font-weight: bold;
 }
 
-.pridebox>ul, li {
+.pridebox>ul {
 	list-style: disc;
 	margin-left: 10px;
 	padding: 0;

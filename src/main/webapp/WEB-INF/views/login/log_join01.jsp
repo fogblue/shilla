@@ -5,8 +5,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
 <script src="regex.js"></script>
   
 </head>
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="log_body">
-		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="log_join02.jsp">
+		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="log_join02.do">
 			<div class="bdbb1">
 				<h4>약관동의</h4>
 			</div>
@@ -260,7 +260,7 @@
 			</div>
 			<div class="log_footer">
 			<div class="agree_submit">
-				<button type="button" class="btn btn_color4 btn-md"  onclick="location.href='/iot5/login/log_main.jsp' " >취소</button>
+				<button type="button" class="btn btn_color4 btn-md"  onclick="location.href='${pageContext.request.contextPath}/login/log_main.jsp' " >취소</button>
 				<button type="submit" class="btn btn_color4 btn-md"   >다음</button>
 			</div>
 		</div>

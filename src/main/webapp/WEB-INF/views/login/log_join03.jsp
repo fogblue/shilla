@@ -5,11 +5,11 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
     <!-- validate 플러그인 참조 -->
-    <script src="plugins/validate/jquery.validate.min.js"></script>
-    <script src="plugins/validate/additional-methods.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assetsplugins/validate/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assetsplugins/validate/additional-methods.min.js"></script>
 
 </head>
 <body>
@@ -54,7 +54,7 @@
 		<!-- log_body end -->
 		<div class="log_footer">
 			<div class="agree_submit">
-				<button type="submit" class="btn btn_color5 btn-md"  onclick="location.href='/iot5/login/log_main.jsp' ">로그인</button>
+				<button type="submit" class="btn btn_color5 btn-md"  onclick="location.href='${pageContext.request.contextPath}/login/log_main.do' ">로그인</button>
 			</div>
 		</div>
 

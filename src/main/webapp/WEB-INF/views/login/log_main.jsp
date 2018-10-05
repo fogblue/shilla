@@ -4,13 +4,13 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/inc/head.jsp" %>
-	<link rel="stylesheet" type="text/css" href="../css/login.css">
-	<link rel="stylesheet" type="text/css" href="../css/LogJoin.css">
-	<link rel="stylesheet" type="text/css" href="../css/join.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/join.css">
 	<!-- validate 플러그인 참조 -->
-<script src="../plugins/validate/jquery.validate.min.js"></script>
-<script src="../plugins/validate/additional-methods.min.js"></script>
-<script src="../plugins/ajax-form/jquery.form.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/plugins/validate/jquery.validate.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/plugins/validate/additional-methods.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/plugins/ajax-form/jquery.form.min.js"></script>
 </head>
 <body style="overflow-y: hidden;">
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
@@ -59,7 +59,7 @@
 			$("#user").change(function(e) {
 				$("#form-group-box").empty();
 				$.ajax({
-					url: "../login/log_user.html",
+					url: "${pageContext.request.contextPath}/login/log_user.html",
 					method: "get",
 					data: {},
 					dataType: "html",
@@ -72,7 +72,7 @@
 			$("#unuser").change(function(e) {
 				$("#form-group-box").empty();
 				$.ajax({
-					url: "../login/log_unuser.html",
+					url: "${pageContext.request.contextPath}/login/log_unuser.html",
 					method: "get",
 					data: {},
 					dataType: "html",

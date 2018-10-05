@@ -27,5 +27,6 @@ public class QnaController {
 
 		return new ModelAndView("info/inquiry");
 	}
+	
 
 }

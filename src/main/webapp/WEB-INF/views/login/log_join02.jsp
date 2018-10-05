@@ -5,18 +5,18 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/css/login.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/LogJoin.css">
-<link rel="stylesheet" type="text/css" href="/iot5/css/join.css">
-<link rel="stylesheet" href="../plugins/datepicker/datepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/join.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/plugins/datepicker/datepicker.min.css" />
 
 <!-- validate 플러그인 참조 -->
-<script src="../plugins/validate/jquery.validate.min.js"></script>
-<script src="../plugins/validate/additional-methods.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/plugins/validate/jquery.validate.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/plugins/validate/additional-methods.min.js"></script>
 
 <!-- datepicker 플러그인 참조 -->
-<script src="../plugins/datepicker/datepicker.min.js"></script>
-<script src="../plugins/datepicker/i18n/datepicker.ko-KR.js"></script>
+<script src="${pageContext.request.contextPath}/assets/plugins/datepicker/datepicker.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/plugins/datepicker/i18n/datepicker.ko-KR.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 </head>
 <body>
@@ -41,7 +41,7 @@
 			</div>
 			<!-- 가입폼 시작 -->
 			<form class="form-horizontal" name="join_form" id="join_form"
-				method="post" action="log_join03.jsp">
+				method="post" action="log_join03.do">
 				<div class="basic_data">
 					<h5 class="basic_data_title">기본 정보 입력 (*표시 필수입력사항)</h5>
 					<div class="form-group">
@@ -92,7 +92,7 @@
 						</label>
 						<div class="col-md-10 calendar_box">
 							<input type="text" id="datepicker" readonly /> <img
-								id="show-cal" class="calendar_img" src="../img/calendar.png"
+								id="show-cal" class="calendar_img" src="${pageContext.request.contextPath}/assets/img/calendar.png"
 								height="20">
 						</div>
 					</div>

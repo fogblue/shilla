@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!--회원일 경우의 로그인창-->
 
 <div class="form-group">
@@ -21,7 +22,7 @@
 
 <div class="text-center">
 	<button class="btn btn_color2 btn-md" type="button"
-		onclick="location.href='/iot5/login/log_join01.jsp' ">회원가입</button>
+		onclick="location.href='${pageContext.request.contextPath}/login/log_join01.do' ">회원가입</button>
 	<button id="open_modal_btn" class="btn btn_color3 btn-md "
 		type="button">아이디 찾기</button>
 	<button id="open_modal_btn1" class="btn btn_color3 btn-md "

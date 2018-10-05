@@ -17,6 +17,7 @@
 			<button class="btn btn-topbar1">예약</button>
 		</div>
 		<div class="box1">
+
 			<a href="${pageContext.request.contextPath}/"><span class="pull-left logo">My
 					Site</span></a>
 		</div>
@@ -27,6 +28,7 @@
 		</ul>
 		<div>
 			<ul class="menu3 list-inline pull-right downrow">
+
 				<li class="menu-item"><a href="${pageContext.request.contextPath }/info/hotelinfo.do"><button
 							class="btn btn-topbar">호텔신라 소개</button></a></li>
 				<li class="menu-item"><a href="${pageContext.request.contextPath }/info/contactinfo.do"><button

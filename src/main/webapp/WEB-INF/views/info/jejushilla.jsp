@@ -86,3 +86,4 @@
 	<!-- ==================================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>
+</html>

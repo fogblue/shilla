@@ -1,3 +1,8 @@
+
+ul, li {
+	list-style: none;
+}
+
 .bdb h3 {
 	display: inline-block;
 	margin: 0;
@@ -69,7 +74,7 @@
 	font-weight: bold;
 }
 
-.pridebox>ul, li {
+.pridebox>ul {
 	list-style: disc;
 	margin-left: 10px;
 	padding: 0;

@@ -71,7 +71,7 @@
 								<option value="hanmir.com">hanmir.com</option>
 								<option value="paran.com">paran.com</option>
 							</select>
-							<button class="btn-xs mypg-pfed2-overlap">이메일 중복확인</button>
+							<button type="button" class="btn-xs mypg-pfed2-overlap">이메일 중복확인</button>
 						</td>
 					</tr>
 					<tr>

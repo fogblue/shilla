@@ -4,7 +4,7 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/inc/head.jsp" %>
-<link rel="stylesheet" type="text/css" href="/iot5/css/sitemap.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/sitemap.css">
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
@@ -23,7 +23,7 @@
 					<div class="stmp-contents-box-content">
 						<h5><a href="#">로그인</a></h5>
 						<ul>
-							<li><a href="#">로그인</a></li>
+							<li><a href="${pageContext.request.contextPath}/login/log_main.do">로그인</a></li>
 							<li><a href="#">예약확인</a></li>
 							<li><a href="#">신라리워즈 가입</a></li>
 							<li><a href="#">신라리워즈 번호 또는 아이디 찾기</a></li>
@@ -37,14 +37,14 @@
 						<h4>마이페이지</h4>
 					</div>
 					<div class="stmp-contents-box-content">
-						<h5><a href="/iot5/mypage/mypg_reservation.jsp">예약확인</a></h5>
-						<h5><a href="/iot5/mypage/mypg_profile_edit.jsp">개인정보</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약확인</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do">개인정보</a></h5>
 						<ul>
-							<li><a href="/iot5/mypage/mypg_profile_edit.jsp">프로필 수정</a></li>
-							<li><a href="/iot5/mypage/mypg_password_edit.jsp">비밀번호 변경</a></li>
-							<li><a href="/iot5/mypage/mypg_withdraw.jsp">회원 탈퇴 요청</a></li>
+							<li><a href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do">프로필 수정</a></li>
+							<li><a href="${pageContext.request.contextPath}/mypage/mypg_password_edit.do">비밀번호 변경</a></li>
+							<li><a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do">회원 탈퇴 요청</a></li>
 						</ul>
-						<h5><a href="/iot5/mypage/mypg_qna.jsp">문의내역</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/mypage/mypg_qna.do">문의내역</a></h5>
 					</div>
 				</div>
 				<div class="stmp-contents-box-up">
@@ -69,11 +69,11 @@
 						<h4>호텔신라소개</h4>
 					</div>
 					<div class="stmp-contents-box-content">
-						<h5><a href="#">개요</a></h5>
-						<h5><a href="#">서울신라호텔</a></h5>
-						<h5><a href="#">제주신라호텔</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/info/hotelinfo.do">개요</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/info/seoulshilla.do">서울신라호텔</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/info/jejushilla.do">제주신라호텔</a></h5>
 						<h5><a href="#">신라스테이</a></h5>
-						<h5><a href="#">수상이력</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/info/awards.do">수상이력</a></h5>
 					</div>
 				</div>
 				<div class="stmp-contents-box-down">
@@ -81,8 +81,8 @@
 						<h4>고객문의</h4>
 					</div>
 					<div class="stmp-contents-box-content">
-						<h5><a href="#">연락처</a></h5>
-						<h5><a href="#">문의하기</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/info/contactinfo.do">연락처</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/info/inquiry.do">문의하기</a></h5>
 					</div>
 				</div>
 				<div class="stmp-contents-box-down">
@@ -90,7 +90,7 @@
 						<h4>예약</h4>
 					</div>
 					<div class="stmp-contents-box-content">
-						<h5><a href="#">객실/패키지예약</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/reservation/reservation.do">객실/패키지예약</a></h5>
 						<h5><a href="#">프로모션/계약 요금 예약</a></h5>
 					</div>
 				</div>
@@ -100,7 +100,7 @@
 					</div>
 					<div class="stmp-contents-box-content">
 						<h5><a href="#">신라리워즈 약관</a></h5>
-						<h5><a href="#">개인정보처리방침</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/mem_policy.do">개인정보처리방침</a></h5>
 						<h5><a href="#">이메일무단수집금지</a></h5>
 					</div>
 				</div>

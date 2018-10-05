@@ -49,7 +49,7 @@
 	function wd_msg_t() {
 		alert("탈퇴신청이 접수되었습니다.");
 		$.ajax({
-			url: "${pageContext.request.contextPath}/mypage/mypg_withdraw_msg.html",
+			url: "${pageContext.request.contextPath}/mypage/mypg_withdraw_msg.do",
 			method: "get",
 			data: {},
 			dataType: "html",

@@ -53,8 +53,14 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2(Locale locale, Model model) {
-		logger.info("회원탈퇴확인페이지 입장");
+		logger.info("회원탈퇴확인페이지 입장");		
 		return new ModelAndView("mypage/mypg_withdraw_2"); 
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_withdraw_msg.do", method = RequestMethod.GET)
+	public ModelAndView mypg_withdraw_msg(Locale locale, Model model) {
+		logger.info("회원탈퇴확인메시지출력");
+		return new ModelAndView("mypage/mypg_withdraw_msg"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)

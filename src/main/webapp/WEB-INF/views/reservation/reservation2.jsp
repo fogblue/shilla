@@ -318,10 +318,10 @@
 					</div>
 				</div>
 				<div>
-					<button class="btn btn-md rsv_prevbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.jsp">&lt;SETP 1</button>
+					<button class="btn btn-md rsv_prevbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.do'">&lt;SETP 1</button>
 				</div>
 				<div>
-					<button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation3.jsp'">회원예약</button>
+					<button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation3.do'">회원예약</button>
 				</div>
 			</div>
 

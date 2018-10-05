@@ -168,7 +168,7 @@
 				var sel = $(this).find("option:selected").val();
 				if (sel != "enq_party" && sel != "enq_web") {
 					$("#enq_ajax").empty();
-					$.get(sel + ".html", function(req) {
+					$.get("${pageContext.request.contextPath}/info/" + sel, function(req) {
 						$("#enq_ajax").append(req);
 					}, "html"); // end $.get	
 				} else {

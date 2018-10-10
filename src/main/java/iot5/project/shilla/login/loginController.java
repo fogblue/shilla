@@ -1,6 +1,7 @@
 package iot5.project.shilla.login;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.servlet.ServletException;
@@ -60,37 +61,26 @@ public class loginController {
 	}
 
 	@RequestMapping(value = "/login/login_ok.do", method = RequestMethod.POST)
-	public ModelAndView LoginOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void LoginOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		web.init();
 		
-		if(web.getSession("loginInfo")!=null) {
-			return web.redirect(web.getRootPath() + "/index.do", "이미 로그인 하셨습니다.");
-			
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html"); 
+		
+		String userId = request.getParameter("user_id");
+		String userPw = request.getParameter("user_pw");
+		
+		if (userId == null) { userId = ""; }
+		if (userPw == null) { userPw = ""; }
+
+		PrintWriter out = response.getWriter();
+		if (userId.equals("ajax") && userPw.equals("123qwe!@#")) {
+			out.write("<h1 class='text-success'>Access success</h1>");	
+		} else {
+			out.write("<h1 class='text-danger'>Access denied</h1>");
 		}
-		/**(4)파라미터 처리*/
-		String userId = web.getString("user_id");
-		String userPw = web.getString("user_pw");
-		
-		logger.debug("userId=" + userId);
-		logger.debug("userPw=" + userPw);
-		
-		if(userId == null || userPw == null) {
-			return web.redirect(null, "아이디나 비밀번호가 없습니다.");
-			
-		}
-		
-		/**(5)전달받은 파라미터를 Beans에 설정*/
-		Member member = new Member();
-		member.setUserId(userId);
-		member.setUserPw(userPw);
-		
-		
-		String movePage = request.getHeader("referer");
-		if(movePage == null) {
-			movePage = web.getRootPath() + "/index.do";
-		}
-		//sqlSession.close();
-		return web.redirect(movePage, null);
+	
 	
 	}
 	

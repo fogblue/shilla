@@ -218,19 +218,6 @@ public class MemberController {
 		return new ModelAndView("member/log_main");
 	}
 
-	@RequestMapping(value = "/member/log_user", method = RequestMethod.GET)
-	public ModelAndView log_user(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
-		logger.info("Welcome home! The client locale is {log_join01}.", locale);
-		return new ModelAndView("member/log_user");
-	}
-
-	@RequestMapping(value = "/member/log_unuser", method = RequestMethod.GET)
-	public ModelAndView log_unuser(Locale locale, Model model, HttpServletRequest request,
-			HttpServletResponse response) {
-		logger.info("Welcome home! The client locale is {log_join01}.", locale);
-		return new ModelAndView("member/log_unuser");
-	}
-
 	
 	@RequestMapping(value = "/member/login_ok.do", method = RequestMethod.POST)
 	public ModelAndView LoginOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -274,7 +261,7 @@ public class MemberController {
 			movePage = web.getRootPath() ;
 		}
 		//sqlSession.close();
-		return web.redirect(movePage, null);
+		return web.redirect(web.getRootPath(), null);
 	
 	}
 	@RequestMapping(value = "/member/logout.do", method = RequestMethod.GET)

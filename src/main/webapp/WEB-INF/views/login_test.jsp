@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!--회원일 경우의 로그인창-->
-<form  action="${pageContext.request.contextPath}/member/login_ok.do" name="login" method="post" enctype="multipart/form-data">
-	<div class="form-group" >
-		<div class="col-md-10">
-			<input type="text" name="user_id" id="user_id"
-				class="form-control log-form-control" placeholder="아이디 입력"> <br />
-			<input type="password" name="user_pw" id="user_pw"
-				class="form-control log-form-control" placeholder="비밀번호">
-		</div>
-		<div class="col-md-2">
-			<button class="btn btn_color1 btn-lg" type="submit">로그인</button>
-		</div>
+<form  action="${pageContext.request.contextPath}/member/login_test_ok.do" name="login" method="post">
+<div class="form-group" >
+	<div class="col-md-10">
+		<input type="text" name="user_id" id="user_id"
+			class="form-control log-form-control" placeholder="아이디 입력"> <br />
+		<input type="password" name="user_pw" id="user_pw"
+			class="form-control log-form-control" placeholder="비밀번호">
 	</div>
+	<div class="col-md-2">
+		<button class="btn btn_color1 btn-lg" type="submit">로그인</button>
+	</div>
+</div>
 </form>
 
 

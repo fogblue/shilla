@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class QnaAjaxController {
-	private static final Logger logger = LoggerFactory.getLogger(QnaAjaxController.class);
+public class QnAAjaxController {
+	Logger logger = LoggerFactory.getLogger(QnAAjaxController.class);
 	
 	@RequestMapping(value = "/info/enq_dining", method = RequestMethod.GET)
 	public ModelAndView enq_dining(Locale locale, Model model) {

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
-	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+	Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(Locale locale, Model model) {

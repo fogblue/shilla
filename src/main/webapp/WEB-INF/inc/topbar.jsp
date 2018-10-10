@@ -33,7 +33,7 @@
 							class="btn btn-topbar">호텔신라 소개</button></a></li>
 				<li class="menu-item"><a href="${pageContext.request.contextPath}/info/contactinfo.do"><button
 							class="btn btn-topbar">고객문의</button></a></li>
-				<li class="menu-item"><button class="btn btn-topbar">신라리워즈</button></li>
+				<li class="menu-item"><a href="${pageContext.request.contextPath}/member/login_test.do" class="btn btn-topbar">신라리워즈</a></li>
 			</ul>
 		</div>
 	</div>

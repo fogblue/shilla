@@ -21,7 +21,72 @@
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
 	</resultMap>
-
+<!-- 아이디 중복검사를 수행한다 -->
+    <select id="selectUserIdCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
+        SELECT count(id) FROM member WHERE user_id=#{userId}
+    </select>
+     
+    <!-- 이메일 중복검사를 수행한다 -->
+    <select id="selectEmailCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
+        SELECT count(id) FROM member WHERE email=#{email}
+    </select>
+    
+    <!-- 회원정보를 저장한다 : 가입 -->
+	<insert id="insertMember" parameterType="iot5.project.shilla.model.Member" 
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO member (
+			user_name_kor, user_name_eng, user_id, user_pw, 
+			birthdate, email, tel, tel_home, zipcode, load_addr, detail, reg_date, edit_date
+		FROM member
+		) VALUES (
+			#{user_name_kor},#{user_name_eng}, #{userId}, password(#{userPw}),
+			 #{birthdate}, #{email}, #{tel}, #{tel_home}, #{zipcode}, #{load_addr}, 
+			#{detail}, now(), now()
+		)
+	</insert>
+	
+	<!-- 아이디와 비밀번호가 일치하는 회원정보를 조회한다. -->
+    <select id="selectLoginInfo" parameterType="iot5.project.shilla.model.Member" resultMap="member">
+       SELECT user_name_kor, user_name_eng, user_id, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
+		email, tel, tel_home, zipcode, load_addr, detail, reg_date, edit_date
+        FROM member
+        WHERE user_id=#{userId} AND user_pw=password(#{userPw})
+        ORDER BY id DESC
+        LIMIT 0, 1
+    </select>
+    
+    <!-- 비밀번호 재발급: 이메일주소가 일치하는 비밀번호를 변경한다. -->
+	<update id="updateMemberPasswordByEmail" parameterType="iot5.project.shilla.model.Member">
+		UPDATE member SET user_pw=password(#{userPw}), edit_date=now()
+		WHERE email=#{email};
+	</update>
+	
+	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->
+    <select id="selectMemberPasswordCount" parameterType="iot5.project.shilla.model.Member" 
+    	resultType="int">
+        SELECT count(id) FROM member 
+        WHERE id=#{id} AND user_pw=password(#{userPw})
+    </select>
+	
+	<!-- 회원정보를 삭제한다 : 탈퇴 -->
+	<delete id="deleteMember" parameterType="iot5.project.shilla.model.Member">
+		DELETE FROM member WHERE id=#{id};
+	</delete>
+	
+	<!-- 회원정보를 변경한다 -->
+	<update id="updateMember" parameterType="iot5.project.shilla.model.Member">
+		UPDATE member SET
+			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},  
+			tel=#{tel}, zipcode=#{zipcode}, load_addr=#{load_addr}, detail=#{detail},
+			edit_date=now()
+			
+			<if test="newUserPw != null and newUserPw != ''">
+				, user_pw=password(#{newUserPw})
+			</if>
+		
+		WHERE id=#{id}
+	</update>
+	
 	<!-- 회원 목록 조회하기 -->
 	<select id="selectMember"
 		parameterType="iot5.project.shilla.model.Member" resultMap="member">

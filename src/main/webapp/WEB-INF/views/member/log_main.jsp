@@ -37,8 +37,7 @@
 		
 			<div class="log_form-horizontal">
 				<div id="form-group">
-					<form action="${pageContext.request.contextPath}/member/login_ok.do"
-						name="login" method="post" enctype="multipart/form-data">
+					<form action="${pageContext.request.contextPath}/member/login_ok.do" name="login" method="post" >
 						<div class="form-group">
 							<div class="col-md-10">
 								<input type="text" name="user_id" id="user_id"

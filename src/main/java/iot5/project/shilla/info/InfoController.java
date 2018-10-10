@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class InfoController {
-	private static final Logger logger = LoggerFactory.getLogger(InfoController.class);
+	Logger logger = LoggerFactory.getLogger(InfoController.class);
 
 	@RequestMapping(value = "/info/awards.do", method = RequestMethod.GET)
 	public ModelAndView awards(Locale locale, Model model) {

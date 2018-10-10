@@ -21,8 +21,6 @@ public class QnAServiceImpl implements QnAService {
 	WebHelper web;
 	@Autowired
 	UploadHelper upload;
-	@Autowired
-	QnA qna;
 	
 	@Override
 	public void selectUserIdCount(QnA qna) throws Exception {

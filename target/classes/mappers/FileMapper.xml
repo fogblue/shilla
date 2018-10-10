@@ -18,12 +18,13 @@
 		<result property="qnaFile" column="qna_file" />
 		<result property="roomImg" column="room_img" />
 		<result property="packageImg" column="package_img" />
+		<result property="documentId" column="document_id" />
 	</resultMap>
 	
 	<!-- 게시글에 속한 첨부파일의 정보를 저장한다. -->
 	<insert id="insertFile" parameterType="iot5.project.shilla.model.File"
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO bbs_file(
+		INSERT INTO file(
 			id, origin_name, file_dir, file_name, content_type,
 			file_size, reg_date, edit_date, room_img, package_img 
 		) VALUES (
@@ -38,23 +39,23 @@
 		SELECT id, origin_name, file_dir, file_name, content_type,
 				file_size, reg_date, edit_date, room_img, package_img
 		FROM   file
-		WHERE  bbs_document_id=#{bbsDocumentId}
+		WHERE  document_id=#{documentId}
 	</select>
 	
 	<!-- 게시글에 속한 파일 전체 삭제 하기 -->
 	<delete id="deleteFileAll" parameterType="iot5.project.shilla.model.File">
-		DELETE FROM bbs_file WHERE bbs_document_id=#{bbsDocumentId}
+		DELETE FROM bbs_file WHERE document_id=#{bbsDocumentId}
 	</delete>
 	
 	<!-- 하나의 파일을 조회한다. -->
 	<select id="selectFile" parameterType="iot5.project.shilla.model.File" 
 		resultMap="file">
-		SELECT file_dir, file_name FROM bbs_file WHERE id=#{id}
+		SELECT file_dir, file_name FROM file WHERE id=#{id}
 	</select>
 	
 	<!-- 하나의 파일을 삭제한다. -->
 	<delete id="deleteFile" parameterType="iot5.project.shilla.model.File">
-		DELETE FROM bbs_file WHERE id=#{id}
+		DELETE FROM file WHERE id=#{id}
 	</delete>
 	
 </mapper>

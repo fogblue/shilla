@@ -39,4 +39,4 @@ local.properties
 .buildpath
 .target
 /build/
-/META-INF/maven/iot5.project/shilla/*.properties
+/META-INF/maven/**/*.properties

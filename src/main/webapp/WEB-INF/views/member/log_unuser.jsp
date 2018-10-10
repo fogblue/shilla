@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-			<div class="form-group">
+			<div class="form-group" >
 				<div class="col-md-10">
 					<input type="text" name="resv_no" id="resv_no" class="form-control log-form-control"  
 					placeholder="예약번호">

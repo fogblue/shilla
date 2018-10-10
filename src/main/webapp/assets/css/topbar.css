@@ -11,13 +11,8 @@ html, body {
 	font-family: 'Nanum Gothic', sans-serif;
 }
 
-body {
-	-ms-overflow-style: none; /* IE 10+ */
-	overflow: hidden scroll; /* Firefox */
-}
-
-body::-webkit-scrollbar {
-	display: none; /* Safari and Chrome */
+html {
+	height: 101%;
 }
 
 /** Float 처리 클래스 */

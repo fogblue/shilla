@@ -29,15 +29,19 @@
 		</div>
 		
 		<div class="form-group">
+		
 			<div class="log_form-horizontal" >
 				<div>
 					<label><input type="radio" name="user"  id="user" class="uorunu" value="user" checked>회원</label>
 					<label><input type="radio" name="user" id="unuser" class="uorunu" value="unuser">비회원(예약확인)</label>
 				
 				</div>
-				<div class="form-group" id="form-group-box">
+				
+					<div id="form-group-box">
 					
-				</div>
+					</div>
+					
+
 			</div>
 				
 			
@@ -56,10 +60,21 @@
 				$("#notice1").toggleClass("log_hidden");
 			});
 			
-			$("#user").change(function(e) {
+		
+			$(document).on('submit', "#form-group-box", function(){
+				var uid = $(this).find("#user_id");
+				var upw = $(this).find("#user_pw");
+				
+				$.post('${pageContext.request.contextPath}/member/login_ok.do',{
+					user_id: uid.val(),
+					user_pw: upw.val()
+				}
+				);
+			});
+			 $("#user").change(function(e) {
 				$("#form-group-box").empty();
 				$.ajax({
-					url: "${pageContext.request.contextPath}/login/log_user.html",
+					url: "${pageContext.request.contextPath}/member/log_user.html",
 					method: "get",
 					data: {},
 					dataType: "html",
@@ -72,7 +87,7 @@
 			$("#unuser").change(function(e) {
 				$("#form-group-box").empty();
 				$.ajax({
-					url: "${pageContext.request.contextPath}/login/log_unuser.html",
+					url: "${pageContext.request.contextPath}/member/log_unuser.html",
 					method: "get",
 					data: {},
 					dataType: "html",
@@ -80,7 +95,7 @@
 						$("#form-group-box").append(req);
 					}
 				});
-			});
+			}); 
 			
 			$.validator.addMethod("kor", function(value, element) {
 				return this.optional(element) || /^[ㄱ-ㅎ가-힣]*$/i.test(value);

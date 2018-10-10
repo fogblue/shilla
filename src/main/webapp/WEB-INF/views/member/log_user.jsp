@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!--회원일 경우의 로그인창-->
-
-<div class="form-group">
+<form  action="${pageContext.request.contextPath}/member/login_ok.do" name="login" method="post" enctype="multipart/form-data">
+<div class="form-group" >
 	<div class="col-md-10">
 		<input type="text" name="user_id" id="user_id"
 			class="form-control log-form-control" placeholder="아이디 입력"> <br />
@@ -10,9 +10,10 @@
 			class="form-control log-form-control" placeholder="비밀번호">
 	</div>
 	<div class="col-md-2">
-		<button class="btn btn_color1 btn-lg" type="button">로그인</button>
+		<button class="btn btn_color1 btn-lg" type="submit">로그인</button>
 	</div>
 </div>
+</form>
 
 
 <div class="form-group col-md-12">
@@ -22,7 +23,7 @@
 
 <div class="text-center">
 	<button class="btn btn_color2 btn-md" type="button"
-		onclick="location.href='${pageContext.request.contextPath}/login/log_join01.do' ">회원가입</button>
+		onclick="location.href='${pageContext.request.contextPath}/member/log_join01.do' ">회원가입</button>
 	<button id="open_modal_btn" class="btn btn_color3 btn-md "
 		type="button">아이디 찾기</button>
 	<button id="open_modal_btn1" class="btn btn_color3 btn-md "
@@ -94,7 +95,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn_color2" data-dismiss="modal"
-					id="modal_ok">확인</button>
+					id="id_modal_ok">확인</button>
 				<button type="button" class="btn btn_color2" data-dismiss="modal"
 					id="modal_pw_find">비밀번호 찾기</button>
 			</div>
@@ -175,7 +176,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn_color2" data-dismiss="modal"
-					id="modal_ok">로그인</button>
+					id="pw_modal_ok">로그인</button>
 			</div>
 		</div>
 

@@ -46,4 +46,28 @@
 	<bean id="page" class="iot5.project.shilla.helper.PageHelper" scope="singleton" />
 	<bean id="regex" class="iot5.project.shilla.helper.RegexHelper" scope="singleton" />
 	<bean id="util" class="iot5.project.shilla.helper.Util" scope="singleton" />
+	
+	<!-- MySQL 연결 설정 -->
+	 <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+	    <property name="url" 
+	     value="jdbc:log4jdbc:mysql://192.168.0.50:3306/shilla?characterEncoding=UTF8"/>
+		<property name="username" value="shilla" />
+		<property name="password" value="shilla" />
+	</bean> 
+	
+	<!-- MyBatis SqlSessionFactory 객체 설정 : config.xml의 역할 수행 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- DB접속 정보를 미리 정의해둔 MySQL JDBC의 dataSource로 처리한다. -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- Mapper의 경로를 설정한다. -->
+		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
+	</bean>
+	
+	<!-- sqlSession 객체 생성 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" 
+		destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 </beans>

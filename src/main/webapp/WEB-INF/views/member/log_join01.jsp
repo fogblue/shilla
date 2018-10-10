@@ -260,7 +260,7 @@
 			</div>
 			<div class="log_footer">
 			<div class="agree_submit">
-				<button type="button" class="btn btn_color4 btn-md"  onclick="location.href='${pageContext.request.contextPath}/login/log_main.jsp' " >취소</button>
+				<button type="button" class="btn btn_color4 btn-md"  onclick="location.href='${pageContext.request.contextPath}/member/log_main.jsp' " >취소</button>
 				<button type="submit" class="btn btn_color4 btn-md"   >다음</button>
 			</div>
 		</div>

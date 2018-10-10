@@ -45,7 +45,7 @@
 				 		</a>
 					</li>
 					<li class="menu-item2 br"><a
-						href="${pageContext.request.contextPath}/member/log_main.do">로그아웃&nbsp;</a></li>
+						href="${pageContext.request.contextPath}/member/logout.do">로그아웃&nbsp;</a></li>
 					<li class="menu-item2"><a
 						href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약
 							확인</a></li>

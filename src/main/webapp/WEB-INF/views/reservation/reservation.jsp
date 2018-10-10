@@ -6,7 +6,7 @@
 
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_reservation.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_roomselect.css">
 </head>
 

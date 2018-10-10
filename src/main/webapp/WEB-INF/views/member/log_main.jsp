@@ -36,9 +36,12 @@
 					<label><input type="radio" name="user" id="unuser" class="uorunu" value="unuser">비회원(예약확인)</label>
 				
 				</div>
-				<form id="form-group-box" action="${pageContext.request.contextPath}/member/login_ok.do" name="login" method="post" enctype="multipart/form-data">
+				
+					<div id="form-group-box">
 					
-				</form>
+					</div>
+					
+
 			</div>
 				
 			
@@ -57,7 +60,18 @@
 				$("#notice1").toggleClass("log_hidden");
 			});
 			
-			$("#user").change(function(e) {
+		
+			$(document).on('submit', "#form-group-box", function(){
+				var uid = $(this).find("#user_id");
+				var upw = $(this).find("#user_pw");
+				
+				$.post('${pageContext.request.contextPath}/member/login_ok.do',{
+					user_id: uid.val(),
+					user_pw: upw.val()
+				}
+				);
+			});
+			 $("#user").change(function(e) {
 				$("#form-group-box").empty();
 				$.ajax({
 					url: "${pageContext.request.contextPath}/member/log_user.html",
@@ -81,7 +95,7 @@
 						$("#form-group-box").append(req);
 					}
 				});
-			});
+			}); 
 			
 			$.validator.addMethod("kor", function(value, element) {
 				return this.optional(element) || /^[ㄱ-ㅎ가-힣]*$/i.test(value);

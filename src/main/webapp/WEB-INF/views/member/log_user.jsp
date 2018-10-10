@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!--회원일 경우의 로그인창-->
-
+<form  action="${pageContext.request.contextPath}/member/login_ok.do" name="login" method="post" enctype="multipart/form-data">
 <div class="form-group" >
 	<div class="col-md-10">
 		<input type="text" name="user_id" id="user_id"
@@ -13,6 +13,7 @@
 		<button class="btn btn_color1 btn-lg" type="submit">로그인</button>
 	</div>
 </div>
+</form>
 
 
 <div class="form-group col-md-12">

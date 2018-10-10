@@ -53,7 +53,7 @@ public class MemberController {
 		web.init();
 		
 		if(web.getSession("loginInfo")!=null) {
-			return web.redirect(web.getRootPath() + "/index.do", "이미 로그인 하셨습니다.");
+			return web.redirect(web.getRootPath() , "이미 로그인 하셨습니다.");
 		}
 		return new ModelAndView("member/log_join02");
 	}
@@ -64,7 +64,7 @@ public class MemberController {
 		/**(3)로그인 여부 검사*/
 		if(web.getSession("loginInfo")!=null) {
 			sqlSession.close();
-			return web.redirect(web.getRootPath() + "/index.do", "이미 로그인 하셨습니다.");
+			return web.redirect(web.getRootPath() , "이미 로그인 하셨습니다.");
 		}
 		/**(4)파일이 포함된 POST 파라미터 받기*/
 		try {
@@ -211,7 +211,7 @@ public class MemberController {
 				}
 		/**(9)가입이 완료되었으므로 메인페이지로 이동*/
 			
-				return web.redirect(web.getRootPath() + "/index.do", "회원가입이 완료되었습니다. 로그인해주세요");
+				return web.redirect(web.getRootPath() + "/member/login_main", "회원가입이 완료되었습니다. 로그인해주세요");
 	}
 	@RequestMapping(value = "/member/log_main.do", method = RequestMethod.GET)
 	public ModelAndView log_main(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -272,7 +272,7 @@ public class MemberController {
 		
 		String movePage = request.getHeader("referer");
 		if(movePage == null) {
-			movePage = web.getRootPath() + "/index.do";
+			movePage = web.getRootPath() ;
 		}
 		//sqlSession.close();
 		return web.redirect(movePage, null);
@@ -284,11 +284,11 @@ public class MemberController {
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		if(loginInfo == null) {
-			return web.redirect(web.getRootPath() + "/index.do", "로그인 후에 이용 가능합니다.");
+			return web.redirect(web.getRootPath() , "로그인 후에 이용 가능합니다.");
 		
 		}
 		web.removeAllSession();
-		return web.redirect(web.getRootPath() + "/index.do", "로그아웃되었습니다.");
+		return web.redirect(web.getRootPath(), "로그아웃되었습니다.");
 		
 	}
 	@RequestMapping(value = "/member/log_join01.do", method = RequestMethod.GET)

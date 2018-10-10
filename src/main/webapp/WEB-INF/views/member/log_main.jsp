@@ -12,7 +12,7 @@
 <script src="${pageContext.request.contextPath}/assets/plugins/validate/additional-methods.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/plugins/ajax-form/jquery.form.min.js"></script>
 </head>
-<body style="overflow-y: hidden;">
+<body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<div class="container main">
 		<div class="form-group log-form">

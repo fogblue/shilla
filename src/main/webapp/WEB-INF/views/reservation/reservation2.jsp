@@ -7,9 +7,8 @@
 
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="/iot5/reservation.css">
-<link rel="stylesheet" type="text/css" href="/iot5/rsv_room.css">
-<link rel="stylesheet" type="text/css" href="/iot5/.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/rsv_room.css">
 <style>
 .rsv_cont {
 	margin-top: 30px;
@@ -192,7 +191,7 @@
 
 
 		<div class="rsv_step">
-			<span class="rsv_stepimg">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
+			<span class="rsv_step2img">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
 				Step3. 고객 정보 입력 Step4. 예약 완료 /확인</span>
 		</div>
 		<div class="rsv_cont">
@@ -261,62 +260,68 @@
 						<div class="col-sm-5">
 							<ul>
 								<li>&lsaquo;호텔 이용안내&rsaquo;</li>
-								<br />
+								
 								<li>&bull;성인 2인 1실 기준이며, 요금에는 세금(10%) 및 봉사료(10%)가 부과됩니다.</li>
-								<br />
+							
 								<li>&bull;기준 인원을 초과하여 투숙 시 추가 인원에 대해 별도의 요금이 부과됩니다.<br />추가
 									인원에 대한 기본 요금(세금 및 봉사료 별도)은 성인 5만원,<br />어린이 3만원이며, 객실 타입 및 패키지
 									혜택에 따라 상이합니다<br />(성인 기준: 만 13세 이상, 어린이 기준: 37개월 이상~만 12세 이하)
 								</li>
-								<br />
+								
 								<li>&bull;37개월 미만의 유아 동반 시 추가 인원 요금 및 조식은 무료이며,<br />유아(37개월
 									미만)동반 여부는 체크인 시 프론트 데스크 직원에게<br />알려 주셔야 무료로 이용 가능합니다.
 								</li>
-								<br />
+								
 								<li>&bull;체크인은 오후 3시, 체크아웃은 정오까지입니다.</li>
-								<br />
+							
 								<li>&bull;본 홈페이지 요금은 할인 적용된 요금이며, 카드사 할인 등의 중복 할인<br />혜택이
 									적용되지 않습니다.
 								</li>
-								<br />
+							
 								<li>&bull;어린이 동반 고객을 위한 영유아 용품(아기 욕조, 아기 침대, 어린이 베개<br />및
 									아동용 배스로브와 슬리퍼)은 객실예약과를 통해 사전 요청 가능하며,<br />이용 상황에 따라 조기 마감될 수
 									있습니다. (단, 유모차는 현장에서만 대여 가능합니다.)
 								</li>
-								<br />
+							
 								<li>&bull;자세한 객실안내는 객실예약과(02-2230-3310)로 문의 바랍니다.</li>
-								<br />
+							
 							</ul>
 						</div>
 						<div class="col-sm-5">
 							<ul>
 								<li>&lsaquo;부대시설 이용안내&rsaquo;</li>
-								<br />
+								
 								<li>&bull;체련장(Gym), 실내 수영장, 실내 사우나(유료시설)는 매월 3번째 수요일
 									정기휴무입니다.(단, 2018년 8월 세 번째 수요일인 광복절(공휴일)은 정상 영업하며, 피트니스 정기 휴무일은
 									8월 22일로 변경됩니다.)</li>
-								<br />
+							
 								<li>&bull;체련장은 만 16세 이상, 실내 사우나는 만 13세 이상부터 이용 가능합니다.</li>
-								<br />
+							
 								<li>&bull;실내 수영장은 성인 고객 전용 시설로, 만 13세 미만 고객은 주말 및 공휴일에 한해
 									성인 보호자의 보호 하에 이용 가능합니다.</li>
-								<br />
+							
 								<li>&bull;2018년 어번 아일랜드(야외 수영장) 운영 기간 : 3월 31일 ~ 10월
 									31일(2017년 11월 1일~2018년 3월 30일까지 미운영)</li>
-								<br />
+							
 								<li>&bull;야외 수영장인 어번 아일랜드는 유료시설로서 입장 혜택이 포함된 상품 외에는 이용 시
 									입장료가 추가로 부과되며 사전 예약은 불가합니다. 쾌적하고 안전한 운영을 위해 적정 인원 초과 시 입장이 제한될
 									수 있습니다.</li>
-								<br />
+						
 								<li>&bull;실내 및 야외 수영장의 성인풀에서는 신장 140cm 미만인 고객은 성인 보호자의 보호
 									하에 구명조끼 착용 시에만 이용 가능합니다.</li>
-								<br />
+						
 								<li>&bull;성인풀, 키즈풀 및 자쿠지 등의 시설 이용 시 현장 라이프 가드 직원의 안내를 받으시기
 									바랍니다.</li>
-								<br />
+							
 							</ul>
 						</div>
 					</div>
+				</div>
+				<div>
+					<button class="btn btn-md rsv_prevbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.do'">&lt;SETP 1</button>
+				</div>
+				<div>
+					<button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation3.do'">회원예약</button>
 				</div>
 			</div>
 

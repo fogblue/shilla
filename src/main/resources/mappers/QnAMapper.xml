@@ -4,9 +4,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="QnAMapper">
 
-	<resultMap id="member"
-		type="iot5.project.shilla.model.Member">
+	<resultMap id="qna"
+		type="iot5.project.shilla.model.QnA">
 		<result property="id" column="id" />
+		<result property="user_id" column="user_id" />
 		<result property="ecategory" column="ecategory" />
 		<result property="qnaFile" column="qna_file" />
 		<result property="hotelCate" column="hotel_cate" />
@@ -20,3 +21,22 @@
 		<result property="editDate" column="edit_date" />
 		<result property="MemberId" column="Member_id" />
 	</resultMap>
+	
+	 <select id="selectQnACount" parameterType="iot5.project.shilla.model.QnA" resultType="int">
+        SELECT count(id) FROM qna WHERE user_id=#{userId}
+    </select>
+    
+     <!-- 문서를 저장한다 > 글쓰기 -->
+	<insert id="insertQna" parameterType="iot5.project.shilla.model.QnA" 
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO qna (
+			ecategory, qna_file, hotel_cate, qna_type, 
+			subject, content, name, email, tel, reg_date, edit_date
+		FROM qna
+		) VALUES (
+			#{ecategory},#{qna_file}, #{hotel_cate}, #{qna_type}, #{subject},
+			#{content}, #{name}, #{email}, #{tel}, now(), now()
+		)
+	</insert>
+	
+</mapper>

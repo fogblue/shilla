@@ -7,180 +7,8 @@
 
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/reservation.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/rsv_room.css">
-<style>
-.rsv_cont {
-	margin-top: 30px;
-}
-
-<!--
-===============================================================================================================================================================================
---> /* 아코디언 */
-/* 기본 여백 제거 */
-* {
-	padding: 0;
-	margin: 0;
-}
-
-/* 전체 박스 크기 및 정렬 */
-/* .collapse {
-	width: 850px;
-	margin: auto;
-} */
-.collapse-item {
-	padding: 0px;
-	margin: 0px;
-}
-
-.collapse-item2 {
-	padding: 0px;
-	margin: 0px;
-}
-/* 제목 영역의 배경색상과 태두리 */
-.collapse-title {
-	/* width : 850px; */
-	background: #white;
-	border: 1px solid #d5d5d5;
-}
-
-.collapse-title2 {
-	/* width : 850px; */
-	background: #white;
-	border: 1px solid #d5d5d5;
-}
-
-/* 제목영역의 링크에 대한 크기, 글자모양 */
-.collapse-title a {
-	display: block;
-	width: auto;
-	padding: 10px;
-	color: #222;
-	font-size: 14px;
-	text-decoration: none
-}
-
-.collapse-title2 a {
-	display: block;
-	width: auto;
-	padding: 10px;
-	color: #222;
-	font-size: 14px;
-	text-decoration: none
-}
-
-/* 내용영역의 여백, 글자크기, 태두리, 숨김 */
-.content {
-	padding: 0px 15px;
-	font-size: 12px;
-	border-left: 1px solid #d5d5d5;
-	border-right: 1px solid #d5d5d5;
-	display: none;
-}
-
-.content2 {
-	height: 650px;
-	padding: 0px 15px;
-	font-size: 12px;
-	border-left: 1px solid #d5d5d5;
-	border-right: 1px solid #d5d5d5;
-	display: none;
-}
-
-/* 마지막 내용 박스의 테두리 보정 */
-.content:last-child {
-	border-bottom: 1px solid #d5d5d5;
-}
-
-.content2:last-child {
-	border-bottom: 1px solid #d5d5d5;
-}
-
-.rsv_opt_textarea {
-	width: 850px;
-	height: 62px;
-}
-
-.
-/* //아코디언 */
-<!--
-===============================================================================================================================================================================
---> /* 상단 */
-.rsv2_option {
-	/* width : 850px; */
-	height: auto;
-}
-
-.rsv2_optionlist {
-	/* width : 850px; */
-	height: 50px;
-	background-color: #f4eee3;
-}
-
-.rsv2_optionlist_1 {
-	margin-top: 15px;
-	margin-left: 20px;
-	text-align: left;
-	width: 300px;
-	float: left;
-}
-
-.rsv2_optionlist_2 {
-	margin-top: 17px;
-	margin-right: 20px;
-	text-align: right;
-	width: 400px;
-	float: right;
-	color: #727272;
-	font-size: 13px;
-}
-
-/* //상단 */
-.rsv2_option1 {
-	height: 50px;
-	border-bottom: 1px solid #f1f1f1;
-	padding-top: 15px;
-}
-
-.rsv2_option2 {
-	height: 50px;
-	border-bottom: 1px solid #f1f1f1;
-	padding-top: 15px;
-}
-
-.rsv_cont {
-	width: 1200px;
-	height: 500px;
-}
-
-.rsv_optchbox {
-	line-height: 10px;
-	float: left;
-}
-
-.rsv2_optext1 {
-	margin-left: 10px;
-	float: left;
-	width: 250px;
-}
-
-.rsv2_optext2 {
-	float: right;
-}
-
-.clearfix:after {
-	content: '';
-	display: block;
-	floot: none;
-	clear: both;
-}
-
-.rsv2_option_graybox2 {
-	padding:10px;
-	background-color: #f1f1f1;
-}
-</style>
-
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_reservation.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_reservation2.css">
 
 </head>
 
@@ -358,88 +186,102 @@
 			<!--// 아코디언 -->
 
 
-			<!-- =============================================================================================================================================================================== -->
-			<div class="container2 col-sm-3">
-				<div class="rsvInfo">
-					<p class="rsvInfoTit">예약정보</p>
-					<div class="rsvInfoList">
-						<ul>
-							<li class="first last">호텔<span class="htlTxt">서울신라호텔</span></li>
-						</ul>
-					</div>
-					<div class="rsvInfoList">
-						<ul>
-							<li class="first">체크인<span>2018.10.01</span></li>
-							<li>체크아웃<span>2018.10.02</span></li>
-							<li>숙박일수<span>1박</span></li>
-							<li>투숙 인원 <span> 성인 : 1&nbsp; 어린이 : 0&nbsp; 유아 : 0 </span>
-							</li>
-							<li>패키지명<span>Autumn Rooftop</span>
-								<div class="btnPackWarn">
-									<a href="#none"
-										onclick="openFavorUseGuide('12017','4813', 'S');"><span>패키지
-											유의사항</span></a>
-								</div>
-								<div id="packageWarnPopup" style="display: none;">
-									<div class="reserveConbg" style="z-index: 999;"></div>
-									팝업 내용
-								</div>
-							</li>
-							<li class="last">객실타입<span>Twin</span></li>
-						</ul>
-					</div>
-					<p class="rsvSubTit">객실/패키지</p>
-					<!-- 박수별 객실요금 계산 -->
-					<input type="hidden" id="dummyAmt" value="280000"
-						autocomplete="off">
-					<div class="packagesList">
-						<dl>
-							<!-- 패키지 정보 -->
-							<dt>Autumn Rooftop</dt>
-							<dd>
-								<ul>
-									<li class="first last">2018.10.01<span>
-											280,000&nbsp;원</span></li>
-								</ul>
-								<span class="allPrice">280,000&nbsp;원 (1박)</span>
-							</dd>
-							<dd>
-								<img
-									src="http://www.shilla.net/images/upload/spofrpack/180903/FILE5ca8672f6a5be27.jpg"
-									alt="Rooftop" style="width: 220px; height: 102px;">
-							</dd>
-							<!-- 객실 정보 -->
-							<dt>Business Deluxe / Twin</dt>
-							<dd class="last">
-								<img alt="객실 이미지"
-									src="http://www.shilla.net/images/contents/accmo/ACCMO_INDEX/R00000002C68_KR.jpg"
-									style="width: 220px; height: 102px;">
-							</dd>
-						</dl>
-					</div>
-					<div>
-						<div style="display: none;" id="optArea">
-							<p class="rsvSubTit">옵션</p>
-							<div class="rsvInfoList">
-								<ul id="optInfo"></ul>
-							</div>
-						</div>
-						<div class="rsvInfoList last">
-							<ul>
-								<li id="serviceArea" class="first">봉사료<span>28,000&nbsp;원</span></li>
-								<li id="taxArea" class="last">세금<span>30,800&nbsp;원</span></li>
-							</ul>
-						</div>
-						<div class="totalPrice" id="totalAmtArea">
-							<p>
-								<span class="total">요금합계</span> <span class="priceTxt"><em>338,800</em><strong>&nbsp;원</strong></span>
-							</p>
-						</div>
-					</div>
-					<a href="#none" class="icoRefresh" onclick="resetResv('2','A');">예약초기화</a>
+<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
+			<div class="rsv_rsvinfobox col-sm-3">
+			
+				<div class="rsv_rsvinfo">
+					<p class="rsv_rsvinfotitle">예약정보</p>
+					<div class="rsv_rsvinforesetbtn"><button class="btn btn-sm rsv_rsvinforesetbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.do'">예약초기화</button></div>
 				</div>
+				
+				<div class="rsv_rsvinfotext">
+						<ul class="rsv_rsvinfotextul">
+							<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">서울신라호텔</span></li>
+						</ul>
+						
+					</div>
+					<br/><hr/>
+				
+				<div class="rsv_rsvinfotext">
+					<ul class="rsv_rsvinfotextul clearfix">
+						<li class="first">체크인 : <span>2018.10.01</span></li>
+						<li>체크아웃 : <span>2018.10.02</span></li>
+						<li>숙박일수 : <span>1박</span></li>
+						<li>투숙 인원<br/><span> 성인 : 1&nbsp; 어린이 : 0&nbsp; 유아 : 0 </span>
+						</li>
+						<li>패키지명 : <span>Autumn Rooftop</span>
+						<!-- 유의사항 모달로 구현해야함 -->
+							<div class="rsv_packagewarn clearfix">
+								<!-- 링크로 모달 열기 -->
+								<a href="#" class="btn btn-warning" data-toggle="modal"
+									data-target="#myModal2"> 패키지 유의사항 </a>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="myModal2">
+								<div class="modal-dialog modal-md">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title">패키지 유의사항</h4>
+										</div>
+										<div class="modal-body">
+											<p class="rsv_useguide">
+													- 본 상품은 성인 2인 1실 기준이며, 요금에는 세금 및 봉사료가 부과됩니다. <br/> <br/> - 본 패키지는 어번
+													아일랜드(야외 수영장) 입장 혜택을 포함하지 않은 상품입니다. <br/> <br/> - 어번 아일랜드 루프탑은 이용
+													시간(9월 7일 ~ 30일 18:00 ~ 22:00 / 10월 1일 ~ 21일 17:00 ~ 21:00)에
+													한해 입장 및 이용 가능합니다. <br/> <br/> - 더 이그제큐티브 라운지는 투숙객 전용 공간으로, 객실 투숙 고객(만
+													13세 이상)에 한해 이용 가능합니다. <br/> <br/> - 본 상품은 카드사 할인 등의 중복 할인 혜택이 적용되지
+													않습니다. <br/> <br/> - 기준 인원을 초과하여 투숙 시 추가 인원에 대해서는 별도의 요금이 부과됩니다.<br/>• 객실
+													1실 당 성인은 최대 3인까지만 투숙 가능하며, 소인(37개월 이상~만 12세 이하)은 최대 2인까지만
+													동반 투숙 가능합니다.<br/>• 객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다. <br/> <br/> -
+													Check-in은 오후 3시, Check-out은 정오까지입니다. <br/> <br/> - 숙박 예정일 1일 전 18시까지는
+													위약금 없이 취소 및 변경이 가능합니다. <br/> <br/> 숙박 예정일 1일 전 18시 이후 취소/변경 및
+													노쇼(No-show) 발생 시, ▷성수기(5월~10월, 12월 24일~31일)에는 최초 1일 숙박 요금의
+													80%, ▷비수기(성수기 외 기간)에는 최초 1일 숙박 요금의 10%가 위약금으로 부과됩니다. <br/> <br/> -
+													패키지에 포함된 혜택 및 선물은 투숙 기간 중에 한해 1회 제공되며, 중복 제공되지 않습니다. <br/> <br/> -
+													주류는 성인 고객에 한해 이용 가능합니다. <br/>
+												</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						<!-- 유의사항 모달로 구현해야함 -->
+							</li>
+							
+						</ul>
+						<p>객실타입<span>Twin</span></p>
+						<hr/>
+				</div>
+				
+				<div class="rsv_prinfo">
+					<p class="rsv_rsvinfotitle clearfix">객실/패키지</p>
+					<ul>
+						<li>Autumn Rooftop(DB)</li>
+						<li>2018.10.15 280,000 원(DB)</li>
+					</ul>
+					<p>280,000원 (1박) (DB)</p>
+				</div>
+				
+				<div class="rsv_primg">
+				<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
+				
+				<p>Business Deluxe / Twin</p>
+				<img src="${pageContext.request.contextPath}/assets/img/rsv_businessdeluxe.jpg" alt="이미지1" />
+				</div>
+				<hr/>
+				<div class="rsv_price">
+				<p>봉사료 28,000 원</p>
+				<p>세금 30,800 원</p>
+				</div>
+				<div class="rsv_totalpay">
+				<p>요금합계 338,800원</p>
+				</div>
+				
 			</div>
-			<!-- =============================================================================================================================================================================== -->
+<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
 		</div>
 	</div>
 	<%-- container end --%>
@@ -447,3 +289,31 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

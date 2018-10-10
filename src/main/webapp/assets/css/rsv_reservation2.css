@@ -1,0 +1,250 @@
+.clearfix:after {
+	content: '';
+	display: block;
+	floot: none;
+	clear: both;
+}
+
+.rsv_cont {
+	margin-top: 30px;
+}
+
+<!--
+===============================================================================================================================================================================
+--> /* 아코디언 */
+/* 기본 여백 제거 */
+* {
+	padding: 0;
+	margin: 0;
+}
+
+/* 전체 박스 크기 및 정렬 */
+/* .collapse {
+	width: 850px;
+	margin: auto;
+} */
+.collapse-item {
+	padding: 0px;
+	margin: 0px;
+}
+
+.collapse-item2 {
+	padding: 0px;
+	margin: 0px;
+}
+/* 제목 영역의 배경색상과 태두리 */
+.collapse-title {
+	/* width : 850px; */
+	background: #white;
+	border: 1px solid #d5d5d5;
+}
+
+.collapse-title2 {
+	/* width : 850px; */
+	background: #white;
+	border: 1px solid #d5d5d5;
+}
+
+/* 제목영역의 링크에 대한 크기, 글자모양 */
+.collapse-title a {
+	display: block;
+	width: auto;
+	padding: 10px;
+	color: #222;
+	font-size: 14px;
+	text-decoration: none
+}
+
+.collapse-title2 a {
+	display: block;
+	width: auto;
+	padding: 10px;
+	color: #222;
+	font-size: 14px;
+	text-decoration: none
+}
+
+/* 내용영역의 여백, 글자크기, 태두리, 숨김 */
+.content {
+	padding: 0px 15px;
+	font-size: 12px;
+	border-left: 1px solid #d5d5d5;
+	border-right: 1px solid #d5d5d5;
+	display: none;
+}
+
+.content2 {
+	height: 650px;
+	padding: 0px 15px;
+	font-size: 12px;
+	border-left: 1px solid #d5d5d5;
+	border-right: 1px solid #d5d5d5;
+	display: none;
+}
+
+/* 마지막 내용 박스의 테두리 보정 */
+.content:last-child {
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.content2:last-child {
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.rsv_opt_textarea {
+	width: 850px;
+	height: 62px;
+}
+
+.
+/* //아코디언 */
+<!--
+===============================================================================================================================================================================
+--> /* 상단 */
+.rsv2_option {
+	/* width : 850px; */
+	height: auto;
+}
+
+.rsv2_optionlist {
+	/* width : 850px; */
+	height: 50px;
+	background-color: #f4eee3;
+}
+
+.rsv2_optionlist_1 {
+	margin-top: 15px;
+	margin-left: 20px;
+	text-align: left;
+	width: 300px;
+	float: left;
+}
+
+.rsv2_optionlist_2 {
+	margin-top: 17px;
+	margin-right: 20px;
+	text-align: right;
+	width: 400px;
+	float: right;
+	color: #727272;
+	font-size: 13px;
+}
+
+/* //상단 */
+.rsv2_option1 {
+	height: 50px;
+	border-bottom: 1px solid #f1f1f1;
+	padding-top: 15px;
+}
+
+.rsv2_option2 {
+	height: 50px;
+	border-bottom: 1px solid #f1f1f1;
+	padding-top: 15px;
+}
+
+.rsv_cont {
+	width: 1200px;
+	height: 500px;
+}
+
+.rsv_optchbox {
+	line-height: 10px;
+	float: left;
+}
+
+.rsv2_optext1 {
+	margin-left: 10px;
+	float: left;
+	width: 250px;
+}
+
+.rsv2_optext2 {
+	float: right;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	floot: none;
+	clear: both;
+}
+
+.rsv2_option_graybox2 {
+	padding:10px;
+	background-color: #f1f1f1;
+}
+
+/* 예약정보 */
+.rsv_rsvinfobox {
+
+	padding: 0;
+	margin : 0;
+	border: 3px solid #a1886f;
+}
+
+.rsv_rsvinforesetbtn {
+	float: right;
+}
+
+.rsv_rsvinfotextul {
+	padding: 0;
+	float: left;
+}
+
+.rsv_packagewarn {
+	width: 130px;
+	float: right;
+}
+
+.rsv_primg {
+
+}
+
+.rsv_primg img {
+	width: 212px;
+	heoght: 118px;
+}
+
+.rsv_rsvinfotitle {
+	width: 200px;
+}
+
+.rsv_totalpay {
+	padding: 15px;
+	margin: 0;
+	border-top: 4px solid #a1886f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 예약정보 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

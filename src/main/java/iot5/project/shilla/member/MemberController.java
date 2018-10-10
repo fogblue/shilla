@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,11 @@ import iot5.project.shilla.service.MemberService;
 
 @Controller
 public class MemberController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	Logger logger = LoggerFactory.getLogger(MemberController.class);
 	@Autowired
 	WebHelper web;
+	@Autowired
+	SqlSession sqlSession;
 	@Autowired
 	RegexHelper regex;
 	@Autowired
@@ -138,7 +141,7 @@ public class MemberController {
 	public ModelAndView log_join03(Locale locale, Model model, HttpServletRequest request,
 			HttpServletResponse response) {
 		logger.info("Welcome home! The client locale is {log_join03}.", locale);
-		return new ModelAndView("login/log_join03");
+		return new ModelAndView("member/log_join03");
 	}
 
 }

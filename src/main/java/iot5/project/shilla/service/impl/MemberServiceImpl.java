@@ -39,12 +39,16 @@ public class MemberServiceImpl implements MemberService {
 		Member result = null;
 		try {
 			result = sqlSession.selectOne("MemberMapper.selectLoginInfo", member);
+			if(result == null) {
+				throw new NullPointerException();
+			}
 		} catch (NullPointerException e) {
 			throw new Exception("아이디나 비밀번호가 잘못되었습니다.");
-		} catch (Exception e) {
+		}catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 			throw new Exception("로그인에 실패했습니다.");
-		}
+		} 
+		
 		return result;
 	}
 

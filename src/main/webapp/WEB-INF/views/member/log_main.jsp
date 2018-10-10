@@ -29,15 +29,16 @@
 		</div>
 		
 		<div class="form-group">
+		
 			<div class="log_form-horizontal" >
 				<div>
 					<label><input type="radio" name="user"  id="user" class="uorunu" value="user" checked>회원</label>
 					<label><input type="radio" name="user" id="unuser" class="uorunu" value="unuser">비회원(예약확인)</label>
 				
 				</div>
-				<div class="form-group" id="form-group-box">
+				<form id="form-group-box" action="${pageContext.request.contextPath}/member/login_ok.do" name="login" method="post" enctype="multipart/form-data">
 					
-				</div>
+				</form>
 			</div>
 				
 			
@@ -59,7 +60,7 @@
 			$("#user").change(function(e) {
 				$("#form-group-box").empty();
 				$.ajax({
-					url: "${pageContext.request.contextPath}/login/log_user.html",
+					url: "${pageContext.request.contextPath}/member/log_user.html",
 					method: "get",
 					data: {},
 					dataType: "html",
@@ -72,7 +73,7 @@
 			$("#unuser").change(function(e) {
 				$("#form-group-box").empty();
 				$.ajax({
-					url: "${pageContext.request.contextPath}/login/log_unuser.html",
+					url: "${pageContext.request.contextPath}/member/log_unuser.html",
 					method: "get",
 					data: {},
 					dataType: "html",

@@ -22,8 +22,8 @@
 					Site</span></a>
 		</div>
 		<ul class="menu2 list-inline pull-right">
-			<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/login/log_main.do">로그인&nbsp;</a></li>
-			<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/login/log_join01.do">회원 가입&nbsp;</a></li>
+			<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/member/log_main.do">로그인&nbsp;</a></li>
+			<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/member/log_join01.do">회원 가입&nbsp;</a></li>
 			<li class="menu-item2"><a href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약 확인</a></li>
 		</ul>
 		<div>

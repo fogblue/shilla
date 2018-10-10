@@ -429,6 +429,7 @@
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">280,000~</li>
 								<li class="rsv_text2_2">원/1박</li>
+								
 							</ul>
 							
 							
@@ -497,6 +498,7 @@
 										<div class="rsv_content1-1-1">Twin</div>
 										<div class="rsv_content1-1-2">
 											280,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 										<br /> <br />
 										<hr />
@@ -504,6 +506,7 @@
 										<div class="rsv_content1-2-1">Double</div>
 										<div class="rsv_content1-2-2">
 											280,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 									</div>
 								</div>
@@ -620,6 +623,7 @@
 										<div class="rsv_content1-1-1">Double</div>
 										<div class="rsv_content1-1-2">
 											420,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 										<br /> <br />
 										<hr />
@@ -627,6 +631,7 @@
 										<div class="rsv_content1-2-1">Twin</div>
 										<div class="rsv_content1-2-2">
 											420,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 									</div>
 								</div>
@@ -1128,6 +1133,7 @@
 										<div class="rsv_content1-1-1">Twin</div>
 										<div class="rsv_content1-1-2">
 											280,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 										<br /> <br />
 										<hr />
@@ -1135,6 +1141,7 @@
 										<div class="rsv_content1-2-1">Double</div>
 										<div class="rsv_content1-2-2">
 											280,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 									</div>
 								</div>
@@ -1251,6 +1258,7 @@
 										<div class="rsv_content1-1-1">Double</div>
 										<div class="rsv_content1-1-2">
 											420,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 										<br /> <br />
 										<hr />
@@ -1258,6 +1266,7 @@
 										<div class="rsv_content1-2-1">Twin</div>
 										<div class="rsv_content1-2-2">
 											420,000 원~ <input type="radio" name="subject" />
+											<button class="btn btn-sm rsv_selectbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">선택</button>
 										</div>
 									</div>
 								</div>

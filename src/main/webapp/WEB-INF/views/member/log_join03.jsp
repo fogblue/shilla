@@ -55,7 +55,7 @@
 		<!-- log_body end -->
 		<div class="log_footer">
 			<div class="agree_submit">
-				<button type="submit" class="btn btn_color5 btn-md"  onclick="location.href='${pageContext.request.contextPath}/member/log_main.do' ">로그인</button>
+				<button type="submit" class="btn btn_color5 btn-md"  onclick="location.href='${pageContext.request.contextPath}/' ">메인으로</button>
 			</div>
 		</div>
 

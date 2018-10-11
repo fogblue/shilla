@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -210,6 +211,40 @@ public class MemberController {
 				
 				web.setSession("loginInfo",loginInfo );
 				
+				/**(10)이메일 발송 파라미터 처리*/
+			
+
+				logger.debug("email=" + email);
+				
+				if(email == null ) {
+					//sqlSession.close();
+					return web.redirect(null, "이메일 주소를 입력하세요");
+					
+				}
+				
+				String newPassword = util.getRandomPassword();
+				
+				member = new Member();
+				member.setEmail(email);
+				member.setUserPw(newPassword);
+				
+				try {
+					 memberService.updateMemberPasswordByEmail(member);
+				} catch(Exception e) {
+					return web.redirect(null, e.getLocalizedMessage());
+					
+				}
+				
+				String sender = "shillaManager@shilla.com";
+				String subject = "신라호텔 회원가입 완료 메일입니다.";
+				String content = "회원가입을 감사합니다. 회원님의 아이디는 <strong>"+userId+"</strong>이고, 회원번호는 <strong>"+loginInfo.getId()+"</strong>입니다.";
+				
+				try {
+					mail.sendMail(sender, email, subject, content);
+				}catch(MessagingException e) {
+					return web.redirect(null, "메일발송에 실패했습니다. 관리자에게 문의 바랍니다");
+					
+				}
 				
 		/**(10)가입이 완료되었으므로 완료페이지로 이동*/
 			
@@ -293,6 +328,63 @@ public class MemberController {
 			HttpServletResponse response) {
 		logger.info("Welcome home! The client locale is {log_join03}.", locale);
 		return new ModelAndView("member/log_join03");
+	}
+	@RequestMapping(value = "/member/find_pw.do", method = RequestMethod.GET)
+	public ModelAndView MemberFindPw(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		web.init();
+		
+		if(web.getSession("loginInfo")!=null) {
+			return web.redirect(web.getRootPath(), "이미 로그인 중입니다.");
+			
+		}
+		return new ModelAndView("member/find_pw");
+	}
+	@RequestMapping(value = "/member/find_pw_ok.do", method = RequestMethod.POST)
+	public ModelAndView MemberFindPwOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		web.init();
+		
+		if(web.getSession("loginInfo")!=null) {
+			//sqlSession.close();
+			return web.redirect(web.getRootPath(), "이미 로그인 중입니다.");
+			
+		}
+		/**(4)파라미터 처리*/
+		String email = web.getString("email");
+
+		logger.debug("email=" + email);
+		
+		if(email == null ) {
+			//sqlSession.close();
+			return web.redirect(null, "이메일 주소를 입력하세요");
+			
+		}
+		
+		String newPassword = util.getRandomPassword();
+		
+		Member member = new Member();
+		member.setEmail(email);
+		member.setUserPw(newPassword);
+		
+		try {
+			 memberService.updateMemberPasswordByEmail(member);
+		} catch(Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+			
+		}
+		
+		String sender = "webmaster@mysite.com";
+		String subject = "MySite 비밀번호 변경 안내 입니다.";
+		String content = "회원님의 새로운 비밀번호는 <strong>"+newPassword+"</strong>입니다.";
+		
+		try {
+			mail.sendMail(sender, email, subject, content);
+		}catch(MessagingException e) {
+			return web.redirect(null, "메일발송에 실패했습니다. 관리자에게 문의 바랍니다");
+			
+		}
+		
+		return web.redirect(null, "새로운 비밀번호가 메일로 발송되었습니다.");
+	
 	}
 
 }

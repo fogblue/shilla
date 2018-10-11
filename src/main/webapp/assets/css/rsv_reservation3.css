@@ -1,3 +1,10 @@
+.clearfix:after {
+	content: '';
+	display: block;
+	floot: none;
+	clear: both;
+}
+
 .rsv_customerinfobox {
 	padding: 25px;
 	width: 870px;
@@ -17,3 +24,125 @@
 .rsv_infortitle {
 	font-weight: bold;
 }
+
+.rsv_rsvinfomodal_table {
+	width: 860px;
+	height: 150px;
+	border-top: 1px solid #eceae1;
+	border-collapse: collapse;
+}
+
+.rsv_PriceTable {
+	width: 860px;
+	height: 70px;
+}
+.rsv_priceWrap {
+	width: 860px;
+	height: 70px;
+	border-top: 1px solid #eceae1;
+}
+.rsv_rsv3_tr {
+	padding: 10px;
+	border-top: 1px solid #d7d2bf;
+	border-collapse: collapse;
+}
+.rsv_rsv3_tr2 {
+	padding: 10px;
+	border-top: 2px solid #d7d2bf;
+	border-collapse: collapse;
+}
+.rsv_rsv3_th {
+	width: 50px;
+	padding: 10px;
+	border-top: 1px solid #eceae1;
+	border-collapse: collapse;
+	background-color: #faf9f4
+}
+.rsv_rsv3_thf {
+	width: 50px;
+	padding: 10px;
+	border-top: 2px solid #cdcbbe;
+	border-collapse: collapse;
+	background-color: #faf9f4
+}
+.rsv_rsv3_thl {
+	width: 50px;
+	padding: 10px;
+	border-bottom: 1px solid #cdcbbe;
+	border-collapse: collapse;
+	background-color: #faf9f4
+}
+.rsv_rsv3_td {
+	padding: 10px;
+	border-top: 1px solid #eceae1;
+	border-collapse: collapse;
+}
+.rsv_rsv3_tdf {
+	padding: 10px;
+	border-top: 2px solid #cdcbbe;
+	border-collapse: collapse;
+}
+.rsv_rsv3_tdl {
+	padding: 10px;
+	border-bottom: 2px solid #cdcbbe;
+	border-collapse: collapse;
+}
+.rsv_rsv3_td2 {
+	padding: 10px;
+	border-top: 1px solid #eceae1;
+	border-bottom: 1px solid #eceae1;
+	border-collapse: collapse;
+	text-align: center;
+}
+/* .rsv_priceBox {
+	width: 860px;
+	height: 60px;
+	background-color: #fdf8ef;
+} */
+
+/* .priceTotal {
+	float: right;
+	width: 860px;
+	height: 60px;
+	background-color: #a1886f;
+} */
+
+.rsv_rsv3_li {
+	float: right;
+}
+
+.rsv_otherprice{
+	float: right;
+	width: 860px;
+	height: 60px;
+	background-color: #fdf8ef;
+}
+.rsv_otherpricep{
+	float: right;
+	margin: 10px;
+}
+
+.rsv_totalprice{
+	float: right;
+	width: 860px;
+	height: 60px;
+	background-color: #a1886f;
+}
+.rsv_totalpricep{
+	text-align: center;
+	float: right;
+	font-size: 25px;
+	
+}
+
+.rsv_priceView {
+	width: 500px;
+	height: 100px;
+}
+
+.modal-content {
+	width: 900px;
+	height: 700px;
+}
+
+

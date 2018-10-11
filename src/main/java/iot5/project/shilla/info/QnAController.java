@@ -2,8 +2,6 @@ package iot5.project.shilla.info;
 
 import java.io.IOException;
 import java.util.Locale;
-import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +21,6 @@ import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
-import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 

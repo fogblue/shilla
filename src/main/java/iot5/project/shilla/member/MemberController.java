@@ -1,7 +1,7 @@
 package iot5.project.shilla.member;
 
 import java.io.IOException;
-import java.util.List;
+
 import java.util.Locale;
 import java.util.Map;
 
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.MailHelper;
 import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
@@ -48,7 +47,7 @@ public class MemberController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/member/log_join02.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/log_join02.do", method = RequestMethod.POST)
 	public ModelAndView MemberJoin(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		web.init();
 		

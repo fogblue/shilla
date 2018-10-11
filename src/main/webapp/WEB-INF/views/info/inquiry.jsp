@@ -91,39 +91,22 @@
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_uname"><span
 								class="identify">*</span> 성명</label></th>
-						<td><input type="text" name="user_name_kor" id="enq_uname" /></td>
+						<td><input type="text" name="user_name_kor" id="enq_uname"  value="${loginInfo.userNameKor}" /></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="email"><span
 								class="identify">*</span> 이메일</label></th>
-						<td><input type="email" name="email" id="enq_email1" />
-							@ <input type="text" name="email2" id="enq_email" /> <select name="enq_elist"
-							id="enq_elist">
-								<option value="">--- 직접입력 ---</option>
-								<option value="naver.com">naver.com</option>
-								<option value="hanmail.net">hanmail.net</option>
-								<option value="hotmail.com">hotmail.com</option>
-								<option value="nate.com">nate.com</option>
-								<option value="yahoo.co.kr">yahoo.co.kr</option>
-								<option value="empas.com">empas.com</option>
-								<option value="dreamwiz.com">dreamwiz.com</option>
-								<option value="freechal.com">freechal.com</option>
-								<option value="lycos.co.kr">lycos.co.kr</option>
-								<option value="korea.com">korea.com</option>
-								<option value="gmail.com">gmail.com</option>
-								<option value="hanmir.com">hanmir.com</option>
-								<option value="paran.com">paran.com</option>
-						</select></td>
+						<td><input type="email" name="email" id="enq_email1" value="${loginInfo.email}" />
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_cellphone"><span
 								class="identify">*</span> 휴대전화</label></th>
-						<td><input type="tel" name="tel" id="enq_cellphone" /></td>
+						<td><input type="tel" name="tel" id="enq_cellphone"  value="${loginInfo.tel}" /></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_phone">&nbsp;&nbsp;
 								자택전화</label></th>
-						<td><input type="tel" name="enq_phone" id="enq_phone" /></td>
+						<td><input type="tel" name="enq_phone" id="enq_phone"  value="${loginInfo.id}" /></td>
 					</tr>
 
 				</table>

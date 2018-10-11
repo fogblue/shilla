@@ -1,7 +1,6 @@
 package iot5.project.shilla.member;
 
 import java.io.IOException;
-
 import java.util.Locale;
 import java.util.Map;
 
@@ -234,7 +233,7 @@ public class MemberController {
 		Member member = new Member();
 		member.setUserId(userId);
 		member.setUserPw(userPw);
-		
+				
 		/**(6)Service를 통한 회원 인증*/
 		Member loginInfo = null;
 		

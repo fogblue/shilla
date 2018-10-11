@@ -2,7 +2,6 @@ package iot5.project.shilla.info;
 
 import java.io.IOException;
 import java.util.Locale;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +17,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import iot5.project.shilla.helper.PageHelper;
+import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
+import iot5.project.shilla.model.Member;
+import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
+
 
 @Controller
 public class QnAController {
@@ -35,6 +38,10 @@ public class QnAController {
 	PageHelper pageHelper;
 	@Autowired
 	QnAService qnaService;
+	@Autowired
+	RegexHelper regex;
+	@Autowired
+	MemberService memberService;
 	
 	@RequestMapping(value = "/info/contactinfo.do", method = RequestMethod.GET)
 	public ModelAndView contactinfo(Locale locale, Model model) {
@@ -49,19 +56,11 @@ public class QnAController {
 
 		return new ModelAndView("info/inquiry");
 	}
-	
-	@RequestMapping(value = "/info/", method = RequestMethod.POST)
-	public ModelAndView writeQnA(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		web.init();
+	@RequestMapping(value = "/member/login_test.do", method = RequestMethod.GET)
+	public ModelAndView loginTest(Locale locale, Model model) {
+		logger.info("Welcome to contact info page! The client locale is {}.", locale);
 		
-
-		
-		String movePage = request.getHeader("referer");
-		if(movePage == null) {
-			movePage = web.getRootPath();
-		}
-		//sqlSession.close();
-		return web.redirect(movePage, null);
+		return new ModelAndView("login_test");
 	}
-
+		
 }

@@ -24,6 +24,11 @@
 	
 	<context:component-scan base-package="iot5.project.shilla" />
 	
+	<context:component-scan base-package="iot5.project.shilla.member" />
+	<context:component-scan base-package="iot5.project.shilla.info" />
+	<context:component-scan base-package="iot5.project.shilla.reserv" />
+	<context:component-scan base-package="iot5.project.shilla.mypage" />
+	<context:component-scan base-package="iot5.project.shilla.service.impl" />
 	
 	
 </beans:beans>

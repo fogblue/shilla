@@ -63,14 +63,13 @@ public class MemberController {
 
 		/**(3)로그인 여부 검사*/
 		if(web.getSession("loginInfo")!=null) {
-			sqlSession.close();
 			return web.redirect(web.getRootPath() , "이미 로그인 하셨습니다.");
 		}
 		/**(4)파일이 포함된 POST 파라미터 받기*/
 		try {
 			upload.multipartRequest();
 		} catch(Exception e) {
-			sqlSession.close();
+
 			return web.redirect(null, "multipart데이터가 아닙니다.");
 		}
 		Map<String, String> paramMap = upload.getParamMap();
@@ -103,80 +102,80 @@ public class MemberController {
 		/**(5)입력값의 유효성 검사*/
 		//아이디 검사
 		if(!regex.isValue(userId)) {
-			sqlSession.close();
+
 			return web.redirect(null, "아이디를 입력하세요");
 		}
 		if(!regex.isEngNum(userId)) {
-			sqlSession.close();
+
 			return web.redirect(null, "아이디는 숫자와 영문조합으로 20자까지만 가능합니다.");
 		}
 		if(userId.length() > 20) {
-			sqlSession.close();
+
 			return web.redirect(null, "아이디는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
 
 		}
 		//비밀번호 검사
 		if(!regex.isValue(userPw)) {
-			sqlSession.close();
+
 			return web.redirect(null, "비밀번호를 입력하세요");
 
 		}
 		if(!regex.isEngNum(userPw)) {
-			sqlSession.close();
+
 			return web.redirect(null, "비밀번호는 숫자와 영문조합으로 20자까지만 가능합니다.");
 		
 		}
 		if(userPw.length() > 20) {
-			sqlSession.close();
+
 			return web.redirect(null, "비밀번호는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
 			
 		}
 		if(!userPw.equals(userPwRe)) {
-			sqlSession.close();
+
 			return web.redirect(null, "비밀번호확인이 잘못되었습니다.");
 			
 		}
 		//이름 검사
 				if(!regex.isValue(userNameKor)) {
-					sqlSession.close();
+
 					return web.redirect(null, "이름을 입력하세요");
 					
 				}
 				if(!regex.isKor(userNameKor)) {
-					sqlSession.close();
+
 					return web.redirect(null, "이름은 한글만 입력가능합니다.");
 					
 				}
 				if(userNameKor.length() < 2 ||userNameKor.length() > 5) {
-					sqlSession.close();
+
 					return web.redirect(null, "이름은 2 ~ 5 글자까지만 가능합니다.");
 					
 				}		
 		//이메일 검사
 				if(!regex.isValue(email)) {
-					sqlSession.close();
+
 					return web.redirect(null, "이메일을 입력하세요");
 				
 				}
 				if(!regex.isEmail(email)) {
-					sqlSession.close();
+		
 					return web.redirect(null, "이메일 형식이 잘못되었습니다.");
 				
 				}
 		//연락처 검사
 				if(!regex.isValue(tel)) {
-					sqlSession.close();
+				
 					return web.redirect(null, "연락처를 입력하세요");
 				
 				}
 				if(!regex.isCellPhone(tel) && !regex.isTel(tel)) {
-					sqlSession.close();
+				
 					return web.redirect(null, "연락처 형식이 잘못되었습니다.");
 				
 				}
 		//생년월일 검사
 				if(!regex.isValue(birthdate)) {
-					sqlSession.close();
+			
 					return web.redirect(null, "생년월일을 입력하세요");
 				
 				}
@@ -219,26 +218,13 @@ public class MemberController {
 		return new ModelAndView("member/log_main");
 	}
 
-	@RequestMapping(value = "/member/log_user", method = RequestMethod.GET)
-	public ModelAndView log_user(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
-		logger.info("Welcome home! The client locale is {log_join01}.", locale);
-		return new ModelAndView("member/log_user");
-	}
-
-	@RequestMapping(value = "/member/log_unuser", method = RequestMethod.GET)
-	public ModelAndView log_unuser(Locale locale, Model model, HttpServletRequest request,
-			HttpServletResponse response) {
-		logger.info("Welcome home! The client locale is {log_join01}.", locale);
-		return new ModelAndView("member/log_unuser");
-	}
-
 	
 	@RequestMapping(value = "/member/login_ok.do", method = RequestMethod.POST)
 	public ModelAndView LoginOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		web.init();
 		
 		if(web.getSession("loginInfo")!=null) {
-			return web.redirect(web.getRootPath() + "/index.do", "이미 로그인 하셨습니다.");
+			return web.redirect(web.getRootPath(), "이미 로그인 하셨습니다.");
 			
 		}
 		/**(4)파라미터 처리*/
@@ -275,7 +261,7 @@ public class MemberController {
 			movePage = web.getRootPath() ;
 		}
 		//sqlSession.close();
-		return web.redirect(movePage, null);
+		return web.redirect(web.getRootPath(), null);
 	
 	}
 	@RequestMapping(value = "/member/logout.do", method = RequestMethod.GET)

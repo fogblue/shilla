@@ -39,4 +39,4 @@ local.properties
 .buildpath
 .target
 /build/
-*.properties
+/META-INF/maven/**/*.properties

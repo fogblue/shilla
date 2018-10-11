@@ -7,36 +7,35 @@
 	<resultMap id="qna"
 		type="iot5.project.shilla.model.QnA">
 		<result property="id" column="id" />
-		<result property="userId" column="user_id" />
 		<result property="ecategory" column="ecategory" />
 		<result property="qnaFilePath" column="qna_file_path" />
 		<result property="hotelCate" column="hotel_cate" />
 		<result property="qnaType" column="qna_type" />
 		<result property="subject" column="subject" />
 		<result property="content" column="content" />
-		<result property="name" column="name" />
+		<result property="userNameKor" column="user_name_kor" />
 		<result property="email" column="email" />
 		<result property="tel" column="tel" />
+		<result property="telHome" column="tel_home" />
+		<result property="ipAddress" column="ip_address" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
-		<result property="MemberId" column="Member_id" />
-		<result property="ipAddress" column="ip_address" />
+		<result property="memberId" column="member_id" />
 	</resultMap>
 	
 	 <select id="selectQnACount" parameterType="iot5.project.shilla.model.QnA" resultType="int">
-        SELECT count(id) FROM qna WHERE user_id=#{userId}
+        SELECT count(id) FROM qna WHERE member_id=#{memberId}
     </select>
     
      <!-- 글쓰기 -->
-	<insert id="writeQna" parameterType="iot5.project.shilla.model.QnA" 
+	<insert id="writeQnA" parameterType="iot5.project.shilla.model.QnA" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO qna (
-			ecategory, user_id, qna_file_path, hotel_cate, qna_type, 
-			subject, content, name, email, tel, reg_date, edit_date, ip_address
-		FROM qna
+			ecategory, hotel_cate, qna_type, 
+			subject, content, user_name_kor, email, tel, tel_home, ip_address, reg_date, edit_date, member_id
 		) VALUES (
-			#{ecategory}, #{userId}, #{qnaFilePath}, #{hotelCate}, #{qnaType}, #{subject},
-			#{content}, #{name}, #{email}, #{tel}, now(), now(), #{ipAddress}
+			#{ecategory}, #{hotelCate}, #{qnaType}, #{subject},
+			#{content}, #{userNameKor}, #{email}, #{tel}, #{telHome}, #{ipAddress}, now(), now(), #{memberId}
 		)
 	</insert>
 	

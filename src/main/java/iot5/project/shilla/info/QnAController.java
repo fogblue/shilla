@@ -81,8 +81,9 @@ public class QnAController {
 		String subject = paramMap.get("subject");
 		String content = paramMap.get("content");
 		String userNameKor = paramMap.get("user_name_kor");
-		String email = paramMap.get("email" + "@" + "email2");
+		String email = paramMap.get("email");
 		String tel = paramMap.get("tel");
+		String telHome = paramMap.get("tel_home");
 		String ipAddress = web.getClientIP();
 		int memberId = 0;
 		
@@ -92,6 +93,7 @@ public class QnAController {
 			email = loginInfo.getEmail();
 			memberId = loginInfo.getId();
 			tel = loginInfo.getTel();
+			telHome = loginInfo.getTelHome();
 		}
 		
 		logger.debug("ecategory=" + ecategory);
@@ -109,7 +111,6 @@ public class QnAController {
 		//이름 검사
 		if(!regex.isValue(userNameKor)) {
 			return web.redirect(null, "작성자 이름을 입력하세요");
-			
 		}
 
 		//이메일 검사
@@ -141,6 +142,7 @@ public class QnAController {
 		qna.setUserNameKor(userNameKor);
 		qna.setEmail(email);
 		qna.setTel(tel);
+		qna.setTelHome(telHome);
 		qna.setIpAddress(ipAddress);
 		qna.setMemberId(memberId);
 		
@@ -172,7 +174,7 @@ public class QnAController {
 			return web.redirect(null, e.getLocalizedMessage());
 		} 
 		/**(11)저장 완료 후 읽기 페이지로 이동하기*/
-		return web.redirect(null, "문의사항이 저장되었습니다.");
+		return web.redirect(web.getRootPath(), "문의사항이 저장되었습니다.");
 	}
 		
 }

@@ -28,7 +28,7 @@ import iot5.project.shilla.service.MemberService;
 
 @Controller
 public class MemberController {
-	Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	@Autowired
 	WebHelper web;
 	@Autowired
@@ -191,29 +191,27 @@ public class MemberController {
 				member.setZipcode(zipcode);
 				member.setLoadAddr(loadAddr);
 				member.setDetail(detail);
-		/**(8)Service를 통한 데이터 배이서 저장 처리*/
+		/**(8)Service를 통한 데이터베이스 저장 처리*/
 				try {
 					memberService.insertMember(member);
 				} catch(Exception e) {
 					return 	web.redirect(null, e.getLocalizedMessage());
-					
 				}
 				
 				
-				/**(6)Service를 통한 회원 인증*/
+		/**(9)회원가입하자마자 로그인*/
 				Member loginInfo = null;
 				
 				try {
 					loginInfo= memberService.selectLoginInfo(member);
 				} catch(Exception e) {
 					return web.redirect(null, e.getLocalizedMessage());
-					
 				}
 				
 				web.setSession("loginInfo",loginInfo );
 				
 				
-		/**(9)가입이 완료되었으므로 완료페이지로 이동*/
+		/**(10)가입이 완료되었으므로 완료페이지로 이동*/
 			
 				return web.redirect(web.getRootPath() + "/member/log_join03.do", "완료");
 	}

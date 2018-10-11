@@ -9,8 +9,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
     <!-- validate 플러그인 참조 -->
-    <script src="${pageContext.request.contextPath}/assetsplugins/validate/jquery.validate.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assetsplugins/validate/additional-methods.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/plugins/validate/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/plugins/validate/additional-methods.min.js"></script>
 
 </head>
 <body>

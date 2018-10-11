@@ -23,12 +23,13 @@
 		<result property="memberId" column="member_id" />
 	</resultMap>
 	
+	<!-- 글 갯수 -->
 	 <select id="selectQnACount" parameterType="iot5.project.shilla.model.QnA" resultType="int">
         SELECT count(id) FROM qna WHERE member_id=#{memberId}
     </select>
     
      <!-- 글쓰기 -->
-	<insert id="writeQnA" parameterType="iot5.project.shilla.model.QnA" 
+	<insert id="insertQnA" parameterType="iot5.project.shilla.model.QnA" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO qna (
 			ecategory, hotel_cate, qna_type, 

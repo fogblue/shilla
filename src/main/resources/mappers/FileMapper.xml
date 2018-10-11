@@ -15,7 +15,6 @@
 		<result property="fileSize" column="subject" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
-		<result property="qnaFile" column="qna_file" />
 		<result property="roomImg" column="room_img" />
 		<result property="packageImg" column="package_img" />
 		<result property="documentId" column="document_id" />
@@ -44,7 +43,7 @@
 	
 	<!-- 게시글에 속한 파일 전체 삭제 하기 -->
 	<delete id="deleteFileAll" parameterType="iot5.project.shilla.model.File">
-		DELETE FROM bbs_file WHERE document_id=#{bbsDocumentId}
+		DELETE FROM file WHERE document_id=#{documentId}
 	</delete>
 	
 	<!-- 하나의 파일을 조회한다. -->

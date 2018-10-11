@@ -7,7 +7,8 @@
 <%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
-<script src="regex.js"></script>
+
+<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
   
 </head>
 <body>
@@ -33,12 +34,12 @@
 		</div>
 
 		<div class="log_body">
-		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="log_join02.do">
+		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="${pageContext.request.contextPath}/member/log_join02.do">
 			<div class="bdbb1">
 				<h4>약관동의</h4>
 			</div>
 			<div class="agree_box">
-				<h3 class="log_h3">
+				<h3 class="log_h3">	
 					<strong>신라리워즈 이용약관에 대한 동의 (필수)</strong>
 				</h3>
 

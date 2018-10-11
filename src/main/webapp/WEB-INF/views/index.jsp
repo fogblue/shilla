@@ -34,17 +34,6 @@
 	</div>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
-
-	<!-- 동적으로 생성될 HTML의 기본 틀 -->
-	<script type="text/x-handlebars-template" id="list-item-tmpl">
-        {{#item}}
-                <div class="item-box">
-                    <div class="item-content">
-                        <img src="{{img}}" class="soff_img" />
-                    </div>
-                </div>
-        {{/item}}
-    </script>
 	<!-- Script codes -->
 	<script src="${pageContext.request.contextPath}/assets/plugins/youcover/youCover.js"></script>
 	<!-- json 데이터를 정의한 외부 파일 로드하기 -->

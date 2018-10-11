@@ -40,8 +40,8 @@
 				<h4>회원 정보 입력</h4>
 			</div>
 			<!-- 가입폼 시작 -->
-			<form class="form-horizontal" name="join_form" id="join_form"
-				method="post" action="log_join03.do">
+			<form class="form-horizontal" name="join_form" id="join_form" method="post" enctype="multipart/form-data"
+				action="${pageContext.request.contextPath}/member/join_ok.do">
 				<div class="basic_data">
 					<h5 class="basic_data_title">기본 정보 입력 (*표시 필수입력사항)</h5>
 					<div class="form-group">
@@ -91,7 +91,7 @@
 						<label for='text' class="col-md-2"><span class='identify'>*</span>생년월일
 						</label>
 						<div class="col-md-10 calendar_box">
-							<input type="text" id="datepicker" readonly /> <img
+							<input type="text" id="datepicker" readonly name="birthdate"/> <img
 								id="show-cal" class="calendar_img" src="${pageContext.request.contextPath}/assets/img/calendar.png"
 								height="20">
 						</div>

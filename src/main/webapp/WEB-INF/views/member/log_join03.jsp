@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
@@ -8,8 +9,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
     <!-- validate 플러그인 참조 -->
-    <script src="${pageContext.request.contextPath}/assetsplugins/validate/jquery.validate.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assetsplugins/validate/additional-methods.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/plugins/validate/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/plugins/validate/additional-methods.min.js"></script>
 
 </head>
 <body>
@@ -30,7 +31,7 @@
 
 		<div class="log_box2">
 			<h2 class="log_top_header1">감사합니다.</h2>
-			<h2 class="log_header2">(이름)님께서는 신라호텔에 정상적으로 가입되셨습니다.</h2>
+			<h2 class="log_header2">${loginInfo.userNameKor}님께서는 신라호텔에 정상적으로 가입되셨습니다.</h2>
 		</div>
 
 		<div class="logjoin3_body ">
@@ -38,11 +39,11 @@
 				<table class="finish_table">
 					<tr>
 						<td class="space">회원 번호&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;(6자리 랜덤)</td>
+						<td class="users_info">&nbsp;&nbsp;&nbsp;${loginInfo.id}</td>
 					</tr>
 					<tr>
 						<td class="space">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;(사용자 아이디)</td>
+						<td class="users_info">&nbsp;&nbsp;&nbsp;${loginInfo.userId}</td>
 					</tr>
 				</table>
 			</div>
@@ -54,7 +55,7 @@
 		<!-- log_body end -->
 		<div class="log_footer">
 			<div class="agree_submit">
-				<button type="submit" class="btn btn_color5 btn-md"  onclick="location.href='${pageContext.request.contextPath}/member/log_main.do' ">로그인</button>
+				<button type="submit" class="btn btn_color5 btn-md"  onclick="location.href='${pageContext.request.contextPath}/' ">메인으로</button>
 			</div>
 		</div>
 

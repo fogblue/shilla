@@ -3,19 +3,19 @@ package iot5.project.shilla.model;
 public class QnA {
 	private int id;
 	private String ecategory;
-	private String userId;
 	private String qnaFilePath;
 	private String hotelCate;
 	private String qnaType;
 	private String subject;
 	private String content;
-	private String name;
+	private String userNameKor;
 	private String email;
 	private String tel;
+	private String telHome;
 	private String regDate;
 	private String editDate;
 	private String ipAddress;
-	private int MemberId;
+	private int memberId;
 
 	public int getId() {
 		return id;
@@ -33,13 +33,6 @@ public class QnA {
 		this.ecategory = ecategory;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public String getQnaFilePath() {
 		return qnaFilePath;
@@ -81,12 +74,12 @@ public class QnA {
 		this.content = content;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserNameKor() {
+		return userNameKor;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserNameKor(String userNameKor) {
+		this.userNameKor = userNameKor;
 	}
 
 	public String getEmail() {
@@ -122,11 +115,11 @@ public class QnA {
 	}
 
 	public int getMemberId() {
-		return MemberId;
+		return memberId;
 	}
 
 	public void setMemberId(int memberId) {
-		MemberId = memberId;
+		this.memberId = memberId;
 	}
 
 	public String getIpAddress() {
@@ -137,12 +130,20 @@ public class QnA {
 		this.ipAddress = ipAddress;
 	}
 
+	public String getTelHome() {
+		return telHome;
+	}
+
+	public void setTelHome(String telHome) {
+		this.telHome = telHome;
+	}
+
 	@Override
 	public String toString() {
-		return "QnA [id=" + id + ", ecategory=" + ecategory + ", userId=" + userId + ", qnaFilePath=" + qnaFilePath
+		return "QnA [id=" + id + ", ecategory=" + ecategory + ", qnaFilePath=" + qnaFilePath
 				+ ", hotelCate=" + hotelCate + ", qnaType=" + qnaType + ", subject=" + subject + ", content=" + content
-				+ ", name=" + name + ", email=" + email + ", tel=" + tel + ", regDate=" + regDate + ", editDate="
-				+ editDate + ", ipAddress=" + ipAddress + ", MemberId=" + MemberId + "]";
+				+ ", userName=" + userNameKor + ", email=" + email + ", tel=" + tel + ", regDate=" + regDate + ", editDate="
+				+ editDate + ", ipAddress=" + ipAddress + ", MemberId=" + memberId + "]";
 	}
 
 }

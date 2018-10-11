@@ -1,10 +1,10 @@
 package iot5.project.shilla.member;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.MailHelper;
 import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
@@ -48,7 +47,7 @@ public class MemberController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/member/log_join02.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/log_join02.do", method = RequestMethod.POST)
 	public ModelAndView MemberJoin(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		web.init();
 		
@@ -179,15 +178,7 @@ public class MemberController {
 					return web.redirect(null, "생년월일을 입력하세요");
 				
 				}
-		/**(6)업로드 된 파일 정보 추출*/
-				List<FileInfo> fileList = upload.getFileList();
-				String profileImg = null;
-				if(fileList.size() > 0) {
-					FileInfo info = fileList.get(0);
-					profileImg = info.getFileDir() + "/" + info.getFileName();
-				}
-				
-				logger.debug("profileImg=" + profileImg );
+	
 		/**(7)전달 받은 파라미터를 Beans객체에 담는다*/
 				Member member = new Member();
 				member.setUserNameKor(userNameKor);
@@ -208,9 +199,57 @@ public class MemberController {
 					return 	web.redirect(null, e.getLocalizedMessage());
 					
 				}
-		/**(9)가입이 완료되었으므로 메인페이지로 이동*/
+				
+				
+		/**(9)회원가입하자마자 로그인*/
+				Member loginInfo = null;
+				
+				try {
+					loginInfo= memberService.selectLoginInfo(member);
+				} catch(Exception e) {
+					return web.redirect(null, e.getLocalizedMessage());
+				}
+				
+				web.setSession("loginInfo",loginInfo );
+				
+				/**(10)이메일 발송 파라미터 처리*/
 			
-				return web.redirect(web.getRootPath() + "/member/login_main", "회원가입이 완료되었습니다. 로그인해주세요");
+
+				logger.debug("email=" + email);
+				
+				if(email == null ) {
+					//sqlSession.close();
+					return web.redirect(null, "이메일 주소를 입력하세요");
+					
+				}
+				
+				String newPassword = util.getRandomPassword();
+				
+				member = new Member();
+				member.setEmail(email);
+				member.setUserPw(newPassword);
+				
+				try {
+					 memberService.updateMemberPasswordByEmail(member);
+				} catch(Exception e) {
+					return web.redirect(null, e.getLocalizedMessage());
+					
+				}
+				
+				String sender = "shillaManager@shilla.com";
+				String subject = "신라호텔 회원가입 완료 메일입니다.";
+				String content = "회원가입을 감사합니다. 회원님의 아이디는 <strong>"+userId+"</strong>이고, 회원번호는 <strong>"+loginInfo.getId()+"</strong>입니다.";
+				
+				try {
+					mail.sendMail(sender, email, subject, content);
+				}catch(MessagingException e) {
+					return web.redirect(null, "메일발송에 실패했습니다. 관리자에게 문의 바랍니다");
+					
+				}
+				
+		/**(10)가입이 완료되었으므로 완료페이지로 이동*/
+
+				return web.redirect(web.getRootPath(), "회원가입이 완료되었습니다. 로그인해주세요");
 	}
 	@RequestMapping(value = "/member/log_main.do", method = RequestMethod.GET)
 	public ModelAndView log_main(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -243,7 +282,7 @@ public class MemberController {
 		Member member = new Member();
 		member.setUserId(userId);
 		member.setUserPw(userPw);
-		
+				
 		/**(6)Service를 통한 회원 인증*/
 		Member loginInfo = null;
 		
@@ -290,6 +329,63 @@ public class MemberController {
 			HttpServletResponse response) {
 		logger.info("Welcome home! The client locale is {log_join03}.", locale);
 		return new ModelAndView("member/log_join03");
+	}
+	@RequestMapping(value = "/member/find_pw.do", method = RequestMethod.GET)
+	public ModelAndView MemberFindPw(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		web.init();
+		
+		if(web.getSession("loginInfo")!=null) {
+			return web.redirect(web.getRootPath(), "이미 로그인 중입니다.");
+			
+		}
+		return new ModelAndView("member/find_pw");
+	}
+	@RequestMapping(value = "/member/find_pw_ok.do", method = RequestMethod.POST)
+	public ModelAndView MemberFindPwOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		web.init();
+		
+		if(web.getSession("loginInfo")!=null) {
+			//sqlSession.close();
+			return web.redirect(web.getRootPath(), "이미 로그인 중입니다.");
+			
+		}
+		/**(4)파라미터 처리*/
+		String email = web.getString("email");
+
+		logger.debug("email=" + email);
+		
+		if(email == null ) {
+			//sqlSession.close();
+			return web.redirect(null, "이메일 주소를 입력하세요");
+			
+		}
+		
+		String newPassword = util.getRandomPassword();
+		
+		Member member = new Member();
+		member.setEmail(email);
+		member.setUserPw(newPassword);
+		
+		try {
+			 memberService.updateMemberPasswordByEmail(member);
+		} catch(Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+			
+		}
+		
+		String sender = "webmaster@mysite.com";
+		String subject = "MySite 비밀번호 변경 안내 입니다.";
+		String content = "회원님의 새로운 비밀번호는 <strong>"+newPassword+"</strong>입니다.";
+		
+		try {
+			mail.sendMail(sender, email, subject, content);
+		}catch(MessagingException e) {
+			return web.redirect(null, "메일발송에 실패했습니다. 관리자에게 문의 바랍니다");
+			
+		}
+		
+		return web.redirect(null, "새로운 비밀번호가 메일로 발송되었습니다.");
+	
 	}
 
 }

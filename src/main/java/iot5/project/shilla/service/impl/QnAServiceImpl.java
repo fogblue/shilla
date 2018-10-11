@@ -6,8 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import iot5.project.shilla.helper.UploadHelper;
-import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.service.QnAService;
 
@@ -17,48 +15,101 @@ public class QnAServiceImpl implements QnAService {
 
 	@Autowired
 	SqlSession sqlSession;
-	@Autowired
-	WebHelper web;
-	@Autowired
-	UploadHelper upload;
-	
+
 	@Override
-	public void selectUserIdCount(QnA qna) throws Exception {
+	public void insertQnA(QnA qna) throws Exception {
 		try {
-			int result = sqlSession.insert("QnAMapper.writeQnA", qna);
+			int result = sqlSession.insert("QnAMapper.insertQnA", qna);
 			if (result == 0) {
 				throw new NullPointerException();
 			}
 		} catch (NullPointerException e) {
-			throw new Exception("저장된 게시물이 없습니다.");
+			throw new Exception("등록된 게시물이 없습니다.");
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
-			throw new Exception("게시물 정보 등록에 실패했습니다.");
+			throw new Exception("게시물 등록에 실패했습니다.");
 		}
-	}
 
-	@Override
-	public void writeQnA(QnA qna) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void deleteQnA(QnA qna) throws Exception {
-		// TODO Auto-generated method stub
-		
+		try {
+			int result = sqlSession.insert("QnAMapper.deleteQnA", qna);
+			if (result == 0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("삭제된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 삭제에 실패했습니다.");
+		}
+
 	}
 
 	@Override
 	public void updateQnA(QnA qna) throws Exception {
-		// TODO Auto-generated method stub
-		
+		QnA result = null;
+
+		try {
+			result = sqlSession.selectOne("QnAMapper.updateQnA", qna);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 수정에 실패했습니다.");
+		}
 	}
 
 	@Override
 	public QnA selectQnA(QnA qna) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		QnA result = null;
+
+		try {
+			result = sqlSession.selectOne("QnAMapper.selectQnA", qna);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+
+	@Override
+	public QnA selectPrevQnA(QnA qna) throws Exception {
+		QnA result = null;
+
+		try {
+			result = sqlSession.selectOne("QnAMapper.selectPrevQnA", qna);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("이전글 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+
+	@Override
+	public QnA selectNextQnA(QnA qna) throws Exception {
+		QnA result = null;
+
+		try {
+			result = sqlSession.selectOne("QnAMapper.selectNextQnA", qna);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("다음글 조회에 실패했습니다.");
+		}
+
+		return result;
 	}
 
 }

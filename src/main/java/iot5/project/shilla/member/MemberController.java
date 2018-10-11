@@ -261,7 +261,7 @@ public class MemberController {
 			movePage = web.getRootPath() ;
 		}
 		//sqlSession.close();
-		return web.redirect(movePage, null);
+		return web.redirect(web.getRootPath(), null);
 	
 	}
 	@RequestMapping(value = "/member/logout.do", method = RequestMethod.GET)

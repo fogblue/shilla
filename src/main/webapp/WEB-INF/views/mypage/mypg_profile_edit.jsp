@@ -58,7 +58,7 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<button type="submit" class="btn mypg-pfed-confirm" onclick=doSubmit()>확인</button>
+				<input type="button" class="btn mypg-pfed-confirm" onclick="javascript:doSubmit();" value="확인" />
 			</div>
 		</div>
 	</div>

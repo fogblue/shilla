@@ -30,6 +30,4 @@
 		WHERE resv_id=#{resvId}
 	</select>
 	
-	
-	
 </mapper>

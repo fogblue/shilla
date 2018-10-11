@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
@@ -7,6 +8,17 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/mypage.css">
 </head>
 <body>
+<c:choose>
+	<c:when test="${loginInfo == null}">
+		<ul class="menu2 list-inline pull-right">
+			<li class="menu-item2 br"><a
+				href="${pageContext.request.contextPath}/member/log_main.do">로그인&nbsp;</a></li>
+			<li class="menu-item2"><a
+				href="${pageContext.request.contextPath}/member/log_join01.do">회원
+					가입&nbsp;</a></li>
+		</ul>
+	</c:when>
+	<c:otherwise>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
@@ -114,5 +126,7 @@
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>
+	</c:otherwise>
+</c:choose>
 </body>
 </html>

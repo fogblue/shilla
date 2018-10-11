@@ -46,7 +46,7 @@ public class MemberController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/member/log_join02.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/log_join02.do", method = RequestMethod.POST)
 	public ModelAndView MemberJoin(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		web.init();
 		

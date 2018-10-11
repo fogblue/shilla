@@ -67,7 +67,18 @@
 								<td>예약상태</td>
 							</tr>
 							<tr>
-								<td colspan="5"><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do">자료가 없습니다.</a></td>
+								<c:choose>							
+									<c:when test="${loginInfo == null}">
+										<td colspan="5"><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do">자료가 없습니다.</a></td>
+									</c:when>
+									<c:otherwise>
+										<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do">자료가 없습니다.</a></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</c:otherwise>
+								</c:choose>
 							</tr>
 						</table>
 					</div>

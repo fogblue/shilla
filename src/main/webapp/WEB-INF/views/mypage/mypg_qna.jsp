@@ -71,7 +71,18 @@
 								<td>답변여부</td>
 							</tr>
 							<tr>
-								<td colspan="6">자료가 없습니다.</td>
+								<c:choose>							
+									<c:when test="${loginInfo == null}">
+										<td colspan="6"><a href="${pageContext.request.contextPath}/mypage/mypg_qna.do">자료가 없습니다.</a></td>
+									</c:when>
+									<c:otherwise>
+										<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna.do">자료가 없습니다.</a></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</c:otherwise>
+								</c:choose>
 							</tr>
 						</table>
 					</div>

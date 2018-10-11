@@ -199,9 +199,24 @@ public class MemberController {
 					return 	web.redirect(null, e.getLocalizedMessage());
 					
 				}
-		/**(9)가입이 완료되었으므로 메인페이지로 이동*/
+				
+				
+				/**(6)Service를 통한 회원 인증*/
+				Member loginInfo = null;
+				
+				try {
+					loginInfo= memberService.selectLoginInfo(member);
+				} catch(Exception e) {
+					return web.redirect(null, e.getLocalizedMessage());
+					
+				}
+				
+				web.setSession("loginInfo",loginInfo );
+				
+				
+		/**(9)가입이 완료되었으므로 완료페이지로 이동*/
 			
-				return web.redirect(web.getRootPath(), "회원가입이 완료되었습니다. 로그인해주세요");
+				return web.redirect(web.getRootPath() + "/member/log_join03.do", "완료");
 	}
 	@RequestMapping(value = "/member/log_main.do", method = RequestMethod.GET)
 	public ModelAndView log_main(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -276,7 +291,7 @@ public class MemberController {
 	}
 
 
-	@RequestMapping(value = "/member/log_join03.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/log_join03.do", method = RequestMethod.GET)
 	public ModelAndView log_join03(Locale locale, Model model, HttpServletRequest request,
 			HttpServletResponse response) {
 		logger.info("Welcome home! The client locale is {log_join03}.", locale);

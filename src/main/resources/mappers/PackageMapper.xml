@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PackageMapper">
+
+	<resultMap id="file"
+		type="iot5.project.shilla.model.Package">
+		<result property="id" column="id" />
+		<result property="packageType" column="package_type" />
+		<result property="packagePrice" column="packager_price" />
+		<result property="packageImg" column="package_img" />
+		<result property="packageContent" column="package_content" />
+		<result property="resvId" column="resv_id" />
+	</resultMap>
+	
+	<insert id="insertPackage" parameterType="iot5.project.shilla.model.Package"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO package(
+			package_type, package_price, package_img, package_content, resv_id
+		) VALUES (
+			#{packageType}, #{packagePrice}, #{packageImg}, #{packageContent}, #{resvId}
+		)
+	</insert>
+	
+	<select id="selectPackageList" parameterType="iot5.project.shilla.model.Package"
+		resultMap="package">
+		SELECT id, package_type, package_price, package_img, package_content, resv_id
+		FROM package
+		WHERE resv_id=#{resvId}
+	</select>
+	
+	
+	
+</mapper>

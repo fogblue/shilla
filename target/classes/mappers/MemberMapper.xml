@@ -49,7 +49,7 @@
        SELECT user_name_kor, user_name_eng, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
 		email, tel, tel_home, zipcode, load_addr, detail, reg_date, edit_date
         FROM member
-        WHERE user_id=#{userId} AND user_pw=#{userPw}
+        WHERE user_id=#{userId} AND user_pw=password(#{userPw})
     </select>
     
     <!-- 비밀번호 재발급: 이메일주소가 일치하는 비밀번호를 변경한다. -->

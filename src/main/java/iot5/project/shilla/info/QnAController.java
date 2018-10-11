@@ -62,47 +62,5 @@ public class QnAController {
 		
 		return new ModelAndView("login_test");
 	}
-	
-	@RequestMapping(value = "/member/login_test_ok.do", method = RequestMethod.POST)
-	public ModelAndView LoginOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		web.init();
 		
-		if(web.getSession("loginInfo")!=null) {
-			return web.redirect(web.getRootPath(), "이미 로그인 하셨습니다.");
-			
-		}
-		/**(4)파라미터 처리*/
-		String userId = web.getString("user_id");
-		String userPw = web.getString("user_pw");
-		
-		logger.debug("userId=" + userId);
-		logger.debug("userPw=" + userPw);
-		
-		if(userId == null || userPw == null) {
-			return web.redirect(null, "아이디나 비밀번호가 없습니다.");
-			
-		}
-		
-		/**(5)전달받은 파라미터를 Beans에 설정*/
-		Member member = new Member();
-		member.setUserId(userId);
-		member.setUserPw(userPw);
-		
-		/**(6)Service를 통한 회원 인증*/
-		Member loginInfo = null;
-		
-		try {
-			loginInfo= memberService.selectLoginInfo(member);
-		} catch(Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-			
-		}
-		
-		web.setSession("loginInfo",loginInfo );
-		
-		return web.redirect(web.getRootPath(), null);
-	
-	}
-	
-	
 }

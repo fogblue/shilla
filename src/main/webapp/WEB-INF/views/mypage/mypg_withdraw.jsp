@@ -53,28 +53,19 @@
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" id="pswd_confirm" /></td>
+						<td><input type="password" id="pswd_confirm" name="pswd_confirm" /></td>
 					</tr>
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<input type="button" class="btn mypg-pfed-confirm" id="withdraw_confirm" value="확인"></input>
+				<button type="submit" class="btn mypg-pfed-confirm" onclick="onSubmit()">확인</button>
 			</div>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
-	$(function() {
-		$("#withdraw_confirm").click(function(){
-		var p_pswd = ${loginInfo.userPw};
-		var i_pswd = $("#pswd_confirm").val();
-		if (i_pswd == p_pswd) {
-			location.href='${pageContext.request.contextPath}/mypage/mypg_withdraw_2.do'
-		} else if (i_pswd == "") {
-			alert("비밀번호는 필수입력항목입니다.");
-		} else {
-			alert("비밀번호가 일치하지 않습니다.");
-		}
+	function onSubmit() {
+		location.href='${pageContext.request.contextPath}/mypage/mypg_withdraw_ok.do'
 	}
 	</script>
 	<!-- ==============끝================== -->

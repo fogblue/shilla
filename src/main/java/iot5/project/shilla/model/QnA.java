@@ -11,10 +11,11 @@ public class QnA {
 	private String userNameKor;
 	private String email;
 	private String tel;
+	private String telHome;
 	private String regDate;
 	private String editDate;
 	private String ipAddress;
-	private int MemberId;
+	private int memberId;
 
 	public int getId() {
 		return id;
@@ -114,11 +115,11 @@ public class QnA {
 	}
 
 	public int getMemberId() {
-		return MemberId;
+		return memberId;
 	}
 
 	public void setMemberId(int memberId) {
-		MemberId = memberId;
+		this.memberId = memberId;
 	}
 
 	public String getIpAddress() {
@@ -129,12 +130,20 @@ public class QnA {
 		this.ipAddress = ipAddress;
 	}
 
+	public String getTelHome() {
+		return telHome;
+	}
+
+	public void setTelHome(String telHome) {
+		this.telHome = telHome;
+	}
+
 	@Override
 	public String toString() {
 		return "QnA [id=" + id + ", ecategory=" + ecategory + ", qnaFilePath=" + qnaFilePath
 				+ ", hotelCate=" + hotelCate + ", qnaType=" + qnaType + ", subject=" + subject + ", content=" + content
 				+ ", userName=" + userNameKor + ", email=" + email + ", tel=" + tel + ", regDate=" + regDate + ", editDate="
-				+ editDate + ", ipAddress=" + ipAddress + ", MemberId=" + MemberId + "]";
+				+ editDate + ", ipAddress=" + ipAddress + ", MemberId=" + memberId + "]";
 	}
 
 }

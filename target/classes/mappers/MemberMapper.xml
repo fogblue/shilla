@@ -46,7 +46,7 @@
 	
 	<!-- 아이디와 비밀번호가 일치하는 회원정보를 조회한다. -->
     <select id="selectLoginInfo" parameterType="iot5.project.shilla.model.Member" resultMap="member">
-       SELECT user_name_kor, user_name_eng, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
+       SELECT id, user_name_kor, user_name_eng, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
 		email, tel, tel_home, zipcode, load_addr, detail, reg_date, edit_date
         FROM member
         WHERE user_id=#{userId} AND user_pw=password(#{userPw})
@@ -70,7 +70,7 @@
 		DELETE FROM member WHERE id=#{id};
 	</delete>
 	
-	<!-- 회원정보를 변경한다 -->
+	<!-- 회qna원정보를 변경한다 -->
 	<update id="updateMember" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET
 			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},  

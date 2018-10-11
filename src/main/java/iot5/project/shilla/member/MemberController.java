@@ -1,7 +1,6 @@
 package iot5.project.shilla.member;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.MailHelper;
 import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
@@ -235,7 +233,7 @@ public class MemberController {
 		Member member = new Member();
 		member.setUserId(userId);
 		member.setUserPw(userPw);
-		
+				
 		/**(6)Service를 통한 회원 인증*/
 		Member loginInfo = null;
 		

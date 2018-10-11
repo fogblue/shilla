@@ -179,15 +179,7 @@ public class MemberController {
 					return web.redirect(null, "생년월일을 입력하세요");
 				
 				}
-		/**(6)업로드 된 파일 정보 추출*/
-				List<FileInfo> fileList = upload.getFileList();
-				String profileImg = null;
-				if(fileList.size() > 0) {
-					FileInfo info = fileList.get(0);
-					profileImg = info.getFileDir() + "/" + info.getFileName();
-				}
-				
-				logger.debug("profileImg=" + profileImg );
+	
 		/**(7)전달 받은 파라미터를 Beans객체에 담는다*/
 				Member member = new Member();
 				member.setUserNameKor(userNameKor);
@@ -210,7 +202,7 @@ public class MemberController {
 				}
 		/**(9)가입이 완료되었으므로 메인페이지로 이동*/
 			
-				return web.redirect(web.getRootPath() + "/member/login_main", "회원가입이 완료되었습니다. 로그인해주세요");
+				return web.redirect(web.getRootPath(), "회원가입이 완료되었습니다. 로그인해주세요");
 	}
 	@RequestMapping(value = "/member/log_main.do", method = RequestMethod.GET)
 	public ModelAndView log_main(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {

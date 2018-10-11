@@ -252,8 +252,7 @@
 				return this.optional(element) || /^[ㄱ-ㅎ가-힣]*$/i.test(value);
 			});
 
-			$(document).on('submit', "#myModal1_vali", function() {
-				$(this).ajaxSubmit(function() {
+			
 					$("#myModal1_vali").validate({
 						rules : {
 							find_id_name_kor : {
@@ -280,10 +279,8 @@
 						}
 
 					});
-				});
-			});
-			$(document).on('submit', "#myModal2_vali", function() {
-				$(this).ajaxSubmit(function() {
+				
+		
 					$("#myModal2_vali").validate({
 						rules : {
 							find_pw_id : {
@@ -315,8 +312,7 @@
 							}
 						}
 
-					});
-				});
+					
 			});
 		});
 	</script>

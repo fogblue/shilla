@@ -33,7 +33,7 @@
 			</div>
 			<!-- 사이드바 & 본문 상단 바 종료 -->
 			<form
-				action="${pageContext.request.contextPath}/info/write_inquiry.do"
+				action="${pageContext.request.contextPath}/info/write_ok.do"
 				name="write_inquiry" method="post" enctype="multipart/form-data">
 				<table class="table">
 					<tr>
@@ -50,13 +50,13 @@
 					<tr style="border-top: none; border-bottom: none;">
 						<th scope="row" class="entabhead"><label for="selhotel"><span
 								class="identify">*</span> 호텔</label></th>
-						<td><select id="selhotel">
+						<td><select id="selhotel" name="hotel_cate">
 								<option value="sshihot" id="sshihot">서울신라호텔</option>
 								<option value="jshihot" id="jshihot">제주신라호텔</option>
 						</select>&nbsp;&nbsp;&nbsp; <span class="ecategory2 enq_hidden"><label
-								for="enq_opin"><input name="hotel_cate" type="radio"
+								for="enq_opin"><input name="qna_type" type="radio"
 									value="enq_opin" id="enq_opin" class="enq_why" /> 의견</label> <label
-								for="enq_ques"><input name="hotel_cate" type="radio"
+								for="enq_ques"><input name="qna_type" type="radio"
 									value="enq_ques" id="enq_ques" class="enq_why" checked /> 문의</label></span></td>
 					</tr>
 					<tr class="enq_hidden ecategory2 enq_ques">
@@ -91,17 +91,13 @@
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_uname"><span
 								class="identify">*</span> 성명</label></th>
-						<td><select name="mrmsdr" id="mrmsdr">
-								<option value="ms">Ms.</option>
-								<option value="mr">Mr.</option>
-								<option value="dr">Dr.</option>
-						</select> <input type="text" name="name" id="enq_uname" /></td>
+						<td><input type="text" name="user_name_kor" id="enq_uname" /></td>
 					</tr>
 					<tr>
-						<th scope="row" class="entabhead"><label for="enq_email1"><span
+						<th scope="row" class="entabhead"><label for="email"><span
 								class="identify">*</span> 이메일</label></th>
 						<td><input type="email" name="email" id="enq_email1" />
-							@ <input type="email" id="enq_email" /> <select name="enq_elist"
+							@ <input type="text" name="email2" id="enq_email" /> <select name="enq_elist"
 							id="enq_elist">
 								<option value="">--- 직접입력 ---</option>
 								<option value="naver.com">naver.com</option>
@@ -142,8 +138,7 @@
 					동의가 없을 경우 문의에 대한 안내 및 서비스 제공과 관련된 제반 절차 진행이 불가능 할 수 있음을 알려드립니다.
 				</div>
 				<div class="enq_checkbox">
-					<label><input type="checkbox" name="enq_agreeing"
-						value="enq_agreeing">동의함</label>
+					<label><input type="checkbox" name="enq_agreeing" value="enq_agreeing">동의함</label>
 				</div>
 				<hr />
 				<div class="enq_submit">

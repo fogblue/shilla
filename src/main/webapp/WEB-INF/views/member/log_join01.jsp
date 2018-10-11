@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="log_body">
-		<form class="form-horizontal" name="join_form" id="join_form" method="post" action="log_join02.do">
+		<form class="form-horizontal" name="join_form" id="join_form" method="get" action="${pageContext.request.contextPath}/member/log_join02.do">
 			<div class="bdbb1">
 				<h4>약관동의</h4>
 			</div>

@@ -1,5 +1,19 @@
 .rsv_customerinfobox {
+	padding: 25px;
 	width: 870px;
-	height: 500px;
+	height: 300px;
 	border: 2px solid #a1886f;
+}
+
+.cardno {
+	width: 60px;
+}
+
+.rsv_infor {
+	padding: 30px;
+	border: 4px solid #f1e3c4;
+}
+
+.rsv_infortitle {
+	font-weight: bold;
 }

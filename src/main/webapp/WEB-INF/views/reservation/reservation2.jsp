@@ -85,8 +85,8 @@
 					</h2>
 					<!-- 게시글 내용영역 -->
 					<div id="content2" class="content2">
-						<div class="col-sm-5">
-							<ul>
+						<div class="col-sm-6">
+							<ul class="rsv_infoul">
 								<li>&lsaquo;호텔 이용안내&rsaquo;</li>
 								
 								<li>&bull;성인 2인 1실 기준이며, 요금에는 세금(10%) 및 봉사료(10%)가 부과됩니다.</li>
@@ -115,8 +115,8 @@
 							
 							</ul>
 						</div>
-						<div class="col-sm-5">
-							<ul>
+						<div class="col-sm-6">
+							<ul class="rsv_infoul">
 								<li>&lsaquo;부대시설 이용안내&rsaquo;</li>
 								
 								<li>&bull;체련장(Gym), 실내 수영장, 실내 사우나(유료시설)는 매월 3번째 수요일

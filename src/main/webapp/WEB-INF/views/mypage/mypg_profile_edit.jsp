@@ -58,13 +58,14 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<input type="button" class="btn mypg-pfed-confirm" onclick="javascript:doSubmit();" value="확인" />
+				<input type="button" class="btn mypg-pfed-confirm" id="profile_edit_confirm" value="확인" />
 			</div>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
-	function doSubmit() {
+	$(function() {
+		$("#profile_edit_confirm").click(function(){
 		var p_pswd = ${loginInfo.userPw};
 		var i_pswd = $("#pswd_confirm").val();
 		if (i_pswd == p_pswd) {
@@ -73,8 +74,8 @@
 			alert("비밀번호는 필수입력항목입니다.");
 		} else {
 			alert("비밀번호가 일치하지 않습니다.");
-		}
-	}
+		});
+	})
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

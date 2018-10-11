@@ -4,15 +4,22 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import iot5.project.shilla.helper.WebHelper;
+import iot5.project.shilla.model.Member;
+
 @Controller
 public class MypageController {
-
+	
+	@Autowired
+	WebHelper web;
+	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
@@ -53,7 +60,13 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2(Locale locale, Model model) {
-		logger.info("회원탈퇴확인페이지 입장");		
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		if(loginInfo == null) {
+			return web.redirect(web.getRootPath() , "로그인 후에 이용 가능합니다.");
+		
+		}	
 		return new ModelAndView("mypage/mypg_withdraw_2"); 
 	}
 	

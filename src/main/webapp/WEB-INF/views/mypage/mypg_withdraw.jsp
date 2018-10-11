@@ -58,13 +58,14 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<button type="submit" class="btn mypg-pfed-confirm" onclick=doSubmit()>확인</button>
+				<input type="button" class="btn mypg-pfed-confirm" id="withdraw_confirm" value="확인"></input>
 			</div>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
-	function doSubmit() {
+	$(function() {
+		$("#withdraw_confirm").click(function(){
 		var p_pswd = ${loginInfo.userPw};
 		var i_pswd = $("#pswd_confirm").val();
 		if (i_pswd == p_pswd) {

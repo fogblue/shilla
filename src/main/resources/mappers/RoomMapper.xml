@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RoomMapper">
+
+	<resultMap id="room"
+		type="iot5.project.shilla.model.Room">
+		<result property="id" column="id" />
+		<result property="hotelCate" column="hotel_cate" />
+		<result property="roomType" column="room_type" />
+		<result property="bedType" column="bed_type" />
+		<result property="roomImg" column="room_img" />
+		<result property="resvId" column="resv_id" />
+		<result property="packageId" column="package_id" />
+		<result property="roomPrice" column="room_price" />
+		<result property="exbed" column="exbed" />
+		<result property="meal" column="meal" />
+	</resultMap>
+	
+	<!-- 예약 갯수 -->
+	 <select id="selectRoomCount" parameterType="iot5.project.shilla.model.Room" resultType="int">
+        SELECT count(id) FROM room
+    </select>
+    
+     <!-- 글쓰기 -->
+	<insert id="insertRoom" parameterType="iot5.project.shilla.model.Room" 
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO room ( hotel_cate, room_type, bed_type, room_img, room_price, exbed, meal
+		) VALUES (
+			#{hotelCate}, #{roomType}, #{bedType}, #{roomImg}, #{roomPrice}, #{exbed}, #{meal}
+		)
+	</insert>
+</mapper>

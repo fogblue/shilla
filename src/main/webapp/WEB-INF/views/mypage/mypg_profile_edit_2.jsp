@@ -51,15 +51,15 @@
 				<table class="mypg-pfed2-contents-table">
 					<tr>
 						<td>성명(한글)</td>
-						<td></td>
+						<td>${loginInfo.userNameKor}</td>
 					</tr>
 					<tr>
 						<td>성명(영문)</td>
-						<td></td>
+						<td>${loginInfo.userNameEng}</td>
 					</tr>
 					<tr>
 						<td>아이디</td>
-						<td></td>
+						<td>${loginInfo.userId}</td>
 					</tr>
 					<tr>
 						<td rowspan="2">이메일</td>
@@ -110,8 +110,8 @@
 				</form>
 			</div>
 			<div class="mypg-contents-btn2">
-				<button type="submit" class="btn btn-lg mypg-pwed-change">변경</button>
-				<button type="reset" class="btn btn-lg mypg-pwed-cancel"  onclick = "location.href = '${pageContext.request.contextPath}/mypage/mypg_profile_edit.do'">취소</button>
+				<button type="submit" class="btn btn-lg mypg-pwed-change" onclick="onSubmit()">변경</button>
+				<button type="reset" class="btn btn-lg mypg-pwed-cancel"  onclick="location.href = '${pageContext.request.contextPath}/mypage/mypg_profile_edit.do'">취소</button>
 			</div>
 		</div>
 	</div>
@@ -123,6 +123,10 @@
 			$("#selected_email").val(sel);
 		});
 	});
+	
+	function onSubmit() {
+		location.href='${pageContext.request.contextPath}/mypage/mypg_withdraw_2_ok.do'
+	}
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

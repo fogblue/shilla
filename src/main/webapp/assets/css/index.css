@@ -7,7 +7,7 @@
 #slide-container {
 	min-width: 1215px;
 	height: 650px;
-	margin-top: 100px
+	margin-top: -40px;
 }
 /* 내용영역 정의 (슬라이드영역을 가득 채운다) */
 #slides .slide-contents {

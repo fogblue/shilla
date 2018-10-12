@@ -70,7 +70,7 @@
 		DELETE FROM member WHERE id=#{id};
 	</delete>
 	
-	<!-- 회qna원정보를 변경한다 -->
+	<!-- 회원정보를 변경한다 -->
 	<update id="updateMember" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET
 			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},  

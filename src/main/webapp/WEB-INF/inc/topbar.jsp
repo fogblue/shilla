@@ -69,7 +69,7 @@
 	</div>
 </header>
 
-<script>
+<!-- <script>
 	$(function() {
 		/** headroom 플러그인 적용 */
 		$("#site-header").headroom(
@@ -87,4 +87,4 @@
 					}
 				});
 	});
-</script>
+</script> -->

@@ -58,22 +58,14 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
-				<input type="button" class="btn mypg-pfed-confirm" onclick="javascript:doSubmit();" value="확인" />
+				<button type="submit" class="btn mypg-pfed-confirm" onclick="onSubmit()">확인</button>
 			</div>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
-	function doSubmit() {
-		var p_pswd = ${loginInfo.userPw};
-		var i_pswd = $("#pswd_confirm").val();
-		if (i_pswd == p_pswd) {
-			location.href='${pageContext.request.contextPath}/mypage/mypg_profile_edit_2.do'
-		} else if (i_pswd == "") {
-			alert("비밀번호는 필수입력항목입니다.");
-		} else {
-			alert("비밀번호가 일치하지 않습니다.");
-		}
+	function onSubmit() {
+		location.href='${pageContext.request.contextPath}/mypage/mypg_profile_edit_ok.do'
 	}
 	</script>
 	<!-- ==============끝================== -->

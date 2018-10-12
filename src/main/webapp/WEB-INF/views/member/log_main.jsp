@@ -74,7 +74,8 @@
 		
 	</div>
 	<!--아이디 찾기 modal1-->
-<form name="myModal1_vali" id="myModal1_vali">
+<form name="myModal1_vali" id="myModal1_vali"  method="post"
+				action="${pageContext.request.contextPath}/member/find_id_ok.do">
 	<div class="modal fade" id="myModal1">
 		<div class="modal-dialog modal-md">
 			<div class="modal-content">
@@ -104,8 +105,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn_color2" data-dismiss="modal"
-						id="modal_id_ok">확인</button>
+					<button type="submit" class="btn btn_color2" data-dismiss="modal">확인</button>
 				</div>
 			</div>
 
@@ -127,12 +127,12 @@
 			<div class="modal-body">
 				<table class="modal_table">
 					<tr>
-						<td class="space">(이름)님의 회원 번호&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;(6자리 랜덤form DB)</td>
+						<td class="space">${loginInfo.userNameKor}님의 회원 번호&nbsp;&nbsp;&nbsp;</td>
+						<td class="users_info">&nbsp;&nbsp;&nbsp;${loginInfo.id}</td>
 					</tr>
 					<tr>
 						<td class="space">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;(사용자 아이디)</td>
+						<td class="users_info">&nbsp;&nbsp;&nbsp;${loginInfo.userId}</td>
 					</tr>
 				</table>
 			</div>
@@ -233,7 +233,7 @@
 			$("#open_modal_btn").click(function(e) {
 				$("#myModal1").modal('show');
 			});
-			$("#open_modal_btn1").click(function(e) {
+			/* $("#open_modal_btn1").click(function(e) {
 				$("#myModal2").modal('show');
 			});
 			$("#find_id").click(function(e) {
@@ -247,8 +247,8 @@
 			});
 			$("#finded_pw").click(function(e) {
 				$("#myModal2_1").modal('show');
-			});
-			$.validator.addMethod("kor", function(value, element) {
+			}); */
+			/* $.validator.addMethod("kor", function(value, element) {
 				return this.optional(element) || /^[ㄱ-ㅎ가-힣]*$/i.test(value);
 			});
 
@@ -313,8 +313,8 @@
 						}
 
 					
-			});
-		});
+			});*/
+		}); 
 	</script>
 </body>
 </html>

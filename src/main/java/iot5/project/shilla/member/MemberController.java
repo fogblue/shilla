@@ -249,7 +249,7 @@ public class MemberController {
 				
 		/**(10)가입이 완료되었으므로 완료페이지로 이동*/
 
-				return web.redirect(web.getRootPath(), "회원가입이 완료되었습니다. 로그인해주세요");
+				return web.redirect(web.getRootPath(), "회원가입이 완료되었습니다.");
 	}
 	@RequestMapping(value = "/member/log_main.do", method = RequestMethod.GET)
 	public ModelAndView log_main(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {

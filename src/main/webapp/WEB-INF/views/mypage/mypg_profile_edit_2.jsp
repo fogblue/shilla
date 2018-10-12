@@ -125,7 +125,7 @@
 	});
 	
 	function onSubmit() {
-		location.href='${pageContext.request.contextPath}/mypage/mypg_withdraw_2_ok.do'
+		location.href='${pageContext.request.contextPath}/mypage/mypg_profile_edit_2_ok.do'
 	}
 	</script>
 	<!-- ==============끝================== -->

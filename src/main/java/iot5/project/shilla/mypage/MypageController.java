@@ -16,7 +16,9 @@ import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
+import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.service.MemberService;
+import iot5.project.shilla.service.QnAService;
 
 @Controller
 public class MypageController {
@@ -123,7 +125,11 @@ public class MypageController {
 		Member member = new Member();
 		member.setId(loginInfo.getId());
 		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
 		try {
+			QnAService.updateQnA(qna);
 			memberService.deleteMember(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());

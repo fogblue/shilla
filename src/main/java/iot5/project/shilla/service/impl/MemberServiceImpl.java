@@ -121,7 +121,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void deleteMember(Member member) throws Exception {
 		try {
-			int result = sqlSession.update("MemberMapper.deleteMember", member);
+			int result = sqlSession.delete("MemberMapper.deleteMember", member);
 			if(result == 0) {
 				throw new NullPointerException();
 			}

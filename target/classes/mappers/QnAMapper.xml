@@ -40,7 +40,7 @@
 	</insert>
 	
 	<!-- 글 수정 -->
-	<update id="updateQnA" parameterType="iot5.project.shilla.model.QnA">
+	<update id="updateQnAMemberOut" parameterType="iot5.project.shilla.model.QnA">
 		UPDATE qna SET member_id=NULL, edit_date=now()
 		WHERE member_id=#{memberId}
 	</update>

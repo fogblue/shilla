@@ -48,4 +48,6 @@ public interface QnAService {
 	 * @throws Exception
 	 */
 	public QnA selectNextQnA(QnA qna) throws Exception;
+	
+	public void updateQnAMemberOut(QnA qna) throws Exception;
 }

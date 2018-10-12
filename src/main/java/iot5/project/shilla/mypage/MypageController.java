@@ -2,6 +2,9 @@ package iot5.project.shilla.mypage;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,7 +80,7 @@ public class MypageController {
 		
 		
 		
-		return web.redirect(web.getRootPath(), "수정되었습니다.");
+		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
@@ -120,7 +123,7 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2_ok.do", method = RequestMethod.GET)
-	public ModelAndView mypg_withdraw_2_ok(Locale locale, Model model) {
+	public ModelAndView mypg_withdraw_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -131,7 +134,7 @@ public class MypageController {
 		qna.setMemberId(loginInfo.getId());
 		
 		try {
-			qnaService.updateQnA(qna);
+			qnaService.updateQnAMemberOut(qna);
 			memberService.deleteMember(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());

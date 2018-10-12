@@ -64,7 +64,7 @@
 					<tr>
 						<td rowspan="2">이메일</td>
 						<td>
-							<input type="text" />
+							<input type="text" value="${loginInfo.email}" />
 							<span>@</span>
 							<input type="text" id="selected_email" />
 							<select name="email_select" id="email_select">
@@ -96,7 +96,7 @@
 					<tr>
 						<td rowspan="2">휴대전화</td>
 						<td>
-							<input type="text" placeholder="&nbsp;'-' 없이 입력"/>
+							<input type="text" placeholder="&nbsp;'-' 없이 입력" value="${loginInfo.tel}"/>
 						</td>
 					</tr>
 					<tr>

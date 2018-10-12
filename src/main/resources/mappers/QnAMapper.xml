@@ -39,7 +39,7 @@
 		)
 	</insert>
 	
-	<!-- 글 수정 -->
+	<!-- 멤버 삭제를 위한 참조키 제거 -->
 	<update id="updateQnAMemberOut" parameterType="iot5.project.shilla.model.QnA">
 		UPDATE qna SET member_id=NULL, edit_date=now()
 		WHERE member_id=#{memberId}

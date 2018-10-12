@@ -16,21 +16,21 @@ public class QnAAjaxController {
 	
 	@RequestMapping(value = "/info/enq_dining", method = RequestMethod.GET)
 	public ModelAndView enq_dining(Locale locale, Model model) {
-		logger.info("Welcome to inquiry page! The client locale is {}.", locale);
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
 
 		return new ModelAndView("info/enq_dining");
 	}
 	
 	@RequestMapping(value = "/info/enq_room", method = RequestMethod.GET)
 	public ModelAndView enq_room(Locale locale, Model model) {
-		logger.info("Welcome to inquiry page! The client locale is {}.", locale);
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
 
 		return new ModelAndView("info/enq_room");
 	}
 	
 	@RequestMapping(value = "/info/enq_wedding", method = RequestMethod.GET)
 	public ModelAndView enq_wedding(Locale locale, Model model) {
-		logger.info("Welcome to inquiry page! The client locale is {}.", locale);
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
 
 		return new ModelAndView("info/enq_wedding");
 	}

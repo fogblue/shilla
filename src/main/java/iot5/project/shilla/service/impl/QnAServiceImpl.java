@@ -35,7 +35,7 @@ public class QnAServiceImpl implements QnAService {
 	@Override
 	public void deleteQnA(QnA qna) throws Exception {
 		try {
-			int result = sqlSession.insert("QnAMapper.deleteQnA", qna);
+			int result = sqlSession.delete("QnAMapper.deleteQnA", qna);
 			if (result == 0) {
 				throw new NullPointerException();
 			}
@@ -50,8 +50,6 @@ public class QnAServiceImpl implements QnAService {
 
 	@Override
 	public void updateQnA(QnA qna) throws Exception {
-		
-
 		try {
 			int result = sqlSession.update("QnAMapper.updateQnA", qna);
 			if (result == 0) {
@@ -112,7 +110,6 @@ public class QnAServiceImpl implements QnAService {
 		return result;
 	}
 
-	
 	@Override
 	public void updateQnAMemberOut(QnA qna) throws Exception {
 

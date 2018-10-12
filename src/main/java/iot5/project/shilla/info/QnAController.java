@@ -6,8 +6,6 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -55,16 +53,15 @@ public class QnAController {
 		return new ModelAndView("info/contactinfo");
 	}
 
-	@RequestMapping(value = "/info/inquiry.do", method = RequestMethod.GET)
-	public ModelAndView inquiry(Locale locale, Model model) {
-		logger.info("Welcome to inquiry page! The client locale is {}.", locale);
+	@RequestMapping(value = "/info/enquiry.do", method = RequestMethod.GET)
+	public ModelAndView enquiry(Locale locale, Model model) {
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
 
-		return new ModelAndView("info/inquiry");
+		return new ModelAndView("info/enquiry");
 	}
 
 	@RequestMapping(value = "/info/write_ok.do", method = RequestMethod.POST)
-	public ModelAndView loginTest(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public ModelAndView loginTest(Locale locale, Model model) throws ServletException, IOException {
 
 		web.init();
 
@@ -75,7 +72,7 @@ public class QnAController {
 			return web.redirect(null, "multipart데이터가 아닙니다.");
 		}
 
-		/** (4)UploadHelper에서 텍스트 형식의 값을 추출 */
+		/** UploadHelper에서 텍스트 형식의 값을 추출 */
 		Map<String, String> paramMap = upload.getParamMap();
 		String ecategory = paramMap.get("ecategory");
 		String hotelCate = paramMap.get("hotel_cate");
@@ -96,6 +93,8 @@ public class QnAController {
 			memberId = loginInfo.getId();
 			tel = loginInfo.getTel();
 			telHome = loginInfo.getTelHome();
+		} else {
+			memberId = 13;
 		}
 
 		logger.debug("ecategory=" + ecategory);
@@ -109,7 +108,7 @@ public class QnAController {
 		logger.debug("ip_address=" + ipAddress);
 		logger.debug("memberId=" + memberId);
 
-		/** (7)입력받은 파라미터에 대한 유효성 검사 */
+		/** 입력받은 파라미터에 대한 유효성 검사 */
 		// 이름 검사
 		if (!regex.isValue(userNameKor)) {
 			return web.redirect(null, "작성자 이름을 입력하세요");
@@ -155,6 +154,7 @@ public class QnAController {
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
+		
 		/** 첨부 파일 목록 처리 */
 		List<FileInfo> fileList = upload.getFileList();
 

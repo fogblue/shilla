@@ -9,6 +9,8 @@
 	href="${pageContext.request.contextPath}/assets/css/enquiry.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/info.css" />
+<script src="http://cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
@@ -20,7 +22,7 @@
 			<!-- 메뉴 들어갈 곳 -->
 			<a href="${pageContext.request.contextPath}/info/contactinfo.do"
 				class="imenu">연락처</a> <a
-				href="${pageContext.request.contextPath}/info/inquiry.do"
+				href="${pageContext.request.contextPath}/info/enquiry.do"
 				class="imenu">문의하기</a>
 		</div>
 		<div class="if-contents">
@@ -34,7 +36,7 @@
 			<!-- 사이드바 & 본문 상단 바 종료 -->
 			<form
 				action="${pageContext.request.contextPath}/info/write_ok.do"
-				name="write_inquiry" method="post" enctype="multipart/form-data">
+				name="write_enquiry" method="post" enctype="multipart/form-data">
 				<table class="table">
 					<tr>
 						<th scope="row" class="entabhead"><label for="ecategory"><span
@@ -74,39 +76,39 @@
 					<tr class="enq_ques">
 						<th scope="row" class="entabhead"><label for="enq_title"><span
 								class="identify">*</span> 제목</label></th>
-						<td><input type="text" name="subject" id="enq_title" /></td>
+						<td><input type="text" name="subject" id="enq_title" size="60" /></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_content"><span
 								class="identify">*</span> 내용</label></th>
-						<td><input type="text" name="content" id="enq_content" /></td>
+						<td><textarea name="content" id="content" rows="6" cols="80"></textarea></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_content"><span
 								class="identify">*</span> 파일첨부</label></th>
 						<td><input type="file" name="enq_upic" id="enq_upic"
-							class="form-control" /> <label for="photo" class="enq_upic">첨부
+							class="form-control" multiple /> <label for="photo" class="enq_upic">첨부
 								가능 파일 gif, jpg, jpeg, png, bmp 파일 첨부 용량 - 5MB 미만</label>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_uname"><span
 								class="identify">*</span> 성명</label></th>
-						<td><input type="text" name="user_name_kor" id="enq_uname"  value="${loginInfo.userNameKor}" /></td>
+						<td><input type="text" name="user_name_kor" id="enq_uname" size="25" <c:if test="${loginInfo != null}">value="${loginInfo.userNameKor}" disabled</c:if>  /></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="email"><span
 								class="identify">*</span> 이메일</label></th>
-						<td><input type="email" name="email" id="enq_email1" value="${loginInfo.email}" />
+						<td><input type="email" name="email" id="enq_email1" size="25" <c:if test="${loginInfo != null}">value="${loginInfo.email}" disabled</c:if> />
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_cellphone"><span
 								class="identify">*</span> 휴대전화</label></th>
-						<td><input type="tel" name="tel" id="enq_cellphone"  value="${loginInfo.tel}" /></td>
+						<td><input type="tel" name="tel" id="enq_cellphone" size="25" <c:if test="${loginInfo != null}">value="${loginInfo.tel}" disabled</c:if> /></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="enq_phone">&nbsp;&nbsp;
 								자택전화</label></th>
-						<td><input type="tel" name="enq_phone" id="enq_phone"  value="${loginInfo.id}" /></td>
+						<td><input type="tel" name="enq_phone" id="enq_phone" size="25" /></td>
 					</tr>
 
 				</table>
@@ -143,25 +145,21 @@
 				$("#enq_dining, #enq_wedding").toggleClass('enq_hidden');
 			}); // 호텔 선택지에 따른 카테고리 변경
 
-			$("#enq_elist").change(function() {
+			$("#selenq").change(function() {
 				var sel = $(this).find("option:selected").val();
-				$("#enq_email").val(sel);
-			}); // email 자동채움
-
-			$("#selenq").change(
-					function() {
-						var sel = $(this).find("option:selected").val();
-						if (sel != "enq_party" && sel != "enq_web") {
-							$("#enq_ajax").empty();
-							$.get("${pageContext.request.contextPath}/info/"
-									+ sel, function(req) {
-								$("#enq_ajax").append(req);
-							}, "html"); // end $.get	
-						} else {
-							$("#enq_ajax").empty();
-						}
-					});
-		});
+				if (sel != "enq_party" && sel != "enq_web") {
+					$("#enq_ajax").empty();
+					$.get("${pageContext.request.contextPath}/info/"+ sel, function(req) {
+						$("#enq_ajax").append(req); 
+						}, "html"); // end $.get	
+					} else {$("#enq_ajax").empty();
+				}
+			}); // 관련문의 선택에 따른 페이지 전환
+			
+			$("#enq_submit").click(function() {
+				if (!regex.check('input[name=enq_agreeing]', ' 개인정보 수집 및 이용에 대한 동의는 필수사항입니다.')) { return false; }
+		}); // 개인정보 수집 동의 체크
+	});
 	</script>
 </body>
 </html>

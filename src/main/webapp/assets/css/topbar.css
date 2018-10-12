@@ -52,22 +52,23 @@ a, a:link, a:hover, a:visited, a:active {
  -------------------------------------------------------------*/
 #site-header {
 	/** 스크롤 이동에 상관 없이 위치 고정 */
-	position: fixed;
+	/* position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 10;
+	z-index: 10; */
 	/** 사이즈,색상 설정 */
 	width: 100%;
 	/** animate.css에 의해 적용될 애니메이션의 재생시간 설정 */
-	animation-duration: 500ms;
+	/* animation-duration: 500ms; */
 	background: #f1e3c4;
+	margin-bottom: 35px;
 }
 
 /** 메뉴바 > 메뉴영역 넓이 제한 */
 
 .tcontainer {
 	width: 1200px;
-	height: 110px;
+	height: 120px;
 	margin: auto;
 }
 

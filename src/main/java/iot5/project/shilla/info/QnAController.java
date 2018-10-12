@@ -97,6 +97,7 @@ public class QnAController {
 			hotelCate = null;
 		}
 
+
 		if (enqType.equals("enq_room")) {
 			enqType = "객실/패키지문의";
 		} else if (enqType.equals("enq_dining")) {
@@ -123,7 +124,7 @@ public class QnAController {
 			tel = loginInfo.getTel();
 			telHome = loginInfo.getTelHome();
 		} else {
-			memberId = 13;
+			memberId = 11;
 		}
 
 		logger.debug("ecategory=" + ecategory);
@@ -164,7 +165,7 @@ public class QnAController {
 			return web.redirect(null, "내용을 입력하세요");
 
 		}
-		
+
 		if (!regex.isCellPhone(tel)) {
 			return web.redirect(null, "휴대전화번호를 '-' 없이 입력하세요.");
 		}

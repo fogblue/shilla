@@ -206,10 +206,10 @@
 				<div class="rsv_packagewarn clearfix">
 					<!-- 링크로 모달 열기 -->
 					<a href="#" class="btn btn-warning rsv_rsvapplibtn"
-						data-toggle="modal" data-target="#myModal2"> 예약신청 </a>
+						data-toggle="modal" data-target="#myModal3"> 예약신청 </a>
 				</div>
 				<!-- Modal -->
-				<div class="modal fade" id="myModal2">
+				<div class="modal fade" id="myModal3">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header">

@@ -1,0 +1,148 @@
+.clearfix:after {
+	content: '';
+	display: block;
+	floot: none;
+	clear: both;
+}
+
+.rsv_setp4cont {
+	width: 1200px;
+	height: 700px;
+	margin-top: 45px;
+	border-bottom: 6px solid #a1886f;
+}
+
+.rsvCompletelist {
+	border: 1px solid #e5e5e5;
+	height: 280px;
+}
+
+.rsv_rsvComplete {
+	border: 10px solid #f1e3c4;
+}
+
+.rsv_rsvCompleteInner {
+    border: 1px solid #e4d4b0;
+    padding: 50px 55px;
+}
+
+.rsv_conpleteMsg {
+	padding-bottom: 40px;
+    margin-bottom: 35px;
+    border-bottom: 2px dotted #f1f1f1;
+}
+
+.rsv_rsvCompleteInfo {
+	font-size: 16px;
+    /* color: #856f56; */
+    font-weight: 100;
+    overflow: hidden;
+}
+
+.rsv_rsvCompleteInfo li {
+    float: left;
+    width: 33.33%;
+    font-weight: 700;
+}
+
+.rsv_rsvNum {
+	float: right;
+	padding-bottom: 20px;
+	font-size: 30px;
+}
+
+.rsv_rsvNumstrong {
+	font-size: 40px;
+}
+
+.rsv_4_first {
+	padding: 10px;
+	float: left;
+	width: 33.33%;
+}
+.rsv_4_middle {
+	padding: 30px;
+	float: left;
+	width: 33.33%;
+}
+.rsv_4_last {
+	padding: 30px;
+	float: left;
+	width: 33.33%;
+}
+
+.rsv_compright{
+	float: right;
+}
+
+.rsvCompleteTot {
+    position: absolute;
+    top: 805px;
+    right: 470px;
+    width: 290px;
+    padding: 15px 20px;
+    border-top: 1px solid #e3dacc;
+    background: #f4eee3;
+    font-size: 14px;
+    color: #444;
+}
+
+.priceTotalSum {
+    float: right;
+    font-size: 25px;
+}
+
+.unitM {
+	font-size: 14px;
+}
+.infoHtl {
+	padding: 10px;
+}
+
+.infoDescList {
+	padding:10px;
+}
+.rsv_hotelname {
+	margin-bottom: 10px;
+	font-size: 20px;
+	text
+}
+
+.rsv_hotelname li {
+	font-size: 15px;
+}
+
+.rsv_4_dt{
+	margin-bottom:7px;
+	font-size: 16px;
+}
+
+.rsv_rsvconfbtn {
+	width: 1200px;	
+}
+
+.rsv_confbtn {
+	margin-left: 540px;
+	width: 120px;
+	height: 50px;
+	margin-top: 25px;
+	text-align: center;
+	background-color: #3a3125;
+	color: #ede6de;
+}
+
+.rsv_rsvcomfwarn {
+	width: 1200px;
+	padding: 30px 45px;
+	background-color: #faf9f4;
+	border: 1px solid #cdcbbe;
+}
+
+.rsv_rsvcomfwarn ul {
+	padding: 0;
+	margin: 0;
+}
+
+.rsv_rsvcomfwarnli {
+	margin: 15px;
+}

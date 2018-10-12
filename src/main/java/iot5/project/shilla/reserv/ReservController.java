@@ -41,5 +41,12 @@ public class ReservController {
 
 		return new ModelAndView("reservation/reservation3");
 	}
+	
+	@RequestMapping(value = "/reservation/reservation4.do", method = RequestMethod.GET)
+	public ModelAndView reservation4(Locale locale, Model model) {
+		logger.info("Your locale is", locale);
+
+		return new ModelAndView("reservation/reservation4");
+	}
 
 }

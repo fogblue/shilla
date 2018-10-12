@@ -2,6 +2,9 @@ package iot5.project.shilla.mypage;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +19,9 @@ import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
+import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.service.MemberService;
+import iot5.project.shilla.service.QnAService;
 
 @Controller
 public class MypageController {
@@ -31,6 +36,8 @@ public class MypageController {
 	UploadHelper upload;
 	@Autowired
 	MemberService memberService;
+	@Autowired
+	QnAService qnaService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
@@ -42,7 +49,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_2(Locale locale, Model model) {
-		logger.debug("예약상세확인페이지 입장");
+		logger.debug("예약확인상세페이지 입장");
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
 	
@@ -73,7 +80,7 @@ public class MypageController {
 		
 		
 		
-		return web.redirect(web.getRootPath(), "수정되었습니다.");
+		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
@@ -116,14 +123,18 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2_ok.do", method = RequestMethod.GET)
-	public ModelAndView mypg_withdraw_2_ok(Locale locale, Model model) {
+	public ModelAndView mypg_withdraw_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
 		member.setId(loginInfo.getId());
 		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
 		try {
+			qnaService.updateQnAMemberOut(qna);
 			memberService.deleteMember(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
@@ -143,5 +154,11 @@ public class MypageController {
 	public ModelAndView mypg_qna(Locale locale, Model model) {
 		logger.debug("문의확인페이지 입장");
 		return new ModelAndView("mypage/mypg_qna");
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_qna_2.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_2(Locale locale, Model model) {
+		logger.debug("문의확인상세페이지 입장");
+		return new ModelAndView("mypage/mypg_qna_2");
 	}
 }

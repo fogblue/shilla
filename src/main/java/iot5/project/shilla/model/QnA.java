@@ -3,8 +3,10 @@ package iot5.project.shilla.model;
 public class QnA {
 	private int id;
 	private String ecategory;
-	private String qnaFilePath;
 	private String hotelCate;
+	private String enqType;
+	private String reservNo;
+	private String weddingDate;
 	private String qnaType;
 	private String subject;
 	private String content;
@@ -33,21 +35,36 @@ public class QnA {
 		this.ecategory = ecategory;
 	}
 
-
-	public String getQnaFilePath() {
-		return qnaFilePath;
-	}
-
-	public void setQnaFilePath(String qnaFilePath) {
-		this.qnaFilePath = qnaFilePath;
-	}
-
 	public String getHotelCate() {
 		return hotelCate;
 	}
 
 	public void setHotelCate(String hotelCate) {
 		this.hotelCate = hotelCate;
+	}
+
+	public String getEnqType() {
+		return enqType;
+	}
+
+	public void setEnqType(String enqType) {
+		this.enqType = enqType;
+	}
+
+	public String getReservNo() {
+		return reservNo;
+	}
+
+	public void setReservNo(String reservNo) {
+		this.reservNo = reservNo;
+	}
+
+	public String getWeddingDate() {
+		return weddingDate;
+	}
+
+	public void setWeddingDate(String weddingDate) {
+		this.weddingDate = weddingDate;
 	}
 
 	public String getQnaType() {
@@ -98,6 +115,14 @@ public class QnA {
 		this.tel = tel;
 	}
 
+	public String getTelHome() {
+		return telHome;
+	}
+
+	public void setTelHome(String telHome) {
+		this.telHome = telHome;
+	}
+
 	public String getRegDate() {
 		return regDate;
 	}
@@ -114,14 +139,6 @@ public class QnA {
 		this.editDate = editDate;
 	}
 
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
-
 	public String getIpAddress() {
 		return ipAddress;
 	}
@@ -130,20 +147,28 @@ public class QnA {
 		this.ipAddress = ipAddress;
 	}
 
-	public String getTelHome() {
-		return telHome;
+	public int getMemberId() {
+		return memberId;
 	}
 
-	public void setTelHome(String telHome) {
-		this.telHome = telHome;
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
 	}
 
 	@Override
 	public String toString() {
-		return "QnA [id=" + id + ", ecategory=" + ecategory + ", qnaFilePath=" + qnaFilePath
-				+ ", hotelCate=" + hotelCate + ", qnaType=" + qnaType + ", subject=" + subject + ", content=" + content
-				+ ", userName=" + userNameKor + ", email=" + email + ", tel=" + tel + ", regDate=" + regDate + ", editDate="
-				+ editDate + ", ipAddress=" + ipAddress + ", MemberId=" + memberId + "]";
+		return "QnA [id=" + id + ", ecategory=" + ecategory + ", hotelCate=" + hotelCate + ", enqType=" + enqType
+				+ ", reservNo=" + reservNo + ", weddingDate=" + weddingDate + ", qnaType=" + qnaType + ", subject="
+				+ subject + ", content=" + content + ", userNameKor=" + userNameKor + ", email=" + email + ", tel="
+				+ tel + ", telHome=" + telHome + ", regDate=" + regDate + ", editDate=" + editDate + ", ipAddress="
+				+ ipAddress + ", memberId=" + memberId + ", getId()=" + getId() + ", getEcategory()=" + getEcategory()
+				+ ", getHotelCate()=" + getHotelCate() + ", getEnqType()=" + getEnqType() + ", getReservNo()="
+				+ getReservNo() + ", getWeddingDate()=" + getWeddingDate() + ", getQnaType()=" + getQnaType()
+				+ ", getSubject()=" + getSubject() + ", getContent()=" + getContent() + ", getUserNameKor()="
+				+ getUserNameKor() + ", getEmail()=" + getEmail() + ", getTel()=" + getTel() + ", getTelHome()="
+				+ getTelHome() + ", getRegDate()=" + getRegDate() + ", getEditDate()=" + getEditDate()
+				+ ", getIpAddress()=" + getIpAddress() + ", getMemberId()=" + getMemberId() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 }

@@ -10,13 +10,10 @@
 <body>
 <c:choose>
 	<c:when test="${loginInfo == null}">
-		<ul class="menu2 list-inline pull-right">
-			<li class="menu-item2 br"><a
-				href="${pageContext.request.contextPath}/member/log_main.do">로그인&nbsp;</a></li>
-			<li class="menu-item2"><a
-				href="${pageContext.request.contextPath}/member/log_join01.do">회원
-					가입&nbsp;</a></li>
-		</ul>
+		<script type="text/javascript">
+			alert("로그인 후 이용 가능한 페이지입니다.");
+			location.href="${pageContext.request.contextPath}/member/log_main.do";
+		</script>
 	</c:when>
 	<c:otherwise>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
@@ -64,7 +61,7 @@
 					<tr>
 						<td rowspan="2">이메일</td>
 						<td>
-							<input type="text" />
+							<input type="text" value="${loginInfo.email}" />
 							<span>@</span>
 							<input type="text" id="selected_email" />
 							<select name="email_select" id="email_select">
@@ -96,7 +93,7 @@
 					<tr>
 						<td rowspan="2">휴대전화</td>
 						<td>
-							<input type="text" placeholder="&nbsp;'-' 없이 입력"/>
+							<input type="text" placeholder="&nbsp;'-' 없이 입력" value="${loginInfo.tel}"/>
 						</td>
 					</tr>
 					<tr>
@@ -125,7 +122,7 @@
 	});
 	
 	function onSubmit() {
-		location.href='${pageContext.request.contextPath}/mypage/mypg_withdraw_2_ok.do'
+		location.href='${pageContext.request.contextPath}/mypage/mypg_profile_edit_2_ok.do'
 	}
 	</script>
 	<!-- ==============끝================== -->

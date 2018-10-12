@@ -82,7 +82,7 @@
 					</div>
 					<div class="stmp-contents-box-content">
 						<h5><a href="${pageContext.request.contextPath}/info/contactinfo.do">연락처</a></h5>
-						<h5><a href="${pageContext.request.contextPath}/info/inquiry.do">문의하기</a></h5>
+						<h5><a href="${pageContext.request.contextPath}/info/enquiry.do">문의하기</a></h5>
 					</div>
 				</div>
 				<div class="stmp-contents-box-down">

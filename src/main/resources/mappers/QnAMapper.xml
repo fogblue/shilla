@@ -7,8 +7,10 @@
 		type="iot5.project.shilla.model.QnA">
 		<result property="id" column="id" />
 		<result property="ecategory" column="ecategory" />
-		<result property="qnaFilePath" column="qna_file_path" />
 		<result property="hotelCate" column="hotel_cate" />
+		<result property="enqType" column="enq_type" />
+		<result property="reservNo" column="reserv_no" />
+		<result property="weddingDate" column="wedding_date" />
 		<result property="qnaType" column="qna_type" />
 		<result property="subject" column="subject" />
 		<result property="content" column="content" />
@@ -27,14 +29,22 @@
         SELECT count(id) FROM qna WHERE member_id=#{memberId}
     </select>
     
+    <!-- 조회한다 -->
+    <select id="selectQnAInfo" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
+    	SELECT id, ecategory, hotel_cate, enq_type, reserv_no, wedding_date, qna_type, subject, 
+    			content, user_name_kor, email, tel, tel_home, ip_address, reg_date, edit_date, member_id
+    	FROM qna
+    	WHERE member_id=#{memberId}
+    </select>
+    
      <!-- 글쓰기 -->
 	<insert id="insertQnA" parameterType="iot5.project.shilla.model.QnA" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO qna (
-			ecategory, hotel_cate, qna_type, 
+			ecategory, hotel_cate, enq_type, reserv_no, wedding_date, qna_type, 
 			subject, content, user_name_kor, email, tel, tel_home, ip_address, reg_date, edit_date, member_id
 		) VALUES (
-			#{ecategory}, #{hotelCate}, #{qnaType}, #{subject},
+			#{ecategory}, #{hotelCate}, #{enqType}, #{reservNo}, #{weddingDate}, #{qnaType}, #{subject},
 			#{content}, #{userNameKor}, #{email}, #{tel}, #{telHome}, #{ipAddress}, now(), now(), #{memberId}
 		)
 	</insert>

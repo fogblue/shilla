@@ -520,7 +520,6 @@ body::-webkit-scrollbar {
 .mypg-rsvt2-bd {
 	border: 1px solid #e3d6c6;
 	padding: 20px 20px 50px 20px;
-	min-height: 840px;
 }
 
 .mypg-rsvt2-bd div:nth-child(3) button {
@@ -617,12 +616,12 @@ body::-webkit-scrollbar {
 	font-weight: bold;
 }
 
-.mypg-contents-btn3 {
-	margin: 40px 0;
+.mypg-mb {
+	margin-bottom: 40px;;
 }
 
 .mypg-rsvt2-list {
-	width: 50px;
+	width: 60px;
 	height: 26px;
 	background-color: #7c6347;
 	color: #ffffff;
@@ -683,3 +682,35 @@ body::-webkit-scrollbar {
 	font-size: 50px;
 	color: #ffffff;
 }
+
+/*------------------------------------------------------------
+	| 컨텐츠 설정 - qna_2.jsp
+-------------------------------------------------------------*/
+.mypg-qna2-contents-table {
+	width: 100%;
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+}
+
+.mypg-qna2-contents-table tr {
+	height: 35px;
+}
+
+.mypg-qna2-contents-table td {
+	padding-left: 15px;
+}
+
+.mypg-qna2-contents-table td:nth-child(1),
+.mypg-qna2-contents-table td:nth-child(3) {
+	background-color: #faf9f4;
+	color: #666666;
+	font-weight: bold;
+}
+
+.mypg-qna2-contents-table tr:nth-child(1),
+.mypg-qna2-contents-table tr:nth-child(2),
+.mypg-qna2-contents-table tr:nth-child(3),
+.mypg-qna2-contents-table tr:nth-child(4),
+.mypg-qna2-contents-table tr:nth-child(5) {
+	border-bottom: 1px solid #eceae1;
+} 

@@ -49,7 +49,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_2(Locale locale, Model model) {
-		logger.debug("예약상세확인페이지 입장");
+		logger.debug("예약확인상세페이지 입장");
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
 	
@@ -154,5 +154,11 @@ public class MypageController {
 	public ModelAndView mypg_qna(Locale locale, Model model) {
 		logger.debug("문의확인페이지 입장");
 		return new ModelAndView("mypage/mypg_qna");
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_qna_2.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_2(Locale locale, Model model) {
+		logger.debug("문의확인상세페이지 입장");
+		return new ModelAndView("mypage/mypg_qna_2");
 	}
 }

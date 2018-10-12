@@ -5,7 +5,7 @@ public class QnA {
 	private String ecategory;
 	private String hotelCate;
 	private String enqType;
-	private int reservNo;
+	private String reservNo;
 	private String weddingDate;
 	private String qnaType;
 	private String subject;
@@ -51,11 +51,11 @@ public class QnA {
 		this.enqType = enqType;
 	}
 
-	public int getReservNo() {
+	public String getReservNo() {
 		return reservNo;
 	}
 
-	public void setReservNo(int reservNo) {
+	public void setReservNo(String reservNo) {
 		this.reservNo = reservNo;
 	}
 

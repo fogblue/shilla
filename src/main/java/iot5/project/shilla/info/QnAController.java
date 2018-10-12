@@ -169,14 +169,12 @@ public class QnAController {
 			return web.redirect(null, "휴대전화번호를 '-' 없이 입력하세요.");
 		}
 
-		int ireservNo = Integer.parseInt(reservNo);
-
 		/** (8)입력받은 파라미터를 Beans로 묶기 */
 		QnA qna = new QnA();
 		qna.setEcategory(ecategory);
 		qna.setHotelCate(hotelCate);
 		qna.setEnqType(enqType);
-		qna.setReservNo(ireservNo);
+		qna.setReservNo(reservNo);
 		qna.setWeddingDate(weddingDate);
 		qna.setQnaType(qnaType);
 		qna.setSubject(subject);

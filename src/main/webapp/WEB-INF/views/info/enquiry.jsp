@@ -34,8 +34,7 @@
 				</div>
 			</div>
 			<!-- 사이드바 & 본문 상단 바 종료 -->
-			<form
-				action="${pageContext.request.contextPath}/info/write_ok.do"
+			<form action="${pageContext.request.contextPath}/info/write_ok.do"
 				name="write_enquiry" method="post" enctype="multipart/form-data">
 				<table class="table">
 					<tr>
@@ -55,16 +54,14 @@
 						<td><select id="hotel_cate" name="hotel_cate">
 								<option value="sshihot" id="sshihot">서울신라호텔</option>
 								<option value="jshihot" id="jshihot">제주신라호텔</option>
-						</select>&nbsp;&nbsp;&nbsp; <span class="ecategory2 enq_hidden"><label
-								for="enq_type"><input name="qna_type" type="radio"
-									value="의견" class="enq_why" /> 의견</label> <label
-								for="enq_type"><input name="qna_type" type="radio"
-									value="문의" class="enq_why" checked /> 문의</label></span></td>
+						</select>&nbsp;&nbsp;&nbsp; <span class="ecategory2 enq_hidden"><label><input
+									name="qna_type" type="radio" value="의견" /> 의견</label> <label><input
+									name="qna_type" type="radio" value="문의" checked /> 문의</label></span></td>
 					</tr>
 					<tr class="enq_hidden ecategory2">
 						<th scope="row" class="entabhead"><label><span
 								class="identify">*</span> 관련문의</label></th>
-						<td><select name="enq_type">
+						<td><select name="enq_type" id="enq_type">
 								<option id="enq_room" value="enq_room">객실/패키지문의</option>
 								<option id="enq_dining" value="enq_dining">다이닝문의</option>
 								<option id="enq_wedding" value="enq_wedding">웨딩문의</option>
@@ -86,17 +83,20 @@
 					<tr>
 						<th scope="row" class="entabhead"><label for="user_name_kor"><span
 								class="identify">*</span> 성명</label></th>
-						<td><input type="text" name="user_name_kor" size="25" <c:if test="${loginInfo != null}">value="${loginInfo.userNameKor}" disabled</c:if>  /></td>
+						<td><input type="text" name="user_name_kor" size="25"
+							<c:if test="${loginInfo != null}">value="${loginInfo.userNameKor}" disabled</c:if> /></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="email"><span
 								class="identify">*</span> 이메일</label></th>
-						<td><input type="email" name="email" size="25" <c:if test="${loginInfo != null}">value="${loginInfo.email}" disabled</c:if> />
+						<td><input type="email" name="email" size="25"
+							<c:if test="${loginInfo != null}">value="${loginInfo.email}" disabled</c:if> />
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="tel"><span
 								class="identify">*</span> 휴대전화</label></th>
-						<td><input type="tel" name="tel" size="25" <c:if test="${loginInfo != null}">value="${loginInfo.tel}" disabled</c:if> /></td>
+						<td><input type="tel" name="tel" size="25"
+							<c:if test="${loginInfo != null}">value="${loginInfo.tel}" disabled</c:if> /></td>
 					</tr>
 					<tr>
 						<th scope="row" class="entabhead"><label for="tel_home">&nbsp;&nbsp;
@@ -116,7 +116,8 @@
 					동의가 없을 경우 문의에 대한 안내 및 서비스 제공과 관련된 제반 절차 진행이 불가능 할 수 있음을 알려드립니다.
 				</div>
 				<div class="enq_checkbox">
-					<label><input type="checkbox" name="enq_agreeing" value="enq_agreeing">동의함</label>
+					<label><input type="checkbox" name="enq_agreeing"
+						value="enq_agreeing">동의함</label>
 				</div>
 				<hr />
 				<div class="enq_submit">
@@ -140,18 +141,24 @@
 				$("#enq_ajax").empty();
 			}); // 호텔 선택지에 따른 카테고리 변경
 
-			$("#enq_type").change(function() {
-				var sel = $(this).find("option:selected").val();
-					$("#enq_ajax").empty();
-					$.get("${pageContext.request.contextPath}/info/"+ sel, function(req) {
-						$("#enq_ajax").append(req); 
-						}, "html"); // end $.get			
-			}); // 관련문의 선택에 따른 페이지 전환
-			
-			$("#enq_submit").click(function() {
-				if (!regex.check('input[name=enq_agreeing]', ' 개인정보 수집 및 이용에 대한 동의는 필수사항입니다.')) { return false; }
-		}); // 개인정보 수집 동의 체크
-	});
+			$("#enq_type").change(
+					function() {
+						var sel = $(this).find("option:selected").val();
+						$("#enq_ajax").empty();
+						$.get("${pageContext.request.contextPath}/info/" + sel,
+								function(req) {
+									$("#enq_ajax").append(req);
+								}, "html"); // end $.get			
+					}); // 관련문의 선택에 따른 페이지 전환
+
+			$("#enq_submit").click(
+					function() {
+						if (!regex.check('input[name=enq_agreeing]',
+								' 개인정보 수집 및 이용에 대한 동의는 필수사항입니다.')) {
+							return false;
+						}
+					}); // 개인정보 수집 동의 체크
+		});
 	</script>
 </body>
 </html>

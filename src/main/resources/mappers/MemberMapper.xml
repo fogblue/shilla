@@ -30,6 +30,10 @@
     <select id="selectEmailCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
         SELECT count(id) FROM member WHERE email=#{email}
     </select>
+     <!-- 아이디찾기를 수행한다 -->
+    <select id="selectFindId" parameterType="iot5.project.shilla.model.Member" resultMap="member">
+        SELECT user_id FROM member WHERE email=#{email} AND user_name_kor=#{user_name_kor}
+    </select>
     
     <!-- 회원정보를 저장한다 : 가입 -->
 	<insert id="insertMember" parameterType="iot5.project.shilla.model.Member" 

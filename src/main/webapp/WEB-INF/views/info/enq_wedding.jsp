@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <tr>
-	<th scope="row" class="entabhead"><label for="enq_wedding"><span
+	<th scope="row" class="entabhead"><label for="wedding_date"><span
 			class="identify">*</span> 희망일</label></th>
-	<td><input type="date" name="enq_wedding" /></td>
+	<td><input type="date" name="wedding_date" /></td>
 </tr>
 <tr>
 	<th scope="row" class="entabhead"><label for="enq_wedding"><span

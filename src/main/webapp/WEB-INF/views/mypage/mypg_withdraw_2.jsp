@@ -70,7 +70,7 @@
 			}
 		});
 		setTimeout(function() {
-			location.href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do"
+			location.href="${pageContext.request.contextPath}/mypage/mypg_withdraw_2_ok.do"
 		}, 500);
 	}
 	

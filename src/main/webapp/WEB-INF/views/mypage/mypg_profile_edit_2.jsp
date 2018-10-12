@@ -51,15 +51,15 @@
 				<table class="mypg-pfed2-contents-table">
 					<tr>
 						<td>성명(한글)</td>
-						<td></td>
+						<td>${loginInfo.userNameKor}</td>
 					</tr>
 					<tr>
 						<td>성명(영문)</td>
-						<td></td>
+						<td>${loginInfo.userNameEng}</td>
 					</tr>
 					<tr>
 						<td>아이디</td>
-						<td></td>
+						<td>${loginInfo.userId}</td>
 					</tr>
 					<tr>
 						<td rowspan="2">이메일</td>

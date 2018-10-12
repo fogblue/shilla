@@ -43,7 +43,7 @@
 				<p>회원님께서 문의하신 내역과 답변을 확인하실 수 있습니다.</p>
 			</div>
 			<div class="mypg-rsvt-bd">
-				<table class="mypg-qna2-contents-table">
+				<table class="mypg-qna2-contents-table mypg-mb">
 					<tr>
 						<td style="width: 15%">호텔</td>
 						<td colspan="3"></td>
@@ -73,13 +73,17 @@
 						<td colspan="3"></td>
 					</tr>
 				</table>
-				
+				<div class="pull-left mypg-contents-btn3">
+					<button type="button" class="btn mypg-rsvt2-list" onclick="moveToList()">목록</button>
+				</div>
 			</div>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
-	
+		function moveToList() {
+			location.href="${pageContext.request.contextPath}/mypage/mypg_qna.do"
+		}
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

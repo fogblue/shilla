@@ -69,9 +69,9 @@
 										<td colspan="5"><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do">자료가 없습니다.</a></td>
 									</c:when>
 									<c:otherwise>
+										<td></td>
+										<td></td>
 										<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do">자료가 없습니다.</a></td>
-										<td></td>
-										<td></td>
 										<td></td>
 										<td></td>
 									</c:otherwise>

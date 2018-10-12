@@ -73,10 +73,10 @@
 										<td colspan="6"><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do">자료가 없습니다.</a></td>
 									</c:when>
 									<c:otherwise>
+										<td></td>
+										<td></td>
+										<td></td>
 										<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do">자료가 없습니다.</a></td>
-										<td></td>
-										<td></td>
-										<td></td>
 										<td></td>
 										<td></td>
 									</c:otherwise>

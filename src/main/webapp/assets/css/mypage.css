@@ -520,7 +520,6 @@ body::-webkit-scrollbar {
 .mypg-rsvt2-bd {
 	border: 1px solid #e3d6c6;
 	padding: 20px 20px 50px 20px;
-	min-height: 840px;
 }
 
 .mypg-rsvt2-bd div:nth-child(3) button {
@@ -617,12 +616,12 @@ body::-webkit-scrollbar {
 	font-weight: bold;
 }
 
-.mypg-contents-btn3 {
-	margin: 40px 0;
+.mypg-mb {
+	margin-bottom: 40px;;
 }
 
 .mypg-rsvt2-list {
-	width: 50px;
+	width: 60px;
 	height: 26px;
 	background-color: #7c6347;
 	color: #ffffff;

@@ -125,22 +125,26 @@
 						</tr>
 					</table>
 				</div>
-				<div>
+				<div class="mypg-contents-table mypg-mb">
 					<h5 class="mypg-rsvt2-title-1">요청사항</h5>
 					<table class="mypg-rsvt2-contents-table-4">
 						<tr>
-							<td style="width: 15%; height: 35px;">남기신 말씀</td>
+							<td style="width: 15%;">남기신 말씀</td>
 							<td></td>
 						</tr>
 					</table>
 				</div>
 				<div class="pull-left mypg-contents-btn3">
-					<button type="button" class="btn mypg-rsvt2-list">목록</button>
+					<button type="button" class="btn mypg-rsvt2-list" onclick="moveToList()">목록</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<script type="text/javascript">
+		function moveToList() {
+			location.href="${pageContext.request.contextPath}/mypage/mypg_reservation.do"
+		}
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>
 	</c:otherwise>

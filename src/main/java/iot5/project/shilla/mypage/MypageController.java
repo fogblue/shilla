@@ -33,6 +33,8 @@ public class MypageController {
 	UploadHelper upload;
 	@Autowired
 	MemberService memberService;
+	@Autowired
+	QnAService qnaService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
@@ -129,7 +131,7 @@ public class MypageController {
 		qna.setMemberId(loginInfo.getId());
 		
 		try {
-			QnAService.updateQnA(qna);
+			qnaService.updateQnA(qna);
 			memberService.deleteMember(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());

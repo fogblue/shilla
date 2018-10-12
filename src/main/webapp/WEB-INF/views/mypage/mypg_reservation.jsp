@@ -10,13 +10,10 @@
 <body>
 <c:choose>
 	<c:when test="${loginInfo == null}">
-		<ul class="menu2 list-inline pull-right">
-			<li class="menu-item2 br"><a
-				href="${pageContext.request.contextPath}/member/log_main.do">로그인&nbsp;</a></li>
-			<li class="menu-item2"><a
-				href="${pageContext.request.contextPath}/member/log_join01.do">회원
-					가입&nbsp;</a></li>
-		</ul>
+		<script type="text/javascript">
+			alert("로그인 후 이용 가능한 페이지입니다.");
+			location.href="${pageContext.request.contextPath}/member/log_main.do";
+		</script>
 	</c:when>
 	<c:otherwise>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>

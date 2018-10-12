@@ -169,4 +169,23 @@ public class MemberServiceImpl implements MemberService {
 	
 	}
 
+	@Override
+	public Member selectFindId(Member member) throws Exception {
+		Member result = null;
+		try {
+			result = sqlSession.selectOne("MemberMapper.selectFindId", member);
+			if(result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("이름이나 이메일이 잘못되었습니다.");
+		}catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("아이디찾기에 실패했습니다.");
+		} 
+		
+		return result;
+		
+	}
+
 }

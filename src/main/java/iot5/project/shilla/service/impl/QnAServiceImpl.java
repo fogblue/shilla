@@ -35,7 +35,7 @@ public class QnAServiceImpl implements QnAService {
 	@Override
 	public void deleteQnA(QnA qna) throws Exception {
 		try {
-			int result = sqlSession.insert("QnAMapper.deleteQnA", qna);
+			int result = sqlSession.delete("QnAMapper.deleteQnA", qna);
 			if (result == 0) {
 				throw new NullPointerException();
 			}
@@ -50,11 +50,9 @@ public class QnAServiceImpl implements QnAService {
 
 	@Override
 	public void updateQnA(QnA qna) throws Exception {
-		QnA result = null;
-
 		try {
-			result = sqlSession.selectOne("QnAMapper.updateQnA", qna);
-			if (result == null) {
+			int result = sqlSession.update("QnAMapper.updateQnA", qna);
+			if (result == 0) {
 				throw new NullPointerException();
 			}
 		} catch (NullPointerException e) {
@@ -112,4 +110,19 @@ public class QnAServiceImpl implements QnAService {
 		return result;
 	}
 
+	@Override
+	public void updateQnAMemberOut(QnA qna) throws Exception {
+
+		try {
+			int result = sqlSession.update("QnAMapper.updateQnAMemberOut", qna);
+			if (result == 0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 수정에 실패했습니다.");
+		}
+	}
 }

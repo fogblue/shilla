@@ -48,4 +48,11 @@ public interface QnAService {
 	 * @throws Exception
 	 */
 	public QnA selectNextQnA(QnA qna) throws Exception;
+	
+	/**
+	 * 멤버 탈퇴를 위한 게시글 삭제
+	 * @param qna
+	 * @throws Exception
+	 */
+	public void updateQnAMemberOut(QnA qna) throws Exception;
 }

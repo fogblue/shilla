@@ -121,7 +121,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void deleteMember(Member member) throws Exception {
 		try {
-			int result = sqlSession.update("MemberMapper.deleteMember", member);
+			int result = sqlSession.delete("MemberMapper.deleteMember", member);
 			if(result == 0) {
 				throw new NullPointerException();
 			}
@@ -167,6 +167,25 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	
+	}
+
+	@Override
+	public Member selectFindId(Member member) throws Exception {
+		Member result = null;
+		try {
+			result = sqlSession.selectOne("MemberMapper.selectFindId", member);
+			if(result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("이름이나 이메일이 잘못되었습니다.");
+		}catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("아이디찾기에 실패했습니다.");
+		} 
+		
+		return result;
+		
 	}
 
 }

@@ -36,15 +36,15 @@ public class Download {
 		String filePath = web.getString("file");
 		String orginName = web.getString("orgin");
 		
-		/** 다운로드 스트림 출력하기 *//*
+		/** 다운로드 스트림 출력하기 */
 		if (filePath != null) {
 			try {
 				logger.debug("Create Thumbnail Image --> " + filePath);
-				upload.printFileStream(response, filePath, orginName);
+				upload.printFileStream(filePath, orginName);
 			} catch (IOException e) {
 				logger.debug(e.getLocalizedMessage());
 			}
-		}*/
+		}
 		return null;
 	}
 

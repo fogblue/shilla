@@ -25,6 +25,15 @@
 	text-indent: -9999px;
 }
 
+.rsv_step4img {
+	margin-top:5px;
+	display: block;
+	width: 1200px;
+	height: 47px;
+	background: url(../img/rsv_rsvstep4.gif) no-repeat;
+	text-indent: -9999px;
+}
+
 .rsv_search {
 	float: right;
 	margin-top:15px;

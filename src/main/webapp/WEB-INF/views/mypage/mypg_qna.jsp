@@ -69,15 +69,15 @@
 							</tr>
 							<tr>
 								<c:choose>							
-									<c:when test="${loginInfo == null}">
-										<td colspan="6"><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do">자료가 없습니다.</a></td>
+									<c:when test="${qnaInfo == null}">
+										<td colspan="6">자료가 없습니다.</td>
 									</c:when>
 									<c:otherwise>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do">자료가 없습니다.</a></td>
-										<td></td>
+										<td>${qnaInfo.id}</td>
+										<td>${qnaInfo.hotelCate}</td>
+										<td>${qnaInfo.ecategory}</td>
+										<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do" style="display: inline;">${qnaInfo.subject}</a></td>
+										<td>${qnaInfo.regDate}</td>
 										<td></td>
 									</c:otherwise>
 								</c:choose>

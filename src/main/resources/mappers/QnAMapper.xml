@@ -30,7 +30,7 @@
     </select>
     
     <!-- 조회한다 -->
-    <select id="selectQnAInfo" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
+    <select id="selectQnA" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
     	SELECT id, ecategory, hotel_cate, enq_type, reserv_no, wedding_date, qna_type, subject, 
     			content, user_name_kor, email, tel, tel_home, ip_address, reg_date, edit_date, member_id
     	FROM qna

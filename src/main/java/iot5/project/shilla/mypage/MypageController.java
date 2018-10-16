@@ -150,6 +150,12 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
+	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_table(Locale locale, Model model) {
+		logger.debug("문의사항테이블출력");
+		return new ModelAndView("mypage/mypg_qna_table");
+	}
+	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna(Locale locale, Model model) {
 		web.init();

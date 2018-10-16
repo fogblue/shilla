@@ -46,21 +46,21 @@
 				<table class="mypg-qna2-contents-table mypg-mb">
 					<tr>
 						<td style="width: 15%">호텔</td>
-						<td colspan="3"></td>
+						<td colspan="3">${qnaInfo.hotelCate}</td>
 					</tr>
 					<tr>
 						<td style="width: 15%">문의유형</td>
-						<td style="width: 35%"></td>
+						<td style="width: 35%">${qnaInfo.ecategory}</td>
 						<td style="width: 15%">등록일자</td>
-						<td style="width: 35%"></td>
+						<td style="width: 35%">${qnaInfo.regDate}</td>
 					</tr>
 					<tr>
 						<td>제목</td>
-						<td colspan="3"></td>
+						<td colspan="3">${qnaInfo.subject}</td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td colspan="3"></td>
+						<td colspan="3">${qnaInfo.content}</td>
 					</tr>
 					<tr>
 						<td>답변여부</td>

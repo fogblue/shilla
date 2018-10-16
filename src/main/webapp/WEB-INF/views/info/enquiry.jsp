@@ -65,8 +65,8 @@
 								<option id="enq_room" value="enq_room">객실/패키지문의</option>
 								<option id="enq_dining" value="enq_dining">다이닝문의</option>
 								<option id="enq_wedding" value="enq_wedding">웨딩문의</option>
-								<option id="enq_party" value="enq_party_web">연회/회의문의</option>
-								<option id="enq_web" value="enq_party_web">홈페이지문의</option>
+								<option id="enq_party" value="enq_party">연회/회의문의</option>
+								<option id="enq_web" value="enq_web">홈페이지문의</option>
 						</select></td>
 					</tr>
 					<tbody id="enq_ajax"></tbody>

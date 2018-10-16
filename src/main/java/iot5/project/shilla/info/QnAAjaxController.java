@@ -35,8 +35,14 @@ public class QnAAjaxController {
 		return new ModelAndView("info/enq_wedding");
 	}
 
-	@RequestMapping(value = "/info/enq_party_web", method = RequestMethod.GET)
-	public ModelAndView enqPartyWeb(Locale locale, Model model) {
+	@RequestMapping(value = "/info/enq_party", method = RequestMethod.GET)
+	public ModelAndView enqParty(Locale locale, Model model) {
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/enq_party_web");
+	}
+	@RequestMapping(value = "/info/enq_web", method = RequestMethod.GET)
+	public ModelAndView enqWeb(Locale locale, Model model) {
 		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
 
 		return new ModelAndView("info/enq_party_web");

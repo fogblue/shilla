@@ -19,6 +19,7 @@
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
+	<input type="hidden" name="id" value="${qnaInfo.id}" />
 		<div class="sidebar">
 			<div class="sidebar-cont">
 				<div class="bdb">

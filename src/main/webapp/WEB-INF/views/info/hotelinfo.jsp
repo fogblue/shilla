@@ -15,7 +15,7 @@
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">호텔신라 소개</h3>
 			<!-- 메뉴 들어갈 곳 -->
-			<a href="${pageContext.request.contextPath}/info/hotelinfo.do" class="imenu">개요</a>
+			<a href="${pageContext.request.contextPath}/info/hotelinfo.do" class="imenu info-open">개요 <img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
 			<a href="${pageContext.request.contextPath}/info/seoulshilla.do" class="imenu">서울신라호텔</a>
 			<a href="${pageContext.request.contextPath}/info/jejushilla.do" class="imenu">제주신라호텔</a>
 			<a href="${pageContext.request.contextPath}/info/awards.do" class="imenu">수상이력</a>
@@ -23,8 +23,8 @@
 		<div class="if-contents">
 			<div class="bdb">
 				<h3 class="conhead">개요</h3>
-				<div class="ind">
-					<span class="glyphicon glyphicon-home"></span> > About The Shilla >
+				<div class="ind pull-right">
+					<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;About The Shilla&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;
 					<span class="orng">Overview</span>
 				</div>
 			</div>

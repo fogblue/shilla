@@ -23,13 +23,13 @@
 			<a href="${pageContext.request.contextPath}/info/contactinfo.do"
 				class="imenu">연락처</a> <a
 				href="${pageContext.request.contextPath}/info/enquiry.do"
-				class="imenu">문의하기</a>
+				class="imenu info-open">문의하기 <img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
 				<h3 class="conhead">문의하기</h3>
-				<div class="ind">
-					<span class="glyphicon glyphicon-home"></span> > 문의하기 > <span
+				<div class="ind pull-right">
+					<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;문의하기&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span
 						class="orng">고객문의</span>
 				</div>
 			</div>

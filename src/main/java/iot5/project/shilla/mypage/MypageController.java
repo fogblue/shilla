@@ -150,6 +150,12 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
+	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_table(Locale locale, Model model) {
+		logger.debug("문의사항테이블출력");
+		return new ModelAndView("mypage/mypg_qna_table");
+	}
+	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna(Locale locale, Model model) {
 		web.init();
@@ -158,8 +164,8 @@ public class MypageController {
 		
 		QnA qna = new QnA();
 		qna.setMemberId(loginInfo.getId());
-		QnA qnaInfo = null;
 		
+		QnA qnaInfo = null;
 		try {
 			qnaInfo = qnaService.selectQnA(qna);
 		} catch (Exception e) {
@@ -173,7 +179,13 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_qna_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna_2(Locale locale, Model model) {
-		logger.debug("문의확인상세페이지 입장");
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}
 }

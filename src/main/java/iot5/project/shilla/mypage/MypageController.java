@@ -150,14 +150,14 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_table(Locale locale, Model model) {
-		logger.debug("문의사항테이블출력");
-		return new ModelAndView("mypage/mypg_qna_table");
-	}
-	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna(Locale locale, Model model) {
+		
+		return new ModelAndView("mypage/mypg_qna");
+	}
+
+	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_table(Locale locale, Model model) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -169,22 +169,34 @@ public class MypageController {
 		try {
 			qnaInfo = qnaService.selectQnA(qna);
 		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
 		
-		return new ModelAndView("mypage/mypg_qna");
+		return new ModelAndView("mypage/mypg_qna_table");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_2(Locale locale, Model model) {
+	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		Member loginInfo = (Member) web.getSession("loginInfo");
+		String id = request.getParameter("id");
+		logger.debug(id);
+		
+		/*QnA qnaInfo = (QnA) web.getSession("qnaInfo");
 		
 		QnA qna = new QnA();
-		qna.setMemberId(loginInfo.getId());
+		qna.setMemberId(qnaInfo.getId());
+		
+		QnA qnaInfo = null;
+		try {
+			qnaInfo = qnaService.selectQnA(qna);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);*/
 		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}

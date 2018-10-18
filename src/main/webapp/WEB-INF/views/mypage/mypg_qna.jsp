@@ -67,7 +67,7 @@
 								<td>문의일자</td>
 								<td>답변여부</td>
 							</tr>
-							<tr>
+							<tr id="find-result">
 								<td colspan="6" id="find-target">자료가 없습니다.</td>
 							</tr>
 						</table>
@@ -158,6 +158,7 @@
 	})
 	
 	$("#find").click(function(e) {
+		$("#find-result").empty();
 		$("#find-target").remove();
 		$.ajax({
 			url: "${pageContext.request.contextPath}/mypage/mypg_qna_table.do",
@@ -165,7 +166,7 @@
 			data: {},
 			dataType: "html",
 			success: function(req) {
-				$("#find-target").append(req);
+				$("#find-result").append(req);
 			}
 		});
 	});

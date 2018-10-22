@@ -59,35 +59,35 @@
 					<table class="mypg-rsvt2-contents-table">
 						<tr>
 							<td style="width: 15%">예약번호</td>
-							<td style="width: 35%"></td>
+							<td style="width: 35%">${resvInfo.id}</td>
 							<td style="width: 15%">예약상태</td>
 							<td style="width: 35%"></td>
 						</tr>
 						<tr>
 							<td>호텔</td>
-							<td></td>
+							<td>${resvInfo.hotelCate}</td>
 							<td>고객명</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td>체크인 날짜</td>
-							<td></td>
+							<td>${resvInfo.checkIn}</td>
 							<td>체크아웃 날짜</td>
-							<td></td>
+							<td>${resvInfo.checkOut}</td>
 						</tr>
 						<tr>
 							<td>예약 일자</td>
-							<td></td>
+							<td>${resvInfo.resvDate}</td>
 							<td>투숙인원</td>
-							<td>성인&nbsp;:&nbsp; &nbsp;/&nbsp;어린이&nbsp;:&nbsp; &nbsp;/&nbsp;유아&nbsp;:&nbsp;</td>
+							<td>성인&nbsp;:&nbsp;${resvInfo.pplAd}&nbsp;/&nbsp;어린이&nbsp;:&nbsp;${resvInfo.pplCh}&nbsp;/&nbsp;유아&nbsp;:&nbsp;${resvInfo.pplBb}</td>
 						</tr>
 						<tr>
 							<td>객실타입</td>
-							<td colspan="3"></td>
+							<td colspan="3">${resvInfo.roomType}</td>
 						</tr>
 						<tr>
 							<td>패키지명</td>
-							<td colspan="3"></td>
+							<td colspan="3">${resvInfo.packageType}</td>
 						</tr>
 					</table>
 				</div>

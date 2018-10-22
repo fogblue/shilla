@@ -396,12 +396,11 @@ public class MemberController {
 		member.setUserNameKor(userNameKor);
 
 		try {
-			memberService.selectFindId(member);
+			member = memberService.selectFindId(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 
 		}
-		
 		model.addAttribute("member", member);
 
 		return new ModelAndView("member/find_id_ok");

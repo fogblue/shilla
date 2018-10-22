@@ -113,7 +113,7 @@ public class QnAController {
 		}
 
 		/**
-		 * 로그인 되어 있을 경우 세션에서 이름, 이메일, 회원번호 및 전화번호를 불러옴 로그인 하지 않았을 경우 회원번호를 13번 - 비회원으로
+		 * 로그인 되어 있을 경우 세션에서 이름, 이메일, 회원번호 및 전화번호를 불러옴 로그인 하지 않았을 경우 회원번호를 11번 - 비회원으로
 		 * 지정
 		 */
 		Member loginInfo = (Member) web.getSession("loginInfo");

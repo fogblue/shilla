@@ -381,6 +381,7 @@ public class MemberController {
 		// 이메일 검사
 		if (!regex.isValue(email)) {
 
+			
 			return web.redirect(null, "이메일을 입력하세요");
 
 		}
@@ -400,8 +401,10 @@ public class MemberController {
 			return web.redirect(null, e.getLocalizedMessage());
 
 		}
+		
+		model.addAttribute("member", member);
 
-		return web.redirect(web.getRootPath(), "인증되었습니다.");
+		return new ModelAndView("member/find_id_ok");
 
 	}
 

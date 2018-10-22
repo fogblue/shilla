@@ -33,7 +33,6 @@
 				받으실 수 있습니다.
 			</h2>
 		</div>
-
 		
 			<div class="log_form-horizontal">
 				<div id="form-group">
@@ -61,7 +60,8 @@
 							onclick="location.href='${pageContext.request.contextPath}/member/log_join01.do' ">회원가입</button>
 						<button class="btn btn_color3 btn-md" type="button"
 						onclick="location.href='${pageContext.request.contextPath}/member/find_id.do' ">아이디 찾기</button>
-						<button id="open_modal_btn1" class="btn btn_color3 btn-md" type="button">비밀번호 찾기</button>
+						<button class="btn btn_color3 btn-md" type="button"
+						onclick="location.href='${pageContext.request.contextPath}/member/find_pw.do' ">비밀번호 찾기</button>
 					</div>
 				</div>
 
@@ -72,250 +72,13 @@
 			<div class="notice1 log_hidden" id="notice1">
 				이메일, 연락처 등의 정보가 변경되면 웹사이트에서 회원정보를 수정해주시기 바랍니다.
 			</div>
-		
 	</div>
-	<!--아이디 찾기 modal1-->
-<%-- <form name="myModal1_vali" id="myModal1_vali"  method="post"
-				action="${pageContext.request.contextPath}/member/find_id_ok.do">
-	<div class="modal fade" id="myModal1">
-		<div class="modal-dialog modal-md">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title">회원번호 또는 아이디 찾기</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for='find_user_name_kor' class="col-md-2"><span
-							class='identify'>*</span>성명(한글) </label>
-						<div class="col-md-10">
-							<input type="text" name="find_id_name_kor" id="find_id_name_kor"
-								class="form-control" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for='find_user_email' class="col-md-2"><span
-							class='identify'>*</span>이메일 </label>
-						<div class="col-md-10">
-							<input type="text" name="find_id_email" id="find_id_email"
-								class="form-control" />
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn_color2" data-dismiss="modal">확인</button>
-				</div>
-			</div>
 
-		</div>
-	</div>
-</form> --%>
-
-<!--아이디 찾기 modal1의 결과창-->
-<%-- <div class="modal fade" id="myModal1_1">
-	<div class="modal-dialog modal-md">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title">회원번호 또는 아이디 찾기</h4>
-			</div>
-			<div class="modal-body">
-				<table class="modal_table">
-					<tr>
-						<td class="space">${loginInfo.userNameKor}님의 회원 번호&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;${loginInfo.id}</td>
-					</tr>
-					<tr>
-						<td class="space">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;${loginInfo.userId}</td>
-					</tr>
-				</table>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn_color2" data-dismiss="modal"
-					id="id_modal_ok">확인</button>
-				<button type="button" class="btn btn_color2" data-dismiss="modal"
-					id="modal_pw_find">비밀번호 찾기</button>
-			</div>
-		</div>
-
-	</div>
-</div> --%>
-
-<!--비밀번호 찾기 modal2-->
-<form name="myModal2_vali" id="myModal2_vali">
-	<div class="modal fade" id="myModal2">
-		<div class="modal-dialog modal-md">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title">비밀번호 찾기</h4>
-				</div>
-				<div class="modal-body">
-					<h5>회원가입 시 등록하신 이메일로 임시비밀번호를 발급해드립니다.</h5>
-					<div class="form-group">
-						<label for='user_name' class="col-md-2"><span
-							class='identify'>*</span>아이디</label>
-						<div class="col-md-10">
-							<input type="text" name="find_pw_id" id="find_pw_id"
-								class="form-control" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for='user_name' class="col-md-2"><span
-							class='identify'>*</span>성명</label>
-						<div class="col-md-10">
-							<input type="text" name="find_pw_name" id="find_pw_name"
-								class="form-control" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for='user_name' class="col-md-2"><span
-							class='identify'>*</span>이메일</label>
-						<div class="col-md-10">
-							<input type="text" name="find_pw_email" id="find_pw_email"
-								class="form-control" />
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn_color2" data-dismiss="modal"
-						id="finded_pw">확인</button>
-				</div>
-
-				<div class="modal-footer1">
-					<button type="button" class="btn  btn_color2" data-dismiss="modal">로그인</button>
-
-					<button type="button" class="btn btn_color3" data-dismiss="modal"
-						id="find_id">아이디 찾기</button>
-				</div>
-			</div>
-		</div>
-
-	</div>
-</form>
-<!--비밀번호 찾기 modal2의 결과창-->
-<div class="modal fade" id="myModal2_1">
-	<div class="modal-dialog modal-md">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title">비밀번호 찾기</h4>
-			</div>
-			<div class="modal-body find_pw">
-				회원님의 이메일 (회원의 이메일 주소)로 <br /> 임시비밀번호를 발송해 드렸습니다. <br /> 발급받은 임시
-				비밀번호로 로그인해주시기 바랍니다.
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn_color2" data-dismiss="modal"
-					id="pw_modal_ok">로그인</button>
-			</div>
-		</div>
-
-	</div>
-</div>
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 
 
 	<script type="text/javascript">
-		$(function() {
-			$("#open_modal_btn").click(function(e) {
-				$("#myModal1").modal('show');
-			});
-			/* $("#open_modal_btn1").click(function(e) {
-				$("#myModal2").modal('show');
-			});
-			$("#find_id").click(function(e) {
-				$("#myModal1").modal('show');
-			});
-			$("#modal_id_ok").click(function(e) {
-				$("#myModal1_1").modal('show');
-			});
-			$("#modal_pw_find").click(function(e) {
-				$("#myModal2").modal('show');
-			});
-			$("#finded_pw").click(function(e) {
-				$("#myModal2_1").modal('show');
-			}); */
-			/* $.validator.addMethod("kor", function(value, element) {
-				return this.optional(element) || /^[ㄱ-ㅎ가-힣]*$/i.test(value);
-			});
-
-			
-					$("#myModal1_vali").validate({
-						rules : {
-							find_id_name_kor : {
-								required : true,
-								kor : true
-							},
-
-							find_id_email : {
-								required : true,
-								email : true
-							}
-						},
-
-						messages : {
-							find_id_name_kor : {
-								required : "이름을 입력하세요",
-								kor : "한글만 입력 가능합니다."
-							},
-
-							find_id_email : {
-								required : "이메일을 입력하세요",
-								email : "이메일 형식이 잘못되었습니다"
-							}
-						}
-
-					});
-				
 		
-					$("#myModal2_vali").validate({
-						rules : {
-							find_pw_id : {
-								required : true,
-								alphanumeric : true
-							},
-							find_pw_name : {
-								required : true,
-								kor : true
-							},
-							find_pw_email : {
-								required : true,
-								email : true
-							},
-						},
-
-						messages : {
-							find_pw_id : {
-								required : "아이디를 입력하세요",
-								alphanumeric : "아이디는 영어, 숫자만 입력 가능합니다."
-							},
-							find_pw_name : {
-								required : "이름을 입력하세요",
-								kor : "한글만 입력 가능합니다."
-							},
-							find_pw_email : {
-								required : "이메일을 입력하세요",
-								email : "이메일 형식이 잘못되었습니다"
-							}
-						}
-
-					
-			});*/
-		}); 
 	</script>
 </body>
 </html>

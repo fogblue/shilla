@@ -48,7 +48,7 @@
 	
 	<!-- id로 검색하기 -->
 	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
-		SELECT hotel_cate, check_in, check_out, ppl_ad, ppl_ch, ppl_bb, room_type,
+		SELECT id, hotel_cate, check_in, check_out, ppl_ad, ppl_ch, ppl_bb, room_type,
 				package_type, resv_date, edit_date, member_id, exbed, meal
 		FROM resv
     	WHERE id=#{id}

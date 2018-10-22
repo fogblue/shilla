@@ -1,4 +1,42 @@
 /*------------------------------------------------------------
+	| 마이페이지 사이드바 메뉴 설정
+-------------------------------------------------------------*/
+.mypg-sidebar-menu a {
+	height:20px;
+	margin: 15px 0;
+	font-weight: bold;
+	padding-left: 5px;
+	color: #633e10;
+}
+
+.mypg-sidebar-menu a:nth-child(2) {
+	padding-bottom: 25px;
+	border-bottom: 1px dotted #cec2a8;
+}
+
+.mypg-sidebar-menu a:nth-child(3),
+.mypg-sidebar-menu a:nth-child(4),
+.mypg-sidebar-menu a:nth-child(5) {
+	height: 20px;
+	font-size: 12px;
+	margin: 10px 0;
+	font-weight: normal;
+	color: #876234;
+}
+
+.sidebar-arrow {
+	width: 20px;
+	height: 20px;
+	float: right;
+	vertical-align: middle;
+}
+
+.mypg-sidebar-open {
+	background-color: #d3c09a;
+	
+}
+
+/*------------------------------------------------------------
 	| 페이지 기본 설정
 -------------------------------------------------------------*/
 .mypg-container {
@@ -74,18 +112,6 @@
 .mypg-contents-btn2 {
 	width: 284px;
 	margin: 40px 300px;
-}
-
-.sidebar-arrow {
-	width: 20px;
-	height: 20px;
-	float: right;
-	vertical-align: middle;
-}
-
-.mypg-sidebar-open {
-	background-color: #d3c09a;
-	
 }
 
 /*------------------------------------------------------------

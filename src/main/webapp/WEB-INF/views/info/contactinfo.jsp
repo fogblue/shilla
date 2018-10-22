@@ -16,14 +16,14 @@
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">고객문의</h3>
 			<!-- 메뉴 들어갈 곳 -->
-			<a href="${pageContext.request.contextPath}/info/contactinfo.do" class="imenu">연락처</a>
+			<a href="${pageContext.request.contextPath}/info/contactinfo.do" class="imenu info-open">연락처 <img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
 			<a href="${pageContext.request.contextPath}/info/enquiry.do" class="imenu">문의하기</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
 				<h3 class="conhead">연락처</h3>
-				<div class="ind">
-					<span class="glyphicon glyphicon-home"></span> > 문의하기 >
+				<div class="ind pull-right">
+					<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;문의하기&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;
 					<span class="orng">Contact Us</span>
 				</div>
 			</div>

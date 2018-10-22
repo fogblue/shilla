@@ -23,13 +23,13 @@
 			<a href="${pageContext.request.contextPath}/info/contactinfo.do"
 				class="imenu">연락처</a> <a
 				href="${pageContext.request.contextPath}/info/enquiry.do"
-				class="imenu">문의하기</a>
+				class="imenu info-open">문의하기 <img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
 				<h3 class="conhead">문의하기</h3>
-				<div class="ind">
-					<span class="glyphicon glyphicon-home"></span> > 문의하기 > <span
+				<div class="ind pull-right">
+					<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;문의하기&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span
 						class="orng">고객문의</span>
 				</div>
 			</div>
@@ -65,8 +65,8 @@
 								<option id="enq_room" value="enq_room">객실/패키지문의</option>
 								<option id="enq_dining" value="enq_dining">다이닝문의</option>
 								<option id="enq_wedding" value="enq_wedding">웨딩문의</option>
-								<option id="enq_party" value="enq_party_web">연회/회의문의</option>
-								<option id="enq_web" value="enq_party_web">홈페이지문의</option>
+								<option id="enq_party" value="enq_party">연회/회의문의</option>
+								<option id="enq_web" value="enq_web">홈페이지문의</option>
 						</select></td>
 					</tr>
 					<tbody id="enq_ajax"></tbody>

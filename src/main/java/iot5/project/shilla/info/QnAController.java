@@ -147,23 +147,23 @@ public class QnAController {
 		if (!regex.isValue(userNameKor)) {
 			return web.redirect(null, "작성자 이름을 입력하세요");
 		}
+		
 		// 이메일 검사
 		if (!regex.isValue(email)) {
 			return web.redirect(null, "이메일을 입력하세요");
-
 		}
+		
 		if (!regex.isEmail(email)) {
 			return web.redirect(null, "이메일 형식이 잘못되었습니다.");
-
 		}
+		
 		// 제목 및 내용 검사
 		if (!regex.isValue(subject)) {
 			return web.redirect(null, "글 제목을 입력하세요");
-
 		}
+		
 		if (!regex.isValue(content)) {
 			return web.redirect(null, "내용을 입력하세요");
-
 		}
 
 		if (!regex.isCellPhone(tel)) {
@@ -214,6 +214,7 @@ public class QnAController {
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
+		
 		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
 		return web.redirect(web.getRootPath(), "문의사항이 저장되었습니다.");
 	}

@@ -125,4 +125,22 @@ public class QnAServiceImpl implements QnAService {
 			throw new Exception("게시물 수정에 실패했습니다.");
 		}
 	}
+	
+	public QnA selectQnAById(QnA qna) throws Exception {
+		QnA result = null;
+
+		try {
+			result = sqlSession.selectOne("QnAMapper.selectQnAById", qna);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
 }

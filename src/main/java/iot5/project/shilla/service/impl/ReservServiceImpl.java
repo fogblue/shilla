@@ -47,8 +47,40 @@ public class ReservServiceImpl implements ReservService {
 
 	@Override
 	public Reservation selectReserv(Reservation reserv) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Reservation result = null;
+
+		try {
+			result = sqlSession.selectOne("ReservMapper.selectReserv", reserv);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+	
+	@Override
+	public Reservation selectReservById(Reservation reserv) throws Exception {
+		Reservation result = null;
+
+		try {
+			result = sqlSession.selectOne("ReservMapper.selectReservById", reserv);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 조회에 실패했습니다.");
+		}
+
+		return result;
 	}
 
 }

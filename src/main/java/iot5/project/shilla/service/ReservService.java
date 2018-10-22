@@ -32,4 +32,12 @@ public interface ReservService {
 	 * @throws Exception
 	 */
 	public Reservation selectReserv(Reservation reserv) throws Exception;
+	
+	/**
+	 * 
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public Reservation selectReservById(Reservation reserv) throws Exception;
 }

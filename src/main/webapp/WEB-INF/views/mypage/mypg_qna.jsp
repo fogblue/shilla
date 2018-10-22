@@ -53,7 +53,7 @@
 					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
 					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
-					<button type="button" class="btn mypg-rsvt-find">조회</button>
+					<button type="button" class="btn mypg-rsvt-find" id="find">조회</button>
 				</div>
 				<div class="mypg-contents-table">
 					<div>
@@ -67,20 +67,8 @@
 								<td>문의일자</td>
 								<td>답변여부</td>
 							</tr>
-							<tr>
-								<c:choose>							
-									<c:when test="${qnaInfo == null}">
-										<td colspan="6">자료가 없습니다.</td>
-									</c:when>
-									<c:otherwise>
-										<td>${qnaInfo.id}</td>
-										<td>${qnaInfo.hotelCate}</td>
-										<td>${qnaInfo.ecategory}</td>
-										<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do" style="display: inline;">${qnaInfo.subject}</a></td>
-										<td>${qnaInfo.regDate}</td>
-										<td></td>
-									</c:otherwise>
-								</c:choose>
+							<tr id="find-result">
+								<td colspan="6" id="find-target">자료가 없습니다.</td>
 							</tr>
 						</table>
 					</div>
@@ -168,6 +156,20 @@
 			$("#datepicker-e").val("");
 		}
 	})
+	
+	$("#find").click(function(e) {
+		$("#find-result").empty();
+		$("#find-target").remove();
+		$.ajax({
+			url: "${pageContext.request.contextPath}/mypage/mypg_qna_table.do",
+			method: "get",
+			data: {},
+			dataType: "html",
+			success: function(req) {
+				$("#find-result").append(req);
+			}
+		});
+	});
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

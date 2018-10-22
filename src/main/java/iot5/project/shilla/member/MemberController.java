@@ -353,14 +353,11 @@ public class MemberController {
 		web.init();
 
 		if (web.getSession("loginInfo") != null) {
-			// sqlSession.close();
 			return web.redirect(web.getRootPath(), "이미 로그인 중입니다.");
-
 		}
-		/** (4)파라미터 처리 */
-		Map<String, String> paramMap = upload.getParamMap();
-		String email = paramMap.get("find_id_email");
-		String userNameKor = paramMap.get("find_id_name_kor");
+		/** 파라미터 처리 */
+		String email = web.getString("find_id_email");
+		String userNameKor = web.getString("find_id_name_kor");
 
 		logger.debug("email=" + email);
 		logger.debug("find_id_name_kor=" + userNameKor);

@@ -225,11 +225,10 @@ public class MemberController {
 
 		}
 
-		String newPassword = util.getRandomPassword();
 
 		member = new Member();
 		member.setEmail(email);
-		member.setUserPw(newPassword);
+		member.setUserPw(userPw);
 
 		try {
 			memberService.updateMemberPasswordByEmail(member);

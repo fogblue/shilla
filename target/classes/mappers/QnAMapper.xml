@@ -54,4 +54,12 @@
 		UPDATE qna SET member_id=NULL, edit_date=now()
 		WHERE member_id=#{memberId}
 	</update>
+	
+	<!-- id로 검색하기 -->
+	<select id="selectQnAById" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
+		SELECT ecategory, hotel_cate, enq_type, reserv_no, wedding_date, qna_type, subject, 
+    			content, user_name_kor, email, tel, tel_home, ip_address, reg_date, edit_date, member_id
+    	FROM qna
+    	WHERE id=#{id}
+	</select>
 </mapper>

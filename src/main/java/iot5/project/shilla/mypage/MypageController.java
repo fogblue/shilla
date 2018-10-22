@@ -43,19 +43,40 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation(Locale locale, Model model) {
-		logger.debug("예약확인페이지 입장");
+		logger.info("예약확인페이지 입장");
 		return new ModelAndView("mypage/mypg_reservation");
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
+		web.init();
+		
+		/*Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
+		QnA qnaInfo = null;
+		try {
+			qnaInfo = qnaService.selectQnA(qna);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);*/
+		
+		return new ModelAndView("mypage/mypg_reservation_table");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_2(Locale locale, Model model) {
-		logger.debug("예약확인상세페이지 입장");
+		logger.info("예약확인상세페이지 입장");
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit(Locale locale, Model model) {
-		logger.debug("프로필변경페이지 입장");
+		logger.info("프로필변경페이지 입장");
 		return new ModelAndView("mypage/mypg_profile_edit"); 
 	}
 	
@@ -70,7 +91,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
-		logger.debug("프로필변경확인페이지 입장");
+		logger.info("프로필변경확인페이지 입장");
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
@@ -85,13 +106,13 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_password_edit(Locale locale, Model model) {
-		logger.debug("비밀번호변경페이지 입장");
+		logger.info("비밀번호변경페이지 입장");
 		return new ModelAndView("mypage/mypg_password_edit"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw(Locale locale, Model model) {
-		logger.debug("회원탈퇴페이지 입장");
+		logger.info("회원탈퇴페이지 입장");
 		return new ModelAndView("mypage/mypg_withdraw"); 
 	}
 	
@@ -100,7 +121,7 @@ public class MypageController {
 		web.init();
 		
 		String userPw = web.getString("pswd_confirm");
-		logger.debug("userPw=" + userPw);
+		logger.info("userPw=" + userPw);
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
@@ -118,7 +139,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2(Locale locale, Model model) {
-		logger.debug("회원탈퇴확인페이지 입장");
+		logger.info("회원탈퇴확인페이지 입장");
 		return new ModelAndView("mypage/mypg_withdraw_2"); 
 	}
 	
@@ -146,7 +167,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_msg.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_msg(Locale locale, Model model) {
-		logger.debug("회원탈퇴확인메시지출력");
+		logger.info("회원탈퇴확인메시지출력");
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
@@ -181,22 +202,21 @@ public class MypageController {
 	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		String id = request.getParameter("id");
-		logger.debug(id);
-		
-		/*QnA qnaInfo = (QnA) web.getSession("qnaInfo");
+		int id = web.getInt("id");
+		logger.info("받아온 id는 >> " + id);
+		model.addAttribute("id", id);
 		
 		QnA qna = new QnA();
-		qna.setMemberId(qnaInfo.getId());
-		
+		qna.setId(id);
+
 		QnA qnaInfo = null;
 		try {
-			qnaInfo = qnaService.selectQnA(qna);
+			qnaInfo = qnaService.selectQnAById(qna);
 		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna_2.do", null);
 		}
 		
-		model.addAttribute("qnaInfo", qnaInfo);*/
+		model.addAttribute("qnaInfo", qnaInfo);
 		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}

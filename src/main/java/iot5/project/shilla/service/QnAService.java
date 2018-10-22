@@ -55,4 +55,12 @@ public interface QnAService {
 	 * @throws Exception
 	 */
 	public void updateQnAMemberOut(QnA qna) throws Exception;
+	
+	/**
+	 * 게시물 보기
+	 * @param qna
+	 * @return
+	 * @throws Exception
+	 */
+	public QnA selectQnAById(QnA qna) throws Exception;
 }

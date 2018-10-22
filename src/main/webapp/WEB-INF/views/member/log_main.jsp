@@ -59,7 +59,8 @@
 					<div class="text-center">
 						<button class="btn btn_color2 btn-md" type="button"
 							onclick="location.href='${pageContext.request.contextPath}/member/log_join01.do' ">회원가입</button>
-						<button id="open_modal_btn" class="btn btn_color3 btn-md" type="button">아이디 찾기</button>
+						<button class="btn btn_color3 btn-md" type="button"
+						onclick="location.href='${pageContext.request.contextPath}/member/find_id.do' ">아이디 찾기</button>
 						<button id="open_modal_btn1" class="btn btn_color3 btn-md" type="button">비밀번호 찾기</button>
 					</div>
 				</div>
@@ -74,7 +75,7 @@
 		
 	</div>
 	<!--아이디 찾기 modal1-->
-<form name="myModal1_vali" id="myModal1_vali"  method="post"
+<%-- <form name="myModal1_vali" id="myModal1_vali"  method="post"
 				action="${pageContext.request.contextPath}/member/find_id_ok.do">
 	<div class="modal fade" id="myModal1">
 		<div class="modal-dialog modal-md">
@@ -111,10 +112,10 @@
 
 		</div>
 	</div>
-</form>
+</form> --%>
 
 <!--아이디 찾기 modal1의 결과창-->
-<div class="modal fade" id="myModal1_1">
+<%-- <div class="modal fade" id="myModal1_1">
 	<div class="modal-dialog modal-md">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -145,7 +146,7 @@
 		</div>
 
 	</div>
-</div>
+</div> --%>
 
 <!--비밀번호 찾기 modal2-->
 <form name="myModal2_vali" id="myModal2_vali">

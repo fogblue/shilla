@@ -20,8 +20,10 @@ import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
+import iot5.project.shilla.service.ReservService;
 
 @Controller
 public class MypageController {
@@ -38,12 +40,13 @@ public class MypageController {
 	MemberService memberService;
 	@Autowired
 	QnAService qnaService;
+	@Autowired
+	ReservService reservService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
-	public ModelAndView mypg_reservation(Locale locale, Model model) {
-		logger.info("예약확인페이지 입장");
+	public ModelAndView mypg_reservation(Locale locale, Model model) {	
 		return new ModelAndView("mypage/mypg_reservation");
 	}
 	
@@ -51,68 +54,75 @@ public class MypageController {
 	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
 		web.init();
 		
-		/*Member loginInfo = (Member) web.getSession("loginInfo");
+		Member loginInfo = (Member) web.getSession("loginInfo");
 		
-		QnA qna = new QnA();
-		qna.setMemberId(loginInfo.getId());
+		Reservation resv = new Reservation();
+		resv.setMemberId(loginInfo.getId());
 		
-		QnA qnaInfo = null;
+		Reservation resvInfo = null;
 		try {
-			qnaInfo = qnaService.selectQnA(qna);
+			resvInfo = reservService.selectReserv(resv);
 		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
 		
-		model.addAttribute("qnaInfo", qnaInfo);*/
+		model.addAttribute("resvInfo", resvInfo);
 		
 		return new ModelAndView("mypage/mypg_reservation_table");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_2(Locale locale, Model model) {
-		logger.info("예약확인상세페이지 입장");
+		web.init();
+		
+		int id = web.getInt("id");
+		logger.info("받아온 id는 >> " + id);
+		model.addAttribute("id", id);
+		
+		Reservation resv = new Reservation();
+		resv.setId(id);
+
+		Reservation resvInfo = null;
+		try {
+			resvInfo = reservService.selectReservById(resv);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
+		}
+		
+		model.addAttribute("resvInfo", resvInfo);
+		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit(Locale locale, Model model) {
-		logger.info("프로필변경페이지 입장");
 		return new ModelAndView("mypage/mypg_profile_edit"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model) {
 		web.init();
-		
-		
-		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", null);
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
-		logger.info("프로필변경확인페이지 입장");
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2_ok.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model) {
 		web.init();
-		
-		
-		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_password_edit(Locale locale, Model model) {
-		logger.info("비밀번호변경페이지 입장");
 		return new ModelAndView("mypage/mypg_password_edit"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw(Locale locale, Model model) {
-		logger.info("회원탈퇴페이지 입장");
 		return new ModelAndView("mypage/mypg_withdraw"); 
 	}
 	
@@ -139,7 +149,6 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2(Locale locale, Model model) {
-		logger.info("회원탈퇴확인페이지 입장");
 		return new ModelAndView("mypage/mypg_withdraw_2"); 
 	}
 	
@@ -167,13 +176,11 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_msg.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_msg(Locale locale, Model model) {
-		logger.info("회원탈퇴확인메시지출력");
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna(Locale locale, Model model) {
-		
+	public ModelAndView mypg_qna(Locale locale, Model model) {	
 		return new ModelAndView("mypage/mypg_qna");
 	}
 

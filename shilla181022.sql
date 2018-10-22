@@ -72,7 +72,7 @@ CREATE TABLE `member` (
   `reg_date` datetime NOT NULL,
   `edit_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,7 +81,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES (2,'박혜민','parkhyemin','parkhm','123qwe','1991-10-11 00:00:00','gjrdjrdjr@gmail.com','01053337777',NULL,NULL,NULL,NULL,'2018-10-10 00:00:00','2018-10-10 00:00:00'),(3,'이민행','leeminheng','mhlee','123qwe','1986-02-14 00:00:00','fogblue.git@gmail.com','01065430984',NULL,NULL,NULL,NULL,'2018-10-10 00:00:00','2018-10-10 00:00:00'),(4,'이동건','leedonggeon','dong','123qwe','1997-09-15 00:00:00','tmxpftm2012@gmail.com','01015771577',NULL,NULL,NULL,NULL,'2018-10-10 00:00:00','2018-10-10 00:00:00'),(5,'이민행','minhaeng lee','minny','123qwe','1986-02-14 00:00:00','fogblue.git@gmail.com','010-6543-0984',NULL,NULL,NULL,NULL,'2018-10-10 13:13:26','2018-10-10 13:13:26'),(6,'박혜민','parkhyemin','shilla','*a4b6157319038724e3560894f7f932c8886ebfcf',NULL,'gjrdjrdjr@naver.com','01053337777','','','','','2018-10-11 10:13:42','2018-10-11 10:13:42'),(7,'공유','gongyou','gonguuuu','*a4b6157319038724e3560894f7f932c8886ebfcf','2018-10-17 00:00:00','marine984@gmail.com','01053337777','','','','','2018-10-11 10:41:25','2018-10-11 10:41:25'),(8,'소지섭','sojisub','soganji','*050376f3855a67f5e2c6514fd3130b31006c1276','2018-10-19 00:00:00','gjrdjrdjr@hanmail.net','01053337777','0325762222','06707','서울특별시 서초구 명달로 45','1020호','2018-10-11 10:43:57','2018-10-11 10:43:57'),(9,'이민행','minhaenglee','min','*050376f3855a67f5e2c6514fd3130b31006c1276','2018-10-04 00:00:00','lmh8602@gmail.com','01065430984','','','','','2018-10-11 12:04:22','2018-10-11 12:04:22'),(10,'이호현','leehohyeon','mypage','*050376F3855A67F5E2C6514FD3130B31006C1276','2018-10-12 00:00:00','leeh8687@gmail.com','01011112222','','','','','2018-10-12 17:20:58','2018-10-12 17:20:58'),(11,'비회원','nonmember','nonmember','*81754DB2B016F63C15ECC38C0877CE71ABC45D8D','2018-10-12 00:00:00','ezenmh@gmail.com','0000000000','020000000','','','','2018-10-12 17:44:21','2018-10-12 17:44:21');
+INSERT INTO `member` VALUES (6,'박혜민','parkhyemin','shilla','*a4b6157319038724e3560894f7f932c8886ebfcf',NULL,'gjrdjrdjr@naver.com','01053337777','','','','','2018-10-11 10:13:42','2018-10-11 10:13:42'),(7,'공유','gongyou','gonguuuu','*a4b6157319038724e3560894f7f932c8886ebfcf','2018-10-17 00:00:00','marine984@gmail.com','01053337777','','','','','2018-10-11 10:41:25','2018-10-11 10:41:25'),(8,'소지섭','sojisub','soganji','*050376f3855a67f5e2c6514fd3130b31006c1276','2018-10-19 00:00:00','gjrdjrdjr@hanmail.net','01053337777','0325762222','06707','서울특별시 서초구 명달로 45','1020호','2018-10-11 10:43:57','2018-10-11 10:43:57'),(9,'이민행','minhaenglee','min','*050376f3855a67f5e2c6514fd3130b31006c1276','2018-10-04 00:00:00','lmh8602@gmail.com','01065430984','','','','','2018-10-11 12:04:22','2018-10-11 12:04:22'),(10,'이호현','leehohyeon','mypage','*050376F3855A67F5E2C6514FD3130B31006C1276','2018-10-12 00:00:00','leeh8687@gmail.com','01011112222','','','','','2018-10-12 17:20:58','2018-10-12 17:20:58'),(11,'비회원','nonmember','nonmember','*A4B6157319038724E3560894F7F932C8886EBFCF','2018-10-12 00:00:00','ezenmh@gmail.com','0000000000','020000000','','','','2018-10-12 17:44:21','2018-10-12 17:44:21'),(12,'이호형','leehohyeong','mypage1','*050376F3855A67F5E2C6514FD3130B31006C1276','2018-10-12 00:00:00','peraal@naver.com','01011112222','','','','','2018-10-12 18:51:46','2018-10-12 18:51:46'),(13,'이민행','MinhaengLee','minny','*A4B6157319038724E3560894F7F932C8886EBFCF','1996-02-14 00:00:00','lottowininoz@gmail.com','0100000000','020000000','','','','2018-10-16 16:46:24','2018-10-16 16:46:24'),(15,'바나나','banana','banana','*050376F3855A67F5E2C6514FD3130B31006C1276','2018-10-03 00:00:00','gjrdjrdjr@gm1ail.com','01053337777','','','','','2018-10-16 17:09:36','2018-10-16 17:09:36');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-12 18:04:04
+-- Dump completed on 2018-10-22 14:52:55

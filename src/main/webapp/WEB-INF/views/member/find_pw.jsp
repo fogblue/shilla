@@ -65,10 +65,11 @@
 				</div>
 
 				<div class="modal-footer1">
-					<button type="button" class="btn  btn_color2" data-dismiss="modal">로그인</button>
+					<button type="button" class="btn  btn_color2" 
+					onclick="location.href='${pageContext.request.contextPath}/member/log_main.do' ">로그인</button>
 
-					<button type="button" class="btn btn_color3" data-dismiss="modal"
-						id="find_id">아이디 찾기</button>
+					<button type="button" class="btn btn_color3" 
+					onclick="location.href='${pageContext.request.contextPath}/member/find_id.do' "	id="find_id">아이디 찾기</button>
 				</div>
 				</form>
 			</div>

@@ -397,6 +397,7 @@ public class MemberController {
 
 		try {
 			member = memberService.selectFindId(member);
+
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 

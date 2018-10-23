@@ -72,7 +72,7 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_reservation_2(Locale locale, Model model) {
+	public ModelAndView mypg_reservation_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
 		int id = web.getInt("id");
@@ -81,7 +81,7 @@ public class MypageController {
 		
 		Reservation resv = new Reservation();
 		resv.setId(id);
-
+		
 		Reservation resvInfo = null;
 		try {
 			resvInfo = reservService.selectReservById(resv);
@@ -102,6 +102,17 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model) {
 		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		Member member = new Member();
+		member.setId(loginInfo.getId());
+
+		try {
+			memberService.selectMember(member);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", null);
 	}
 	

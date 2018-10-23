@@ -13,6 +13,10 @@ public class Member {
 	private String zipcode;
 	private String loadAddr;
 	private String detail;
+	private String cardNo;
+	private String cardCate;
+	private String cardYy;
+	private String cardMm;
 	private String regDate;
 	private String editDate;
 	public int getId() {
@@ -99,13 +103,36 @@ public class Member {
 	public void setEditDate(String editDate) {
 		this.editDate = editDate;
 	}
+	public String getCardNo() {
+		return cardNo;
+	}
+	public void setCardNo(String cardNo) {
+		this.cardNo = cardNo;
+	}
+	public String getCardCate() {
+		return cardCate;
+	}
+	public void setCardCate(String cardCate) {
+		this.cardCate = cardCate;
+	}
+	public String getCardYy() {
+		return cardYy;
+	}
+	public void setCardYy(String cardYy) {
+		this.cardYy = cardYy;
+	}
+	public String getCardMm() {
+		return cardMm;
+	}
+	public void setCardMm(String cardMm) {
+		this.cardMm = cardMm;
+	}
 	@Override
 	public String toString() {
-		return "member [id=" + id + ", userNameKor=" + userNameKor + ", userNameEng=" + userNameEng + ", userId="
+		return "Member [id=" + id + ", userNameKor=" + userNameKor + ", userNameEng=" + userNameEng + ", userId="
 				+ userId + ", userPw=" + userPw + ", birthdate=" + birthdate + ", email=" + email + ", tel=" + tel
 				+ ", telHome=" + telHome + ", zipcode=" + zipcode + ", loadAddr=" + loadAddr + ", detail=" + detail
+				+ ", cardNo=" + cardNo + ", cardCate=" + cardCate + ", cardYy=" + cardYy + ", cardMm=" + cardMm
 				+ ", regDate=" + regDate + ", editDate=" + editDate + "]";
-	}
-	
-	
+	}	
 }

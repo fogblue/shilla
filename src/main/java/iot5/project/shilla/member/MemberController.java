@@ -353,14 +353,11 @@ public class MemberController {
 		web.init();
 
 		if (web.getSession("loginInfo") != null) {
-			// sqlSession.close();
 			return web.redirect(web.getRootPath(), "이미 로그인 중입니다.");
-
 		}
-		/** (4)파라미터 처리 */
-		Map<String, String> paramMap = upload.getParamMap();
-		String email = paramMap.get("find_id_email");
-		String userNameKor = paramMap.get("find_id_name_kor");
+		/** 파라미터 처리 */
+		String email = web.getString("find_id_email");
+		String userNameKor = web.getString("find_id_name_kor");
 
 		logger.debug("email=" + email);
 		logger.debug("find_id_name_kor=" + userNameKor);
@@ -384,6 +381,7 @@ public class MemberController {
 		// 이메일 검사
 		if (!regex.isValue(email)) {
 
+			
 			return web.redirect(null, "이메일을 입력하세요");
 
 		}
@@ -398,13 +396,18 @@ public class MemberController {
 		member.setUserNameKor(userNameKor);
 
 		try {
-			memberService.selectFindId(member);
+<<<<<<< HEAD
+			memberService.selectFindId(member); 
+=======
+			member = memberService.selectFindId(member);
+>>>>>>> 9ba0dbd70558193fca1190b23556865128528291
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 
 		}
+		model.addAttribute("member", member);
 
-		return web.redirect(web.getRootPath(), "인증되었습니다.");
+		return new ModelAndView("member/find_id_ok");
 
 	}
 

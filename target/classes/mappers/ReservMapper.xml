@@ -20,9 +20,9 @@
 		<result property="exbed" column="exbed" />
 		<result property="meal" column="meal" />
 		<result property="roomQty" column="room_qty" />
-		<resuly property="text" column="text" />
- 	</resultMap>
-	
+		<result property="text" column="text" />
+	</resultMap>
+ 	
 	<!-- 예약 갯수 -->
 	 <select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
         SELECT count(id) FROM reservation WHERE member_id=#{memberId}

@@ -396,12 +396,15 @@ public class MemberController {
 		member.setUserNameKor(userNameKor);
 
 		try {
+<<<<<<< HEAD
 			memberService.selectFindId(member); 
+=======
+			member = memberService.selectFindId(member);
+>>>>>>> 9ba0dbd70558193fca1190b23556865128528291
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 
 		}
-		
 		model.addAttribute("member", member);
 
 		return new ModelAndView("member/find_id_ok");

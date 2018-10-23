@@ -18,10 +18,14 @@
 		<result property="zipcode" column="zipcode" />
 		<result property="loadAddr" column="load_addr" />
 		<result property="detail" column="detail" />
+		<result property="cardNo" column="card_no" />
+		<result property="cardCate" column="card_cate" />
+		<result property="cardYy" column="card_yy" />
+		<result property="cardMm" column="card_mm" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
 	</resultMap>
-<!-- 아이디 중복검사를 수행한다 -->
+	<!-- 아이디 중복검사를 수행한다 -->
     <select id="selectUserIdCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
         SELECT count(id) FROM member WHERE user_id=#{userId}
     </select>
@@ -88,7 +92,7 @@
 		WHERE id=#{id}
 	</update>
 	
-	<!-- 회원 목록 조회하기 -->
+	<!-- 아이디로 회원 목록 조회하기 -->
 	<select id="selectMember"
 		parameterType="iot5.project.shilla.model.Member" resultMap="member">
 		SELECT user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
@@ -96,5 +100,12 @@
 		FROM member
 		WHERE id=#{id}
 	</select>
+	
+	<!-- 예약할 때 카드 정보 입력 -->
+	<update id="updateCardInfo" parameterType="iot5.project.shilla.model.Member">
+		UPDATE member SET
+			card_no=#{cardNo}, card_cate=#{cardCate}, card_yy=#{cardYy}, card_mm=#{cardMm}, edit_date=now()
+		WHERE id=#{id}
+	</update>
 
 </mapper>

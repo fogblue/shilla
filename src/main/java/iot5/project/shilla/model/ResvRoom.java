@@ -10,6 +10,7 @@ public class ResvRoom {
 	private int exbed;
 	private int meal;
 	private int totalPrice;
+	private String resvDate;
 	private int memberId;
 	private String hotelCate;
 	public int getId() {
@@ -66,6 +67,12 @@ public class ResvRoom {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	public String getResvDate() {
+		return resvDate;
+	}
+	public void setResvDate(String resvDate) {
+		this.resvDate = resvDate;
+	}
 	public int getMemberId() {
 		return memberId;
 	}
@@ -82,7 +89,8 @@ public class ResvRoom {
 	public String toString() {
 		return "ResvRoom [id=" + id + ", roomNo=" + roomNo + ", checkIn=" + checkIn + ", checkOut=" + checkOut
 				+ ", roomType=" + roomType + ", packageType=" + packageType + ", exbed=" + exbed + ", meal=" + meal
-				+ ", totalPrice=" + totalPrice + ", memberId=" + memberId + ", hotelCate=" + hotelCate + "]";
+				+ ", totalPrice=" + totalPrice + ", resvDate=" + resvDate + ", memberId=" + memberId + ", hotelCate="
+				+ hotelCate + "]";
 	}
-	
+		
 }

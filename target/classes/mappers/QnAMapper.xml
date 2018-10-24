@@ -18,7 +18,7 @@
 		<result property="editDate" column="edit_date" />
 		<result property="ipAddress" column="ip_address" />
 		<result property="memberId" column="member_id" />
-		<result property="hotelCate" column="hotel_cate" />
+		<result property="hotelCate" column="hotel_category" />
 	</resultMap>
 	
 	<!-- 글 갯수 -->
@@ -29,7 +29,7 @@
     <!-- 조회한다 -->
     <select id="selectQnA" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
     	SELECT id, ecategory, enq_type, reserv_no, wedding_date, qna_type, qna_file,
-    	subject, content, reg_date, edit_date, ip_address, member_id, hotel_cate
+    	subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
     	FROM qna
     	WHERE member_id=#{memberId}
     </select>
@@ -39,7 +39,7 @@
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO qna (
 			ecategory, enq_type, reserv_no, wedding_date, qna_type, qna_file,
-			subject, content, reg_date, edit_date, ip_address, member_id, hotel_cate
+			subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
 		) VALUES (
 			#{ecategory}, #{enqType}, #{reservNo}, #{weddingDate}, #{qnaType}, #{qnaFile}, 
 			#{subject}, #{content}, now(), now(), #{ipAddress}, #{memberId}, #{hotelCate}
@@ -55,7 +55,7 @@
 	<!-- id로 검색하기 -->
 	<select id="selectQnAById" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
 		SELECT ecategory, enq_type, reserv_no, wedding_date, qna_type, qna_file,
-    			subject, content, reg_date, edit_date, ip_address, member_id, hotel_cate
+    			subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
     	FROM qna
     	WHERE id=#{id}
 	</select>

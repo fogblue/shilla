@@ -17,7 +17,6 @@
 		<result property="resvDate" column="resv_date" />
 		<result property="memberId" column="member_id" />
 		<result property="hotelCate" column="hotel_category" />
-		<result property="text" column="text" />
 	</resultMap>
  	
 	<!-- 예약 갯수 -->

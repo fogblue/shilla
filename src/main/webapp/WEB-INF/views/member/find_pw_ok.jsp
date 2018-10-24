@@ -16,29 +16,18 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
-	<!--아이디 찾기 결과 -->
+	<!--비밀번호 찾기 결과 -->
 	<div class="container main">
 		<div class="log_form-horizontal">
 			<div id="form-group log_fom">
-				<table class="table log_fom">
-					<tr>
-						<td class="space">${member.userNameKor}님의회원
-							번호&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;${member.id}</td>
-					</tr>
-					<tr>
-						<td class="space">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td class="users_info">&nbsp;&nbsp;&nbsp;${member.userId}</td>
-					</tr>
-				</table>
-
-				<div class="footer">
-					<button type="button" class="btn btn_color2_1"
-					onclick="location.href='${pageContext.request.contextPath}/member/log_main.do' ">로그인</button>
-					<button type="button" class="btn btn_color3_1"
-						onclick="location.href='${pageContext.request.contextPath}/member/find_pw.do' "
-						id="pw_find">비밀번호 찾기</button>
+				<div class="find_pw">
+				회원님의 이메일로 <br /> 임시비밀번호를 발송해 드렸습니다. <br /> 발급받은 임시
+				비밀번호로 로그인해주시기 바랍니다.
 				</div>
+			<div class="footer">
+				<button type="button" class="btn btn_color2" 
+				onclick="location.href='${pageContext.request.contextPath}/member/log_main.do' ">로그인</button>
+			</div>
 			</div>
 		</div>
 	</div>

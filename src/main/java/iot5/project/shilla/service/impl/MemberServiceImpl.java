@@ -93,7 +93,7 @@ public class MemberServiceImpl implements MemberService {
 				throw new NullPointerException();
 			}
 		} catch (NullPointerException e) {
-			throw new Exception("가입된 이메일이 아닙니다.");
+			throw new Exception("일치하는 회원정보가 없습니다.");
 		}catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 			throw new Exception("비밀번호 변경에 실패했습니다.");

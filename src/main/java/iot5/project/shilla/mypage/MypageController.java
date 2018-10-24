@@ -100,8 +100,13 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.GET)
-	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model) {
+	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		String j = request.getParameter("pswd_confirm");
+		String i = web.getString("pswd_confirm");
+		logger.info("받아온 j는 >> " + j);
+		logger.info("받아온 i는 >> " + i);
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();

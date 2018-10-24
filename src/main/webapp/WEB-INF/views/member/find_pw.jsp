@@ -60,8 +60,8 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-					<button type="submit" class="btn btn_color2" data-dismiss="modal"
-						id="finded_pw">확인</button>
+					<button type="submit" class="btn btn_color2" 
+					onclick="location.href='${pageContext.request.contextPath}/member/find_pw_ok.do' ">확인</button>
 				</div>
 
 				<div class="modal-footer1">
@@ -75,41 +75,6 @@
 			</div>
 		</div>
 	</div>
-	<!--아이디 찾기의 결과창 modal-->
-<div class="modal fade" id="myModal2_1">
-	<div class="modal-dialog modal-md">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title">비밀번호 찾기</h4>
-			</div>
-			<div class="modal-body find_pw">
-				회원님의 이메일로 <br /> 임시비밀번호를 발송해 드렸습니다. <br /> 발급받은 임시
-				비밀번호로 로그인해주시기 바랍니다.
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn_color2" data-dismiss="modal"
-					id="pw_modal_ok">로그인</button>
-			</div>
-		</div>
-
-	</div>
-</div>
-
 <%@ include file="/WEB-INF/inc/footer.jsp"%>
-
-<script type="text/javascript">
-		$(function() {
-			$("#open_modal_btn").click(function(e) {
-				$("#myModal2_1").modal('show');
-			});
-			
-		}); 
-	</script>
-
-
 </body>
 </html>

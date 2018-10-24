@@ -230,12 +230,12 @@ public class MemberController {
 		member.setEmail(email);
 		member.setUserPw(userPw);
 
-		try {
+		/*try {
 			memberService.updateMemberPasswordByEmail(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
-
+*/
 		String sender = "shillaManager@shilla.com";
 		String subject = "신라호텔 회원가입 완료 메일입니다.";
 		String content = "회원가입을 감사합니다. 회원님의 아이디는 <strong>" + userId + "</strong>이고, 회원번호는 <strong>" + loginInfo.getId()

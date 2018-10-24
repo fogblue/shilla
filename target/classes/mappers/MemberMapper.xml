@@ -16,12 +16,8 @@
 		<result property="tel" column="tel" />
 		<result property="telHome" column="tel_home" />
 		<result property="zipcode" column="zipcode" />
-		<result property="loadAddr" column="load_addr" />
-		<result property="detail" column="detail" />
-		<result property="cardNo" column="card_no" />
-		<result property="cardCate" column="card_cate" />
-		<result property="cardYy" column="card_yy" />
-		<result property="cardMm" column="card_mm" />
+		<result property="loadAddr" column="addr1" />
+		<result property="detail" column="addr2" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
 	</resultMap>
@@ -44,7 +40,7 @@
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO member (
 			user_name_kor, user_name_eng, user_id, user_pw, 
-			birthdate, email, tel, tel_home, zipcode, load_addr, detail, reg_date, edit_date
+			birthdate, email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
 		) VALUES (
 			#{userNameKor},#{userNameEng}, #{userId}, password(#{userPw}),
 			 #{birthdate}, #{email}, #{tel}, #{telHome}, #{zipcode}, #{loadAddr}, 
@@ -55,7 +51,7 @@
 	<!-- 아이디와 비밀번호가 일치하는 회원정보를 조회한다. -->
     <select id="selectLoginInfo" parameterType="iot5.project.shilla.model.Member" resultMap="member">
        SELECT id, user_name_kor, user_name_eng, user_id, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
-		email, tel, tel_home, zipcode, load_addr, detail, reg_date, edit_date
+		email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
         FROM member
         WHERE user_id=#{userId} AND user_pw=password(#{userPw})
     </select>
@@ -82,7 +78,7 @@
 	<update id="updateMember" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET
 			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},  
-			tel=#{tel}, zipcode=#{zipcode}, load_addr=#{load_addr}, detail=#{detail},
+			tel=#{tel}, zipcode=#{zipcode}, addr1=#{load_addr}, addr2=#{detail},
 			edit_date=now()
 			
 			<if test="newUserPw != null and newUserPw != ''">
@@ -96,16 +92,8 @@
 	<select id="selectMember"
 		parameterType="iot5.project.shilla.model.Member" resultMap="member">
 		SELECT user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
-		email, tel, tel_home, zipcode, load_addr, detail, reg_date, edit_date
+		email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
 		FROM member
 		WHERE id=#{id}
 	</select>
-	
-	<!-- 예약할 때 카드 정보 입력 -->
-	<update id="updateCardInfo" parameterType="iot5.project.shilla.model.Member">
-		UPDATE member SET
-			card_no=#{cardNo}, card_cate=#{cardCate}, card_yy=#{cardYy}, card_mm=#{cardMm}, edit_date=now()
-		WHERE id=#{id}
-	</update>
-
 </mapper>

@@ -16,6 +16,7 @@
 		<result property="roomPrice" column="room_price" />
 		<result property="exbed" column="exbed" />
 		<result property="meal" column="meal" />
+		<result property="roomNo" column="room_no" />
 	</resultMap>
 	
 	<!-- 예약 갯수 -->
@@ -23,12 +24,12 @@
         SELECT count(id) FROM room
     </select>
     
-     <!-- 글쓰기 -->
+     <!-- 방 정보 입력 -->
 	<insert id="insertRoom" parameterType="iot5.project.shilla.model.Room" 
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO room ( hotel_cate, room_type, bed_type, room_img, room_price, exbed, meal
+		INSERT INTO room ( hotel_cate, room_type, bed_type, room_img, room_price, exbed, meal, room_no
 		) VALUES (
-			#{hotelCate}, #{roomType}, #{bedType}, #{roomImg}, #{roomPrice}, #{exbed}, #{meal}
+			#{hotelCate}, #{roomType}, #{bedType}, #{roomImg}, #{roomPrice}, #{exbed}, #{meal}, #{roomNo}
 		)
 	</insert>
 </mapper>

@@ -31,7 +31,7 @@
 			<h2 class="log_header2">가입할 때 입력하셨던 성명(한글)과 이메일을 입력해 주시기 바랍니다.</h2>
 		</div>
 
-		<div class="log_form-horizontal">
+		<div class="log_form-horizontalll">
 			<div id="form-group">
 				<form action="${pageContext.request.contextPath}/member/find_id_ok.do"
 					name="login" method="post">

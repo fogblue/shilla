@@ -15,7 +15,7 @@ public class Member {
 	private String detail;
 	private String regDate;
 	private String editDate;
-	private String newUserPw;
+	
 	public int getId() {
 		return id;
 	}
@@ -100,52 +100,13 @@ public class Member {
 	public void setEditDate(String editDate) {
 		this.editDate = editDate;
 	}
-<<<<<<< HEAD
-	public String getCardNo() {
-		return cardNo;
-	}
-	public void setCardNo(String cardNo) {
-		this.cardNo = cardNo;
-	}
-	public String getCardCate() {
-		return cardCate;
-	}
-	public void setCardCate(String cardCate) {
-		this.cardCate = cardCate;
-	}
-	public String getCardYy() {
-		return cardYy;
-	}
-	public void setCardYy(String cardYy) {
-		this.cardYy = cardYy;
-	}
-	public String getCardMm() {
-		return cardMm;
-	}
-	public void setCardMm(String cardMm) {
-		this.cardMm = cardMm;
-	}
-	public String getNewUserPw() {
-		return newUserPw;
-	}
-	public void setNewUserPw(String newUserPw) {
-		this.newUserPw = newUserPw;
-	}
-	
-=======
->>>>>>> 7fa044ed621b0a18366a1def0052569d725f29ed
+
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", userNameKor=" + userNameKor + ", userNameEng=" + userNameEng + ", userId="
 				+ userId + ", userPw=" + userPw + ", birthdate=" + birthdate + ", email=" + email + ", tel=" + tel
 				+ ", telHome=" + telHome + ", zipcode=" + zipcode + ", loadAddr=" + loadAddr + ", detail=" + detail
-<<<<<<< HEAD
-				+ ", cardNo=" + cardNo + ", cardCate=" + cardCate + ", cardYy=" + cardYy + ", cardMm=" + cardMm
-				+ ", regDate=" + regDate + ", editDate=" + editDate + ", newUserPw=" + newUserPw + "]";
-	}	
-=======
 				+ ", regDate=" + regDate + ", editDate=" + editDate + "]";
 	}
-	
->>>>>>> 7fa044ed621b0a18366a1def0052569d725f29ed
+
 }

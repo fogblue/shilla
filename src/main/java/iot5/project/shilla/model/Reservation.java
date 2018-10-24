@@ -15,7 +15,7 @@ public class Reservation {
 	private int MemberId;
 	private int exbed;
 	private int meal;
-	private int roomQty;
+	private String roomQty;
 	private String text;
 	public int getId() {
 		return id;
@@ -101,10 +101,10 @@ public class Reservation {
 	public void setMeal(int meal) {
 		this.meal = meal;
 	}
-	public int getRoomQty() {
+	public String getRoomQty() {
 		return roomQty;
 	}
-	public void setRoomQty(int roomQty) {
+	public void setRoomQty(String roomQty) {
 		this.roomQty = roomQty;
 	}
 	public String getText() {

@@ -13,10 +13,6 @@ public class Member {
 	private String zipcode;
 	private String loadAddr;
 	private String detail;
-	private String cardNo;
-	private String cardCate;
-	private String cardYy;
-	private String cardMm;
 	private String regDate;
 	private String editDate;
 	private String newUserPw;
@@ -104,6 +100,7 @@ public class Member {
 	public void setEditDate(String editDate) {
 		this.editDate = editDate;
 	}
+<<<<<<< HEAD
 	public String getCardNo() {
 		return cardNo;
 	}
@@ -135,12 +132,20 @@ public class Member {
 		this.newUserPw = newUserPw;
 	}
 	
+=======
+>>>>>>> 7fa044ed621b0a18366a1def0052569d725f29ed
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", userNameKor=" + userNameKor + ", userNameEng=" + userNameEng + ", userId="
 				+ userId + ", userPw=" + userPw + ", birthdate=" + birthdate + ", email=" + email + ", tel=" + tel
 				+ ", telHome=" + telHome + ", zipcode=" + zipcode + ", loadAddr=" + loadAddr + ", detail=" + detail
+<<<<<<< HEAD
 				+ ", cardNo=" + cardNo + ", cardCate=" + cardCate + ", cardYy=" + cardYy + ", cardMm=" + cardMm
 				+ ", regDate=" + regDate + ", editDate=" + editDate + ", newUserPw=" + newUserPw + "]";
 	}	
+=======
+				+ ", regDate=" + regDate + ", editDate=" + editDate + "]";
+	}
+	
+>>>>>>> 7fa044ed621b0a18366a1def0052569d725f29ed
 }

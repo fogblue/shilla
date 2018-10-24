@@ -31,7 +31,7 @@
 			<h2 class="log_header2">회원가입 시 등록하신 이메일로 임시비밀번호를 발급해드립니다.</h2>
 		</div>
 
-		<div class="log_form-horizontal">
+		<div class=log_form-horizontall>
 			<div id="form-group">
 				<form action="${pageContext.request.contextPath}/member/find_pw_ok.do"
 					name="login" method="post">

@@ -20,7 +20,7 @@ import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -56,10 +56,10 @@ public class MypageController {
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
-		Reservation resv = new Reservation();
+		ResvRoom resv = new ResvRoom();
 		resv.setMemberId(loginInfo.getId());
 		
-		Reservation resvInfo = null;
+		ResvRoom resvInfo = null;
 		try {
 			resvInfo = reservService.selectReserv(resv);
 		} catch (Exception e) {
@@ -79,10 +79,10 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		Reservation resv = new Reservation();
+		ResvRoom resv = new ResvRoom();
 		resv.setId(id);
 		
-		Reservation resvInfo = null;
+		ResvRoom resvInfo = null;
 		try {
 			resvInfo = reservService.selectReservById(resv);
 		} catch (Exception e) {

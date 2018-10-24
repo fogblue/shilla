@@ -24,7 +24,7 @@
 				회원님의 이메일로 <br /> 임시비밀번호를 발송해 드렸습니다. <br /> 발급받은 임시
 				비밀번호로 로그인해주시기 바랍니다.
 				</div>
-			<div class="footer">
+			<div class="modal-footer">
 				<button type="button" class="btn btn_color2" 
 				onclick="location.href='${pageContext.request.contextPath}/member/log_main.do' ">로그인</button>
 			</div>

@@ -6,7 +6,23 @@
 			padding:25px 45px;
 			background: #f1ebd6;
 		}
+		.log_form-horizontalll{
+			border-top: 5px solid #856f56;
+			width: 600px;
+			height:250px;
+			margin: auto;
+			padding:25px 45px;
+			background: #f1ebd6;
+		}
 		
+		.log_form-horizontall{
+			border-top: 5px solid #856f56;
+			width: 600px;
+			height:370px;
+			margin: auto;
+			padding:25px 45px;
+			background: #f1ebd6;
+		}
 		.log-form-control:after{
 			content: '';
 			display: block;

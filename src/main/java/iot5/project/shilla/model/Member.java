@@ -19,6 +19,7 @@ public class Member {
 	private String cardMm;
 	private String regDate;
 	private String editDate;
+	private String newUserPw;
 	public int getId() {
 		return id;
 	}
@@ -127,12 +128,19 @@ public class Member {
 	public void setCardMm(String cardMm) {
 		this.cardMm = cardMm;
 	}
+	public String getNewUserPw() {
+		return newUserPw;
+	}
+	public void setNewUserPw(String newUserPw) {
+		this.newUserPw = newUserPw;
+	}
+	
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", userNameKor=" + userNameKor + ", userNameEng=" + userNameEng + ", userId="
 				+ userId + ", userPw=" + userPw + ", birthdate=" + birthdate + ", email=" + email + ", tel=" + tel
 				+ ", telHome=" + telHome + ", zipcode=" + zipcode + ", loadAddr=" + loadAddr + ", detail=" + detail
 				+ ", cardNo=" + cardNo + ", cardCate=" + cardCate + ", cardYy=" + cardYy + ", cardMm=" + cardMm
-				+ ", regDate=" + regDate + ", editDate=" + editDate + "]";
+				+ ", regDate=" + regDate + ", editDate=" + editDate + ", newUserPw=" + newUserPw + "]";
 	}	
 }

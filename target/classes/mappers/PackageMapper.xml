@@ -7,27 +7,27 @@
 	<resultMap id="package"
 		type="iot5.project.shilla.model.Package">
 		<result property="id" column="id" />
-		<result property="packageType" column="package_type" />
+		<result property="packageName" column="package_name" />
 		<result property="packagePrice" column="packager_price" />
 		<result property="packageImg" column="package_img" />
 		<result property="packageContent" column="package_content" />
-		<result property="resvId" column="resv_id" />
+		<result property="hotelCategory" column="hotel_category" />
 	</resultMap>
 	
 	<insert id="insertPackage" parameterType="iot5.project.shilla.model.Package"
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO package(
-			package_type, package_price, package_img, package_content, resv_id
+			package_name, package_price, package_img, package_content, hotel_category
 		) VALUES (
-			#{packageType}, #{packagePrice}, #{packageImg}, #{packageContent}, #{resvId}
+			#{packageName}, #{packagePrice}, #{packageImg}, #{packageContent}, #{hotelCategory}
 		)
 	</insert>
 	
 	<select id="selectPackageList" parameterType="iot5.project.shilla.model.Package"
 		resultMap="package">
-		SELECT id, package_type, package_price, package_img, package_content, resv_id
+		SELECT id, package_name, package_price, package_img, package_content, hotel_category
 		FROM package
-		WHERE resv_id=#{resvId}
+		WHERE id=#{id}
 	</select>
 	
 </mapper>

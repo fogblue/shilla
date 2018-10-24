@@ -42,34 +42,52 @@
 			<div class="mypg-contents-txt">
 				<p>고객님의 정보를 언제든지 확인, 변경하실 수 있습니다.</p>
 			</div>
+			<form action="${pageContext.request.contextPath}/mypage/mypg_password_edit_ok.do" method="post" id="chngPswd" name="chngPswd">
 			<div class="mypg-contents-table">
-				<form action="#">
 				<table class="mypg-pwed-contents-table">
 					<tr>
 						<td><label for="now_pw">현재 비밀번호</label></td>
-						<td><input type="password" id="now_pw" /></td>
+						<td><input type="password" name="now_pw" id="now_pw" /></td>
 					</tr>
 					<tr>
 						<td><label for="new_pw">새 비밀번호</label></td>
-						<td><input type="password" id="new_pw" />
+						<td><input type="password" name="new_pw" id="new_pw" />
 							<div class="info-modal">
 								<a href="#info-modal" data-toggle="modal">비밀번호입력안내<span class="glyphicon glyphicon-question-sign"></span></a>								
 							</div><span>8~20자 이내 영문/숫자 조합</span>
 						</td>
 					</tr>
 					<tr>
-						<td><label for="re_new_pw">새 비밀번호 확인</label></td>
-						<td><input type="password" id="re_new_pw" /></td>
+						<td><label for="new_pw_re">새 비밀번호 확인</label></td>
+						<td><input type="password" name="new_pw_re" id="new_pw_re" /></td>
 					</tr>
 				</table>
-				</form>
 			</div>
 			<div class="mypg-contents-btn2">
-				<button type="submit" class="btn btn-lg mypg-pwed-change">비밀번호변경</button>
+				<button type="submit" class="btn btn-lg mypg-pwed-change" onclick="onSubmit()">비밀번호변경</button>
 				<button type="reset" class="btn btn-lg mypg-pwed-cancel">취소</button>
 			</div>
+			</form>
 		</div>
 	</div>
+	<script type="text/javascript">
+	function onSubmit() {
+		var cp = document.chngPswd;
+		
+		if (cp.now_pw.value == "") {
+			alert("현재 비밀번호를 입력해 주세요");
+			return false;
+		} else if (cp.new_pw.value == "") {
+			alert("새 비밀번호를 입력해 주세요");
+			return false;
+		} else if (cp.new_pw_re.value == "" || cp.new_pw_re.value != cp.new_pw.value) {
+			alert("비밀번호를 다시 입력해 주세요");
+			return false;
+		}
+		
+		return true;
+	}
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>
 	</c:otherwise>

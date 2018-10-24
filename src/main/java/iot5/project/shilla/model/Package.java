@@ -2,11 +2,11 @@ package iot5.project.shilla.model;
 
 public class Package {
 	private int id;
-	private String packageType;
+	private String packageName;
 	private String packagePrice;
 	private String packageImg;
 	private String packageContent;
-	private int resvId;
+	private String hotelCategory;
 	
 	public int getId() {
 		return id;
@@ -14,11 +14,11 @@ public class Package {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getPackageType() {
-		return packageType;
+	public String getPackageName() {
+		return packageName;
 	}
-	public void setPackageType(String packageType) {
-		this.packageType = packageType;
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
 	}
 	public String getPackagePrice() {
 		return packagePrice;
@@ -38,16 +38,16 @@ public class Package {
 	public void setPackageContent(String packageContent) {
 		this.packageContent = packageContent;
 	}
-	public int getResvId() {
-		return resvId;
+	public String getHotelCategory() {
+		return hotelCategory;
 	}
-	public void setResvId(int resvId) {
-		this.resvId = resvId;
+	public void setHotelCategory(String hotelCategory) {
+		this.hotelCategory = hotelCategory;
 	}
 	
 	@Override
 	public String toString() {
-		return "Package [id=" + id + ", packageType=" + packageType + ", packagePrice=" + packagePrice + ", packageImg="
-				+ packageImg + ", packageContent=" + packageContent + ", resvId=" + resvId + "]";
+		return "Package [id=" + id + ", packageName=" + packageName + ", packagePrice=" + packagePrice + ", packageImg="
+				+ packageImg + ", packageContent=" + packageContent + ", hotelCategory=" + hotelCategory + "]";
 	}
 }

@@ -2,22 +2,24 @@ package iot5.project.shilla.model;
 
 public class Room {
 	private int id;
+	private int roomNo;
 	private String roomType;
 	private String bedType;
 	private int roomPrice;
-	private int exbed;
-	private int meal;
 	private String roomImg;
-	private int resvId;
 	private int packageId;
-	private String hotelCate;
-	private int roomNo;
-
+	private String hotelCategory;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getRoomNo() {
+		return roomNo;
+	}
+	public void setRoomNo(int roomNo) {
+		this.roomNo = roomNo;
 	}
 	public String getRoomType() {
 		return roomType;
@@ -37,29 +39,11 @@ public class Room {
 	public void setRoomPrice(int roomPrice) {
 		this.roomPrice = roomPrice;
 	}
-	public int getExbed() {
-		return exbed;
-	}
-	public void setExbed(int exbed) {
-		this.exbed = exbed;
-	}
-	public int getMeal() {
-		return meal;
-	}
-	public void setMeal(int meal) {
-		this.meal = meal;
-	}
 	public String getRoomImg() {
 		return roomImg;
 	}
 	public void setRoomImg(String roomImg) {
 		this.roomImg = roomImg;
-	}
-	public int getResvId() {
-		return resvId;
-	}
-	public void setResvId(int resvId) {
-		this.resvId = resvId;
 	}
 	public int getPackageId() {
 		return packageId;
@@ -67,24 +51,17 @@ public class Room {
 	public void setPackageId(int packageId) {
 		this.packageId = packageId;
 	}
-	public String getHotelCate() {
-		return hotelCate;
+	public String getHotelCategory() {
+		return hotelCategory;
 	}
-	public void setHotelCate(String hotelCate) {
-		this.hotelCate = hotelCate;
+	public void setHotelCategory(String hotelCategory) {
+		this.hotelCategory = hotelCategory;
 	}
-	public int getRoomNo() {
-		return roomNo;
-	}
-	public void setRoomNo(int roomNo) {
-		this.roomNo = roomNo;
-	}
-
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", roomType=" + roomType + ", bedType=" + bedType + ", roomPrice=" + roomPrice
-				+ ", exbed=" + exbed + ", meal=" + meal + ", roomImg=" + roomImg + ", resvId=" + resvId + ", packageId="
-				+ packageId + ", hotelCate=" + hotelCate + ", roomNo=" + roomNo + "]";
+		return "Room [id=" + id + ", roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType
+				+ ", roomPrice=" + roomPrice + ", roomImg=" + roomImg + ", packageId=" + packageId + ", hotelCategory="
+				+ hotelCategory + "]";
 	}
-
+	
 }

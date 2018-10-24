@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.ReservService;
 
 @Service
@@ -17,7 +17,7 @@ public class ReservServiceImpl implements ReservService {
 	SqlSession sqlSession;
 	
 	@Override
-	public void insertReserv(Reservation reserv) throws Exception {
+	public void insertReserv(ResvRoom reserv) throws Exception {
 		try {
 			int result = sqlSession.insert("ReservMapper.insertReserv", reserv);
 			if (result == 0) {
@@ -34,20 +34,20 @@ public class ReservServiceImpl implements ReservService {
 		
 
 	@Override
-	public void deleteReserv(Reservation reserv) throws Exception {
+	public void deleteReserv(ResvRoom reserv) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateReserv(Reservation reserv) throws Exception {
+	public void updateReserv(ResvRoom reserv) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Reservation selectReserv(Reservation reserv) throws Exception {
-		Reservation result = null;
+	public ResvRoom selectReserv(ResvRoom reserv) throws Exception {
+		ResvRoom result = null;
 
 		try {
 			result = sqlSession.selectOne("ReservMapper.selectReserv", reserv);
@@ -65,8 +65,8 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
-	public Reservation selectReservById(Reservation reserv) throws Exception {
-		Reservation result = null;
+	public ResvRoom selectReservById(ResvRoom reserv) throws Exception {
+		ResvRoom result = null;
 
 		try {
 			result = sqlSession.selectOne("ReservMapper.selectReservById", reserv);

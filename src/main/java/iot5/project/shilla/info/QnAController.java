@@ -125,7 +125,7 @@ public class QnAController {
 			tel = loginInfo.getTel();
 			telHome = loginInfo.getTelHome();
 		} else {
-			memberId = 11;
+			memberId = 5;
 		}
 
 		logger.debug("ecategory=" + ecategory);

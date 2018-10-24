@@ -24,6 +24,14 @@
 		<form class="form-horizontal" name="room_add" id="room_add" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/room_add_ok.do">
 			<h5 class="basic_data_title">기본 정보 입력 (*표시 필수입력사항)</h5>
 			<div class="form-group">
+				<label for='room_no' class="col-md-2">
+					<span class='identify'>*</span>방 번호
+				</label>
+				<div class="col-md-10">
+					<input type="text" name="room_no" id="room_no" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
 				<label for='hotel_cate' class="col-md-2">
 					<span class='identify'>*</span>호텔 지역
 				</label>

@@ -170,8 +170,7 @@ public class MypageController {
 		
 		Member member = new Member();
 		member.setId(loginInfo.getId());
-		member.setUserPw(userPw);
-		member.setNewUserPw(newUserPw);
+		member.setUserPw(newUserPw);
 		
 		Member editInfo = null;
 		try {

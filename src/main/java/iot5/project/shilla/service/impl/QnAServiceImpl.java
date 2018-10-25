@@ -114,10 +114,7 @@ public class QnAServiceImpl implements QnAService {
 	public void updateQnAMemberOut(QnA qna) throws Exception {
 
 		try {
-			int result = sqlSession.update("QnAMapper.updateQnAMemberOut", qna);
-			if (result == 0) {
-				throw new NullPointerException();
-			}
+			sqlSession.update("QnAMapper.updateQnAMemberOut", qna);
 		} catch (NullPointerException e) {
 			throw new Exception("조회된 게시물이 없습니다.");
 		} catch (Exception e) {

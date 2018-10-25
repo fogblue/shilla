@@ -31,6 +31,25 @@
 				<option>제주신라호텔</option>
 			</select>
 
+<<<<<<< HEAD
+			<div class="rsv_datepicker">
+				<p>체크인</p>
+				<input type="text" id="datepicker" />
+				<script>
+					$(function() {
+						$("#datepicker").datepicker({ minDate: 0 });
+					});
+				</script>
+			</div>
+			<div class="rsv_datepicker2">
+				<p>체크아웃</p>
+				<input type="text" id="datepicker2" />
+				<script>
+					$(function() {
+						$("#datepicker2").datepicker({ minDate: 0 });
+					});
+				</script>
+=======
 			<div class="t-datepicker">
 			  <div class="t-check-in"></div>
 			  <div class="t-check-out"></div>
@@ -40,6 +59,7 @@
     $('.t-datepicker').tDatePicker({
     	// auto close after selection
     	  autoClose        : true,
+>>>>>>> fb7b0094241e090de9f361fd01403101c86fbff3
 
     	  // animation speed in milliseconds
     	  durationArrowTop : 200,

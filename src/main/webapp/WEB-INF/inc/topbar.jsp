@@ -49,23 +49,3 @@
 		</div>
 	</div>
 </header>
-
-<!-- <script>
-	$(function() {
-		/** headroom 플러그인 적용 */
-		$("#site-header").headroom(
-				{
-					"tolerance" : 10,
-					// 슬라이더 높이에서 메뉴바 높이를 뺀 만큼까지 표시되도록 설정
-					"offset" : $("#slide-container").height()
-							- $("#site-header").height(),
-					"classes" : {
-						initial : "animated",
-						pinned : "slideInDown",
-						unpinned : "slideOutUp",
-						top : "headroom--top",
-						notTop : "headroom--not-top"
-					}
-				});
-	});
-</script> -->

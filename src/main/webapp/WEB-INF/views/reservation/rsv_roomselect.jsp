@@ -21,6 +21,7 @@
 		</ul>
 		<!-- 탭 페이지 구성(전체, 패키지, 객실) -->
 		<div class="tab-content">
+		<!-- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -->
 			<div role="tabpanel" class="tab-pane fade active in" id="page1">
 				<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1"
 					method="get"
@@ -32,41 +33,30 @@
 					<!-- rsv_roomlistbox start -->
 					<div class="rsv_roomlistbox">
 						<div class="rlbox ">
-
 							<div class="rsv_thumb clearfix">
 								<img
 									src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg"
 									alt="이미지1" />
 							</div>
-
 							<div class="rsv_text">
 								<ul>
 									<li class="rsv_text_1">Autumn Rooftop</li>
 									<li class="rsv_text_2">어번 아일랜드 루프탑 입장 혜택(성인 2인)</li>
 									<li class="rsv_text_2">체련장(Gym), 실내 수영장 혜택</li>
-									<br />
-									<br />
-									<br />
+									
 								</ul>
 							</div>
-					
-
-
 						</div>
-					
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">280,000~</li>
 								<li class="rsv_text2_2">원/1박</li>
 							</ul>
-
-
 							<div class="rsv_useguidebox">
 								<!-- 링크로 모달 열기 -->
 								<a href="#" class="btn btn-warning" data-toggle="modal"
 									data-target="#myModal1">혜택 및 이용안내 + </a>
 							</div>
-		
 							<!-- Modal -->
 							<div class="modal fade" id="myModal1">
 								<div class="modal-dialog modal-md">
@@ -114,9 +104,7 @@
 									</div>
 								</div>
 							</div>
-							
 						</div>
-						
 						<div class="rev_bedselect clearfix" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
@@ -126,7 +114,6 @@
 										Deluxe</div>
 									<!-- 게시글 내용영역 -->
 									<div id="rsv_content1" class="rsv_content">
-
 										<div class="rsv_content1-1-1">Double</div>
 										<div class="rsv_content1-1-2">
 											280,000 원~ <input type="radio" name="subject1" />
@@ -141,25 +128,9 @@
 									</div>
 								</div>
 							</div>
-
-
 						</div>
-						
-						
 					</div>
-					<!-- 리스트 1개 끝 ============================================================================================================================================================================== -->
-
-
-
-
-
-
-
-
-
-
-
-
+					<!-- 리스트 1개 끝 -->
 					<!-- 리스트2 시작 -->
 					<div class="rsv_roomlistbox">
 						<div class="rsv_thumb clearfix">
@@ -177,10 +148,6 @@
 								<li class="rsv_text_2">체련장(Gym), 실내 수영장 혜택(2인)</li>
 							</ul>
 						</div>
-
-
-
-
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">290,000~</li>
@@ -245,9 +212,6 @@
 								</div>
 							</div>
 						</div>
-
-
-
 						<div class="rev_bedselect" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
@@ -273,10 +237,8 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<!-- 리스트 2끝 -->
-
 					<!-- 리스트3 시작 -->
 					<div class="rsv_roomlistbox2 clearfix">
 						<div class="rsv_thumb clearfix">
@@ -297,9 +259,6 @@
 									31일</li>
 							</ul>
 						</div>
-
-
-
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">420,000~</li>
@@ -340,7 +299,6 @@
 												확인해주시기 바랍니다.<br /> * 본 패키지는 7월 1일~8월 31일 기간 중 어번 아일랜드(야외
 												수영장) 입장 혜택을 포함하지 않은 상품입니다.<br /> * 스위트룸 객실 타입은 전화 예약만 가능합니다.<br />
 											</p>
-
 											<p>
 												남산과 도심 전경이 그림처럼 펼쳐지는 공간에서 하루 4번 제공되는 다이닝 서비스와 함께하는 특별한 경험<br />
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -371,9 +329,6 @@
 								</div>
 							</div>
 						</div>
-
-
-
 						<div class="rev_bedselect" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
@@ -416,56 +371,39 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<!-- 리스트 3끝 -->
 					<!-- 객실 시작 -->
-					
 					<div class="rsv_packagetextdiv">
 						<p class="rsv_packagetextdiv_text">객실</p>
 						<p class="rsv_packagetextdiv_text2">할인이 적용된 요금입니다.</p>
 					</div>
-
 					<!-- rsv_roomlistbox start -->
-
 					<div class="rsv_roomlistbox">
 						<div class="rlbox ">
-
 							<div class="rsv_thumb clearfix">
 								<img
 									src="${pageContext.request.contextPath}/assets/img/rsv_businessdeluxe.jpg"
 									alt="이미지1" />
 							</div>
-
 							<div class="rsv_text">
 								<ul>
 									<li class="rsv_text_1">Business Deluxe</li>
 									<li class="rsv_text_2">객실크기 : 43㎡</li>
 									<li class="rsv_text_2">침대타입 : 더블(킹 사이즈), 트윈</li>
-									<br />
-									<br />
-									<br />
 								</ul>
 							</div>
-						
-
 						</div>
-					
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">280,000~</li>
 								<li class="rsv_text2_2">원/1박</li>
-
 							</ul>
-
-
 							<div class="rsv_useguidebox">
 								<!-- 링크로 모달 열기 -->
 								<a href="#" class="btn btn-warning" data-toggle="modal"
 									data-target="#myModal4">객쉴 자세히 보기 + </a>
 							</div>
-
-					
 							<!-- Modal -->
 							<div class="modal fade" id="myModal4">
 								<div class="modal-dialog modal-md">
@@ -479,7 +417,6 @@
 										</div>
 										<div class="modal-body">
 											<!-- ==============시작================== -->
-
 											<h1 class="page-header">갤러리</h1>
 											<h3 class="sm-header">GALLERY</h3>
 											<div class="main_soffcon">
@@ -506,8 +443,6 @@
 														src="${pageContext.request.contextPath }/assets/img/main_ma5.jpg" /></a>
 												</div>
 											</div>
-
-
 											<!-- ==============끝================== -->
 											<%@ include file="/WEB-INF/inc/footer.jsp"%>
 											<!-- Script codes -->
@@ -528,9 +463,7 @@
 									</div>
 								</div>
 							</div>
-							
 						</div>
-
 						<div class="rev_bedselect clearfix" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
@@ -543,7 +476,6 @@
 										<div class="rsv_content1-1-1">Twin</div>
 										<div class="rsv_content1-1-2">
 											280,000 원~ <input type="radio" name="subject1" />
-
 										</div>
 										<br /> <br />
 										<hr />
@@ -551,28 +483,13 @@
 										<div class="rsv_content1-2-1">Double</div>
 										<div class="rsv_content1-2-2">
 											280,000 원~ <input type="radio" name="subject1" />
-
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						
-					
 					</div>
-					<!-- 리스트 1개 끝 ============================================================================================================================================================================== -->
-
-
-
-
-
-
-
-
-
-
-
-
+					<!-- 리스트 1개 끝 -->
 					<!-- 리스트2 시작 -->
 					<div class="rsv_roomlistbox">
 						<div class="rsv_thumb clearfix">
@@ -585,14 +502,8 @@
 								<li class="rsv_text_1">Executive Business Deluxe</li>
 								<li class="rsv_text_2">객실크기 : 43㎡</li>
 								<li class="rsv_text_2">침대타입 : 더블(킹 사이즈), 트윈</li>
-								<br />
-								<br />
-								<br />
 							</ul>
 						</div>
-
-
-
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">420,000~</li>
@@ -657,22 +568,16 @@
 								</div>
 							</div>
 						</div>
-
-
-
 						<div class="rev_bedselect" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
 								<div class='rsv_collapse-item'>
 									<!-- 게시글 제목영역 -->
-
 									<!-- 게시글 내용영역 -->
 									<div id="rsv_content1" class="rsv_content rsv_content1_2">
-
 										<div class="rsv_content1-1-1">Double</div>
 										<div class="rsv_content1-1-2">
 											420,000 원~ <input type="radio" name="subject1" />
-
 										</div>
 										<br /> <br />
 										<hr />
@@ -680,73 +585,52 @@
 										<div class="rsv_content1-2-1">Twin</div>
 										<div class="rsv_content1-2-2">
 											420,000 원~ <input type="radio" name="subject1" />
-
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<!-- 리스트 2끝 -->
-
 					<button class="btn btn-lg rsv_selectbtn" id="rsv_selectbtn"
 						type="submit">예약하기</button>
-
-
-
 				</form>
 			</div>
-			<!-- 전체 탭 끝 -->
-
-
-
+			<!-- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -- 전체 탭 끝 -->
+			<!-- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -- 패키지 탭 시작 -->
 			<div role="tabpanel" class="tab-pane fade" id="page2">
 				<form class="rsv_form" name="rsv_formpage2" id="rsv_formpage2"
 					method="get"
 					action="${pageContext.request.contextPath}/reservation/reservation2.do">
-					<!-- 탭 2와 3. 탭 1 완성 후 수정할 것 -->
 					<div class="rsv_packagetextdiv">
 						<p class="rsv_packagetextdiv_text">패키지</p>
 						<p class="rsv_packagetextdiv_text2">할인이 적용된 요금입니다.</p>
 					</div>
 					<div class="rsv_roomlistbox">
 						<div class="rlbox ">
-
 							<div class="rsv_thumb clearfix">
 								<img
 									src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg"
 									alt="이미지1" />
 							</div>
-
 							<div class="rsv_text">
 								<ul>
 									<li class="rsv_text_1">Autumn Rooftop</li>
 									<li class="rsv_text_2">어번 아일랜드 루프탑 입장 혜택(성인 2인)</li>
 									<li class="rsv_text_2">체련장(Gym), 실내 수영장 혜택</li>
-									<br />
-									<br />
-									<br />
 								</ul>
 							</div>
-							
-
 						</div>
-				
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">280,000~</li>
 								<li class="rsv_text2_2">원/1박</li>
 							</ul>
-
-
 							<div class="rsv_useguidebox">
 								<!-- 링크로 모달 열기 -->
 								<a href="#" class="btn btn-warning" data-toggle="modal"
 									data-target="#myModal6">혜택 및 이용안내 + </a>
 							</div>
-
-							
 							<!-- Modal -->
 							<div class="modal fade" id="myModal6">
 								<div class="modal-dialog modal-md">
@@ -794,9 +678,7 @@
 									</div>
 								</div>
 							</div>
-							
 						</div>
-					
 						<div class="rev_bedselect clearfix" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
@@ -823,19 +705,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- 리스트 1개 끝 ============================================================================================================================================================================== -->
-
-
-
-
-
-
-
-
-
-
-
-
+					<!-- 리스트 1개 끝 -->
 					<!-- 리스트3 시작 -->
 					<div class="rsv_roomlistbox">
 						<div class="rsv_thumb clearfix">
@@ -853,9 +723,6 @@
 								<li class="rsv_text_2">체련장(Gym), 실내 수영장 혜택(2인)</li>
 							</ul>
 						</div>
-
-
-
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">290,000~</li>
@@ -920,9 +787,6 @@
 								</div>
 							</div>
 						</div>
-
-
-
 						<div class="rev_bedselect" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
@@ -948,10 +812,8 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<!-- 리스트 2끝 -->
-
 					<!-- 리스트3 시작 -->
 					<div class="rsv_roomlistbox2">
 						<div class="rsv_thumb clearfix">
@@ -972,9 +834,6 @@
 									31일</li>
 							</ul>
 						</div>
-
-
-
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">420,000~</li>
@@ -1046,9 +905,6 @@
 								</div>
 							</div>
 						</div>
-
-
-
 						<div class="rev_bedselect" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
@@ -1091,15 +947,13 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<!-- 리스트 3끝 -->
 					<button class="btn btn-lg rsv_selectbtn" type="submit">예약하기</button>
 				</form>
 			</div>
-
-
-
+			<!-- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -- 패키지 탭 끝 -->
+			<!-- 객실 탭 시작 --객실 탭 시작 -- 객실 탭 시작 --객실 탭 시작 -- 객실 탭 시작 --객실 탭 시작 -- 객실 탭 시작 --객실 탭 시작 -- 객실 탭 시작 --객실 탭 시작 -->
 			<div role="tabpanel" class="tab-pane fade" id="page3">
 				<form class="rsv_form" name="rsv_formpage3" id="rsv_formpage3"
 					method="get"
@@ -1108,46 +962,32 @@
 						<p class="rsv_packagetextdiv_text">객실</p>
 						<p class="rsv_packagetextdiv_text2">할인이 적용된 요금입니다.</p>
 					</div>
-
 					<!-- rsv_roomlistbox start -->
-
 					<div class="rsv_roomlistbox">
 						<div class="rlbox ">
-
 							<div class="rsv_thumb clearfix">
 								<img
 									src="${pageContext.request.contextPath}/assets/img/rsv_businessdeluxe.jpg"
 									alt="이미지1" />
 							</div>
-
 							<div class="rsv_text">
 								<ul>
 									<li class="rsv_text_1">Business Deluxe</li>
 									<li class="rsv_text_2">객실크기 : 43㎡</li>
 									<li class="rsv_text_2">침대타입 : 더블(킹 사이즈), 트윈</li>
-									<br />
-									<br />
-									<br />
 								</ul>
 							</div>
-							<!-- ----------------------------------------------------------------------------------------------------- -->
-
 						</div>
-						<!-- ----------------------------------------------------------------------------------------------------- -->
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">280,000~</li>
 								<li class="rsv_text2_2">원/1박</li>
 							</ul>
-
-
 							<div class="rsv_useguidebox">
 								<!-- 링크로 모달 열기 -->
 								<a href="#" class="btn btn-warning" data-toggle="modal"
 									data-target="#myModal9">객실 자세히 보기 + </a>
 							</div>
-
-							<!-- ----------------------------------------------------------------------------------------------------- -->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal9">
 								<div class="modal-dialog modal-md">
@@ -1195,15 +1035,12 @@
 									</div>
 								</div>
 							</div>
-							<!-- ----------------------------------------------------------------------------------------------------- -->
 						</div>
-						<!-- ----------------------------------------------------------------------------------------------------- -->
 						<div class="rev_bedselect clearfix" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
 								<div class='rsv_collapse-item'>
 									<!-- 게시글 제목영역 -->
-
 									<!-- 게시글 내용영역 -->
 									<div id="rsv_content1" class="rsv_content rsv_content1_2">
 
@@ -1222,26 +1059,8 @@
 								</div>
 							</div>
 						</div>
-						<!-- <script type="text/javascript">
-					        $(function() {
-								$("#rsv_thumb2btn").click(function() { $("#rsv_roomarc2").fadeToggle(200); });
-					        });
-					    </script> -->
-						<!-- ----------------------------------------------------------------------------------------------------- -->
 					</div>
 					<!-- 리스트 1개 끝 ============================================================================================================================================================================== -->
-
-
-
-
-
-
-
-
-
-
-
-
 					<!-- 리스트2 시작 -->
 					<div class="rsv_roomlistbox">
 						<div class="rsv_thumb clearfix">
@@ -1254,14 +1073,8 @@
 								<li class="rsv_text_1">Executive Business Deluxe</li>
 								<li class="rsv_text_2">객실크기 : 43㎡</li>
 								<li class="rsv_text_2">침대타입 : 더블(킹 사이즈), 트윈</li>
-								<br />
-								<br />
-								<br />
 							</ul>
 						</div>
-
-
-
 						<div class="rsv_text2">
 							<ul class="rsv_text2_0">
 								<li class="rsv_text2_1">420,000~</li>
@@ -1326,18 +1139,13 @@
 								</div>
 							</div>
 						</div>
-
-
-
 						<div class="rev_bedselect" id="rsv_roomarc2">
 							<div class="rsv_collapse">
 								<!-- 게시글 하나 단위 -->
 								<div class='rsv_collapse-item'>
 									<!-- 게시글 제목영역 -->
-
 									<!-- 게시글 내용영역 -->
 									<div id="rsv_content1" class="rsv_content rsv_content1_2">
-
 										<div class="rsv_content1-1-1">Double</div>
 										<div class="rsv_content1-1-2">
 											420,000 원~ <input type="radio" name="subject3" />
@@ -1353,20 +1161,15 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<!-- 리스트 2끝 -->
 					<button class="btn btn-lg rsv_selectbtn" type="submit">예약하기</button>
 				</form>
 			</div>
-
-			<!-- 탭 2와 3. 탭 1 완성 후 수정할 것 -->
-
+			<!-- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -- 객실 탭 끝 -->
 		</div>
 	</div>
 </div>
-
-
 <script type="text/javascript">
 	$(function() {
 		$("#rsv_formpage1").submit(function(e) {
@@ -1374,7 +1177,6 @@
 			if ($("input:radio[name='subject1']").is(":checked") == true) {
 			} else {
 				alert('객실을 선택하세요.');
-
 				return false;
 			}
 		});
@@ -1383,7 +1185,6 @@
 			if ($("input:radio[name='subject2']").is(":checked") == true) {
 			} else {
 				alert('객실을 선택하세요.');
-
 				return false;
 			}
 		});
@@ -1392,7 +1193,6 @@
 			if ($("input:radio[name='subject3']").is(":checked") == true) {
 			} else {
 				alert('객실을 선택하세요.');
-
 				return false;
 			}
 		});

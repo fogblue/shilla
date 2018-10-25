@@ -21,7 +21,8 @@ import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvGuest;
+import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -62,17 +63,17 @@ public class MypageController {
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
-		Reservation reserv = new Reservation();
-		reserv.setMemberId(loginInfo.getId());
+		ResvRoom resvroom = new ResvRoom();
+		resvroom.setMemberId(loginInfo.getId());
 		
-		Reservation reservInfo = null;
+		List<ResvRoom> reservInfo = null;
 		try {
-			reservInfo = reservService.selectReserv(reserv);
+			reservInfo = reservService.selectReservList(resvroom);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
 		
-		model.addAttribute("resvInfo", reservInfo);
+		model.addAttribute("reservInfo", reservInfo);
 		
 		return new ModelAndView("mypage/mypg_reservation_table");
 	}
@@ -85,17 +86,20 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		Reservation reserv = new Reservation();
-		reserv.setRoomId(id);
+		ResvRoom resvroom = new ResvRoom();
+		ResvGuest resvguest = new ResvGuest();
+		resvroom.setId(id);
+		resvguest.setId(id);
 		
-		Reservation reservInfo = null;
 		try {
-			reservInfo = reservService.selectReservById(reserv);
+			resvroom = reservService.selectReservRById(resvroom);
+			resvguest = reservService.selectReservGById(resvguest);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
 		
-		model.addAttribute("reservInfo", reservInfo);
+		model.addAttribute("reservRInfo", resvroom);
+		model.addAttribute("reservGInfo", resvguest);
 		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}

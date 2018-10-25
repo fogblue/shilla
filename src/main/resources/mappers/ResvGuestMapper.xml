@@ -18,11 +18,9 @@
  	
 	<!-- 예약 갯수 -->
 	 <select id="selectResvationCount" parameterType="iot5.project.shilla.model.ResvGuest" resultType="int">
-        SELECT count(id) FROM resv_guestas rv WHERE member_id=#{memberId}
+        SELECT count(id) FROM resv_guest WHERE member_id=#{memberId}
     </select>
     
-     
-	
 	<!-- 예약세부사항 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.ResvGuest" resultMap="resvguest">
 		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
@@ -32,9 +30,8 @@
 	</select>
 	
 	<!-- id로 검색하기 -->
-	<select id="selectReservById" parameterType="iot5.project.shilla.model.ResvGuest" resultMap="resvguest">
-		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
-			total_price, resv_date, member_id, hotel_category
+	<select id="selectReservGById" parameterType="iot5.project.shilla.model.ResvGuest" resultMap="resvguest">
+		SELECT id, card_no, card_type, card_yy, card_mm, ppl_ad, ppl_ch, ppl_bb, detail, member_id
 		FROM resv_guest
     	WHERE id=#{id}
 	</select>

@@ -23,12 +23,11 @@
 					<div class="stmp-contents-box-content">
 						<h5><a href="#">로그인</a></h5>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/login/log_main.do">로그인</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/log_main.do">로그인</a></li>
 							<li><a href="#">예약확인</a></li>
-							<li><a href="#">신라리워즈 가입</a></li>
-							<li><a href="#">신라리워즈 번호 또는 아이디 찾기</a></li>
-							<li><a href="#">비밀번호 찾기</a></li>
-							<li><a href="#">온라인 계정 활성화 하기</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/log_join01.do">회원가입</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/find_id.do">회원번호 또는 아이디 찾기</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/find_pw.do">비밀번호 찾기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -45,23 +44,6 @@
 							<li><a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do">회원 탈퇴 요청</a></li>
 						</ul>
 						<h5><a href="${pageContext.request.contextPath}/mypage/mypg_qna.do">문의내역</a></h5>
-					</div>
-				</div>
-				<div class="stmp-contents-box-up">
-					<div class="stmp-contents-box-up-header">
-						<h4>신라리워즈</h4>
-					</div>
-					<div class="stmp-contents-box-content">
-						<h5><a href="#">회원특전</a></h5>
-						<h5><a href="#">포인트 안내</a></h5>
-						<h5><a href="#">회원전용상품</a></h5>
-						<h5><a href="#">구 멤버십포인트 사용안내</a></h5>
-						<h5><a href="#">신라리워즈 전환 안내</a></h5>
-						<h5><a href="#">신라리워즈 문의</a></h5>
-						<ul>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">문의하기</a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="stmp-contents-box-up">

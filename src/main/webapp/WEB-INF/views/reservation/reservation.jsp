@@ -33,7 +33,7 @@
 				<input type="text" id="datepicker" />
 				<script>
 					$(function() {
-						$("#datepicker").datepicker();
+						$("#datepicker").datepicker({ minDate: 0 });
 					});
 				</script>
 			</div>
@@ -42,7 +42,7 @@
 				<input type="text" id="datepicker2" />
 				<script>
 					$(function() {
-						$("#datepicker2").datepicker();
+						$("#datepicker2").datepicker({ minDate: 0 });
 					});
 				</script>
 

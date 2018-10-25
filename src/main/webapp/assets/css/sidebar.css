@@ -22,7 +22,7 @@
 	margin-bottom: 20px !important;
 }
 
-.ind {
+/* .ind {
 	margin-top: -20px;
 	display: inline;
 	text-align: right;
@@ -33,6 +33,18 @@
 .orng {
 	color: #322223;
 	text-decoration: underline;
+} */
+
+.sidebar-arrow {
+	width: 20px;
+	height: 20px;
+	float: right;
+	vertical-align: middle;
+}
+
+.mypg-sidebar-open {
+	background-color: #d3c09a;
+	
 }
 
 /*------------------------------------------------------------

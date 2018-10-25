@@ -225,19 +225,17 @@ public class MemberController {
 
 		}
 
-		String newPassword = util.getRandomPassword();
 
 		member = new Member();
 		member.setEmail(email);
-		member.setUserPw(newPassword);
+		member.setUserPw(userPw);
 
-		try {
+		/*try {
 			memberService.updateMemberPasswordByEmail(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
-
 		}
-
+*/
 		String sender = "shillaManager@shilla.com";
 		String subject = "신라호텔 회원가입 완료 메일입니다.";
 		String content = "회원가입을 감사합니다. 회원님의 아이디는 <strong>" + userId + "</strong>이고, 회원번호는 <strong>" + loginInfo.getId()
@@ -354,14 +352,11 @@ public class MemberController {
 		web.init();
 
 		if (web.getSession("loginInfo") != null) {
-			// sqlSession.close();
 			return web.redirect(web.getRootPath(), "이미 로그인 중입니다.");
-
 		}
-		/** (4)파라미터 처리 */
-		Map<String, String> paramMap = upload.getParamMap();
-		String email = paramMap.get("find_id_email");
-		String userNameKor = paramMap.get("find_id_name_kor");
+		/** 파라미터 처리 */
+		String email = web.getString("find_id_email");
+		String userNameKor = web.getString("find_id_name_kor");
 
 		logger.debug("email=" + email);
 		logger.debug("find_id_name_kor=" + userNameKor);
@@ -385,6 +380,7 @@ public class MemberController {
 		// 이메일 검사
 		if (!regex.isValue(email)) {
 
+			
 			return web.redirect(null, "이메일을 입력하세요");
 
 		}
@@ -399,13 +395,15 @@ public class MemberController {
 		member.setUserNameKor(userNameKor);
 
 		try {
-			memberService.selectFindId(member);
+			member = memberService.selectFindId(member);
+
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 
 		}
+		model.addAttribute("member", member);
 
-		return web.redirect(web.getRootPath(), "인증되었습니다.");
+		return new ModelAndView("member/find_id_ok");
 
 	}
 
@@ -432,20 +430,62 @@ public class MemberController {
 
 		}
 		/** (4)파라미터 처리 */
-		String email = web.getString("email");
-
+		String userId = web.getString("find_pw_id");
+		String userNameKor = web.getString("find_pw_name");
+		String email = web.getString("find_pw_email");
+		
+		logger.debug("find_pw_id=" + userId);
+		logger.debug("find_pw_name=" + userNameKor);
 		logger.debug("email=" + email);
 
-		if (email == null) {
-			// sqlSession.close();
-			return web.redirect(null, "이메일 주소를 입력하세요");
+		// 아이디 검사
+				if (!regex.isValue(userId)) {
 
-		}
+					return web.redirect(null, "아이디를 입력하세요");
+				}
+				if (!regex.isEngNum(userId)) {
+
+					return web.redirect(null, "아이디는 숫자와 영문조합으로 20자까지만 가능합니다.");
+				}
+				if (userId.length() > 20) {
+
+					return web.redirect(null, "아이디는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
+
+				}
+				// 이름 검사
+				if (!regex.isValue(userNameKor)) {
+
+					return web.redirect(null, "이름을 입력하세요");
+
+				}
+				if (!regex.isKor(userNameKor)) {
+
+					return web.redirect(null, "이름은 한글만 입력가능합니다.");
+
+				}
+				if (userNameKor.length() < 2 || userNameKor.length() > 5) {
+
+					return web.redirect(null, "이름은 2 ~ 5 글자까지만 가능합니다.");
+
+				}
+				// 이메일 검사
+				if (!regex.isValue(email)) {
+
+					return web.redirect(null, "이메일을 입력하세요");
+
+				}
+				if (!regex.isEmail(email)) {
+
+					return web.redirect(null, "이메일 형식이 잘못되었습니다.");
+
+				}
 
 		String newPassword = util.getRandomPassword();
 
 		Member member = new Member();
 		member.setEmail(email);
+		member.setUserId(userId);
+		member.setUserNameKor(userNameKor);
 		member.setUserPw(newPassword);
 
 		try {
@@ -455,9 +495,9 @@ public class MemberController {
 
 		}
 
-		String sender = "webmaster@mysite.com";
-		String subject = "MySite 비밀번호 변경 안내 입니다.";
-		String content = "회원님의 새로운 비밀번호는 <strong>" + newPassword + "</strong>입니다.";
+		String sender = "shillaManager@shilla.com";
+		String subject = "신라호텔 임시 비밀번호 메일입니다.";
+		String content = "안녕하십니까 신라호텔 입니다. 회원님의 임시비밀번호를 안내해드립니다. 회원님의 임시비밀번호는 <strong>" + newPassword + "</strong>입니다.";
 
 		try {
 			mail.sendMail(sender, email, subject, content);
@@ -466,7 +506,7 @@ public class MemberController {
 
 		}
 
-		return web.redirect(null, "새로운 비밀번호가 메일로 발송되었습니다.");
+		return new ModelAndView("member/find_pw_ok");
 
 	}
 

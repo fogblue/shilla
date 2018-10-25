@@ -20,8 +20,10 @@ import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
+import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
+import iot5.project.shilla.service.ReservService;
 
 @Controller
 public class MypageController {
@@ -38,60 +40,156 @@ public class MypageController {
 	MemberService memberService;
 	@Autowired
 	QnAService qnaService;
+	@Autowired
+	ReservService reservService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
-	public ModelAndView mypg_reservation(Locale locale, Model model) {
-		logger.debug("예약확인페이지 입장");
+	public ModelAndView mypg_reservation(Locale locale, Model model) {	
 		return new ModelAndView("mypage/mypg_reservation");
 	}
 	
+	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		ResvRoom resv = new ResvRoom();
+		resv.setMemberId(loginInfo.getId());
+		
+		ResvRoom resvInfo = null;
+		try {
+			resvInfo = reservService.selectReserv(resv);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
+		}
+		
+		model.addAttribute("resvInfo", resvInfo);
+		
+		return new ModelAndView("mypage/mypg_reservation_table");
+	}
+	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_reservation_2(Locale locale, Model model) {
-		logger.debug("예약확인상세페이지 입장");
+	public ModelAndView mypg_reservation_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		int id = web.getInt("id");
+		logger.info("받아온 id는 >> " + id);
+		model.addAttribute("id", id);
+		
+		ResvRoom resv = new ResvRoom();
+		resv.setId(id);
+		
+		ResvRoom resvInfo = null;
+		try {
+			resvInfo = reservService.selectReservById(resv);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
+		}
+		
+		model.addAttribute("resvInfo", resvInfo);
+		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit(Locale locale, Model model) {
-		logger.debug("프로필변경페이지 입장");
 		return new ModelAndView("mypage/mypg_profile_edit"); 
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.GET)
-	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model) {
+	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
+		String userPw = request.getParameter("pswd_confirm");
+		logger.info("입력한 패스워드는 >> " + userPw);
 		
+		if (!regex.isValue(userPw)) {
+			return web.redirect(null, "현재 비밀번호를 입력하세요.");		
+		}
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		Member member = new Member();
+		member.setId(loginInfo.getId());
+		member.setUserPw(userPw);
+
+		try {
+			memberService.selectMemberPasswordCount(member);
+			/*memberService.selectMember(member);*/
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
 		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", null);
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
-		logger.debug("프로필변경확인페이지 입장");
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2_ok.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model) {
 		web.init();
-		
-		
-		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_password_edit(Locale locale, Model model) {
-		logger.debug("비밀번호변경페이지 입장");
 		return new ModelAndView("mypage/mypg_password_edit"); 
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_password_edit_ok.do", method = RequestMethod.POST)
+	public ModelAndView mypg_password_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		String userPw = request.getParameter("now_pw");
+		String newUserPw = request.getParameter("new_pw");
+		String newUserPwRe = request.getParameter("new_pw_re");
+		
+		logger.info("userPw=" + userPw);
+		logger.info("newUserPw=" + newUserPw);
+		logger.info("newUserPwRe=" + newUserPwRe);
+		
+		if (!regex.isValue(userPw)) {	
+			return web.redirect(null, "현재 비밀번호를 입력하세요.");		
+		}
+
+		if (regex.isValue(newUserPw)) {
+			if (!regex.isEngNum(newUserPw) || newUserPw.length() > 20 || newUserPw.length() < 8) {			
+				return web.redirect(null, "새로운 비밀번호는 숫자와 영문의 조합으로 20자까지만 가능합니다.");				
+			}
+	
+			if (!newUserPw.equals(newUserPwRe)) {			
+				return web.redirect(null, "비밀번호 확인이 잘못되었습니다.");			
+			}
+		}
+		
+		Member member = new Member();
+		member.setId(loginInfo.getId());
+		member.setUserPw(newUserPw);
+		
+		Member editInfo = null;
+		try {
+			memberService.selectMemberPasswordCount(member);
+			memberService.updateMember(member);
+			editInfo = memberService.selectMember(member);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		web.removeSession("loginInfo");
+		web.setSession("loginInfo", editInfo);
+		
+		return web.redirect(web.getRootPath() + "mypage/mypg_password_edit", null);
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw(Locale locale, Model model) {
-		logger.debug("회원탈퇴페이지 입장");
 		return new ModelAndView("mypage/mypg_withdraw"); 
 	}
 	
@@ -100,7 +198,7 @@ public class MypageController {
 		web.init();
 		
 		String userPw = web.getString("pswd_confirm");
-		logger.debug("userPw=" + userPw);
+		logger.info("userPw=" + userPw);
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
@@ -118,7 +216,6 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2(Locale locale, Model model) {
-		logger.debug("회원탈퇴확인페이지 입장");
 		return new ModelAndView("mypage/mypg_withdraw_2"); 
 	}
 	
@@ -146,19 +243,55 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_msg.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_msg(Locale locale, Model model) {
-		logger.debug("회원탈퇴확인메시지출력");
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna(Locale locale, Model model) {
-		logger.debug("문의확인페이지 입장");
+	public ModelAndView mypg_qna(Locale locale, Model model) {	
 		return new ModelAndView("mypage/mypg_qna");
+	}
+
+	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_table(Locale locale, Model model) {
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
+		QnA qnaInfo = null;
+		try {
+			qnaInfo = qnaService.selectQnA(qna);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);
+		
+		return new ModelAndView("mypage/mypg_qna_table");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_2(Locale locale, Model model) {
-		logger.debug("문의확인상세페이지 입장");
+	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		int id = web.getInt("id");
+		logger.info("받아온 id는 >> " + id);
+		model.addAttribute("id", id);
+		
+		QnA qna = new QnA();
+		qna.setId(id);
+
+		QnA qnaInfo = null;
+		try {
+			qnaInfo = qnaService.selectQnAById(qna);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna_2.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);
+		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}
 }

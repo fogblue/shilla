@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReservationMapper">
+	<resultMap id="reserv" type="iot5.project.shilla.model.Reservation">
+		<result property="roomId" column="resv_room.id" />
+		<result property="roomNo" column="room_no" />
+		<result property="checkIn" column="check_in" />
+		<result property="checkOut" column="check_out" />
+		<result property="roomType" column="room_type" />
+		<result property="packageType" column="package_type" />
+		<result property="exbed" column="exbed" />
+		<result property="meal" column="meal" />
+		<result property="totalPrice" column="total_price" />
+		<result property="resvDate" column="resv_date" />
+		<result property="memberId" column="member_id" />
+		<result property="hotelCate" column="hotel_category" />
+		<result property="guestId" column="resv_guest.id" />
+		<result property="cardNo" column="card_no" />
+		<result property="cardType" column="card_type" />
+		<result property="cardYy" column="card_yy" />
+		<result property="cardMm" column="card_mm" />
+		<result property="pplAd" column="ppl_ad" />
+		<result property="pplCh" column="ppl_ch" />
+		<result property="pplBb" column="ppl_bb" />
+		<result property="detail" column="detail" />
+	</resultMap>
+ 	
+	<!-- 예약 갯수 -->
+	 <select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
+        SELECT count(id) FROM reservation WHERE member_id=#{memberId}
+    </select>
+   
+	<!-- 예약세부사항 -->
+	<select id="selectReserv" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
+			total_price, resv_date, member_id, hotel_category
+		FROM resv_room
+    	WHERE member_id=#{memberId}
+	</select>
+	
+	<!-- id로 검색하기 -->
+	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
+			total_price, resv_date, member_id, hotel_category
+		FROM resv_room
+    	WHERE id=#{id}
+	</select>
+	
+	<!-- 검색 -->
+	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+		 
+	</select>
+	
+</mapper>

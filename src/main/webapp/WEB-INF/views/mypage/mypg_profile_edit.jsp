@@ -42,6 +42,7 @@
 			<div class="mypg-contents-txtbox">
 				<p>${loginInfo.userNameKor}&nbsp;님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</p>
 			</div>
+			<form action="${pageContext.request.contextPath}/mypage/mypg_profile_edit_ok.do" method="post" id="pswdCheck" name="pswdCheck">
 			<div class="mypg-contents-table">
 				<table class="mypg-pfed-contents-table">
 					<tr>
@@ -50,19 +51,27 @@
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" id="pswd_confirm" /></td>
+						<td><input type="password" name="pswd_confirm" id="pswd_confirm" /></td>
 					</tr>
 				</table>
 			</div>
 			<div class="mypg-contents-btn">
 				<button type="submit" class="btn mypg-pfed-confirm" onclick="onSubmit()">확인</button>
 			</div>
+			</form>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
 	function onSubmit() {
-		location.href='${pageContext.request.contextPath}/mypage/mypg_profile_edit_ok.do'
+		var pc = document.pswdCheck;
+		
+		if (pc.pswd_confirm.value == "") {
+			alert("비밀번호를 입력해 주세요");
+			return false;
+		}
+		
+		return true;
 	}
 	</script>
 	<!-- ==============끝================== -->

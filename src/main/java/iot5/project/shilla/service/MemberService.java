@@ -15,6 +15,8 @@ public interface MemberService {
 	
 	public void updateMemberPasswordByEmail(Member member) throws Exception;
 	
+	public void updateMemberPasswordById(Member member) throws Exception;
+	
 	public void selectMemberPasswordCount(Member member) throws Exception;
 	
 	public void deleteMember(Member member) throws Exception;

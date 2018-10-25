@@ -14,8 +14,7 @@
 		<result property="hotelCategory" column="hotel_category" />
 	</resultMap>
 	
-	<insert id="insertPackage" parameterType="iot5.project.shilla.model.Package"
-		useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertPackage" parameterType="iot5.project.shilla.model.Package" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO package(
 			package_name, package_price, package_img, package_content, hotel_category
 		) VALUES (
@@ -23,8 +22,7 @@
 		)
 	</insert>
 	
-	<select id="selectPackageList" parameterType="iot5.project.shilla.model.Package"
-		resultMap="package">
+	<select id="selectPackageList" parameterType="iot5.project.shilla.model.Package" resultMap="package">
 		SELECT id, package_name, package_price, package_img, package_content, hotel_category
 		FROM package
 		WHERE id=#{id}

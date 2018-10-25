@@ -102,9 +102,24 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public void updateMemberPasswordById(Member member) throws Exception {
+		try {
+			int result = sqlSession.update("MemberMapper.updateMemberPasswordById", member);
+			if(result == 0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("일치하는 회원정보가 없습니다.");
+		}catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("비밀번호 변경에 실패했습니다.");
+		}
+	}
+	
+	@Override
 	public void selectMemberPasswordCount(Member member) throws Exception {
 		try {
-			int result = sqlSession.update("MemberMapper.selectMemberPasswordCount", member);
+			int result = sqlSession.selectOne("MemberMapper.selectMemberPasswordCount", member);
 			
 			if(result == 0) {
 				throw new NullPointerException();

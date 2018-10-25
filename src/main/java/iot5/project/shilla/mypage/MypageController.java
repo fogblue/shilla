@@ -20,7 +20,7 @@ import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -56,12 +56,12 @@ public class MypageController {
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
-		ResvRoom resv = new ResvRoom();
-		resv.setMemberId(loginInfo.getId());
+		Reservation reserv = new Reservation();
+		reserv.setMemberId(loginInfo.getId());
 		
-		ResvRoom resvInfo = null;
+		Reservation resvInfo = null;
 		try {
-			resvInfo = reservService.selectReserv(resv);
+			resvInfo = reservService.selectReserv(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
@@ -79,12 +79,12 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		ResvRoom resv = new ResvRoom();
-		resv.setId(id);
+		Reservation reserv = new Reservation();
+		reserv.setRoomId(id);
 		
-		ResvRoom resvInfo = null;
+		Reservation resvInfo = null;
 		try {
-			resvInfo = reservService.selectReservById(resv);
+			resvInfo = reservService.selectReservById(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
@@ -107,16 +107,17 @@ public class MypageController {
 		logger.info("입력한 패스워드는 >> " + userPw);
 		
 		if (!regex.isValue(userPw)) {
-			return web.redirect(null, "현재 비밀번호를 입력하세요.");		
+			return web.redirect(null, "비밀번호를 확인 후 다시 입력하세요.");		
 		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
 		member.setId(loginInfo.getId());
+		member.setUserPw(userPw);
 
 		try {
 			memberService.selectMemberPasswordCount(member);
-			memberService.selectMember(member);
+			/*memberService.selectMember(member);*/
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
@@ -144,38 +145,42 @@ public class MypageController {
 	public ModelAndView mypg_password_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		Member loginInfo = (Member) web.getSession("loginInfo");
-		
 		String userPw = request.getParameter("now_pw");
 		String newUserPw = request.getParameter("new_pw");
 		String newUserPwRe = request.getParameter("new_pw_re");
-		
 		logger.info("userPw=" + userPw);
 		logger.info("newUserPw=" + newUserPw);
 		logger.info("newUserPwRe=" + newUserPwRe);
 		
 		if (!regex.isValue(userPw)) {	
-			return web.redirect(null, "현재 비밀번호를 입력하세요.");		
+			return web.redirect(null, "기존 비밀번호를 입력하세요.");		
 		}
 
 		if (regex.isValue(newUserPw)) {
 			if (!regex.isEngNum(newUserPw) || newUserPw.length() > 20 || newUserPw.length() < 8) {			
-				return web.redirect(null, "새로운 비밀번호는 숫자와 영문의 조합으로 20자까지만 가능합니다.");				
+				return web.redirect(null, "비밀번호는 8~20자 사이의 숫자와 영문 조합만 가능합니다.");				
 			}
 	
 			if (!newUserPw.equals(newUserPwRe)) {			
 				return web.redirect(null, "비밀번호 확인이 잘못되었습니다.");			
 			}
 		}
-		
+
+		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
 		member.setId(loginInfo.getId());
-		member.setUserPw(newUserPw);
+		member.setUserPw(userPw);
 		
-		Member editInfo = null;
 		try {
 			memberService.selectMemberPasswordCount(member);
-			memberService.updateMember(member);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		member.setUserPw(newUserPw);
+		Member editInfo = null;
+		try {
+			memberService.updateMemberPasswordById(member);
 			editInfo = memberService.selectMember(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
@@ -192,20 +197,25 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_withdraw"); 
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_withdraw_ok.do", method = RequestMethod.GET)
-	public ModelAndView mypg_withdraw_ok(Locale locale, Model model) {
+	@RequestMapping(value = "/mypage/mypg_withdraw_ok.do", method = RequestMethod.POST)
+	public ModelAndView mypg_withdraw_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		String userPw = web.getString("pswd_confirm");
-		logger.info("userPw=" + userPw);
+		String userPw = request.getParameter("pswd_confirm");
+		logger.info("입력한 패스워드는 >> " + userPw);
+		
+		if (!regex.isValue(userPw)) {
+			return web.redirect(null, "비밀번호를 확인 후 다시 입력하세요.");		
+		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
 		member.setId(loginInfo.getId());
 		member.setUserPw(userPw);
-		
+
 		try {
 			memberService.selectMemberPasswordCount(member);
+			/*memberService.selectMember(member);*/
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}

@@ -1,3 +1,4 @@
+
 .rsv_stepimg {
 	margin-top:5px;
 	display: block;
@@ -69,7 +70,7 @@
 	height: 50px;
 }
 
-.rsv_datepicker {
+/* .rsv_datepicker {
 	float: left;
 	display: block;
 	margin-left: 50px;
@@ -79,11 +80,15 @@
 	float: left;
 	display: block;
 	margin-left: 10px;
-}
+} */
 
 .rsv_personcount {
+	float: left;
 	display: block;
-	margin-left: 30px;
+	margin-left: 0;
+	margin-right: 0;
+	width: 400px;
+	height: 90px;
 }
 
 .rsv_adult {

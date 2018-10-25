@@ -73,19 +73,19 @@ public class IndexController {
 
 		/** (4)UploadHelper에서 텍스트 형식의 값을 추출 */
 		Map<String, String> paramMap = upload.getParamMap();
-		String hotelCate = paramMap.get("hotel_cate");
+		String hotelCategory = paramMap.get("hotel_cate");
+		int roomNo = Integer.parseInt(paramMap.get("room_no"));
 		String roomType = paramMap.get("room_type");
 		String bedType = paramMap.get("bed_type");
 		int roomPrice = Integer.parseInt(paramMap.get("room_price"));
-		int exbed = Integer.parseInt(paramMap.get("exbed"));
-		int meal = Integer.parseInt(paramMap.get("meal"));
+		int packageId =  Integer.parseInt(paramMap.get("package_id"));
 		
-		logger.debug("hotel_cate=" + hotelCate);
+		logger.debug("hotel_cate=" + hotelCategory);
 		logger.debug("room_type=" + roomType);
 		logger.debug("bed_type=" + bedType);
 		logger.debug("room_price=" + roomPrice);
-		logger.debug("exbed=" + exbed);
-		logger.debug("meal=" + meal);
+		logger.debug("room_no=" + roomNo);
+		logger.debug("packageId=" + packageId);
 		
 		List<FileInfo> fileList = upload.getFileList();
 		// 업로드 된 프로필 사진 경로가 저장될 변수
@@ -104,13 +104,13 @@ public class IndexController {
 
 		/** (8)입력받은 파라미터를 Beans로 묶기 */
 		Room room = new Room();
-		room.setHotelCate(hotelCate);
+		room.setHotelCategory(hotelCategory);
 		room.setRoomType(roomType);
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
-		room.setExbed(exbed);
-		room.setMeal(meal);
 		room.setRoomImg(roomImg);
+		room.setRoomNo(roomNo);
+		room.setPackageId(packageId);
 		
 		logger.debug("room >>" + room.toString());
 

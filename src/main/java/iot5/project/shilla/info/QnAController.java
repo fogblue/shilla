@@ -75,20 +75,16 @@ public class QnAController {
 		/** UploadHelper에서 텍스트 형식의 값을 추출 */
 		Map<String, String> paramMap = upload.getParamMap();
 		String ecategory = paramMap.get("ecategory");
-		String hotelCate = paramMap.get("hotel_cate");
 		String enqType = paramMap.get("enq_type");
 		String reservNo = paramMap.get("reserv_no");
 		String weddingDate = paramMap.get("wedding_date");
 		String qnaType = paramMap.get("qna_type");
 		String subject = paramMap.get("subject");
 		String content = paramMap.get("content");
-		String userNameKor = paramMap.get("user_name_kor");
-		String email = paramMap.get("email");
-		String tel = paramMap.get("tel");
-		String telHome = paramMap.get("tel_home");
 		String ipAddress = web.getClientIP();
+		String hotelCate = paramMap.get("hotel_cate");
 		int memberId = 0;
-
+		
 		if (hotelCate.equals("sshihot")) {
 			hotelCate = "서울신라호텔";
 		} else if (hotelCate.equals("jshihot")) {
@@ -112,6 +108,11 @@ public class QnAController {
 			enqType = null;
 		}
 
+		String userNameKor = null;
+		String email = null;
+		String tel = null;
+		String telHome = null;
+		
 		/**
 		 * 로그인 되어 있을 경우 세션에서 이름, 이메일, 회원번호 및 전화번호를 불러옴 로그인 하지 않았을 경우 회원번호를 11번 - 비회원으로
 		 * 지정
@@ -124,7 +125,7 @@ public class QnAController {
 			tel = loginInfo.getTel();
 			telHome = loginInfo.getTelHome();
 		} else {
-			memberId = 11;
+			memberId = 5;
 		}
 
 		logger.debug("ecategory=" + ecategory);
@@ -180,10 +181,6 @@ public class QnAController {
 		qna.setQnaType(qnaType);
 		qna.setSubject(subject);
 		qna.setContent(content);
-		qna.setUserNameKor(userNameKor);
-		qna.setEmail(email);
-		qna.setTel(tel);
-		qna.setTelHome(telHome);
 		qna.setIpAddress(ipAddress);
 		qna.setMemberId(memberId);
 
@@ -202,7 +199,7 @@ public class QnAController {
 			for (int i = 0; i < fileList.size(); i++) {
 				FileInfo info = fileList.get(i);
 				File file = new File();
-				file.setDocumentId(qna.getId());
+				file.setQnaFile(qna.getQnaFile());
 				file.setCategory(qna.getEcategory());
 				file.setOriginName(info.getOrginName());
 				file.setFileDir(info.getFileDir());

@@ -15,6 +15,7 @@ public class Member {
 	private String detail;
 	private String regDate;
 	private String editDate;
+	
 	public int getId() {
 		return id;
 	}
@@ -99,6 +100,7 @@ public class Member {
 	public void setEditDate(String editDate) {
 		this.editDate = editDate;
 	}
+
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", userNameKor=" + userNameKor + ", userNameEng=" + userNameEng + ", userId="
@@ -106,5 +108,5 @@ public class Member {
 				+ ", telHome=" + telHome + ", zipcode=" + zipcode + ", loadAddr=" + loadAddr + ", detail=" + detail
 				+ ", regDate=" + regDate + ", editDate=" + editDate + "]";
 	}
-	
+
 }

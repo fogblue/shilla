@@ -12,38 +12,38 @@
 		<result property="fileDir" column="file_dir" />
 		<result property="fileName" column="file_name" />
 		<result property="contentType" column="content_type" />
-		<result property="fileSize" column="subject" />
+		<result property="fileSize" column="file_size" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
+		<result property="qnaFile" column="qna_file" />
 		<result property="roomImg" column="room_img" />
 		<result property="packageImg" column="package_img" />
-		<result property="documentId" column="document_id" />
 	</resultMap>
 	
 	<!-- 게시글에 속한 첨부파일의 정보를 저장한다. -->
 	<insert id="insertFile" parameterType="iot5.project.shilla.model.File"
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO file(
-			id, origin_name, file_dir, file_name, content_type,
-			file_size, reg_date, edit_date, room_img, package_img 
+			id, category, origin_name, file_dir, file_name, content_type,
+			file_size, reg_date, edit_date, qna_file, room_img, package_img
 		) VALUES (
-			#{id}, #{originName}, #{fileDir}, #{fileName}, #{contentType},
-			#{fileSize}, now(), now(), #{roomImg}, #{packageImg}
+			#{id}, #{category}, #{originName}, #{fileDir}, #{fileName}, #{contentType},
+			#{fileSize}, now(), now(), #{qnaFile}, #{roomImg}, #{packageImg}
 		)
 	</insert>
 	
 	<!-- 하나의 게시물에 속한 파일목록을 조회한다. -->
 	<select id="selectFileList" parameterType="iot5.project.shilla.model.File" 
 		resultMap="file">
-		SELECT id, origin_name, file_dir, file_name, content_type,
-				file_size, reg_date, edit_date, room_img, package_img
+		SELECT id, category, origin_name, file_dir, file_name, content_type,
+				file_size, reg_date, edit_date, qna_file, room_img, package_img
 		FROM   file
-		WHERE  document_id=#{documentId}
+		WHERE  id=#{id}
 	</select>
 	
 	<!-- 게시글에 속한 파일 전체 삭제 하기 -->
 	<delete id="deleteFileAll" parameterType="iot5.project.shilla.model.File">
-		DELETE FROM file WHERE document_id=#{documentId}
+		DELETE FROM file WHERE id=#{id}
 	</delete>
 	
 	<!-- 하나의 파일을 조회한다. -->

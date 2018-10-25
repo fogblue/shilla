@@ -20,7 +20,7 @@ import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -56,10 +56,10 @@ public class MypageController {
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
-		Reservation resv = new Reservation();
+		ResvRoom resv = new ResvRoom();
 		resv.setMemberId(loginInfo.getId());
 		
-		Reservation resvInfo = null;
+		ResvRoom resvInfo = null;
 		try {
 			resvInfo = reservService.selectReserv(resv);
 		} catch (Exception e) {
@@ -79,10 +79,10 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		Reservation resv = new Reservation();
+		ResvRoom resv = new ResvRoom();
 		resv.setId(id);
 		
-		Reservation resvInfo = null;
+		ResvRoom resvInfo = null;
 		try {
 			resvInfo = reservService.selectReservById(resv);
 		} catch (Exception e) {
@@ -99,20 +99,23 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_profile_edit"); 
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.POST)
 	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		String j = request.getParameter("pswd_confirm");
-		String i = web.getString("pswd_confirm");
-		logger.info("받아온 j는 >> " + j);
-		logger.info("받아온 i는 >> " + i);
+		String userPw = request.getParameter("pswd_confirm");
+		logger.info("입력한 패스워드는 >> " + userPw);
+		
+		if (!regex.isValue(userPw)) {
+			return web.redirect(null, "현재 비밀번호를 입력하세요.");		
+		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
 		member.setId(loginInfo.getId());
 
 		try {
+			memberService.selectMemberPasswordCount(member);
 			memberService.selectMember(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
@@ -135,6 +138,53 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_password_edit(Locale locale, Model model) {
 		return new ModelAndView("mypage/mypg_password_edit"); 
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_password_edit_ok.do", method = RequestMethod.POST)
+	public ModelAndView mypg_password_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		String userPw = request.getParameter("now_pw");
+		String newUserPw = request.getParameter("new_pw");
+		String newUserPwRe = request.getParameter("new_pw_re");
+		
+		logger.info("userPw=" + userPw);
+		logger.info("newUserPw=" + newUserPw);
+		logger.info("newUserPwRe=" + newUserPwRe);
+		
+		if (!regex.isValue(userPw)) {	
+			return web.redirect(null, "현재 비밀번호를 입력하세요.");		
+		}
+
+		if (regex.isValue(newUserPw)) {
+			if (!regex.isEngNum(newUserPw) || newUserPw.length() > 20 || newUserPw.length() < 8) {			
+				return web.redirect(null, "새로운 비밀번호는 숫자와 영문의 조합으로 20자까지만 가능합니다.");				
+			}
+	
+			if (!newUserPw.equals(newUserPwRe)) {			
+				return web.redirect(null, "비밀번호 확인이 잘못되었습니다.");			
+			}
+		}
+		
+		Member member = new Member();
+		member.setId(loginInfo.getId());
+		member.setUserPw(newUserPw);
+		
+		Member editInfo = null;
+		try {
+			memberService.selectMemberPasswordCount(member);
+			memberService.updateMember(member);
+			editInfo = memberService.selectMember(member);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		web.removeSession("loginInfo");
+		web.setSession("loginInfo", editInfo);
+		
+		return web.redirect(web.getRootPath() + "mypage/mypg_password_edit", null);
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw.do", method = RequestMethod.GET)

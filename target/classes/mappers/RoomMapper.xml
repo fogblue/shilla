@@ -7,16 +7,13 @@
 	<resultMap id="room"
 		type="iot5.project.shilla.model.Room">
 		<result property="id" column="id" />
-		<result property="hotelCate" column="hotel_cate" />
+		<result property="roomNo" column="room_no" />
 		<result property="roomType" column="room_type" />
 		<result property="bedType" column="bed_type" />
-		<result property="roomImg" column="room_img" />
-		<result property="resvId" column="resv_id" />
-		<result property="packageId" column="package_id" />
 		<result property="roomPrice" column="room_price" />
-		<result property="exbed" column="exbed" />
-		<result property="meal" column="meal" />
-		<result property="roomNo" column="room_no" />
+		<result property="roomImg" column="room_img" />
+		<result property="packageId" column="package_id" />
+		<result property="hotelCategory" column="hotel_category" />
 	</resultMap>
 	
 	<!-- 예약 갯수 -->
@@ -27,9 +24,9 @@
      <!-- 방 정보 입력 -->
 	<insert id="insertRoom" parameterType="iot5.project.shilla.model.Room" 
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO room ( hotel_cate, room_type, bed_type, room_img, room_price, exbed, meal, room_no
+		INSERT INTO room ( room_no, room_type, bed_type, room_price, room_img, package_id, hotel_category
 		) VALUES (
-			#{hotelCate}, #{roomType}, #{bedType}, #{roomImg}, #{roomPrice}, #{exbed}, #{meal}, #{roomNo}
+			#{roomNo}, #{roomType}, #{bedType}, #{roomPrice}, #{roomImg}, #{packageId}, #{hotelCategory}
 		)
 	</insert>
 </mapper>

@@ -10,9 +10,9 @@ public class File {
 	private long fileSize;
 	private String regDate;
 	private String editDate;
+	private String qnaFile;
 	private String roomImg;
 	private String packageImg;
-	private int documentId;
 	
 	public int getId() {
 		return id;
@@ -68,6 +68,12 @@ public class File {
 	public void setEditDate(String editDate) {
 		this.editDate = editDate;
 	}
+	public String getQnaFile() {
+		return qnaFile;
+	}
+	public void setQnaFile(String qnaFile) {
+		this.qnaFile = qnaFile;
+	}
 	public String getRoomImg() {
 		return roomImg;
 	}
@@ -80,18 +86,12 @@ public class File {
 	public void setPackageImg(String packageImg) {
 		this.packageImg = packageImg;
 	}
-	public int getDocumentId() {
-		return documentId;
-	}
-	public void setDocumentId(int documentId) {
-		this.documentId = documentId;
-	}
+	
 	@Override
 	public String toString() {
 		return "File [id=" + id + ", category=" + category + ", originName=" + originName + ", fileDir=" + fileDir
 				+ ", fileName=" + fileName + ", contentType=" + contentType + ", fileSize=" + fileSize + ", regDate="
-				+ regDate + ", editDate=" + editDate + ", roomImg=" + roomImg + ", packageImg="
-				+ packageImg + ", documentId=" + documentId + "]";
-	}
-	
+				+ regDate + ", editDate=" + editDate + ", qnaFile=" + qnaFile + ", roomImg=" + roomImg + ", packageImg="
+				+ packageImg + "]";
+	}	
 }

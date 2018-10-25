@@ -22,17 +22,6 @@
 	 <select id="selectReservationCount" parameterType="iot5.project.shilla.model.ResvRoom" resultType="int">
         SELECT count(id) FROM reservation WHERE member_id=#{memberId}
     </select>
-    
-     <!-- 글쓰기 -->
-	<insert id="insertReserv" parameterType="iot5.project.shilla.model.ResvRoom" 
-		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO resv_room ( room_no, check_in, check_out, room_type,
-		package_type, exbed, meal, total_price, resv_date, member_id, hotel_category
-		) VALUES (
-			#{roomNo}, #{checkIn}, #{checkOut}, #{roomType},
-			#{packageType}, #{exbed}, #{meal}, #{totalPrice}, now(), #{memberId}, #{hotelCate}
-		)
-	</insert>
 	
 	<!-- 예약세부사항 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">

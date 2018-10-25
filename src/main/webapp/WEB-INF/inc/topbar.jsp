@@ -33,7 +33,7 @@
 			<c:otherwise>
 				<ul class="menu2 list-inline pull-right">
 					<li class="menu-item2 br">${loginInfo.userNameKor}님&nbsp;</li>
-					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do">마이페이지&nbsp;</a></li>
+					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/mypage/mypg_main.do">마이페이지&nbsp;</a></li>
 					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃&nbsp;</a></li>
 					<li class="menu-item2"><a href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약 확인</a></li>
 				</ul>

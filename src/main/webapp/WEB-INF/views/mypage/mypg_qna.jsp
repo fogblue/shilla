@@ -58,8 +58,8 @@
 				<div class="mypg-contents-table">
 					<div>
 						<p>Total : </p>
-						<table class="mypg-rsvt-contents-table">
-							<tr>
+						<table class="mypg-qna-contents-table">
+							<tr class="qna-table-title">
 								<td>NO</td>
 								<td>호텔</td>
 								<td>문의유형</td>
@@ -67,9 +67,11 @@
 								<td>문의일자</td>
 								<td>답변여부</td>
 							</tr>
-							<tr id="find-result">
-								<td colspan="6" id="find-target">자료가 없습니다.</td>
-							</tr>
+							<tbody id="find-result">
+								<tr id="find-target">
+									<td colspan="6">자료가 없습니다.</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				</div>

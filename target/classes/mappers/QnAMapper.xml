@@ -34,6 +34,13 @@
     	WHERE member_id=#{memberId}
     </select>
     
+    <select id="selectQnAList" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
+    	SELECT id, hotel_category, ecategory, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
+		FROM qna
+		WHERE member_id=#{memberId}
+		ORDER BY id DESC
+    </select>
+    
      <!-- 글쓰기 -->
 	<insert id="insertQnA" parameterType="iot5.project.shilla.model.QnA" 
 		useGeneratedKeys="true" keyProperty="id">

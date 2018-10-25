@@ -1,5 +1,6 @@
 package iot5.project.shilla.mypage;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +45,11 @@ public class MypageController {
 	ReservService reservService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
+	
+	@RequestMapping(value = "/mypage/mypg_main.do", method = RequestMethod.GET)
+	public ModelAndView mypg_main(Locale locale, Model model) {	
+		return new ModelAndView("mypage/mypg_main");
+	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation(Locale locale, Model model) {	
@@ -267,9 +273,9 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setMemberId(loginInfo.getId());
 		
-		QnA qnaInfo = null;
+		List<QnA> qnaInfo = null;
 		try {
-			qnaInfo = qnaService.selectQnA(qna);
+			qnaInfo = qnaService.selectQnAList(qna);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
 		}

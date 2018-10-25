@@ -115,6 +115,29 @@
 }
 
 /*------------------------------------------------------------
+	| 컨텐츠 설정 - main.jsp
+-------------------------------------------------------------*/
+.mypg-contents-txt .mypg-mp-name {
+	text-transform: uppercase;
+	color: #a1886f;
+	font-weight: bold;
+}
+
+.mypg-mp-bd {
+	border: 2px solid #e3d6c6;
+	padding: 30px 40px 30px 40px;
+	height: 100px;
+}
+
+.mypg-mp-bd span {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.mypg-mp-bd .member-id {
+	color: #a1886f;
+}
+/*------------------------------------------------------------
 	| 컨텐츠 설정 - reservation.jsp
 -------------------------------------------------------------*/
 .mypg-rsvt-bd {
@@ -374,27 +397,52 @@
 	margin-bottom: 20px;
 }
 
-.mypg-rsvt-contents-table td:nth-child(1) {
+.mypg-qna-contents-table {
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+}
+
+.mypg-qna-contents-table .qna-table-title {
+	background-color: #faf9f4 !important;
+	font-weight: bold;
+	border-bottom: 1px solid #cdcbbe;
+}
+
+.mypg-qna-contents-table #find-target {
+	background-color: transparent;
+}
+
+.mypg-qna-contents-table tr:nth-child(even) {
+	background-color: #faf9f4;
+}
+
+.mypg-qna-contents-table tr:nth-child(odd) {
+	background-color: transparent;
+}
+
+.mypg-qna-contents-table td:nth-child(1) {
 	width: 10%
 }
 
-.mypg-rsvt-contents-table td:nth-child(2) {
+.mypg-qna-contents-table td:nth-child(2) {
 	width: 10%
 }
 
-.mypg-rsvt-contents-table td:nth-child(3) {
+.mypg-qna-contents-table td:nth-child(3) {
 	width: 20%
 }
 
-.mypg-rsvt-contents-table td:nth-child(4) {
+.mypg-qna-contents-table td:nth-child(4) {
 	width: 40%
 }
 
-.mypg-rsvt-contents-table td:nth-child(5) {
+.mypg-qna-contents-table td:nth-child(5) {
 	width: 10%
 }
 
-.mypg-rsvt-contents-table td:nth-child(6) {
+.mypg-qna-contents-table td:nth-child(6) {
 	width: 10%
 }
 

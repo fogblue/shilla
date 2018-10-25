@@ -33,10 +33,11 @@
 			<c:otherwise>
 				<ul class="menu2 list-inline pull-right">
 					<li>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding:5px">
-				 			${loginInfo.userNameKor}님
+						<a href="#" class="dropdown-toggle br" data-toggle="dropdown" style="padding:5px">
+				 			${loginInfo.userNameKor}님&nbsp;
 				 		</a>
 					</li>
+					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/member/.do">마이페이지&nbsp;</a></li>
 					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃&nbsp;</a></li>
 					<li class="menu-item2"><a href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약 확인</a></li>
 				</ul>

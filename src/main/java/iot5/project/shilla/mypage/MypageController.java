@@ -113,10 +113,11 @@ public class MypageController {
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
 		member.setId(loginInfo.getId());
+		member.setUserPw(userPw);
 
 		try {
 			memberService.selectMemberPasswordCount(member);
-			memberService.selectMember(member);
+			/*memberService.selectMember(member);*/
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}

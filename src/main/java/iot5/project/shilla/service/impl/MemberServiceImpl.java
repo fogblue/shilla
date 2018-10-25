@@ -104,7 +104,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void selectMemberPasswordCount(Member member) throws Exception {
 		try {
-			int result = sqlSession.update("MemberMapper.selectMemberPasswordCount", member);
+			int result = sqlSession.selectOne("MemberMapper.selectMemberPasswordCount", member);
 			
 			if(result == 0) {
 				throw new NullPointerException();

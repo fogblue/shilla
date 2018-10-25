@@ -61,6 +61,13 @@
     	WHERE member_id=#{memberId}
 	</select>
 	
+	<select id="selectReservList" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+    	SELECT id, hotel_category, room_type, check_in
+		FROM reservation
+		WHERE member_id=#{memberId}
+		ORDER BY id DESC
+    </select>
+	
 	<!-- id로 검색하기 -->
 	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,

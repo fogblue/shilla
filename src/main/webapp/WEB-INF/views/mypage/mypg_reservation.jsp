@@ -56,16 +56,18 @@
 					<div>
 						<p>Total : </p>
 						<table class="mypg-rsvt-contents-table">
-							<tr>
+							<tr class="rsvt-table-title">
 								<td>예약번호</td>
 								<td>호텔</td>
 								<td>객실/패키지</td>
 								<td>체크인/체크아웃</td>
 								<td>예약상태</td>
 							</tr>
-							<tr id="find-result">
-								<td colspan="5" id="find-target">자료가 없습니다.</td>
-							</tr>
+							<tbody id="find-result">
+								<tr id="find-target">
+									<td colspan="5">자료가 없습니다.</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				</div>

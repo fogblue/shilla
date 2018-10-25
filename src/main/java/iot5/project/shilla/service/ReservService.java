@@ -1,5 +1,7 @@
 package iot5.project.shilla.service;
 
+import java.util.List;
+
 import iot5.project.shilla.model.Reservation;
 
 public interface ReservService {
@@ -32,6 +34,14 @@ public interface ReservService {
 	 * @throws Exception
 	 */
 	public Reservation selectReserv(Reservation reserv) throws Exception;
+	
+	/**
+	 * 예약 리스트
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Reservation> selectReservList(Reservation reserv) throws Exception;
 	
 	/**
 	 * 

@@ -1,5 +1,7 @@
 package iot5.project.shilla.service.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,7 +69,25 @@ public class ReservServiceImpl implements ReservService {
 		return result;
 	}
 
+	@Override
+	public List<Reservation> selectReservList(Reservation reserv) throws Exception {
+		List<Reservation> result = null;
 
+		try {
+			result = sqlSession.selectList("ReservationMapper.selectReservList", reserv);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 글 목록이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("글 목록 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+	
 	@Override
 	public Reservation selectReservById(Reservation reserv) throws Exception {
 		Reservation result = null;

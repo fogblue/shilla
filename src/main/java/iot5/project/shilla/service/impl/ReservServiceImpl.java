@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvGuest;
+import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.ReservService;
 
 @Service
@@ -70,11 +72,11 @@ public class ReservServiceImpl implements ReservService {
 	}
 
 	@Override
-	public List<Reservation> selectReservList(Reservation reserv) throws Exception {
-		List<Reservation> result = null;
+	public List<ResvRoom> selectReservList(ResvRoom reserv) throws Exception {
+		List<ResvRoom> result = null;
 
 		try {
-			result = sqlSession.selectList("ReservationMapper.selectReservList", reserv);
+			result = sqlSession.selectList("ResvRoomMapper.selectReservList", reserv);
 			if (result == null) {
 				throw new NullPointerException();
 			}
@@ -89,11 +91,30 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
-	public Reservation selectReservById(Reservation reserv) throws Exception {
-		Reservation result = null;
+	public ResvRoom selectReservRById(ResvRoom reserv) throws Exception {
+		ResvRoom result = null;
 
 		try {
-			result = sqlSession.selectOne("ReservMapper.selectReservById", reserv);
+			result = sqlSession.selectOne("ResvRoomMapper.selectReservRById", reserv);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 게시물이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+	
+	@Override
+	public ResvGuest selectReservGById(ResvGuest reserv) throws Exception {
+		ResvGuest result = null;
+
+		try {
+			result = sqlSession.selectOne("ResvGuestMapper.selectReservGById", reserv);
 			if (result == null) {
 				throw new NullPointerException();
 			}

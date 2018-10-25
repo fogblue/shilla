@@ -23,37 +23,43 @@
 	</resultMap>
 	<!-- 아이디 중복검사를 수행한다 -->
     <select id="selectUserIdCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
-        SELECT count(id) FROM member WHERE user_id=#{userId}
+        SELECT count(id)
+        FROM member
+        WHERE user_id=#{userId}
     </select>
      
     <!-- 이메일 중복검사를 수행한다 -->
     <select id="selectEmailCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
-        SELECT count(id) FROM member WHERE email=#{email}
+        SELECT count(id)
+        FROM member
+        WHERE email=#{email}
     </select>
      <!-- 아이디찾기를 수행한다 -->
     <select id="selectFindId" parameterType="iot5.project.shilla.model.Member" resultMap="member">
-        SELECT user_id, user_name_kor, id FROM member WHERE email=#{email} AND user_name_kor=#{userNameKor}
+        SELECT user_id, user_name_kor, id
+        FROM member
+        WHERE email=#{email} AND user_name_kor=#{userNameKor}
     </select>
     
     <!-- 회원정보를 저장한다 : 가입 -->
 	<insert id="insertMember" parameterType="iot5.project.shilla.model.Member" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO member (
-			user_name_kor, user_name_eng, user_id, user_pw, 
+			user_name_kor, user_name_eng, user_id, user_pw,
 			birthdate, email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
 		) VALUES (
-			#{userNameKor},#{userNameEng}, #{userId}, password(#{userPw}),
-			 #{birthdate}, #{email}, #{tel}, #{telHome}, #{zipcode}, #{loadAddr}, 
+			#{userNameKor}, #{userNameEng}, #{userId}, password(#{userPw}),
+			 #{birthdate}, #{email}, #{tel}, #{telHome}, #{zipcode}, #{loadAddr},
 			#{detail}, now(), now()
 		)
 	</insert>
 	
 	<!-- 아이디와 비밀번호가 일치하는 회원정보를 조회한다. -->
     <select id="selectLoginInfo" parameterType="iot5.project.shilla.model.Member" resultMap="member">
-       SELECT id, user_name_kor, user_name_eng, user_id, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
-		email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
-        FROM member
-        WHERE user_id=#{userId} AND user_pw=password(#{userPw})
+		SELECT id, user_name_kor, user_name_eng, user_id, DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
+				email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
+		FROM member
+		WHERE user_id=#{userId} AND user_pw=password(#{userPw})
     </select>
     
     <!-- 비밀번호 재발급: 이메일주소가 일치하는 비밀번호를 변경한다. -->
@@ -77,13 +83,13 @@
 	
 	<!-- 회원정보를 삭제한다 : 탈퇴 -->
 	<delete id="deleteMember" parameterType="iot5.project.shilla.model.Member">
-		DELETE FROM member WHERE id=#{id};
+		DELETE FROM member WHERE id=#{id}
 	</delete>
 	
 	<!-- 회원정보를 변경한다 -->
 	<update id="updateMember" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET
-			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},  
+			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},
 			tel=#{tel}, zipcode=#{zipcode}, addr1=#{load_addr}, addr2=#{detail},
 			edit_date=now()
 			
@@ -98,7 +104,7 @@
 	<select id="selectMember"
 		parameterType="iot5.project.shilla.model.Member" resultMap="member">
 		SELECT id, user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
-		email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
+				email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
 		FROM member
 		WHERE id=#{id}
 	</select>

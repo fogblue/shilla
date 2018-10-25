@@ -20,7 +20,7 @@ import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -56,12 +56,12 @@ public class MypageController {
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
-		ResvRoom resv = new ResvRoom();
-		resv.setMemberId(loginInfo.getId());
+		Reservation reserv = new Reservation();
+		reserv.setMemberId(loginInfo.getId());
 		
-		ResvRoom resvInfo = null;
+		Reservation resvInfo = null;
 		try {
-			resvInfo = reservService.selectReserv(resv);
+			resvInfo = reservService.selectReserv(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
@@ -79,12 +79,12 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		ResvRoom resv = new ResvRoom();
-		resv.setId(id);
+		Reservation reserv = new Reservation();
+		reserv.setRoomId(id);
 		
-		ResvRoom resvInfo = null;
+		Reservation resvInfo = null;
 		try {
-			resvInfo = reservService.selectReservById(resv);
+			resvInfo = reservService.selectReservById(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}

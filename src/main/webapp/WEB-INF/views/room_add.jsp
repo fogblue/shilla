@@ -67,11 +67,11 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for='exbed' class="col-md-2">
-					<span class='identify'>*</span>침대 추가 가격
+				<label for='package_id' class="col-md-2">
+					<span class='identify'>*</span>패키지 ID
 				</label>
 				<div class="col-md-10">
-					<input type="text" name="exbed" id="exbed" class="form-control" value="30000" />
+					<input type="text" name="package_id" id="package_id" class="form-control" value="1" />
 				</div>
 			</div>
 			<div class="form-group">

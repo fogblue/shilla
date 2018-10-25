@@ -73,14 +73,14 @@ public class IndexController {
 
 		/** (4)UploadHelper에서 텍스트 형식의 값을 추출 */
 		Map<String, String> paramMap = upload.getParamMap();
-		String hotelCategory = paramMap.get("hotel_cate");
+		String hotelCate = paramMap.get("hotel_cate");
 		int roomNo = Integer.parseInt(paramMap.get("room_no"));
 		String roomType = paramMap.get("room_type");
 		String bedType = paramMap.get("bed_type");
 		int roomPrice = Integer.parseInt(paramMap.get("room_price"));
 		int packageId =  Integer.parseInt(paramMap.get("package_id"));
 		
-		logger.debug("hotel_cate=" + hotelCategory);
+		logger.debug("hotel_cate=" + hotelCate);
 		logger.debug("room_type=" + roomType);
 		logger.debug("bed_type=" + bedType);
 		logger.debug("room_price=" + roomPrice);
@@ -104,7 +104,7 @@ public class IndexController {
 
 		/** (8)입력받은 파라미터를 Beans로 묶기 */
 		Room room = new Room();
-		room.setHotelCategory(hotelCategory);
+		room.setHotelCate(hotelCate);
 		room.setRoomType(roomType);
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);

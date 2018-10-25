@@ -75,13 +75,10 @@
 		var cp = document.chngPswd;
 		
 		if (cp.now_pw.value == "") {
-			alert("현재 비밀번호를 입력해 주세요");
 			return false;
 		} else if (cp.new_pw.value == "") {
-			alert("새 비밀번호를 입력해 주세요");
 			return false;
 		} else if (cp.new_pw_re.value == "" || cp.new_pw_re.value != cp.new_pw.value) {
-			alert("비밀번호를 다시 입력해 주세요");
 			return false;
 		}
 		

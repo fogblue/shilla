@@ -59,7 +59,13 @@
     <!-- 비밀번호 재발급: 이메일주소가 일치하는 비밀번호를 변경한다. -->
 	<update id="updateMemberPasswordByEmail" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET user_pw=password(#{userPw}), edit_date=now()
-		WHERE email=#{email} AND user_id=#{userId} AND user_name_kor=#{userNameKor};
+		WHERE email=#{email} AND user_id=#{userId} AND user_name_kor=#{userNameKor}
+	</update>
+	
+	<!-- 비밀번호 변경: 비밀번호를 변경한다. -->
+	<update id="updateMemberPasswordById" parameterType="iot5.project.shilla.model.Member">
+		UPDATE member SET user_pw=password(#{userPw}), edit_date=now()
+		WHERE user_id=#{userId}
 	</update>
 	
 	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->

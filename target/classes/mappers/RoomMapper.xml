@@ -26,7 +26,7 @@
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO room ( room_no, room_type, bed_type, room_price, room_img, package_id, hotel_category
 		) VALUES (
-			#{roomNo}, #{roomType}, #{bedType}, #{roomPrice}, #{roomImg}, #{packageId}, #{hotelCategory}
+			#{roomNo}, #{roomType}, #{bedType}, #{roomPrice}, #{roomImg}, #{packageId}, #{hotelCate}
 		)
 	</insert>
 </mapper>

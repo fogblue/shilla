@@ -8,6 +8,9 @@
 <%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_reservation.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_roomselect.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/plugins/t-datepicker/t-datepicker.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/plugins/t-datepicker/t-datepicker-main.css">
+<script src="${pageContext.request.contextPath}/assets/plugins/t-datepicker/t-datepicker.min.js"></script>
 </head>
 
 <body>
@@ -28,6 +31,7 @@
 				<option>제주신라호텔</option>
 			</select>
 
+<<<<<<< HEAD
 			<div class="rsv_datepicker">
 				<p>체크인</p>
 				<input type="text" id="datepicker" />
@@ -45,8 +49,94 @@
 						$("#datepicker2").datepicker({ minDate: 0 });
 					});
 				</script>
-
+=======
+			<div class="t-datepicker">
+			  <div class="t-check-in"></div>
+			  <div class="t-check-out"></div>
 			</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.t-datepicker').tDatePicker({
+    	// auto close after selection
+    	  autoClose        : true,
+>>>>>>> fb7b0094241e090de9f361fd01403101c86fbff3
+
+    	  // animation speed in milliseconds
+    	  durationArrowTop : 200,
+
+    	  // the number of calendars
+    	  numCalendar    : 2,
+
+    	  // localization
+    	  titleCheckIn   : 'Check In',
+    	  titleCheckOut  : 'Check Out',
+    	  titleToday     : 'Today',
+    	  titleDateRange : 'night',
+    	  titleDateRanges: 'nights',
+    	  titleDays      : [ 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su' ],
+    	  titleMonths    : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Septemper', 'October', 'November', "December"],
+
+    	  // the max length of the title
+    	  titleMonthsLimitShow : 3,
+
+    	  // replace moth names
+    	  replaceTitleMonths : null,
+
+    	  // e.g. 'dd-mm-yy'
+    	  showDateTheme   : null,
+
+    	  // icon options
+    	  iconArrowTop : true,
+    	  iconDate     : '&#x279C;',
+    	  arrowPrev    : '&#x276E;',
+    	  arrowNext    : '&#x276F;',
+    	  // https://fontawesome.com/v4.7.0/icons/
+    	  // iconDate: '<i class="li-calendar-empty"></i><i class="li-arrow-right"></i>',
+    	  // arrowPrev: '<i class="fa fa-chevron-left"></i>',
+    	  // arrowNext: '<i class="fa fa-chevron-right"></i>',
+
+    	  // shows today title
+    	  toDayShowTitle       : true, 
+
+    	  // showss dange range title
+    	  dateRangesShowTitle  : true,
+
+    	  // highlights today
+    	  toDayHighlighted     : false,
+
+    	  // highlights next day
+    	  nextDayHighlighted   : false,
+
+    	  // an array of days
+    	  daysOfWeekHighlighted: [0,6],
+
+    	  // custom date format
+    	  formatDate      : 'yyyy-mm-dd',
+
+    	  // dateCheckIn: '25/06/2018',  // DD/MM/YY
+    	  // dateCheckOut: '26/06/2018', // DD/MM/YY
+    	  dateCheckIn  : null,
+    	  dateCheckOut : null,
+    	  startDate    : null,
+    	  endDate      : null,
+
+    	  // limits the number of months
+    	  limitPrevMonth : 0,
+    	  limitNextMonth : 11,
+
+    	  // limits the number of days
+    	  limitDateRanges    : 31,
+
+    	  // true -> full days || false - 1 day
+    	  showFullDateRanges : false, 
+
+    	  // DATA HOLIDAYS
+    	  // Data holidays
+    	  fnDataEvent   : null
+    });
+  });
+</script>
+		</div>
 
 			<div class="rsv_personcount">
 				<div class="rsv_adult">

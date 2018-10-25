@@ -1,5 +1,7 @@
 package iot5.project.shilla.service.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,6 +85,25 @@ public class QnAServiceImpl implements QnAService {
 	}
 
 	@Override
+	public List<QnA> selectQnAList(QnA qna) throws Exception {
+		List<QnA> result = null;
+
+		try {
+			result = sqlSession.selectList("QnAMapper.selectQnAList", qna);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 글 목록이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("글 목록 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+	
+	@Override
 	public QnA selectPrevQnA(QnA qna) throws Exception {
 		QnA result = null;
 
@@ -114,10 +135,7 @@ public class QnAServiceImpl implements QnAService {
 	public void updateQnAMemberOut(QnA qna) throws Exception {
 
 		try {
-			int result = sqlSession.update("QnAMapper.updateQnAMemberOut", qna);
-			if (result == 0) {
-				throw new NullPointerException();
-			}
+			sqlSession.update("QnAMapper.updateQnAMemberOut", qna);
 		} catch (NullPointerException e) {
 			throw new Exception("조회된 게시물이 없습니다.");
 		} catch (Exception e) {

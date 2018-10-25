@@ -8,7 +8,7 @@ public class Room {
 	private int roomPrice;
 	private String roomImg;
 	private int packageId;
-	private String hotelCategory;
+	private String hotelCate;
 	public int getId() {
 		return id;
 	}
@@ -51,17 +51,17 @@ public class Room {
 	public void setPackageId(int packageId) {
 		this.packageId = packageId;
 	}
-	public String getHotelCategory() {
-		return hotelCategory;
+	public String getHotelCate() {
+		return hotelCate;
 	}
-	public void setHotelCategory(String hotelCategory) {
-		this.hotelCategory = hotelCategory;
+	public void setHotelCate(String hotelCategory) {
+		this.hotelCate = hotelCategory;
 	}
 	@Override
 	public String toString() {
 		return "Room [id=" + id + ", roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType
 				+ ", roomPrice=" + roomPrice + ", roomImg=" + roomImg + ", packageId=" + packageId + ", hotelCategory="
-				+ hotelCategory + "]";
+				+ hotelCate + "]";
 	}
 	
 }

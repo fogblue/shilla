@@ -105,10 +105,12 @@
 
 
 .rsv_selectbtn {
-	float: right;
-	font-size: 15px;
-	background-color: gray;
-	text-alignt: center;
+	margin-left: 540px;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    background-color: #3a3125;
+    color: #ede6de;
 }
 /* ================================================================================== */
 .rsv_content {

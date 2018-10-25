@@ -59,14 +59,14 @@ public class MypageController {
 		Reservation reserv = new Reservation();
 		reserv.setMemberId(loginInfo.getId());
 		
-		Reservation resvInfo = null;
+		Reservation reservInfo = null;
 		try {
-			resvInfo = reservService.selectReserv(reserv);
+			reservInfo = reservService.selectReserv(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
 		
-		model.addAttribute("resvInfo", resvInfo);
+		model.addAttribute("resvInfo", reservInfo);
 		
 		return new ModelAndView("mypage/mypg_reservation_table");
 	}
@@ -82,14 +82,14 @@ public class MypageController {
 		Reservation reserv = new Reservation();
 		reserv.setRoomId(id);
 		
-		Reservation resvInfo = null;
+		Reservation reservInfo = null;
 		try {
-			resvInfo = reservService.selectReservById(reserv);
+			reservInfo = reservService.selectReservById(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
 		
-		model.addAttribute("resvInfo", resvInfo);
+		model.addAttribute("reservInfo", reservInfo);
 		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
@@ -117,7 +117,6 @@ public class MypageController {
 
 		try {
 			memberService.selectMemberPasswordCount(member);
-			/*memberService.selectMember(member);*/
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
@@ -189,7 +188,7 @@ public class MypageController {
 		web.removeSession("loginInfo");
 		web.setSession("loginInfo", editInfo);
 		
-		return web.redirect(web.getRootPath() + "mypage/mypg_password_edit", null);
+		return web.redirect(web.getRootPath() + "/mypage/mypg_password_edit.do", "비밀번호 변경이 완료되었습니다.");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw.do", method = RequestMethod.GET)
@@ -215,7 +214,6 @@ public class MypageController {
 
 		try {
 			memberService.selectMemberPasswordCount(member);
-			/*memberService.selectMember(member);*/
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}

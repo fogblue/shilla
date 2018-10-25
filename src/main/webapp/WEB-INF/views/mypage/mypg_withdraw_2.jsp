@@ -45,7 +45,7 @@
 			<div class="mypg-wd-contents">
 				<p>- 탈퇴를 신청하시면 번복이 불가능하며 보유하신 모든 포인트는 소멸됩니다.</p>
 				<p>- 개인정보보호법에 따라 고객님의 호텔 이용기록, 개인정보 및 문의내역 기록도 모두 삭제됩니다.</p>
-				<p>- 탈퇴 신청이 완료되면 즉시 홈페이지 로그인이 제한됩니다.</p>
+				<p>- 탈퇴가 완료되면 즉시 홈페이지 로그인이 제한됩니다.</p>
 			</div>
 			<div id="withdraw-msg"></div>
 			<div class="mypg-contents-btn">
@@ -56,7 +56,6 @@
 	
 	<script>
 	function wd_msg_t() {
-		alert("탈퇴신청이 접수되었습니다.");
 		$.ajax({
 			url: "${pageContext.request.contextPath}/mypage/mypg_withdraw_msg.do",
 			method: "get",
@@ -72,11 +71,11 @@
 	}
 	
 	function wd_msg_f() {
-		alert("탈퇴신청이 취소되었습니다.");
+		alert("탈퇴가 취소되었습니다.");
 	}
 	
 	function withdraw() {
-		var wd_msg = confirm("신청이 완료되면 취소가 불가능합니다. 계속 하시겠습니까?")
+		var wd_msg = confirm("탈퇴가 되면 취소가 불가능합니다. 계속 하시겠습니까?")
 		if (wd_msg == true) {
 			wd_msg_t();
 		} else {

@@ -65,7 +65,7 @@
 	<!-- 비밀번호 변경: 비밀번호를 변경한다. -->
 	<update id="updateMemberPasswordById" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET user_pw=password(#{userPw}), edit_date=now()
-		WHERE user_id=#{userId}
+		WHERE id=#{id}
 	</update>
 	
 	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->
@@ -97,7 +97,7 @@
 	<!-- 아이디로 회원 목록 조회하기 -->
 	<select id="selectMember"
 		parameterType="iot5.project.shilla.model.Member" resultMap="member">
-		SELECT user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
+		SELECT id, user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
 		email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
 		FROM member
 		WHERE id=#{id}

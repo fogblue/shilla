@@ -5,9 +5,11 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/plugins/lightbox/css/lightbox.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/index.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/lightbox/css/lightbox.min.css" />
 </head>
 <body>
+	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<!-- ==============시작================== -->
 	<div class="container main" id="main">
 		<h1 class="page-header">갤러리</h1>
@@ -98,14 +100,16 @@
 		</form>
 	</div>
 	<!-- ==============끝================== -->
+	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 	<!-- json 데이터를 정의한 외부 파일 로드하기 -->
 	<script src="${pageContext.request.contextPath}/assets/plugins/lightbox/js/lightbox.js"></script>
 	<script>
 		lightbox.option({
 			'resizeDuration' : 200,
 			'wrapAround' : true,
+			'max-Height' : 500,
 			'fitViewport' : true
-		})
+		});
 	</script>
 </body>
 </html>

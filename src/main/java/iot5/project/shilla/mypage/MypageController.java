@@ -89,7 +89,7 @@ public class MypageController {
 		ResvRoom resvroom = new ResvRoom();
 		ResvGuest resvguest = new ResvGuest();
 		resvroom.setId(id);
-		resvguest.setId(id);
+		resvguest.setResvRoomId(id);
 		
 		try {
 			resvroom = reservService.selectReservRById(resvroom);

@@ -11,6 +11,7 @@ public class ResvGuest {
 	private int pplBb;
 	private String detail;
 	private int memberId;
+	private int resvRoomId;
 	public int getId() {
 		return id;
 	}
@@ -71,11 +72,17 @@ public class ResvGuest {
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
+	public int getResvRoomId() {
+		return resvRoomId;
+	}
+	public void setResvRoomId(int resvRoomId) {
+		this.resvRoomId = resvRoomId;
+	}
 	@Override
 	public String toString() {
 		return "ResvGuest [id=" + id + ", cardNo=" + cardNo + ", cardType=" + cardType + ", cardYy=" + cardYy
 				+ ", cardMm=" + cardMm + ", pplAd=" + pplAd + ", pplCh=" + pplCh + ", pplBb=" + pplBb + ", detail="
-				+ detail + ", memberId=" + memberId + "]";
+				+ detail + ", memberId=" + memberId + ", resvRoomId=" + resvRoomId + "]";
 	}
-		
+	
 }

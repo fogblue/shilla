@@ -34,7 +34,7 @@
 						<h4 class="rsv2_optionlist_2">객실이용에 필요한 옵션사항을 선택하세요.</h4>
 					</div>
 					<!-- =============================================================================================================================================================================== -->
-					<div class="rsv2_option1">
+					<div class="rsv2_option1"><!-- 세션저장값 -->
 						<div class="col-sm-7">
 							<input type="checkbox" class="rsv_optchbox" /> <label
 								class="rsv2_optext1">Daily Breakfast Buffet for Adult</label>
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 
-					<div class="rsv2_option2 clearfix">
+					<div class="rsv2_option2 clearfix"><!-- 세션저장값 -->
 						<div class="col-sm-7">
 							<input type="checkbox" class="rsv_optchbox" /> <label
 								class="rsv2_optext1">Daily Extra bed</label>
@@ -68,7 +68,7 @@
 
 				<div class='collapse-item'>
 					<!-- 게시글 제목영역 -->
-					<h2 class='collapse-title'>
+					<h2 class='collapse-title'><!-- 세션저장값 -->
 						<a href="#content1">추가 요청사항</a>
 					</h2>
 					<!-- 게시글 내용영역 -->

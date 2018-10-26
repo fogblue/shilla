@@ -62,7 +62,7 @@
 	<!-- id로 검색하기 -->
 	<select id="selectQnAById" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
 		SELECT ecategory, enq_type, reserv_no, wedding_date, qna_type, qna_file,
-    			subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
+    			subject, content, DATE_FORMAT(reg_date, "%Y-%m-%d %H:%i:%S") as reg_date, edit_date, ip_address, member_id, hotel_category
     	FROM qna
     	WHERE id=#{id}
 	</select>

@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<td style="width: 15%">문의유형</td>
-						<td style="width: 35%">${qnaInfo.ecategory}</td>
+						<td style="width: 35%">${qnaInfo.enqType}</td>
 						<td style="width: 15%">등록일자</td>
 						<td style="width: 35%">${qnaInfo.regDate}</td>
 					</tr>

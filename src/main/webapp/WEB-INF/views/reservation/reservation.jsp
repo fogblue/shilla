@@ -140,16 +140,17 @@
 				</form>
 				<script type="text/javascript">
 					$(function() {
-						var number1=$(this).find('#numbox1').val();
-						var number2=$(this).find('#numbox2').val();
-						var number3=$(this).find('#numbox3').val();
-						var numbertotal;
+						var number1 = parseInt($(this).find('#numbox1').val());
+						var number2 = parseInt($(this).find('#numbox2').val());
+						var number3 = parseInt($(this).find('#numbox3').val());
+						var numbertotal = 0;
+						
 						$('.1234').click(function() {
 							numbertotal = number1 + number2 +number3;
 						});
 					
 			 			$('#plus1').click(function() {
-							if (numbertotal == 4 ||number1 == 3) {
+							if (numbertotal == 4 || number1 == 3) {
 								alert('객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다.');
 							} else {
 								number1++;

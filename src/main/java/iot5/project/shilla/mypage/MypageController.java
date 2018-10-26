@@ -59,7 +59,11 @@ public class MypageController {
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
 		ResvRoom resvroom = new ResvRoom();
-		resvroom.setMemberId(loginInfo.getId());
+		try {
+			resvroom.setMemberId(loginInfo.getId());
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		List<ResvRoom> reservInfo = null;
 		try {

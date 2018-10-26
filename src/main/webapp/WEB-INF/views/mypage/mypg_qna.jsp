@@ -79,7 +79,7 @@
 										<tr>
 											<td>${qna.id}</td>
 											<td>${qna.hotelCate}</td>
-											<td>${qna.ecategory}</td>
+											<td>${qna.enqType}</td>
 											<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do?id=${qna.id}" style="display: inline;">${qna.subject}</a></td>
 											<td>${qna.regDate}</td>
 											<td></td>

@@ -63,6 +63,10 @@
 						<td colspan="3">${qnaInfo.content}</td>
 					</tr>
 					<tr>
+						<td>첨부파일</td>
+						<td colspan="3">${qnaInfo.originName}</td>
+					</tr>
+					<tr>
 						<td>답변여부</td>
 						<td></td>
 						<td>답변일</td>

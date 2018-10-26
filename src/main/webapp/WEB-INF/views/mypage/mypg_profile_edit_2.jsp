@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<td>성명(영문)</td>
-						<td>${loginInfo.userNameEng}</td>
+						<td style="text-transform: uppercase;">${loginInfo.userNameEng}</td>
 					</tr>
 					<tr>
 						<td>아이디</td>

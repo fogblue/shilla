@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
+import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.model.ResvGuest;
@@ -154,8 +155,23 @@ public class MypageController {
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", null);
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
+	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		String email = request.getParameter("email");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
@@ -284,7 +300,7 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna(Locale locale, Model model) {	
+	public ModelAndView mypg_qna(Locale locale, Model model) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -336,6 +352,8 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setId(id);
 
+		File file = new File();
+		file.setQnaId(qna.getId);
 		QnA qnaInfo = null;
 		try {
 			qnaInfo = qnaService.selectQnAById(qna);

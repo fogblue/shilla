@@ -35,7 +35,7 @@
     </select>
     
     <select id="selectQnAList" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
-    	SELECT id, hotel_category, ecategory, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
+    	SELECT id, hotel_category, enq_type, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
 		FROM qna
 		WHERE member_id=#{memberId}
 		ORDER BY id DESC

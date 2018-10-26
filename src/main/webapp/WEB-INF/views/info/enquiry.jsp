@@ -141,23 +141,18 @@
 				$("#enq_ajax").empty();
 			}); // 호텔 선택지에 따른 카테고리 변경
 
-			$("#enq_type").change(
-					function() {
-						var sel = $(this).find("option:selected").val();
-						$("#enq_ajax").empty();
-						$.get("${pageContext.request.contextPath}/info/" + sel,
-								function(req) {
-									$("#enq_ajax").append(req);
-								}, "html"); // end $.get			
-					}); // 관련문의 선택에 따른 페이지 전환
+			$("#enq_type").change(function() {
+				var sel = $(this).find("option:selected").val();
+				$("#enq_ajax").empty();
+				$.get("${pageContext.request.contextPath}/info/" + sel, function(req) {$("#enq_ajax").append(req);
+				}, "html"); // end $.get			
+			}); // 관련문의 선택에 따른 페이지 전환
 
-			$("#enq_submit").click(
-					function() {
-						if (!regex.check('input[name=enq_agreeing]',
-								' 개인정보 수집 및 이용에 대한 동의는 필수사항입니다.')) {
-							return false;
-						}
-					}); // 개인정보 수집 동의 체크
+			$("#enq_submit").click(function() {
+				if (!regex.check('input[name=enq_agreeing]', ' 개인정보 수집 및 이용에 대한 동의는 필수사항입니다.')) {
+				return false;
+				}
+			}); // 개인정보 수집 동의 체크
 		});
 	</script>
 </body>

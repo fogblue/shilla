@@ -61,12 +61,19 @@
     	WHERE member_id=#{memberId}
 	</select>
 	
-	<!-- id로 검색하기 -->
+	<!-- 예약번호로 검색하기 -->
 	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
-		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
+		SELECT resv_room.id as id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
 			total_price, resv_date, member_id, hotel_category
 		FROM resv_room
-    	WHERE id=#{id}
+    	WHERE id=#{roomId}
+	</select>
+	
+	<!-- 회원번호로 검색하기 -->
+	<select id="selectReservByMemberId" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+		SELECT id, card_no, card_type, card_yy, card_mm, ppl_ad, ppl_ch, ppl_bb, detail, member_id
+		FROM resv_room
+    	WHERE member_id=#{memberId}
 	</select>
 	
 	<!-- 검색 -->

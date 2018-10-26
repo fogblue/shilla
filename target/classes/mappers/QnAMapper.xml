@@ -11,7 +11,7 @@
 		<result property="reservNo" column="reserv_no" />
 		<result property="weddingDate" column="wedding_date" />
 		<result property="qnaType" column="qna_type" />
-		<result property="qnaFile" column="qna_file" />
+		<result property="qnaId" column="qna_id" />
 		<result property="subject" column="subject" />
 		<result property="content" column="content" />
 		<result property="regDate" column="reg_date" />
@@ -28,14 +28,14 @@
     
     <!-- 조회한다 -->
     <select id="selectQnA" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
-    	SELECT id, ecategory, enq_type, reserv_no, wedding_date, qna_type, qna_file,
+    	SELECT id, ecategory, enq_type, reserv_no, wedding_date, qna_type,
     	subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
     	FROM qna
     	WHERE member_id=#{memberId}
     </select>
     
     <select id="selectQnAList" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
-    	SELECT id, hotel_category, ecategory, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
+    	SELECT id, hotel_category, enq_type, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
 		FROM qna
 		WHERE member_id=#{memberId}
 		ORDER BY id DESC
@@ -45,11 +45,10 @@
 	<insert id="insertQnA" parameterType="iot5.project.shilla.model.QnA" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO qna (
-			ecategory, enq_type, reserv_no, wedding_date, qna_type, qna_file,
+			ecategory, enq_type, reserv_no, wedding_date, qna_type,
 			subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
 		) VALUES (
-			#{ecategory}, #{enqType}, #{reservNo}, #{weddingDate}, #{qnaType}, #{qnaFile}, 
-			#{subject}, #{content}, now(), now(), #{ipAddress}, #{memberId}, #{hotelCate}
+			#{ecategory}, #{enqType}, #{reservNo}, #{weddingDate}, #{qnaType}, #{subject}, #{content}, now(), now(), #{ipAddress}, #{memberId}, #{hotelCate}
 		)
 	</insert>
 	
@@ -61,8 +60,8 @@
 	
 	<!-- id로 검색하기 -->
 	<select id="selectQnAById" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
-		SELECT ecategory, enq_type, reserv_no, wedding_date, qna_type, qna_file,
-    			subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
+		SELECT ecategory, enq_type, reserv_no, wedding_date, qna_type,
+    			subject, content, DATE_FORMAT(reg_date, "%Y-%m-%d %H:%i:%S") as reg_date, edit_date, ip_address, member_id, hotel_category
     	FROM qna
     	WHERE id=#{id}
 	</select>

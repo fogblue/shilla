@@ -14,6 +14,7 @@
 		<result property="pplBb" column="ppl_bb" />
 		<result property="detail" column="detail" />
 		<result property="memberId" column="member_id" />
+		<result property="resvRoomId" column="resv_room_id" />
 	</resultMap>
  	
 	<!-- 예약 갯수 -->
@@ -33,7 +34,7 @@
 	<select id="selectReservGById" parameterType="iot5.project.shilla.model.ResvGuest" resultMap="resvguest">
 		SELECT id, card_no, card_type, card_yy, card_mm, ppl_ad, ppl_ch, ppl_bb, detail, member_id
 		FROM resv_guest
-    	WHERE id=#{id}
+    	WHERE resv_room_id=#{resvRoomId}
 	</select>
 	
 	<!-- 검색 -->

@@ -89,4 +89,16 @@ public class FileServiceImpl implements FileService {
 			throw new Exception("첨부 파일 삭제에 실패했습니다.");
 		}
 	}
+
+	@Override
+	public List<File> selectQnAFileList(File file) throws Exception {
+		List<File> result = null;
+		try {
+			result = sqlSession.selectList("FileMapper.selectQnAFileList", file);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("파일 정보 조회에 실패했습니다.");
+		}
+		return result;
+	}
 }

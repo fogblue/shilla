@@ -22,6 +22,14 @@ public interface FileService {
 	public List<File> selectFileList(File file) throws Exception;
 	
 	/**
+	 * 하나의 QnA 문의에 종속된 파일 목록을 조회한다.
+	 * @param file - QnA 게시물 일련번호를 저장하고 있는 JavaBeans
+	 * @return
+	 * @throws Exception
+	 */
+	public List<File> selectQnAFileList(File file) throws Exception;
+	
+	/**
 	 * 하나의 게시물에 종속된 파일 목록을 삭제한다.
 	 * @param file
 	 * @throws Exception

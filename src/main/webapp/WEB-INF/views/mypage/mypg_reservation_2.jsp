@@ -11,7 +11,7 @@
 <c:choose>
 	<c:when test="${loginInfo == null}">
 		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 페이지입니다.");
+			alert("로그인 후 이용 가능한 서비스입니다.");
 			location.href="${pageContext.request.contextPath}/member/log_main.do";
 		</script>
 	</c:when>
@@ -99,9 +99,28 @@
 							<td style="width: 20%">원</td>
 							<td style="width: 20%">원</td>
 						</tr>
+						<c:choose>
+							<c:when test="${reservRInfo.exbed != 0}">
+								<tr class="text-center">
+									<td></td>
+									<td>(내역)</td>
+									<td>&nbsp;개</td>
+									<td>${reservRInfo.exbed}&nbsp;원</td>
+								</tr>
+							</c:when>
+							<c:when test="${reservRInfo.meal != 0}">
+								<tr class="text-center">
+									<td></td>
+									<td>(내역)</td>
+									<td>&nbsp;명</td>
+									<td>${reservRInfo.meal}&nbsp;원</td>
+								</tr>
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
 						<tr class="text-right">
 							<td colspan="3">세금&amp;봉사료</td>
-							<td>원</td>
+							<td>&nbsp;원</td>
 						</tr>
 						<tr class="text-right">
 							<td colspan="3">요금합계&nbsp;&nbsp;&nbsp;</td>

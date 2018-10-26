@@ -15,30 +15,39 @@
 		<result property="fileSize" column="file_size" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
-		<result property="qnaFile" column="qna_file" />
-		<result property="roomImg" column="room_img" />
-		<result property="packageImg" column="package_img" />
+		<result property="qnaId" column="qna_id" />
+		<result property="roomId" column="room_id" />
+		<result property="packageId" column="package_id" />
 	</resultMap>
 	
 	<!-- 게시글에 속한 첨부파일의 정보를 저장한다. -->
 	<insert id="insertFile" parameterType="iot5.project.shilla.model.File"
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO file(
-			id, category, origin_name, file_dir, file_name, content_type,
-			file_size, reg_date, edit_date, qna_file, room_img, package_img
+			category, origin_name, file_dir, file_name, content_type,
+			file_size, reg_date, edit_date, qna_id, room_id, package_id
 		) VALUES (
-			#{id}, #{category}, #{originName}, #{fileDir}, #{fileName}, #{contentType},
-			#{fileSize}, now(), now(), #{qnaFile}, #{roomImg}, #{packageImg}
+			#{category}, #{originName}, #{fileDir}, #{fileName}, #{contentType},
+			#{fileSize}, now(), now(), #{qnaId}, #{roomId}, #{packageId}
 		)
 	</insert>
 	
-	<!-- 하나의 게시물에 속한 파일목록을 조회한다. -->
-	<select id="selectFileList" parameterType="iot5.project.shilla.model.File" 
+	<!-- 하나의 게시물에 속한 파일목록을 조회한다. : 객실용 -->
+	<select id="selectRoomFileList" parameterType="iot5.project.shilla.model.File" 
 		resultMap="file">
 		SELECT id, category, origin_name, file_dir, file_name, content_type,
-				file_size, reg_date, edit_date, qna_file, room_img, package_img
+				file_size, reg_date, edit_date, qna_id, room_id, package_id
 		FROM   file
-		WHERE  id=#{id}
+		WHERE  room_id=#{roomId}
+	</select>
+	
+	<!-- 하나의 게시물에 속한 파일목록을 조회한다 : QnA용 -->
+	<select id="selectQnAFileList" parameterType="iot5.project.shilla.model.File" 
+		resultMap="file">
+		SELECT id, category, origin_name, file_dir, file_name, content_type,
+				file_size, reg_date, edit_date, qna_id, room_id, package_id
+		FROM   file
+		WHERE  qna_id=#{qnaId}
 	</select>
 	
 	<!-- 게시글에 속한 파일 전체 삭제 하기 -->

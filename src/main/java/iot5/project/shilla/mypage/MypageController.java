@@ -24,6 +24,7 @@ import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -45,6 +46,8 @@ public class MypageController {
 	QnAService qnaService;
 	@Autowired
 	ReservService reservService;
+	@Autowired
+	FileService fileService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
@@ -160,7 +163,7 @@ public class MypageController {
 		web.init();
 		
 		String email = request.getParameter("email");
-		
+		logger.info("받아온 이메일은 >> " + email);
 		
 		
 		
@@ -353,15 +356,19 @@ public class MypageController {
 		qna.setId(id);
 
 		File file = new File();
-		file.setQnaId(qna.getId);
+		file.setQnaId(qna.getId());
+		
 		QnA qnaInfo = null;
+		List<File> fileList = null;
 		try {
 			qnaInfo = qnaService.selectQnAById(qna);
+			fileList = fileService.selectQnAFileList(file);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna_2.do", null);
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
+		model.addAttribute("fileInfo", fileList);
 		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}

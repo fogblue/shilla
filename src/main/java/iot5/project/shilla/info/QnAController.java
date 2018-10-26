@@ -123,6 +123,10 @@ public class QnAController {
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		if (loginInfo != null) {
 			memberId = loginInfo.getId();
+			userNameKor = loginInfo.getUserNameKor();
+			email = loginInfo.getEmail();
+			tel = loginInfo.getTel();
+			telHome = loginInfo.getTelHome();
 		} else {
 			memberId = 3;
 		}

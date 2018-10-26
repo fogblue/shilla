@@ -201,9 +201,14 @@ public class QnAController {
 		try {
 			for (int i = 0; i < fileList.size(); i++) {
 				FileInfo info = fileList.get(i);
+				
+				// DB에 저장하기 위한 항목 생성
 				File file = new File();
-				file.setQnaFile(qna.getQnaFile());
-				file.setCategory(qna.getEcategory());
+				
+				// 몇번 게시물에 속한 파일인지 저장한다.
+				file.setQnaId(qna.getId());
+				
+				file.setCategory("QnA");
 				file.setOriginName(info.getOrginName());
 				file.setFileDir(info.getFileDir());
 				file.setFileName(info.getFileName());

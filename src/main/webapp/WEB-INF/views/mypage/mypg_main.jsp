@@ -29,7 +29,7 @@
 					<a>개인정보</a>
 					<a href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do">프로필 수정</a>
 					<a href="${pageContext.request.contextPath}/mypage/mypg_password_edit.do">비밀번호 변경</a>
-					<a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do" class="mypg-sidebar-open">회원 탈퇴 요청<img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do">회원 탈퇴 요청</a>
 					<a href="${pageContext.request.contextPath}/mypage/mypg_qna.do">문의 내역</a>
 				</div>
 			</div>

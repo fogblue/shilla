@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html>
 <head>
@@ -63,11 +64,29 @@
 								<td>체크인/체크아웃</td>
 								<td>예약상태</td>
 							</tr>
-							<tbody id="find-result">
+							<!-- <tbody id="find-result">
 								<tr id="find-target">
 									<td colspan="5">자료가 없습니다.</td>
 								</tr>
-							</tbody>
+							</tbody> -->
+							<c:choose>
+								<c:when test="${fn:length(reservInfo) > 0}">
+									<c:forEach var="reserv" items="${reservInfo}">
+										<tr>
+											<td>${reserv.id}</td>
+											<td>${reserv.hotelCate}</td>
+											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
+											<td>${reserv.checkIn}</td>
+											<td></td>
+										</tr>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<tr id="find-target">
+										<td colspan="5">자료가 없습니다.</td>
+									</tr>
+								</c:otherwise>
+							</c:choose>
 						</table>
 					</div>
 				</div>
@@ -94,7 +113,7 @@
             trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
         });
     });
-    $("#find").click(function(e) {
+   /*  $("#find").click(function(e) {
 		$("#find-result").empty();
 		$("#find-target").remove();
 		$.ajax({
@@ -106,7 +125,7 @@
 				$("#find-result").append(req);
 			}
 		});
-	});
+	}); */
     </script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

@@ -200,7 +200,7 @@
 }
 
 .mypg-rsvt-contents-table tr:nth-child(even) {
-	background-color: #faf9f4;
+	background-color: #f1ebd6;
 }
 
 .mypg-rsvt-contents-table tr:nth-child(odd) {
@@ -427,7 +427,7 @@
 }
 
 .mypg-qna-contents-table tr:nth-child(even) {
-	background-color: #faf9f4;
+	background-color: #f1ebd6;
 }
 
 .mypg-qna-contents-table tr:nth-child(odd) {

@@ -54,11 +54,6 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation(Locale locale, Model model) {	
-		return new ModelAndView("mypage/mypg_reservation");
-	}
-	
-	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
-	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -74,6 +69,27 @@ public class MypageController {
 		}
 		
 		model.addAttribute("reservInfo", reservInfo);
+		
+		return new ModelAndView("mypage/mypg_reservation");
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
+		/*web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		ResvRoom resvroom = new ResvRoom();
+		resvroom.setMemberId(loginInfo.getId());
+		
+		List<ResvRoom> reservInfo = null;
+		try {
+			reservInfo = reservService.selectReservList(resvroom);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
+		}
+		
+		model.addAttribute("reservInfo", reservInfo);*/
 		
 		return new ModelAndView("mypage/mypg_reservation_table");
 	}
@@ -265,11 +281,6 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna(Locale locale, Model model) {	
-		return new ModelAndView("mypage/mypg_qna");
-	}
-
-	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_table(Locale locale, Model model) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -285,6 +296,27 @@ public class MypageController {
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
+		
+		return new ModelAndView("mypage/mypg_qna");
+	}
+
+	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_table(Locale locale, Model model) {
+		/*web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
+		List<QnA> qnaInfo = null;
+		try {
+			qnaInfo = qnaService.selectQnAList(qna);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);*/
 		
 		return new ModelAndView("mypage/mypg_qna_table");
 	}

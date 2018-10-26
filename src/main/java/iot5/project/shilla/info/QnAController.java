@@ -25,8 +25,10 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.QnAService;
+import iot5.project.shilla.service.ReservService;
 
 @Controller
 public class QnAController {
@@ -45,6 +47,8 @@ public class QnAController {
 	RegexHelper regex;
 	@Autowired
 	FileService fileService;
+	@Autowired
+	ReservService reservService;
 
 	@RequestMapping(value = "/info/contactinfo.do", method = RequestMethod.GET)
 	public ModelAndView contactinfo(Locale locale, Model model) {
@@ -81,6 +85,10 @@ public class QnAController {
 		String qnaType = paramMap.get("qna_type");
 		String subject = paramMap.get("subject");
 		String content = paramMap.get("content");
+		String userNameKor = paramMap.get("user_name_kor");
+		String email = paramMap.get("email");
+		String tel = paramMap.get("tel");
+		String telHome = paramMap.get("tel_home");
 		String ipAddress = web.getClientIP();
 		String hotelCate = paramMap.get("hotel_cate");
 		int memberId = 0;
@@ -107,25 +115,16 @@ public class QnAController {
 		} else {
 			enqType = null;
 		}
-
-		String userNameKor = null;
-		String email = null;
-		String tel = null;
-		String telHome = null;
 		
 		/**
-		 * 로그인 되어 있을 경우 세션에서 이름, 이메일, 회원번호 및 전화번호를 불러옴 로그인 하지 않았을 경우 회원번호를 11번 - 비회원으로
-		 * 지정
+		 * 로그인 되어 있을 경우 세션에서 회원번호를 불러옴.
+		 * 비회원은 3번
 		 */
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		if (loginInfo != null) {
-			userNameKor = loginInfo.getUserNameKor();
-			email = loginInfo.getEmail();
 			memberId = loginInfo.getId();
-			tel = loginInfo.getTel();
-			telHome = loginInfo.getTelHome();
 		} else {
-			memberId = 5;
+			memberId = 3;
 		}
 
 		logger.debug("ecategory=" + ecategory);
@@ -213,7 +212,34 @@ public class QnAController {
 		}
 		
 		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
-		return web.redirect(web.getRootPath(), "문의사항이 저장되었습니다.");
+		if (loginInfo != null) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", "문의사항이 저장되었습니다.");	
+		} else {
+			return web.redirect(web.getRootPath(), "문의사항이 저장되었습니다.");
+		}
+		
+	}
+	
+	@RequestMapping(value = "/reservation_test.do", method = RequestMethod.GET)
+	public ModelAndView reservation_test(Locale locale, Model model) {
+		web.init();
+		
+		int id = web.getInt("id");
+		logger.info("받아온 id는 >> " + id);
+		model.addAttribute("id", id);
+		
+		Reservation resv = new Reservation();
+		resv.setRoomId(id);
+		
+		try {
+			resv = reservService.selectReserv(resv);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
+		}
+		
+		model.addAttribute("resv", resv);
+				
+		return new ModelAndView("mypage/mypg_reservation_2");
 	}
 
 }

@@ -140,10 +140,11 @@
 				</form>
 				<script type="text/javascript">
 					$(function() {
-						var number1=$(this).find('#numbox1').val();
-						var number2=$(this).find('#numbox2').val();
-						var number3=$(this).find('#numbox3').val();
-						var numbertotal;
+						var number1 = parseInt($(this).find('#numbox1').val());
+						var number2 = parseInt($(this).find('#numbox2').val());
+						var number3 = parseInt($(this).find('#numbox3').val());
+						var numbertotal = 0;
+						
 						$('.1234').click(function() {
 							numbertotal = number1 + number2 + number3;
 						});

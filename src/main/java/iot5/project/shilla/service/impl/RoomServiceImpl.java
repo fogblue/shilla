@@ -45,8 +45,20 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public Room selectRoom(Room room) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Room result = null;
+		try {
+			result = sqlSession.selectOne("RoomMapper.selectRoomItem", room);
+			if(result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 정보가 없습니다.");
+		}catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("객실 정보 조회에 실패했습니다.");
+		} 
+		
+		return result;
 	}
 
 }

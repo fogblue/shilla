@@ -101,4 +101,16 @@ public class FileServiceImpl implements FileService {
 		}
 		return result;
 	}
+
+	@Override
+	public List<File> selectRoomFileList(File file) throws Exception {
+		List<File> result = null;
+		try {
+			result = sqlSession.selectList("FileMapper.selectRoomFileList", file);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("파일 정보 조회에 실패했습니다.");
+		}
+		return result;
+	}
 }

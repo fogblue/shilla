@@ -17,10 +17,10 @@
 			<!-- 제목 들어갈 곳 -->
 			<h3 class="sidebar-header">관리자 페이지</h3>
 			<!-- 메뉴 들어갈 곳 -->
-			<a href="${pageContext.request.contextPath}/package_add.do" class="imenu">패키지 추가</a>
-			<a href="${pageContext.request.contextPath}/room_add.do" class="imenu info-open">객실 추가<img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
-			<a href="${pageContext.request.contextPath}/reserv_confirm.do" class="imenu">예약 확인</a>
-			<a href="${pageContext.request.contextPath}/enqanswer.do" class="imenu">문의사항 답변</a>
+			<a href="${pageContext.request.contextPath}/admin/package_add.do" class="imenu">패키지 추가</a>
+			<a href="${pageContext.request.contextPath}/admin/room_add.do" class="imenu info-open">객실 추가<img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
+			<a href="${pageContext.request.contextPath}/admin/room_list.do" class="imenu">객실 확인</a>
+			<a href="${pageContext.request.contextPath}/admin/enqanswer.do" class="imenu">문의사항 답변</a>
 		</div>
 		<div class="if-contents">
 			<div class="bdb">
@@ -29,7 +29,7 @@
 					<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;관리자 페이지&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp; <span class="orng">객실 추가</span>
 				</div>
 			</div>
-		<form class="form-horizontal" name="room_add" id="room_add" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/room_add_ok.do">
+		<form class="form-horizontal" name="room_add" id="room_add" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/admin/room_add_ok.do">
 			<h5 class="basic_data_title">기본 정보 입력 (*표시 필수입력사항)</h5>
 			<div class="form-group">
 				<label for='room_no' class="col-md-2">
@@ -82,15 +82,7 @@
 					<input type="text" name="package_id" id="package_id" class="form-control" value="1" />
 				</div>
 			</div>
-			<div class="form-group">
-				<label for='meal' class="col-md-2">
-					<span class='identify'>*</span>조식 가격
-				</label>
-				<div class="col-md-10">
-					<input type="text" name="meal" id="meal" class="form-control" value="30000" />
-				</div>
-			</div>
-			<div class="form-group">
+				<div class="form-group">
 				<label for='room_img' class="col-md-2">
 					<span class='identify'>*</span>객실 사진
 				</label>

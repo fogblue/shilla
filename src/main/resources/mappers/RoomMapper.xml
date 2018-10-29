@@ -11,7 +11,6 @@
 		<result property="roomType" column="room_type" />
 		<result property="bedType" column="bed_type" />
 		<result property="roomPrice" column="room_price" />
-		<result property="roomImg" column="room_img" />
 		<result property="packageId" column="package_id" />
 		<result property="hotelCate" column="hotel_category" />
 	</resultMap>
@@ -24,9 +23,15 @@
      <!-- 방 정보 입력 -->
 	<insert id="insertRoom" parameterType="iot5.project.shilla.model.Room" 
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO room ( room_no, room_type, bed_type, room_price, room_img, package_id, hotel_category
+		INSERT INTO room ( room_no, room_type, bed_type, room_price, package_id, hotel_category
 		) VALUES (
-			#{roomNo}, #{roomType}, #{bedType}, #{roomPrice}, #{roomImg}, #{packageId}, #{hotelCate}
+			#{roomNo}, #{roomType}, #{bedType}, #{roomPrice}, #{packageId}, #{hotelCate}
 		)
 	</insert>
+	
+	<!-- 객실 정보 확인 -->
+	<select id="selectRoomItem" parameterType="iot5.project.shilla.model.Room" resultMap="room">
+		SELECT id, room_no, room_type, bed_type, room_price, package_id, hotel_category
+		FROM room WHERE id=#{id} or room_no=#{roomNo}
+	</select>
 </mapper>

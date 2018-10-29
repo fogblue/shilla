@@ -8,6 +8,7 @@
 <%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/join.css">
     <!-- validate 플러그인 참조 -->
     <script src="${pageContext.request.contextPath}/assets/plugins/validate/jquery.validate.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/plugins/validate/additional-methods.min.js"></script>

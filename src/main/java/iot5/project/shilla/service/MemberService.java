@@ -24,4 +24,6 @@ public interface MemberService {
 	public void updateMember(Member member) throws Exception;
 	
 	public Member selectMember (Member member) throws Exception;
+	
+	public void updateMemberET(Member member) throws Exception;
 }

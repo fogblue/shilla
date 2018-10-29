@@ -89,7 +89,7 @@
 	<!-- 회원정보를 변경한다 -->
 	<update id="updateMember" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET
-			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},
+			user_name_kor=#{userNameKor}, birthdate=#{birthdate},email=#{email},
 			tel=#{tel}, zipcode=#{zipcode}, addr1=#{load_addr}, addr2=#{detail},
 			edit_date=now()
 			
@@ -97,6 +97,13 @@
 				, user_pw=password(#{newUserPw})
 			</if>
 		
+		WHERE id=#{id}
+	</update>
+	
+	<!-- 회원정보를 변경한다 : 이메일, 전화번호 -->
+	<update id="updateMemberET" parameterType="iot5.project.shilla.model.Member">
+		UPDATE member SET
+			email=#{email}, tel=#{tel}
 		WHERE id=#{id}
 	</update>
 	

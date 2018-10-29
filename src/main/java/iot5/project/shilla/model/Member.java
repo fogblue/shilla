@@ -15,7 +15,8 @@ public class Member {
 	private String detail;
 	private String regDate;
 	private String editDate;
-	
+	private String agree1;
+	private String agree2;
 	public int getId() {
 		return id;
 	}
@@ -100,13 +101,23 @@ public class Member {
 	public void setEditDate(String editDate) {
 		this.editDate = editDate;
 	}
-
+	public String getAgree1() {
+		return agree1;
+	}
+	public void setAgree1(String agree1) {
+		this.agree1 = agree1;
+	}
+	public String getAgree2() {
+		return agree2;
+	}
+	public void setAgree2(String agree2) {
+		this.agree2 = agree2;
+	}
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", userNameKor=" + userNameKor + ", userNameEng=" + userNameEng + ", userId="
 				+ userId + ", userPw=" + userPw + ", birthdate=" + birthdate + ", email=" + email + ", tel=" + tel
 				+ ", telHome=" + telHome + ", zipcode=" + zipcode + ", loadAddr=" + loadAddr + ", detail=" + detail
-				+ ", regDate=" + regDate + ", editDate=" + editDate + "]";
+				+ ", regDate=" + regDate + ", editDate=" + editDate + ", agree1=" + agree1 + ", agree2=" + agree2 + "]";
 	}
-
 }

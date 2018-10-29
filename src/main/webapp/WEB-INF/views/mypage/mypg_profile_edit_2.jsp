@@ -70,21 +70,29 @@
 					<tr>
 						<td>
 							<span>서비스 및 이벤트 소식이 담긴 호텔신라의 뉴스레터를 수신하겠습니까?</span>
-							<input type="radio" name="agree1" id="agree1y" checked /><label for="agree1y">예</label>
-							<input type="radio" name="agree1" id="agree1n" /><label for="agree1n">아니오</label>
+							<input type="radio" name="agree1" id="agree1y" value="Y"
+								<c:if test="${loginInfo.agree1 == 'Y'}">checked</c:if>
+							/><label for="agree1y">예</label>
+							<input type="radio" name="agree1" id="agree1n" value="N"
+								<c:if test="${loginInfo.agree1 == 'N'}">checked</c:if>
+							/><label for="agree1n">아니오</label>
 						</td>
 					</tr>
 					<tr>
 						<td rowspan="2">휴대전화</td>
 						<td>
-							<input type="text" id="tel" name="tel" placeholder="&nbsp;'-' 없이 입력" maxlength="13" onclick="inputTel()" value="${loginInfo.tel}"/>
+							<input type="text" id="tel" name="tel" placeholder="&nbsp;'-' 없이 입력" maxlength="11" onclick="inputTel()" value="${loginInfo.tel}"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<span>서비스 및 이벤트 소식이 담긴 호텔신라의 LMS를 수신하시겠습니까?</span>
-							<input type="radio" name="agree2" id="agree2y" checked /><label for="agree2y">예</label>
-							<input type="radio" name="agree2" id="agree2n" /><label for="agree2n">아니오</label>
+							<input type="radio" name="agree2" id="agree2y" value="Y"
+								<c:if test="${loginInfo.agree2 == 'Y'}">checked</c:if>
+							/><label for="agree2y">예</label>
+							<input type="radio" name="agree2" id="agree2n" value="N"
+								<c:if test="${loginInfo.agree2 == 'N'}">checked</c:if>
+							/><label for="agree2n">아니오</label>
 						</td>
 					</tr>
 					</tbody>
@@ -122,7 +130,7 @@
 	}
 	
 	function inputEmail() {
-		$("#email").val("");
+		$("input#email]").empty();
 	}
 	
 	function inputTel() {

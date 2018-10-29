@@ -6,24 +6,29 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/index.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/lightbox/css/lightbox.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/info.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/awards.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<!-- ==============시작================== -->
 	<div class="container main" id="main">
-		<h1 class="page-header">갤러리</h1>
-		<h3 class="sm-header">GALLERY</h3>
-		<div class="main_soffcon">
-			<div id="main_mconts">
-				<a href="${pageContext.request.contextPath}/assets/img/main_ma1.jpg" data-lightbox="room-gallery" data-title="방1"><img src="${pageContext.request.contextPath }/assets/img/main_ma1.jpg" /></a>
-				<a href="${pageContext.request.contextPath}/assets/img/main_ma2.jpg" data-lightbox="room-gallery" data-title="방2"><img src="${pageContext.request.contextPath }/assets/img/main_ma2.jpg" /></a>
-				<a href="${pageContext.request.contextPath}/assets/img/main_ma3.jpg" data-lightbox="room-gallery" data-title="방3"><img src="${pageContext.request.contextPath }/assets/img/main_ma3.jpg" /></a>
-				<a href="${pageContext.request.contextPath}/assets/img/main_ma4.jpg" data-lightbox="room-gallery" data-title="방4"><img src="${pageContext.request.contextPath }/assets/img/main_ma4.jpg" /></a>
-				<a href="${pageContext.request.contextPath}/assets/img/main_ma5.jpg" data-lightbox="room-gallery" data-title="방5"><img src="${pageContext.request.contextPath }/assets/img/main_ma5.jpg" /></a>
-			</div>
+		<div class="sidebar">
+			<!-- 제목 들어갈 곳 -->
+			<h3 class="sidebar-header">관리자 페이지</h3>
+			<!-- 메뉴 들어갈 곳 -->
+			<a href="${pageContext.request.contextPath}/package_add.do" class="imenu">패키지 추가</a>
+			<a href="${pageContext.request.contextPath}/room_add.do" class="imenu info-open">객실 추가<img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
+			<a href="${pageContext.request.contextPath}/reserv_confirm.do" class="imenu">예약 확인</a>
+			<a href="${pageContext.request.contextPath}/enqanswer.do" class="imenu">문의사항 답변</a>
 		</div>
+		<div class="if-contents">
+			<div class="bdb">
+				<h3 class="conhead">객실 추가</h3>
+				<div class="ind pull-right">
+					<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;관리자 페이지&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp; <span class="orng">객실 추가</span>
+				</div>
+			</div>
 		<form class="form-horizontal" name="room_add" id="room_add" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/room_add_ok.do">
 			<h5 class="basic_data_title">기본 정보 입력 (*표시 필수입력사항)</h5>
 			<div class="form-group">
@@ -39,8 +44,8 @@
 					<span class='identify'>*</span>호텔 지역
 				</label>
 				<div class="col-md-10">
-					<label><input type="radio" name="hotel_cate" class="form-control" value="서울신라호텔" checked />서울신라호텔</label>
-					<label><input type="radio" name="hotel_cate" class="form-control" value="제주신라호텔" />제주신라호텔</label>
+					<label><input type="radio" name="hotel_cate" value="서울신라호텔" checked />서울신라호텔</label>
+					<label><input type="radio" name="hotel_cate" value="제주신라호텔" />제주신라호텔</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -48,8 +53,8 @@
 					<span class='identify'>*</span>객실 유형
 					</label>
 				<div class="col-sm-10">
-					<label><input type="radio" name="room_type" id="room_type1" class="form-control" value="Business Deluxe" checked /> Business Deluxe</label>
-					<label><input type="radio" name="room_type" id="room_type2" class="form-control" value="Executive Business Deluxe" /> Executive Business Deluxe</label>
+					<label><input type="radio" name="room_type" id="room_type1" value="Business Deluxe" checked /> Business Deluxe</label>
+					<label><input type="radio" name="room_type" id="room_type2" value="Executive Business Deluxe" /> Executive Business Deluxe</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -57,8 +62,8 @@
 					<span class='identify'>*</span>침대 유형
 				</label>
 				<div class="col-sm-10">
-					<label><input type="radio" name="bed_type" id="bed_type1" class="form-control" value="Twin" checked />Twin</label>
-					<label><input type="radio" name="bed_type" id="bed_type2" class="form-control" value="Double" />Double</label>
+					<label><input type="radio" name="bed_type" id="bed_type1" value="Twin" checked />Twin</label>
+					<label><input type="radio" name="bed_type" id="bed_type2" value="Double" />Double</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -78,7 +83,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
 				<label for='meal' class="col-md-2">
 					<span class='identify'>*</span>조식 가격
 				</label>
@@ -86,37 +90,12 @@
 					<input type="text" name="meal" id="meal" class="form-control" value="30000" />
 				</div>
 			</div>
-			<!-- 파일 업로드 -->
 			<div class="form-group">
-				<label for="file" class="col-sm-2 control-label">파일첨부</label>
-				<div class="col-sm-10">
-					<input type="file" class="form-control" id="file" name="file" multiple>
-
-					<c:if test="${fileList != null}">
-						<c:forEach var="file" items="${fileList}">
-							<c:url value="/download.do" var="downloadUrl">
-								<c:param name="file" value="${file.fileDir}/${file.fileName}" />
-							</c:url>
-							
-							<div class="checkbox">
-								<label>
-									<input type="checkbox" name="del_file" id="img_del" value="${file.id}" />
-									${file.originName}삭제하기
-									<a href="${downloadUrl}">[다운받기]</a>
-								</label>
-							</div>
-						</c:forEach>
-					</c:if>
-				</div>
-			</div>
-			<div class="form-group">
-=======
->>>>>>> 26e5f1925f181c8be0c2b7a9df77aa1a7012644a
 				<label for='room_img' class="col-md-2">
 					<span class='identify'>*</span>객실 사진
 				</label>
 				<div class="col-md-10 calendar_box">
-					<input type="file" name="room_img" multiple />
+					<input type="file" name="room_id" multiple />
 				</div>
 			</div>
 			<div class="form-group">
@@ -125,6 +104,7 @@
 				</div>
 			</div>
 		</form>
+		</div>
 	</div>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>

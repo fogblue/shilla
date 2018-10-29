@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 <c:choose>
 	<c:when test="${loginInfo == null}">
 		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 페이지입니다.");
+			alert("로그인 후 이용 가능한 서비스입니다.");
 			location.href="${pageContext.request.contextPath}/member/log_main.do";
 		</script>
 	</c:when>
@@ -50,7 +51,7 @@
 					</tr>
 					<tr>
 						<td style="width: 15%">문의유형</td>
-						<td style="width: 35%">${qnaInfo.ecategory}</td>
+						<td style="width: 35%">${qnaInfo.enqType}</td>
 						<td style="width: 15%">등록일자</td>
 						<td style="width: 35%">${qnaInfo.regDate}</td>
 					</tr>
@@ -62,6 +63,37 @@
 						<td>내용</td>
 						<td colspan="3">${qnaInfo.content}</td>
 					</tr>
+					<c:if test="${fileInfo != null}">
+					<tr>
+						<td>첨부파일</td>
+						<td colspan="3">
+							<c:forEach var="file" items="${fileInfo}">
+								<!-- 다운로드를 위한 URL만들기 -->
+								<c:url var="downloadUrl" value="/download.do">
+									<c:param name="file" value="${file.fileDir}/${file.fileName}" />
+									<c:param name="orgin" value="${file.originName}" />
+								</c:url>
+								<!-- 다운로드 링크 -->
+								<a href="${downloadUrl}" class="btn btn-link btn-xs">${file.originName}</a>
+							</c:forEach>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<!-- 이미지만 별도로 화면에 출력하기 -->
+							<c:forEach var="file" items="${fileInfo}">
+								<c:if test="${fn:substringBefore(file.contentType, '/') == 'image'}">
+									<c:url var="downloadUrl" value="/download.do">
+										<c:param name="file" value="${file.fileDir}/${file.fileName}" />
+									</c:url>
+									<p>
+										<img src="${downloadUrl}" class="img-responsive" style="margin: auto"/>
+									</p>
+								</c:if>
+							</c:forEach>
+						</td>
+					</tr>	
+					</c:if>
 					<tr>
 						<td>답변여부</td>
 						<td></td>

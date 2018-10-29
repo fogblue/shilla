@@ -1,5 +1,7 @@
 package iot5.project.shilla.service;
 
+import java.util.List;
+
 import iot5.project.shilla.model.QnA;
 
 public interface QnAService {
@@ -33,6 +35,13 @@ public interface QnAService {
 	 */
 	public QnA selectQnA(QnA qna) throws Exception;
 	
+	/**
+	 * 게시물 리스트
+	 * @param qna
+	 * @return
+	 * @throws Exception
+	 */
+	public List<QnA> selectQnAList(QnA qna) throws Exception;
 	/**
 	 * 현재글을 기준으로 이전글을 읽어들인다.
 	 * @param qna - 현재글에 대한 게시물 번호가 저장된 Beans

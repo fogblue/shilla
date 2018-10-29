@@ -1,5 +1,6 @@
 package iot5.project.shilla.mypage;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +19,12 @@ import org.springframework.web.servlet.ModelAndView;
 import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
+import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvGuest;
+import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -42,31 +46,58 @@ public class MypageController {
 	QnAService qnaService;
 	@Autowired
 	ReservService reservService;
+	@Autowired
+	FileService fileService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
+	@RequestMapping(value = "/mypage/mypg_main.do", method = RequestMethod.GET)
+	public ModelAndView mypg_main(Locale locale, Model model) {	
+		return new ModelAndView("mypage/mypg_main");
+	}
+	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation(Locale locale, Model model) {	
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		ResvRoom resvroom = new ResvRoom();
+		try {
+			resvroom.setMemberId(loginInfo.getId());
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
+		List<ResvRoom> reservInfo = null;
+		try {
+			reservInfo = reservService.selectReservList(resvroom);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
+		}
+		
+		model.addAttribute("reservInfo", reservInfo);
+		
 		return new ModelAndView("mypage/mypg_reservation");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
-		web.init();
+		/*web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
-		Reservation reserv = new Reservation();
-		reserv.setMemberId(loginInfo.getId());
+		ResvRoom resvroom = new ResvRoom();
+		resvroom.setMemberId(loginInfo.getId());
 		
-		Reservation reservInfo = null;
+		List<ResvRoom> reservInfo = null;
 		try {
-			reservInfo = reservService.selectReserv(reserv);
+			reservInfo = reservService.selectReservList(resvroom);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
 		
-		model.addAttribute("resvInfo", reservInfo);
+		model.addAttribute("reservInfo", reservInfo);*/
 		
 		return new ModelAndView("mypage/mypg_reservation_table");
 	}
@@ -79,17 +110,20 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		Reservation reserv = new Reservation();
-		reserv.setRoomId(id);
+		ResvRoom resvroom = new ResvRoom();
+		ResvGuest resvguest = new ResvGuest();
+		resvroom.setId(id);
+		resvguest.setResvRoomId(id);
 		
-		Reservation reservInfo = null;
 		try {
-			reservInfo = reservService.selectReservById(reserv);
+			resvroom = reservService.selectReservRById(resvroom);
+			resvguest = reservService.selectReservGById(resvguest);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
 		
-		model.addAttribute("reservInfo", reservInfo);
+		model.addAttribute("reservRInfo", resvroom);
+		model.addAttribute("reservGInfo", resvguest);
 		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
@@ -124,8 +158,23 @@ public class MypageController {
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", null);
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
+	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		String email = request.getParameter("email");
+		logger.info("받아온 이메일은 >> " + email);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
@@ -254,12 +303,7 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna(Locale locale, Model model) {	
-		return new ModelAndView("mypage/mypg_qna");
-	}
-
-	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_table(Locale locale, Model model) {
+	public ModelAndView mypg_qna(Locale locale, Model model) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -267,14 +311,35 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setMemberId(loginInfo.getId());
 		
-		QnA qnaInfo = null;
+		List<QnA> qnaInfo = null;
 		try {
-			qnaInfo = qnaService.selectQnA(qna);
+			qnaInfo = qnaService.selectQnAList(qna);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
+		
+		return new ModelAndView("mypage/mypg_qna");
+	}
+
+	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_table(Locale locale, Model model) {
+		/*web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
+		List<QnA> qnaInfo = null;
+		try {
+			qnaInfo = qnaService.selectQnAList(qna);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);*/
 		
 		return new ModelAndView("mypage/mypg_qna_table");
 	}
@@ -290,14 +355,20 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setId(id);
 
+		File file = new File();
+		file.setQnaId(qna.getId());
+		
 		QnA qnaInfo = null;
+		List<File> fileList = null;
 		try {
 			qnaInfo = qnaService.selectQnAById(qna);
+			fileList = fileService.selectQnAFileList(file);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna_2.do", null);
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
+		model.addAttribute("fileInfo", fileList);
 		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}

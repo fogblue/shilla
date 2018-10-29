@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -27,11 +26,11 @@
 		<form class="form-horizontal" name="room_add" id="room_add" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/room_add_ok.do">
 			<h5 class="basic_data_title">기본 정보 입력 (*표시 필수입력사항)</h5>
 			<div class="form-group">
-				<label for='room_no' class="col-md-2">
-					<span class='identify'>*</span>방 번호
+				<label for='package_name' class="col-md-2">
+					<span class='identify'>*</span>패키지 이름
 				</label>
 				<div class="col-md-10">
-					<input type="text" name="room_no" id="room_no" class="form-control" />
+					<input type="text" name="package_name" class="form-control" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -44,79 +43,27 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for='room_type' class="col-sm-2">
-					<span class='identify'>*</span>객실 유형
+				<label for='package_price' class="col-sm-2">
+					<span class='identify'>*</span>패키지 가격
 					</label>
 				<div class="col-sm-10">
-					<label><input type="radio" name="room_type" id="room_type1" class="form-control" value="Business Deluxe" checked /> Business Deluxe</label>
-					<label><input type="radio" name="room_type" id="room_type2" class="form-control" value="Executive Business Deluxe" /> Executive Business Deluxe</label>
+					<label><input type="text" name="package_price" class="form-control" /></label>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for='bed_type' class="col-sm-2">
-					<span class='identify'>*</span>침대 유형
+				<label for='package_content' class="col-sm-2">
+					<span class='identify'>*</span>패키지 내용
 				</label>
 				<div class="col-sm-10">
-					<label><input type="radio" name="bed_type" id="bed_type1" class="form-control" value="Twin" checked />Twin</label>
-					<label><input type="radio" name="bed_type" id="bed_type2" class="form-control" value="Double" />Double</label>
+					<label><textarea name='package_content' class="form-control"></label>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for='room_price' class="col-sm-2">
-					<span class='identify'>*</span>객실 가격
-				</label>
-				<div class="col-sm-10">
-					<input type="text" name="room_price" id="room_price" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label for='package_id' class="col-md-2">
-					<span class='identify'>*</span>패키지 ID
+				<label for='package_img' class="col-md-2">
+					<span class='identify'>*</span>패키지 사진
 				</label>
 				<div class="col-md-10">
-					<input type="text" name="package_id" id="package_id" class="form-control" value="1" />
-				</div>
-			</div>
-			<div class="form-group">
-<<<<<<< HEAD
-				<label for='meal' class="col-md-2">
-					<span class='identify'>*</span>조식 가격
-				</label>
-				<div class="col-md-10">
-					<input type="text" name="meal" id="meal" class="form-control" value="30000" />
-				</div>
-			</div>
-			<!-- 파일 업로드 -->
-			<div class="form-group">
-				<label for="file" class="col-sm-2 control-label">파일첨부</label>
-				<div class="col-sm-10">
-					<input type="file" class="form-control" id="file" name="file" multiple>
-
-					<c:if test="${fileList != null}">
-						<c:forEach var="file" items="${fileList}">
-							<c:url value="/download.do" var="downloadUrl">
-								<c:param name="file" value="${file.fileDir}/${file.fileName}" />
-							</c:url>
-							
-							<div class="checkbox">
-								<label>
-									<input type="checkbox" name="del_file" id="img_del" value="${file.id}" />
-									${file.originName}삭제하기
-									<a href="${downloadUrl}">[다운받기]</a>
-								</label>
-							</div>
-						</c:forEach>
-					</c:if>
-				</div>
-			</div>
-			<div class="form-group">
-=======
->>>>>>> 26e5f1925f181c8be0c2b7a9df77aa1a7012644a
-				<label for='room_img' class="col-md-2">
-					<span class='identify'>*</span>객실 사진
-				</label>
-				<div class="col-md-10 calendar_box">
-					<input type="file" name="room_img" multiple />
+					<input type="file" name="package_img" multiple />
 				</div>
 			</div>
 			<div class="form-group">

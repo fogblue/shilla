@@ -7,8 +7,7 @@
 <%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/index.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/youcover/youCover.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/plugins/lightbox/css/lightbox.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/lightbox/css/lightbox.min.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>

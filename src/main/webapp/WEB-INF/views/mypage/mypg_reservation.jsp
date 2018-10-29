@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 <c:choose>
 	<c:when test="${loginInfo == null}">
 		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 페이지입니다.");
+			alert("로그인 후 이용 가능한 서비스입니다.");
 			location.href="${pageContext.request.contextPath}/member/log_main.do";
 		</script>
 	</c:when>
@@ -56,16 +57,36 @@
 					<div>
 						<p>Total : </p>
 						<table class="mypg-rsvt-contents-table">
-							<tr>
+							<tr class="rsvt-table-title">
 								<td>예약번호</td>
 								<td>호텔</td>
 								<td>객실/패키지</td>
 								<td>체크인/체크아웃</td>
 								<td>예약상태</td>
 							</tr>
-							<tr id="find-result">
-								<td colspan="5" id="find-target">자료가 없습니다.</td>
-							</tr>
+							<!-- <tbody id="find-result">
+								<tr id="find-target">
+									<td colspan="5">자료가 없습니다.</td>
+								</tr>
+							</tbody> -->
+							<c:choose>
+								<c:when test="${fn:length(reservInfo) > 0}">
+									<c:forEach var="reserv" items="${reservInfo}">
+										<tr>
+											<td>${reserv.id}</td>
+											<td>${reserv.hotelCate}</td>
+											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
+											<td>${reserv.checkIn}</td>
+											<td></td>
+										</tr>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<tr id="find-target">
+										<td colspan="5">자료가 없습니다.</td>
+									</tr>
+								</c:otherwise>
+							</c:choose>
 						</table>
 					</div>
 				</div>
@@ -92,7 +113,7 @@
             trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
         });
     });
-    $("#find").click(function(e) {
+   /*  $("#find").click(function(e) {
 		$("#find-result").empty();
 		$("#find-target").remove();
 		$.ajax({
@@ -104,7 +125,7 @@
 				$("#find-result").append(req);
 			}
 		});
-	});
+	}); */
     </script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

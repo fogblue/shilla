@@ -29,50 +29,24 @@
 					<a>개인정보</a>
 					<a href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do">프로필 수정</a>
 					<a href="${pageContext.request.contextPath}/mypage/mypg_password_edit.do">비밀번호 변경</a>
-					<a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do" class="mypg-sidebar-open">회원 탈퇴 요청<img src="${pageContext.request.contextPath}/assets/img/sidebar_arr.gif" class="sidebar-arrow"></a>
+					<a href="${pageContext.request.contextPath}/mypage/mypg_withdraw.do">회원 탈퇴 요청</a>
 					<a href="${pageContext.request.contextPath}/mypage/mypg_qna.do">문의 내역</a>
 				</div>
 			</div>
 		</div>
 		<div class="mypg-contents">
-			<div class="mypg-bdb2 mypg-contents-header">
-				<h3>회원 탈퇴 요청</h3>
-				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;개인정보&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">회원 탈퇴 요청</span></div>
+			<div class="bdb mypg-contents-header">
+				<h3>마이페이지</h3>
+				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">마이페이지</span></div>
 			</div>
-			<div class="mypg-contents-txtbox">
-				<p>${loginInfo.userNameKor}&nbsp;님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</p>
+			<div class="mypg-contents-txt">
+				<p><span class="mypg-mp-name">${loginInfo.userNameEng}&nbsp;님</span>의 회원번호에 대한 안내입니다.</p>
 			</div>
-			<form action="${pageContext.request.contextPath}/mypage/mypg_withdraw_ok.do" method="post" id="pswdCheck" name="pswdCheck">
-			<div class="mypg-contents-table">
-				<table class="mypg-pfed-contents-table">
-					<tr>
-						<td>회원 번호</td>
-						<td>${loginInfo.id}</td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" id="pswd_confirm" name="pswd_confirm" /></td>
-					</tr>
-				</table>
+			<div class="mypg-mp-bd">
+				<span>회원 번호</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.id}</span>
 			</div>
-			<div class="mypg-contents-btn">
-				<button type="submit" class="btn mypg-pfed-confirm" onclick="onSubmit()">확인</button>
-			</div>
-			</form>
 		</div>
 	</div>
-	
-	<script type="text/javascript">
-	function onSubmit() {
-		var pc = document.pswdCheck;
-		
-		if (pc.pswd_confirm.value == "") {
-			return false;
-		}
-		
-		return true;
-	}
-	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>
 	</c:otherwise>

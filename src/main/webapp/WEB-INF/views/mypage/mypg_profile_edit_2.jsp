@@ -11,7 +11,7 @@
 <c:choose>
 	<c:when test="${loginInfo == null}">
 		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 페이지입니다.");
+			alert("로그인 후 이용 가능한 서비스입니다.");
 			location.href="${pageContext.request.contextPath}/member/log_main.do";
 		</script>
 	</c:when>
@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<td>성명(영문)</td>
-						<td>${loginInfo.userNameEng}</td>
+						<td style="text-transform: uppercase;">${loginInfo.userNameEng}</td>
 					</tr>
 					<tr>
 						<td>아이디</td>

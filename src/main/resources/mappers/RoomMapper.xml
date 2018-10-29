@@ -13,7 +13,7 @@
 		<result property="roomPrice" column="room_price" />
 		<result property="roomImg" column="room_img" />
 		<result property="packageId" column="package_id" />
-		<result property="hotelCategory" column="hotel_category" />
+		<result property="hotelCate" column="hotel_category" />
 	</resultMap>
 	
 	<!-- 예약 갯수 -->

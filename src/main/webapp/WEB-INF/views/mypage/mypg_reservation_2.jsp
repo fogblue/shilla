@@ -11,7 +11,7 @@
 <c:choose>
 	<c:when test="${loginInfo == null}">
 		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 페이지입니다.");
+			alert("로그인 후 이용 가능한 서비스입니다.");
 			location.href="${pageContext.request.contextPath}/member/log_main.do";
 		</script>
 	</c:when>
@@ -59,53 +59,72 @@
 					<table class="mypg-rsvt2-contents-table">
 						<tr>
 							<td style="width: 15%">예약번호</td>
-							<td style="width: 35%">${reservInfo.id}</td>
+							<td style="width: 35%">${reservRInfo.id}</td>
 							<td style="width: 15%">예약상태</td>
 							<td style="width: 35%"></td>
 						</tr>
 						<tr>
 							<td>호텔</td>
-							<td>${reservInfo.hotelCate}</td>
+							<td>${reservRInfo.hotelCate}</td>
 							<td>고객명</td>
-							<td></td>
+							<td>${loginInfo.userNameEng}</td>
 						</tr>
 						<tr>
 							<td>체크인 날짜</td>
-							<td>${reservInfo.checkIn}</td>
+							<td>${reservRInfo.checkIn}</td>
 							<td>체크아웃 날짜</td>
-							<td>${reservInfo.checkOut}</td>
+							<td>${reservRInfo.checkOut}</td>
 						</tr>
 						<tr>
 							<td>예약 일자</td>
-							<td>${reservInfo.resvDate}</td>
+							<td>${reservRInfo.resvDate}</td>
 							<td>투숙인원</td>
-							<td>성인&nbsp;:&nbsp;${reservInfo.pplAd}&nbsp;/&nbsp;어린이&nbsp;:&nbsp;${reservInfo.pplCh}&nbsp;/&nbsp;유아&nbsp;:&nbsp;${reservInfo.pplBb}</td>
+							<td>성인&nbsp;:&nbsp;${reservGInfo.pplAd}&nbsp;/&nbsp;어린이&nbsp;:&nbsp;${reservGInfo.pplCh}&nbsp;/&nbsp;유아&nbsp;:&nbsp;${reservGInfo.pplBb}</td>
 						</tr>
 						<tr>
 							<td>객실타입</td>
-							<td colspan="3">${reservInfo.roomType}</td>
+							<td colspan="3">${reservRInfo.roomType}</td>
 						</tr>
 						<tr>
 							<td>패키지명</td>
-							<td colspan="3">${reservInfo.packageType}</td>
+							<td colspan="3">${reservRInfo.packageType}</td>
 						</tr>
 					</table>
 				</div>
 				<div class="mypg-contents-table">
 					<table class="mypg-rsvt2-contents-table-2">
 						<tr class="text-center">
-							<td style="width: 15%">(날짜)</td>
+							<td style="width: 15%">${reservRInfo.checkIn}</td>
 							<td style="width: 45%">(내역)</td>
 							<td style="width: 20%">원</td>
 							<td style="width: 20%">원</td>
 						</tr>
+						<c:choose>
+							<c:when test="${reservRInfo.exbed != 0}">
+								<tr class="text-center">
+									<td></td>
+									<td>(내역)</td>
+									<td>&nbsp;개</td>
+									<td>${reservRInfo.exbed}&nbsp;원</td>
+								</tr>
+							</c:when>
+							<c:when test="${reservRInfo.meal != 0}">
+								<tr class="text-center">
+									<td></td>
+									<td>(내역)</td>
+									<td>&nbsp;명</td>
+									<td>${reservRInfo.meal}&nbsp;원</td>
+								</tr>
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
 						<tr class="text-right">
 							<td colspan="3">세금&amp;봉사료</td>
-							<td>원</td>
+							<td>&nbsp;원</td>
 						</tr>
 						<tr class="text-right">
 							<td colspan="3">요금합계&nbsp;&nbsp;&nbsp;</td>
-							<td>원</td>
+							<td>${reservRInfo.totalPrice}&nbsp;원</td>
 						</tr>
 					</table>
 					<p style="magin: 0; color: #7e4f15;">&#8251; 10% service charge and 11% Tax Included.<br />&#8251; 현재 미결제 상태이며, 체크인시 결제가 진행됩니다.</p>
@@ -115,13 +134,13 @@
 					<table class="mypg-rsvt2-contents-table-3">
 						<tr>
 							<td style="width: 15%">카드번호</td>
-							<td colspan="3"></td>
+							<td colspan="3">${reservGInfo.cardNo}</td>
 						</tr>
 						<tr>
 							<td style="width: 15%">카드종류</td>
-							<td style="width: 35%"></td>
+							<td style="width: 35%">${reservGInfo.cardType}</td>
 							<td style="width: 15%">만기일</td>
-							<td style="width: 35%"></td>
+							<td style="width: 35%">${reservGInfo.cardYy}년${reservGInfo.cardMm}월</td>
 						</tr>
 					</table>
 				</div>
@@ -130,7 +149,7 @@
 					<table class="mypg-rsvt2-contents-table-4">
 						<tr>
 							<td style="width: 15%;">남기신 말씀</td>
-							<td></td>
+							<td>${reservGInfo.detail}</td>
 						</tr>
 					</table>
 				</div>

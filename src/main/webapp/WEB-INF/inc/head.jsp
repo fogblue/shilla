@@ -19,7 +19,6 @@
 <!-- CSS 참조 -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/topbar.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/sidebar.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/join.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/animate/animate.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/datepicker/datepicker.min.css" />
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -77,6 +78,40 @@
 				</div>
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
+				<label for='meal' class="col-md-2">
+					<span class='identify'>*</span>조식 가격
+				</label>
+				<div class="col-md-10">
+					<input type="text" name="meal" id="meal" class="form-control" value="30000" />
+				</div>
+			</div>
+			<!-- 파일 업로드 -->
+			<div class="form-group">
+				<label for="file" class="col-sm-2 control-label">파일첨부</label>
+				<div class="col-sm-10">
+					<input type="file" class="form-control" id="file" name="file" multiple>
+
+					<c:if test="${fileList != null}">
+						<c:forEach var="file" items="${fileList}">
+							<c:url value="/download.do" var="downloadUrl">
+								<c:param name="file" value="${file.fileDir}/${file.fileName}" />
+							</c:url>
+							
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="del_file" id="img_del" value="${file.id}" />
+									${file.originName}삭제하기
+									<a href="${downloadUrl}">[다운받기]</a>
+								</label>
+							</div>
+						</c:forEach>
+					</c:if>
+				</div>
+			</div>
+			<div class="form-group">
+=======
+>>>>>>> 26e5f1925f181c8be0c2b7a9df77aa1a7012644a
 				<label for='room_img' class="col-md-2">
 					<span class='identify'>*</span>객실 사진
 				</label>

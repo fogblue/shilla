@@ -107,6 +107,7 @@
 			<!-- Date picker 끝 -->
 			<div class="rsv_personcount">
 				<form method="post" action="${pageContext.request.contextPath}/reservation/reservation2.do">
+				
 				<div class="rsv_adult">
 					<div class="rsv_pmbutton">
 						<span>성인</span>
@@ -117,6 +118,7 @@
 						<button type="button" class="rsv_minus 1234" id="minus1">-</button>
 					</div>
 				</div>
+				
 				<div class="rsv_child">
 					<div class="rsv_pmbutton">
 						<span>어린이</span>
@@ -127,6 +129,7 @@
 						<button type="button" class="rsv_minus 1234" id="minus2">-</button>
 					</div>
 				</div>
+				
 				<div class="rsv_baby">
 					<div class="rsv_pmbutton">
 						<span>유아</span>
@@ -137,6 +140,7 @@
 						<button type="button" class="rsv_minus 1234" id="minus3">-</button>
 					</div>
 				</div>
+				
 				</form>
 				<script type="text/javascript">
 					$(function() {

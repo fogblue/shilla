@@ -7,6 +7,7 @@
 <%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/login.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/LogJoin.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/join.css">
 
 <script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
   

@@ -31,7 +31,7 @@
 <script src="${pageContext.request.contextPath }/assets/plugins/handlebars/handlebars-v4.0.5.js"></script>
 <script src="${pageContext.request.contextPath }/assets/plugins/datepicker/datepicker.min.js"></script>
 <script src="${pageContext.request.contextPath }/assets/plugins/datepicker/i18n/datepicker.ko-KR.js"></script>
-
+<script src="http://cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
 <!-- Ajax Helper -->
 <script src="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/plugins/ajax/ajax_helper.css" />

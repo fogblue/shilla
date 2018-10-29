@@ -62,7 +62,7 @@ public class IndexController {
 	public ModelAndView room(Locale locale, Model model) {
 		logger.info("Admin Page");
 
-		return new ModelAndView("room_add");
+		return new ModelAndView("admin/room_add");
 	}
 	@RequestMapping(value = "/enqanswer.do", method = RequestMethod.GET)
 	public ModelAndView enqanswer(Locale locale, Model model) {
@@ -71,7 +71,7 @@ public class IndexController {
 		return new ModelAndView("enqanswer");
 	}
 	
-	@RequestMapping(value = "/room_add_ok.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/room_add_ok.do", method = RequestMethod.POST)
 	public ModelAndView roomAddOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -135,13 +135,13 @@ public class IndexController {
 		}
 		
 		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
-		return web.redirect(web.getRootPath() + "/room_add.do", "객실 정보가 저장되었습니다.");
+		return web.redirect(web.getRootPath() + "/admin/room_add.do", "객실 정보가 저장되었습니다.");
 	}
 	@RequestMapping(value = "/package_add.do", method = RequestMethod.GET)
 	public ModelAndView packageAdd(Locale locale, Model model) {
 		logger.info("Admin Page");
 
-		return new ModelAndView("package_add");
+		return new ModelAndView("admin/package_add");
 	}
 	
 	@RequestMapping(value = "/package_add_ok.do", method = RequestMethod.POST)
@@ -207,6 +207,6 @@ public class IndexController {
 		}
 		
 		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
-		return web.redirect(web.getRootPath() + "/package_add.do", "패키지 정보가 저장되었습니다.");
+		return web.redirect(web.getRootPath() + "/admin/package_add.do", "패키지 정보가 저장되었습니다.");
 	}
 }

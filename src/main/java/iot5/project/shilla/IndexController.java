@@ -64,6 +64,12 @@ public class IndexController {
 
 		return new ModelAndView("room_add");
 	}
+	@RequestMapping(value = "/enqanswer.do", method = RequestMethod.GET)
+	public ModelAndView enqanswer(Locale locale, Model model) {
+		logger.info("Admin Page");
+
+		return new ModelAndView("enqanswer");
+	}
 	
 	@RequestMapping(value = "/room_add_ok.do", method = RequestMethod.POST)
 	public ModelAndView roomAddOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response)

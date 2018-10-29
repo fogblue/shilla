@@ -78,7 +78,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
 				<label for='meal' class="col-md-2">
 					<span class='identify'>*</span>조식 가격
 				</label>
@@ -110,8 +109,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-=======
->>>>>>> 26e5f1925f181c8be0c2b7a9df77aa1a7012644a
 				<label for='room_img' class="col-md-2">
 					<span class='identify'>*</span>객실 사진
 				</label>

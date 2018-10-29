@@ -44,7 +44,7 @@
 
 				<li class="menu-item"><a href="${pageContext.request.contextPath}/info/hotelinfo.do"><button class="btn btn-topbar">호텔신라 소개</button></a></li>
 				<li class="menu-item"><a href="${pageContext.request.contextPath}/info/contactinfo.do"><button class="btn btn-topbar">고객문의</button></a></li>
-				<li class="menu-item"><a href="${pageContext.request.contextPath}/admin.do" class="btn btn-topbar">관리자페이지</a></li>
+				<li class="menu-item"><a href="${pageContext.request.contextPath}/package_add.do" class="btn btn-topbar">관리자페이지</a></li>
 			</ul>
 		</div>
 	</div>

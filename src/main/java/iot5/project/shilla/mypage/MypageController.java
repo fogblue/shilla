@@ -72,15 +72,25 @@ public class MypageController {
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
+		/* */int page = web.getInt("page", 1);
+		
+		/* */int totalCount = 0;
 		
 		List<ResvRoom> reservInfo = null;
 		try {
+			/* */totalCount = reservService.selectReservationCount(resvroom);
+			/* */pageHelper.pageProcess(page, totalCount, 10, 5);
 			reservInfo = reservService.selectReservList(resvroom);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
 		
 		model.addAttribute("reservInfo", reservInfo);
+		
+		/* */model.addAttribute("pageHelper", pageHelper);
+		
+		/* */int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		/* */model.addAttribute("maxPageNo", maxPageNo);
 		
 		return new ModelAndView("mypage/mypg_reservation");
 	}

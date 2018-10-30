@@ -44,8 +44,11 @@ public class AdminController {
 	public ModelAndView roomList(Locale locale, Model model) throws ServletException, IOException {
 		logger.info("Admin Page");
 		
+		web.init();
+		
 		// 검색어 파라미터 받기 + Beans 설정
-		String keyword = web.getString("keyword", "");
+		String keyword = web.getString("keyword","");
+				
 		Room room = new Room();
 		room.setRoomType(keyword);
 		
@@ -163,8 +166,9 @@ public class AdminController {
 	
 	@RequestMapping(value = "/admin/room_view.do", method = RequestMethod.GET)
 	public ModelAndView roomView(Locale locale, Model model) {
-		/*int roomId = web.getInt("id");*/
-		int roomId = 3;
+		web.init();
+		
+		int roomId = web.getInt("id");
 		logger.debug("roomId=" + roomId);
 		
 		if (roomId == 0) {

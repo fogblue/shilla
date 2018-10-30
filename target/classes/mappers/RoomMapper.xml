@@ -19,8 +19,8 @@
 	 <select id="selectRoomCount" parameterType="iot5.project.shilla.model.Room" resultType="int">
         SELECT count(id) FROM room
         <where>
-			<if test="roomNo != null and roomNo != ''">
-				room_no LIKE concat('%', #{roomNo}, '%')
+			<if test="roomType != null and roomType != ''">
+				room_type LIKE concat('%', #{roomType}, '%')
 			</if>
 		</where>
     </select>
@@ -50,7 +50,7 @@
 			</if>
 		</where>
 
-		ORDER BY room DESC
+		ORDER BY id DESC
 		LIMIT #{limitStart}, #{listCount}
 	</select>
 </mapper>

@@ -170,6 +170,8 @@ public class MypageController {
 		
 		String email = request.getParameter("email");
 		String tel = request.getParameter("tel");
+		String agree1 = request.getParameter("agree1");
+		String agree2 = request.getParameter("agree2");
 		logger.info("입력한 이메일은 >> " + email);
 		logger.info("입력한 연락처는 >> " + tel);
 		
@@ -193,6 +195,8 @@ public class MypageController {
 		member.setId(loginInfo.getId());
 		member.setEmail(email);
 		member.setTel(tel);
+		member.setAgree1(agree1);
+		member.setAgree2(agree2);
 		
 		Member editInfo = null;
 		try {

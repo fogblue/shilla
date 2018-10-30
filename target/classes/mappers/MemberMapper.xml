@@ -113,7 +113,7 @@
 	<select id="selectMember"
 		parameterType="iot5.project.shilla.model.Member" resultMap="member">
 		SELECT id, user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
-				email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
+				email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date, agree1, agree2
 		FROM member
 		WHERE id=#{id}
 	</select>

@@ -20,6 +20,8 @@
 		<result property="detail" column="addr2" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
+		<result property="agree1" column="agree1" />
+		<result property="agree2" column="agree2" />
 	</resultMap>
 	<!-- 아이디 중복검사를 수행한다 -->
     <select id="selectUserIdCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
@@ -89,7 +91,7 @@
 	<!-- 회원정보를 변경한다 -->
 	<update id="updateMember" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET
-			user_name_kor=#{user_name_kor}, birthdate=#{birthdate},email=#{email},
+			user_name_kor=#{userNameKor}, birthdate=#{birthdate},email=#{email},
 			tel=#{tel}, zipcode=#{zipcode}, addr1=#{load_addr}, addr2=#{detail},
 			edit_date=now()
 			
@@ -100,11 +102,18 @@
 		WHERE id=#{id}
 	</update>
 	
+	<!-- 회원정보를 변경한다 : 이메일, 전화번호 -->
+	<update id="updateMemberET" parameterType="iot5.project.shilla.model.Member">
+		UPDATE member SET
+			email=#{email}, tel=#{tel}, agree1=#{agree1}, agree2=#{agree2}
+		WHERE id=#{id}
+	</update>
+	
 	<!-- 아이디로 회원 목록 조회하기 -->
 	<select id="selectMember"
 		parameterType="iot5.project.shilla.model.Member" resultMap="member">
 		SELECT id, user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
-				email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
+				email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date, agree1, agree2
 		FROM member
 		WHERE id=#{id}
 	</select>

@@ -202,5 +202,20 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 		
 	}
+	
+	@Override
+	public void updateMemberET(Member member) throws Exception {
+		try {
+			int result = sqlSession.update("MemberMapper.updateMemberET", member);
+			if(result == 0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("변경된 회원정보가 없습니다.");
+		}catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("회원정보 수정에 실패했습니다.");
+		}
+	}
 
 }

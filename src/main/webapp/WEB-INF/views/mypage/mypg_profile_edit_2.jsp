@@ -71,7 +71,7 @@
 						<td>
 							<span>서비스 및 이벤트 소식이 담긴 호텔신라의 뉴스레터를 수신하겠습니까?</span>
 							<input type="radio" name="agree1" id="agree1y" value="Y"
-								<c:if test="${loginInfo.agree1 == 'Y'}">checked</c:if>
+								<c:if test="${loginInfo.agree1 == 'Y' || loginInfo.agree1 == null}">checked</c:if>
 							/><label for="agree1y">예</label>
 							<input type="radio" name="agree1" id="agree1n" value="N"
 								<c:if test="${loginInfo.agree1 == 'N'}">checked</c:if>
@@ -88,7 +88,7 @@
 						<td>
 							<span>서비스 및 이벤트 소식이 담긴 호텔신라의 LMS를 수신하시겠습니까?</span>
 							<input type="radio" name="agree2" id="agree2y" value="Y"
-								<c:if test="${loginInfo.agree2 == 'Y'}">checked</c:if>
+								<c:if test="${loginInfo.agree2 == 'Y' || loginInfo.agree2 == null}">checked</c:if>
 							/><label for="agree2y">예</label>
 							<input type="radio" name="agree2" id="agree2n" value="N"
 								<c:if test="${loginInfo.agree2 == 'N'}">checked</c:if>

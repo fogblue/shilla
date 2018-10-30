@@ -42,10 +42,11 @@
 			<div class="mypg-contents-txt">
 				<p>고객님의 정보를 언제든지 확인, 변경하실 수 있습니다.</p>
 			</div>
+			<form action="${pageContext.request.contextPath}/mypage/mypg_profile_edit_2_ok.do" method="post" id="emailCheck" name="emailCheck">
 			<div class="mypg-contents-table">
 				<span>기본 정보</span>
-				<form action="#">
 				<table class="mypg-pfed2-contents-table">
+					<tbody>
 					<tr>
 						<td>성명(한글)</td>
 						<td>${loginInfo.userNameKor}</td>
@@ -61,8 +62,9 @@
 					<tr>
 						<td rowspan="2">이메일</td>
 						<td>
-							<input type="text" value="${loginInfo.email}" />
-							<button type="button" class="btn-xs mypg-pfed2-overlap">이메일 중복확인</button>
+							<input type="text" id="email" name="email" maxlength="150" onclick="inputEmail()" value="${loginInfo.email}" />
+							<button type="button" id="emailCheckBtn" class="btn-xs mypg-pfed2-overlap" onclick="emailCheck()">이메일 중복확인</button>
+							<input type="hidden" name="emailDuplication" value="emailUncheck" />
 						</td>
 					</tr>
 					<tr>
@@ -75,7 +77,7 @@
 					<tr>
 						<td rowspan="2">휴대전화</td>
 						<td>
-							<input type="text" placeholder="&nbsp;'-' 없이 입력" value="${loginInfo.tel}"/>
+							<input type="text" id="tel" name="tel" placeholder="&nbsp;'-' 없이 입력" maxlength="13" onclick="inputTel()" value="${loginInfo.tel}"/>
 						</td>
 					</tr>
 					<tr>
@@ -85,26 +87,46 @@
 							<input type="radio" name="agree2" id="agree2n" /><label for="agree2n">아니오</label>
 						</td>
 					</tr>
+					</tbody>
 				</table>
-				</form>
 			</div>
 			<div class="mypg-contents-btn2">
 				<button type="submit" class="btn btn-lg mypg-pwed-change" onclick="onSubmit()">변경</button>
-				<button type="reset" class="btn btn-lg mypg-pwed-cancel"  onclick="location.href = '${pageContext.request.contextPath}/mypage/mypg_profile_edit.do'">취소</button>
+				<button type="reset" class="btn btn-lg mypg-pwed-cancel"  onclick="goToBack()">취소</button>
 			</div>
+			</form>
 		</div>
 	</div>
 	
 	<script>	
-	$(function() {
-		$("#email_select").change(function(){
-			var sel = $(this).find("option:selected").val();
-			$("#selected_email").val(sel);
-		});
-	});
-	
 	function onSubmit() {
-		location.href='${pageContext.request.contextPath}/mypage/mypg_profile_edit_2_ok.do'
+		var ec = document.emailCheck;
+		
+		/* if ($("#email").val() != null && $("#email").val() != "") {
+			if (ec.emailDuplication.value != "emailCheck") {
+				alert("이메일 중복확인을 해주세요.");
+				return false;
+			}
+		} else {
+			return true;
+		} */
+		return true;
+	}
+	
+	function emailCheck() {
+		
+	}
+	
+	function goToBack() {
+		location.href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do"
+	}
+	
+	function inputEmail() {
+		$("#email").val("");
+	}
+	
+	function inputTel() {
+		$("#tel").val("");
 	}
 	</script>
 	<!-- ==============끝================== -->

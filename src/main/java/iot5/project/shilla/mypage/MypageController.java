@@ -158,29 +158,53 @@ public class MypageController {
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", null);
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.POST)
-	public ModelAndView mypg_profile_edit_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
+	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
 		web.init();
-		
-		String email = request.getParameter("email");
-		logger.info("받아온 이메일은 >> " + email);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_2_ok.do", method = RequestMethod.GET)
-	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model) {
+	@RequestMapping(value = "/mypage/mypg_profile_edit_2_ok.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		String email = request.getParameter("email");
+		String tel = request.getParameter("tel");
+		logger.info("입력한 이메일은 >> " + email);
+		logger.info("입력한 연락처는 >> " + tel);
+		
+		// 이메일 검사
+		if (!regex.isValue(email)) {
+			return web.redirect(null, "이메일을 입력하세요.");
+		}
+		if (!regex.isEmail(email)) {
+			return web.redirect(null, "이메일의 형식이 잘못되었습니다.");
+		}
+		// 연락처 검사
+		if (!regex.isValue(tel)) {
+			return web.redirect(null, "연락처를 입력하세요.");
+		}
+		if (!regex.isCellPhone(tel) && !regex.isTel(tel)) {
+			return web.redirect(null, "연락처의 형식이 잘못되었습니다.");
+		}
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		Member member = new Member();
+		member.setId(loginInfo.getId());
+		member.setEmail(email);
+		member.setTel(tel);
+		
+		Member editInfo = null;
+		try {
+			memberService.updateMemberET(member);
+			editInfo = memberService.selectMember(member);
+		} catch (Exception e) {
+			return web.redirect(null, null);
+		}
+		
+		web.removeSession("loginInfo");
+		web.setSession("loginInfo", editInfo);
+		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}
 	

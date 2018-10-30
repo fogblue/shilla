@@ -63,11 +63,11 @@
 						<td>내용</td>
 						<td colspan="3">${qnaInfo.content}</td>
 					</tr>
-					<c:if test="${fileInfo != null}">
+					<c:if test="${fileList != null}">
 					<tr>
 						<td>첨부파일</td>
 						<td colspan="3">
-							<c:forEach var="file" items="${fileInfo}">
+							<c:forEach var="file" items="${fileList}">
 								<!-- 다운로드를 위한 URL만들기 -->
 								<c:url var="downloadUrl" value="/download.do">
 									<c:param name="file" value="${file.fileDir}/${file.fileName}" />
@@ -79,14 +79,14 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td colspan="4" style="padding:5px;">
 							<!-- 이미지만 별도로 화면에 출력하기 -->
-							<c:forEach var="file" items="${fileInfo}">
+							<c:forEach var="file" items="${fileList}">
 								<c:if test="${fn:substringBefore(file.contentType, '/') == 'image'}">
 									<c:url var="downloadUrl" value="/download.do">
 										<c:param name="file" value="${file.fileDir}/${file.fileName}" />
 									</c:url>
-									<p>
+									<p style="margin:0; border:2px solid #999">
 										<img src="${downloadUrl}" class="img-responsive" style="margin: auto"/>
 									</p>
 								</c:if>
@@ -94,7 +94,7 @@
 						</td>
 					</tr>	
 					</c:if>
-					<tr>
+					<tr style="border-bottom: 1px solid #f1ebd6;">
 						<td>답변여부</td>
 						<td></td>
 						<td>답변일</td>

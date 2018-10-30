@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import iot5.project.shilla.helper.FileInfo;
+import iot5.project.shilla.helper.PageHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
@@ -36,24 +37,45 @@ public class AdminController {
 	RoomService roomService;
 	@Autowired
 	FileService fileService;
+	@Autowired
+	PageHelper pageHelper;
 	
 	@RequestMapping(value = "/admin/room_list.do", method = RequestMethod.GET)
-	public ModelAndView roomList(Locale locale, Model model) {
+	public ModelAndView roomList(Locale locale, Model model) throws ServletException, IOException {
 		logger.info("Admin Page");
-		String keyword = web.getString("keyword", "");
 		
+		// 검색어 파라미터 받기 + Beans 설정
+		String keyword = web.getString("keyword", "");
 		Room room = new Room();
-		/*room.setRoomNo(keyword);*/
+		room.setRoomType(keyword);
+		
+		// 현재 페이지 번호에 대한 파라미터 받기
+		int nowPage = web.getInt("page", 1);
+		
+		// 전체 데이터 수 조회하기
+		int totalCount = 0;
+		try {
+			totalCount = roomService.getRoomCount(room);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		pageHelper.pageProcess(nowPage, totalCount, 10, 5);
+		room.setLimitStart(pageHelper.getLimitStart());
+		room.setListCount(pageHelper.getListCount());
 		
 		/** Service를 통한 SQL 수행 */
 		// 조회결과를 저장하기 위한 객체
 		List<Room> list = null;
 		try {
-			/*list = roomService.getProfessorJoinList(room);*/
+			list = roomService.getRoomList(room);
 		} catch (Exception e) {
-			web.redirect(null, e.getLocalizedMessage());
-			return null;
+			return web.redirect(null, e.getLocalizedMessage());
 		}
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pageHelper",  pageHelper);
+		model.addAttribute("keyword", keyword);
 		
 		return new ModelAndView("admin/room_list");
 	}

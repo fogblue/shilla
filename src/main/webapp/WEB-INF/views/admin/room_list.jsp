@@ -7,10 +7,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/info.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/awards.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/info.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/awards.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
@@ -27,8 +25,7 @@
 		</div>
 		<div class="if-contents">
 			<div class="pull-right" style="margin-top: 30px">
-				<form action="${pageContext.request.contextPath}/prof_list.do"
-					method="get" style="width: 300px;">
+				<form action="${pageContext.request.contextPath}/admin/room_list.do" method="get" style="width: 300px;">
 					<div class="input-group">
 						<input type="text" name="keyword" class="form-control" placeholder="객실번호 검색" value="${keyword}" /> <span class="input-group-btn">
 							<button class="btn btn-success" type="submit">
@@ -44,12 +41,12 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th class="info text-center">객실번호</th>
+					<th class="info text-center">객실 번호</th>
 					<th class="info text-center">호텔 지역</th>
-					<th class="info text-center">객실이름</th>
-					<th class="info text-center">침대유형</th>
+					<th class="info text-center">객실 유형</th>
+					<th class="info text-center">침대 유형</th>
 					<th class="info text-center">가격</th>
-					<th class="info text-center">패키지ID</th>
+					<th class="info text-center">패키지 ID</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -59,7 +56,7 @@
 							<tr>
 								<td class="text-center">${room.roomNo}</td>
 								<td class="text-center">${room.hotelCate}</td>
-								<td class="text-center"><a href="room_view.do?id=${room.id}">${room.roomName}</a></td>
+								<td class="text-center"><a href="${pageContext.request.contextPath}/room_view.do?id=${room.id}">${room.roomType}</a></td>
 								<td class="text-center">${room.bedType}</td>
 								<td class="text-center">${room.roomPrice}</td>
 								<td class="text-center">${room.packageId}</td>
@@ -85,7 +82,7 @@
 					<c:when test="${pageHelper.prevPage>0}">
 						<!-- 이전 그룹에 대한 페이지 번호가 존재한다면? -->
 						<!-- 이전 그룹으로 이동하기 위한 URL을 생성해서 "prevUrl"에 저장 -->
-						<c:url var="prevUrl" value="/prof_list.do">
+						<c:url var="prevUrl" value="${pageContext.request.contextPath}/admin/room_list.do">
 							<c:param name="keyword" value="${keyword}"></c:param>
 							<c:param name="page" value="${pageHelper.prevPage}"></c:param>
 						</c:url>
@@ -101,7 +98,7 @@
 				<c:forEach var="i" begin="${pageHelper.startPage}"
 					end="${pageHelper.endPage}" step="1">
 					<!-- 각 페이지 번호로 이동할 수 있는 URL을 생성하여 page_url에 저장 -->
-					<c:url var="pageUrl" value="prof_list.do">
+					<c:url var="pageUrl" value="${pageContext.request.contextPath}/admin/room_list.do">
 						<c:param name="keyword" value="${keyword}"></c:param>
 						<c:param name="page" value="${i}"></c:param>
 					</c:url>
@@ -119,7 +116,7 @@
 				<!-- 다음 그룹 -->
 				<c:choose>
 					<c:when test="${pageHelper.nextPage>0}">
-						<c:url var="nextUrl" value="/prof_list.do">
+						<c:url var="nextUrl" value="${pageContext.request.contextPath}/admin/room_list.do">
 							<c:param name="keyword" value="${keyword}"></c:param>
 							<c:param name="page" value="${pageHelper.nextPage}"></c:param>
 						</c:url>

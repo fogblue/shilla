@@ -1,5 +1,7 @@
 package iot5.project.shilla.service.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,6 +60,37 @@ public class RoomServiceImpl implements RoomService {
 			throw new Exception("객실 정보 조회에 실패했습니다.");
 		} 
 		
+		return result;
+	}
+
+	@Override
+	public int getRoomCount(Room room) throws Exception {
+		int result = 0;
+
+		try {
+			result = sqlSession.selectOne("RoomMapper.selectRoomCount", room);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("데이터 조회에 실패했습니다.");
+		}
+		return result;
+	}
+
+	@Override
+	public List<Room> getRoomList(Room room) throws Exception {
+		List<Room> result = null;
+
+		try {
+			result = sqlSession.selectList("RoomMapper.selectRoomList", room);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 데이터가 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("데이터 조회에 실패했습니다.");
+		}
 		return result;
 	}
 

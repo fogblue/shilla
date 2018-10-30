@@ -12,12 +12,17 @@
 		<result property="bedType" column="bed_type" />
 		<result property="roomPrice" column="room_price" />
 		<result property="packageId" column="package_id" />
-		<result property="hotelCate" column="hotel_category" />
+		<result property="hotelCate" column="hotel_category" />		
 	</resultMap>
 	
-	<!-- 예약 갯수 -->
+	<!-- 객실 번호로 객실 데이터 얻기 -->
 	 <select id="selectRoomCount" parameterType="iot5.project.shilla.model.Room" resultType="int">
         SELECT count(id) FROM room
+        <where>
+			<if test="roomNo != null and roomNo != ''">
+				room_no LIKE concat('%', #{roomNo}, '%')
+			</if>
+		</where>
     </select>
     
      <!-- 방 정보 입력 -->
@@ -33,5 +38,19 @@
 	<select id="selectRoomItem" parameterType="iot5.project.shilla.model.Room" resultMap="room">
 		SELECT id, room_no, room_type, bed_type, room_price, package_id, hotel_category
 		FROM room WHERE id=#{id} or room_no=#{roomNo}
+	</select>
+	
+	<!-- 다중행 조회(목록조회) -->
+	<select id="selectRoomList" parameterType="iot5.project.shilla.model.Room" resultMap="room">
+		SELECT id, room_no, room_type, bed_type, room_price, package_id, hotel_category 
+		FROM room
+		<where>
+			<if test="roomType != null and roomType != ''">
+				room_type LIKE concat('%', #{roomType}, '%')
+			</if>
+		</where>
+
+		ORDER BY room DESC
+		LIMIT #{limitStart}, #{listCount}
 	</select>
 </mapper>

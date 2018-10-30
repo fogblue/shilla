@@ -8,6 +8,8 @@ public class Room {
 	private int roomPrice;
 	private int packageId;
 	private String hotelCate;
+	private int limitStart;
+	private int listCount;
 
 	public int getId() {
 		return id;
@@ -65,10 +67,27 @@ public class Room {
 		this.hotelCate = hotelCate;
 	}
 
+	public int getLimitStart() {
+		return limitStart;
+	}
+
+	public void setLimitStart(int limitStart) {
+		this.limitStart = limitStart;
+	}
+
+	public int getListCount() {
+		return listCount;
+	}
+
+	public void setListCount(int listCount) {
+		this.listCount = listCount;
+	}
+
 	@Override
 	public String toString() {
 		return "Room [id=" + id + ", roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType
-				+ ", roomPrice=" + roomPrice + ", packageId=" + packageId + ", hotelCate=" + hotelCate + "]";
+				+ ", roomPrice=" + roomPrice + ", packageId=" + packageId + ", hotelCate=" + hotelCate + ", limitStart="
+				+ limitStart + ", listCount=" + listCount + "]";
 	}
 
 }

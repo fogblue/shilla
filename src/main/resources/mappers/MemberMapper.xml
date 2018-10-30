@@ -20,6 +20,8 @@
 		<result property="detail" column="addr2" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
+		<result property="agree1" column="agree1" />
+		<result property="agree2" column="agree2" />
 	</resultMap>
 	<!-- 아이디 중복검사를 수행한다 -->
     <select id="selectUserIdCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
@@ -103,7 +105,7 @@
 	<!-- 회원정보를 변경한다 : 이메일, 전화번호 -->
 	<update id="updateMemberET" parameterType="iot5.project.shilla.model.Member">
 		UPDATE member SET
-			email=#{email}, tel=#{tel}
+			email=#{email}, tel=#{tel}, agree1=#{agree1}, agree2=#{agree2}
 		WHERE id=#{id}
 	</update>
 	

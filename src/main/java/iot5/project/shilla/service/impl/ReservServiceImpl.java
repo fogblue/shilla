@@ -127,4 +127,18 @@ public class ReservServiceImpl implements ReservService {
 
 		return result;
 	}
+
+
+	@Override
+	public Reservation selectroomInfo(Reservation reserv) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Reservation selectguestInfo(Reservation reserv) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

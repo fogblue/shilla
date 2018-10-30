@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import iot5.project.shilla.helper.WebHelper;
-import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.Reservation;
 
 @Controller
@@ -40,12 +39,12 @@ public class ReservController {
 		Reservation guestInfo = null;
 
 		try {
-			loginInfo = memberService.selectLoginInfo(member);
+			/*loginInfo = memberService.selectLoginInfo(member);*/
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
 
-		web.setSession("reservation", reservation);
+		/*web.setSession("reservation", reservation);*/
 		
 		
 		

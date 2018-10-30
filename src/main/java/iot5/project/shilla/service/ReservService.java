@@ -53,4 +53,7 @@ public interface ReservService {
 	 */
 	public ResvRoom selectReservRById(ResvRoom reserv) throws Exception;
 	public ResvGuest selectReservGById(ResvGuest reserv) throws Exception;
+	
+	public Reservation selectroomInfo(Reservation reserv) throws Exception;
+	public Reservation selectguestInfo(Reservation reserv) throws Exception;
 }

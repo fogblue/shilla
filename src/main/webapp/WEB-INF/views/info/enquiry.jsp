@@ -145,7 +145,7 @@
 				var sel = $(this).find("option:selected").val();
 				$("#enq_ajax").empty();
 				$.get("${pageContext.request.contextPath}/info/" + sel, function(req) {$("#enq_ajax").append(req);
-				}, "html"); // end $.get			
+				}, "html"); // end $.get
 			}); // 관련문의 선택에 따른 페이지 전환
 
 			$("#enq_submit").click(function() {

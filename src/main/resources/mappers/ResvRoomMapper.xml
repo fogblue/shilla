@@ -17,36 +17,49 @@
 		<result property="memberId" column="member_id" />
 		<result property="hotelCate" column="hotel_category" />
 	</resultMap>
- 	
-	<!-- 예약 갯수 -->
-	 <select id="selectReservationCount" parameterType="iot5.project.shilla.model.ResvRoom" resultType="int">
-        SELECT count(id) FROM resv_room WHERE member_id=#{memberId}
-    </select>
+ 	<!-- ######## -->
+	<!-- ##입력## -->
+	<!-- ######## -->
 	
-	<!-- 예약세부사항 -->
+	<!-- ######## -->
+	<!-- ##수정## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##삭제## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##조회## -->
+	<!-- ######## -->
+	<!-- 회원아이디와 일치하는 예약 건수를 조회한다 -->
+	 <select id="selectReservationCount" parameterType="iot5.project.shilla.model.ResvRoom" resultType="int">
+        SELECT count(id)
+        FROM   resv_room
+        WHERE  member_id=#{memberId}
+    </select>	
+	<!-- 회원아이디와 일치하는 예약의 정보를 조회한다 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">
 		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
-			total_price, resv_date, member_id, hotel_category
-		FROM resv_room
-    	WHERE member_id=#{memberId}
+				total_price, resv_date, member_id, hotel_category
+		FROM   resv_room
+    	WHERE  member_id=#{memberId}
 	</select>
-	
+	<!-- 회원아이디와 일치하는 객실의 정보를 조회한다 -->
 	<select id="selectReservList" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">
     	SELECT id, hotel_category, room_type, check_in
-		FROM resv_room
-		WHERE member_id=#{memberId}
+		FROM   resv_room
+		WHERE  member_id=#{memberId}
 		ORDER BY id DESC
-    </select>
-    
-	<!-- id로 검색하기 -->
+    </select>  
+	<!-- 예약된 객실아이디와 일치하는 예약정보를 조회한다 : 객실정보 -->
 	<select id="selectReservRById" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">
 		SELECT id, room_no, DATE_FORMAT(check_in, '%Y-%m-%d') as check_in, DATE_FORMAT(check_out, '%Y-%m-%d') as check_out, room_type, package_type, exbed, meal,
-			total_price, DATE_FORMAT(resv_date, '%Y-%m-%d') as resv_date, member_id, hotel_category
-		FROM resv_room
-    	WHERE id=#{id}
-	</select>
-	
-	<!-- 검색 -->
+				total_price, DATE_FORMAT(resv_date, '%Y-%m-%d') as resv_date, member_id, hotel_category
+		FROM   resv_room
+    	WHERE  id=#{id}
+	</select>	
+	<!-- 예약 가능한 방을 검색한다 -->
 	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">
 		 
 	</select>

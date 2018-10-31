@@ -19,10 +19,11 @@
 		<result property="roomId" column="room_id" />
 		<result property="packageId" column="package_id" />
 	</resultMap>
-	
+	<!-- ######## -->
+	<!-- ##입력## -->
+	<!-- ######## -->
 	<!-- 게시글에 속한 첨부파일의 정보를 저장한다. -->
-	<insert id="insertFile" parameterType="iot5.project.shilla.model.File"
-		useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertFile" parameterType="iot5.project.shilla.model.File" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO file(
 			category, origin_name, file_dir, file_name, content_type,
 			file_size, reg_date, edit_date, qna_id, room_id, package_id
@@ -32,38 +33,40 @@
 		)
 	</insert>
 	
+	<!-- ######## -->
+	<!-- ##수정## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##삭제## -->
+	<!-- ######## -->
+	<!-- 게시글에 속한 파일을 삭제한다 -->
+	<delete id="deleteFile" parameterType="iot5.project.shilla.model.File">
+		DELETE FROM file WHERE id=#{id}
+	</delete>
+	
+	<!-- ######## -->
+	<!-- ##조회## -->
+	<!-- ######## -->
+	<!-- 하나의 파일을 조회한다 -->
+	<select id="selectFile" parameterType="iot5.project.shilla.model.File" resultMap="file">
+		SELECT file_dir, file_name
+		FROM   file
+		WHERE  id=#{id}
+	</select>
 	<!-- 하나의 게시물에 속한 파일목록을 조회한다. : 객실용 -->
-	<select id="selectRoomFileList" parameterType="iot5.project.shilla.model.File" 
-		resultMap="file">
+	<select id="selectRoomFileList" parameterType="iot5.project.shilla.model.File" resultMap="file">
 		SELECT id, category, origin_name, file_dir, file_name, content_type,
 				file_size, reg_date, edit_date, qna_id, room_id, package_id
 		FROM   file
 		WHERE  room_id=#{roomId}
 	</select>
-	
 	<!-- 하나의 게시물에 속한 파일목록을 조회한다 : QnA용 -->
-	<select id="selectQnAFileList" parameterType="iot5.project.shilla.model.File" 
-		resultMap="file">
+	<select id="selectQnAFileList" parameterType="iot5.project.shilla.model.File" resultMap="file">
 		SELECT id, category, origin_name, file_dir, file_name, content_type,
 				file_size, reg_date, edit_date, qna_id, room_id, package_id
 		FROM   file
 		WHERE  qna_id=#{qnaId}
 	</select>
-	
-	<!-- 게시글에 속한 파일 전체 삭제 하기 -->
-	<delete id="deleteFileAll" parameterType="iot5.project.shilla.model.File">
-		DELETE FROM file WHERE id=#{id}
-	</delete>
-	
-	<!-- 하나의 파일을 조회한다. -->
-	<select id="selectFile" parameterType="iot5.project.shilla.model.File" 
-		resultMap="file">
-		SELECT file_dir, file_name FROM file WHERE id=#{id}
-	</select>
-	
-	<!-- 하나의 파일을 삭제한다. -->
-	<delete id="deleteFile" parameterType="iot5.project.shilla.model.File">
-		DELETE FROM file WHERE id=#{id}
-	</delete>
-	
+
 </mapper>

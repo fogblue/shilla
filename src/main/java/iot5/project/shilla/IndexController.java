@@ -88,7 +88,7 @@ public class IndexController {
 		return new ModelAndView("admin/enqanswer");
 	}
 	@RequestMapping(value = "/enqanswer_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request) {
 		web.init();
 		
 		int id = web.getInt("id");
@@ -117,7 +117,7 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "/admin/room_add_ok.do", method = RequestMethod.POST)
-	public ModelAndView roomAddOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView roomAddOk(Locale locale, Model model, HttpServletRequest request)
 			throws ServletException, IOException {
 
 		web.init();

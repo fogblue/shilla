@@ -69,7 +69,7 @@
 											<td>${qna.id}</td>
 											<td>${qna.hotelCate}</td>
 											<td>${qna.enqType}</td>
-											<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do?id=${qna.id}" style="display: inline;">${qna.subject}</a></td>
+											<td><a href="${pageContext.request.contextPath}/mypage/enqanswer_2.do?id=${qna.id}" style="display: inline;">${qna.subject}</a></td>
 											<td>${qna.regDate}</td>
 											<td></td>
 										</tr>
@@ -90,15 +90,7 @@
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 	<!-- json 데이터를 정의한 외부 파일 로드하기 -->
-	<script
-		src="${pageContext.request.contextPath}/assets/plugins/lightbox/js/lightbox.js"></script>
-	<script>
-		lightbox.option({
-			'resizeDuration' : 200,
-			'wrapAround' : true,
-			'max-Height' : 500,
-			'fitViewport' : true
-		});
-	</script>
+	
+	
 </body>
 </html>

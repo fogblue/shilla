@@ -21,8 +21,13 @@ import org.springframework.web.servlet.ModelAndView;
 import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
+import iot5.project.shilla.model.File;
+import iot5.project.shilla.model.Member;
+import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.model.Room;
 import iot5.project.shilla.service.FileService;
+import iot5.project.shilla.service.MemberService;
+import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.RoomService;
 
 @Controller
@@ -37,6 +42,10 @@ public class IndexController {
 	RoomService roomService;
 	@Autowired
 	FileService fileService;
+	@Autowired
+	MemberService memberService;
+	@Autowired
+	QnAService qnaService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(Locale locale, Model model) {
@@ -67,10 +76,52 @@ public class IndexController {
 	@RequestMapping(value = "/enqanswer.do", method = RequestMethod.GET)
 	public ModelAndView enqanswer(Locale locale, Model model) {
 		logger.info("Admin Page");
+		web.init();
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		QnA qna = new QnA();
+		qna.setMemberId(loginInfo.getId());
+		
+		List<QnA> qnaInfo = null;
+		try {
+			qnaInfo = qnaService.selectQnAList(qna);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/enqanswer.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);
 
-		return new ModelAndView("enqanswer");
+		return new ModelAndView("admin/enqanswer");
 	}
-	
+	@RequestMapping(value = "/enqanswer_2.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		int id = web.getInt("id");
+		logger.info("받아온 id는 >> " + id);
+		model.addAttribute("id", id);
+		
+		QnA qna = new QnA();
+		qna.setId(id);
+
+		File file = new File();
+		file.setQnaId(qna.getId());
+		
+		QnA qnaInfo = null;
+		List<File> fileList = null;
+		try {
+			qnaInfo = qnaService.selectQnAById(qna);
+			fileList = fileService.selectQnAFileList(file);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/enqanswer_2.do", null);
+		}
+		
+		model.addAttribute("qnaInfo", qnaInfo);
+		model.addAttribute("fileInfo", fileList);
+		
+		return new ModelAndView("admin/enqanswer_2");
+	}
 	@RequestMapping(value = "/admin/room_add_ok.do", method = RequestMethod.POST)
 	public ModelAndView roomAddOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

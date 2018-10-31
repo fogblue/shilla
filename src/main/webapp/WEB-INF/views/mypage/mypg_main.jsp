@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="mypg-contents">
-			<div class="bdb mypg-contents-header">
+			<div class="mypg-bdb2 mypg-contents-header">
 				<h3>마이페이지</h3>
 				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">마이페이지</span></div>
 			</div>
@@ -43,7 +43,9 @@
 				<p><span class="mypg-mp-name">${loginInfo.userNameEng}&nbsp;님</span>의 회원번호에 대한 안내입니다.</p>
 			</div>
 			<div class="mypg-mp-bd">
-				<span>회원 번호</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.id}</span>
+				<span>회원 번호</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.id}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>성명</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.userNameKor}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>아이디</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.userId}</span>
 			</div>
 		</div>
 	</div>

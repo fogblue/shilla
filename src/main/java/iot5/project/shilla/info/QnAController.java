@@ -92,7 +92,7 @@ public class QnAController {
 		String ipAddress = web.getClientIP();
 		String hotelCate = paramMap.get("hotel_cate");
 		int memberId = 0;
-		
+
 		if (hotelCate.equals("sshihot")) {
 			hotelCate = "서울신라호텔";
 		} else if (hotelCate.equals("jshihot")) {
@@ -114,10 +114,9 @@ public class QnAController {
 		} else {
 			enqType = null;
 		}
-		
+
 		/**
-		 * 로그인 되어 있을 경우 세션에서 회원번호를 불러옴.
-		 * 비회원은 3번
+		 * 로그인 되어 있을 경우 세션에서 회원번호를 불러옴. 비회원은 3번
 		 */
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		if (loginInfo != null) {
@@ -150,21 +149,21 @@ public class QnAController {
 		if (!regex.isValue(userNameKor)) {
 			return web.redirect(null, "작성자 이름을 입력하세요");
 		}
-		
+
 		// 이메일 검사
 		if (!regex.isValue(email)) {
 			return web.redirect(null, "이메일을 입력하세요");
 		}
-		
+
 		if (!regex.isEmail(email)) {
 			return web.redirect(null, "이메일 형식이 잘못되었습니다.");
 		}
-		
+
 		// 제목 및 내용 검사
 		if (!regex.isValue(subject)) {
 			return web.redirect(null, "글 제목을 입력하세요");
 		}
-		
+
 		if (!regex.isValue(content)) {
 			return web.redirect(null, "내용을 입력하세요");
 		}
@@ -200,13 +199,13 @@ public class QnAController {
 		try {
 			for (int i = 0; i < fileList.size(); i++) {
 				FileInfo info = fileList.get(i);
-				
+
 				// DB에 저장하기 위한 항목 생성
 				File file = new File();
-				
+
 				// 몇번 게시물에 속한 파일인지 저장한다.
 				file.setQnaId(qna.getId());
-				
+
 				file.setCategory("QnA");
 				file.setOriginName(info.getOrginName());
 				file.setFileDir(info.getFileDir());
@@ -218,27 +217,31 @@ public class QnAController {
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
-		
+
 		/** 저장 완료 후 읽기 페이지로 이동하기 */
 		if (loginInfo != null) {
-			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", "문의사항이 저장되었습니다.");	
+			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", "문의사항이 저장되었습니다.");
 		} else {
 			return web.redirect(web.getRootPath(), "문의사항이 저장되었습니다.");
 		}
-		
+
 	}
-	
+
 	@RequestMapping(value = "/test/reservation_test.do", method = RequestMethod.GET)
 	public ModelAndView reservation_test(Locale locale, Model model) {
 		web.init();
-		
-		
-		
+
 		return new ModelAndView("test/reservation_test");
 	}
-	
-		@RequestMapping(value = "/test/reservation_roomsel", method = RequestMethod.GET)
-	public ModelAndView reservation_test2(Locale locale, Model model) {
+
+	@RequestMapping(value = "/test/reservation_roomsel", method = RequestMethod.GET)
+	public ModelAndView reservationTest2(Locale locale, Model model) {
+
+		return new ModelAndView("test/reservation_test2");
+	}
+
+	@RequestMapping(value = "/test/reservation_test_ok.do", method = RequestMethod.GET)
+	public ModelAndView reservationTestOk(Locale locale, Model model) {
 		web.init();
 		
 		String hotelCate = web.getString("hotel_cate");
@@ -247,7 +250,7 @@ public class QnAController {
 		int pplAd = web.getInt("ppl_ad");
 		int pplCh = web.getInt("ppl_Ch");
 		int pplBb = web.getInt("ppl_Bb");
-		
+
 		Reservation resv = new Reservation();
 		resv.setHotelCate(hotelCate);
 		resv.setCheckIn(tStart);
@@ -255,12 +258,12 @@ public class QnAController {
 		resv.setPplAd(pplAd);
 		resv.setPplCh(pplCh);
 		resv.setPplBb(pplBb);
-		
-		/*web.setSession("resv", resv);*/
-		/*Reservation resv = (Reservation) web.getSession("resv");*/
-		
+
+		/* web.setSession("resv", resv); */
+		/* Reservation resv = (Reservation) web.getSession("resv"); */
+
 		model.addAttribute("resv", resv);
-			
+		
 		return new ModelAndView("test/reservation_test2");
 	}
 }

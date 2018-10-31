@@ -101,7 +101,6 @@ public class QnAController {
 			hotelCate = null;
 		}
 
-
 		if (enqType.equals("enq_room")) {
 			enqType = "객실/패키지문의";
 		} else if (enqType.equals("enq_dining")) {
@@ -229,26 +228,39 @@ public class QnAController {
 		
 	}
 	
-	@RequestMapping(value = "/reservation_test.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/test/reservation_test.do", method = RequestMethod.GET)
 	public ModelAndView reservation_test(Locale locale, Model model) {
 		web.init();
 		
-		int id = web.getInt("id");
-		logger.info("받아온 id는 >> " + id);
-		model.addAttribute("id", id);
+		
+		
+		return new ModelAndView("test/reservation_test");
+	}
+	
+		@RequestMapping(value = "/test/reservation_roomsel", method = RequestMethod.GET)
+	public ModelAndView reservation_test2(Locale locale, Model model) {
+		web.init();
+		
+		String hotelCate = web.getString("hotel_cate");
+		String tStart = web.getString("t_start");
+		String tEnd = web.getString("t_end");
+		int pplAd = web.getInt("ppl_ad");
+		int pplCh = web.getInt("ppl_Ch");
+		int pplBb = web.getInt("ppl_Bb");
 		
 		Reservation resv = new Reservation();
-		resv.setRoomId(id);
+		resv.setHotelCate(hotelCate);
+		resv.setCheckIn(tStart);
+		resv.setCheckOut(tEnd);
+		resv.setPplAd(pplAd);
+		resv.setPplCh(pplCh);
+		resv.setPplBb(pplBb);
 		
-		try {
-			resv = reservService.selectReserv(resv);
-		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
-		}
+		/*web.setSession("resv", resv);*/
+		/*Reservation resv = (Reservation) web.getSession("resv");*/
 		
 		model.addAttribute("resv", resv);
-				
-		return new ModelAndView("mypage/mypg_reservation_2");
+			
+		return new ModelAndView("test/reservation_test2");
 	}
-
 }

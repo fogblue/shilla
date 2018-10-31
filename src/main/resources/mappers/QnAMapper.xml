@@ -19,28 +19,10 @@
 		<result property="memberId" column="member_id" />
 		<result property="hotelCate" column="hotel_category" />
 	</resultMap>
-	
-	<!-- 글 갯수 -->
-	 <select id="selectQnACount" parameterType="iot5.project.shilla.model.QnA" resultType="int">
-        SELECT count(id) FROM qna WHERE member_id=#{memberId}
-    </select>
-    
-    <!-- 조회한다 -->
-    <select id="selectQnA" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
-    	SELECT id, ecategory, enq_type, reserv_no, wedding_date, qna_type,
-    	subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
-    	FROM qna
-    	WHERE member_id=#{memberId}
-    </select>
-    
-    <select id="selectQnAList" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
-    	SELECT id, hotel_category, enq_type, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
-		FROM qna
-		WHERE member_id=#{memberId}
-		ORDER BY id DESC
-    </select>
-    
-     <!-- 글쓰기 -->
+	<!-- ######## -->
+	<!-- ##입력## -->
+	<!-- ######## -->
+	<!-- 문의사항 글을 쓴다 -->
 	<insert id="insertQnA" parameterType="iot5.project.shilla.model.QnA" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO qna (
@@ -51,17 +33,49 @@
 		)
 	</insert>
 	
-	<!-- 멤버 삭제를 위한 참조키 제거 -->
+	<!-- ######## -->
+	<!-- ##수정## -->
+	<!-- ######## -->
+	<!-- 문의사항 글 정보를 변경한다 : 멤버 삭제를 위한 참조키 제거 -->
 	<update id="updateQnAMemberOut" parameterType="iot5.project.shilla.model.QnA">
-		UPDATE qna SET member_id=NULL, edit_date=now()
+		UPDATE qna SET
+			member_id=NULL, edit_date=now()
 		WHERE member_id=#{memberId}
 	</update>
 	
-	<!-- id로 검색하기 -->
+	<!-- ######## -->
+	<!-- ##삭제## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##조회## -->
+	<!-- ######## -->
+	<!-- 문의사항 글 번호로 검색한다 -->
 	<select id="selectQnAById" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
 		SELECT ecategory, enq_type, reserv_no, wedding_date, qna_type,
     			subject, content, DATE_FORMAT(reg_date, "%Y-%m-%d %H:%i:%S") as reg_date, edit_date, ip_address, member_id, hotel_category
-    	FROM qna
-    	WHERE id=#{id}
+    	FROM   qna
+    	WHERE  id=#{id}
 	</select>
+	<!-- 문의사항 글 갯수를 조회한다 -->
+	<select id="selectQnACount" parameterType="iot5.project.shilla.model.QnA" resultType="int">
+		SELECT count(id)
+		FROM   qna
+		WHERE  member_id=#{memberId}
+	</select>
+	<!-- 문의사항의 리스트를 조회한다 -->
+	<select id="selectQnAList" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
+		SELECT id, hotel_category, enq_type, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
+		FROM   qna
+		WHERE  member_id=#{memberId}
+		ORDER BY id DESC
+	</select>
+	<!-- 문의사항 글의 상세정보를 조회한다 -->
+    <select id="selectQnA" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
+    	SELECT id, ecategory, enq_type, reserv_no, wedding_date, qna_type,
+    			subject, content, reg_date, edit_date, ip_address, member_id, hotel_category
+    	FROM   qna
+    	WHERE  member_id=#{memberId}
+    </select>
+	
 </mapper>

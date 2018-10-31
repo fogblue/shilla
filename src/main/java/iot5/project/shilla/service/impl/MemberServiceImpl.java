@@ -217,5 +217,22 @@ public class MemberServiceImpl implements MemberService {
 			throw new Exception("회원정보 수정에 실패했습니다.");
 		}
 	}
-
+	
+	
+	@Override
+	public int selectEmailCheck(Member member) throws Exception {
+		int result = 0;
+		try {
+			result = sqlSession.selectOne("MemberMapper.selectEmailCount", member);
+			if(result > 0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("이미 사용중인 이메일 입니다.");
+		}catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("이메일 중복검사에 실패했습니다.");
+		}
+		return result;
+	}
 }

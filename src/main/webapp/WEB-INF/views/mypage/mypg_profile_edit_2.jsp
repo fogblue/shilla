@@ -63,7 +63,7 @@
 						<td rowspan="2">이메일</td>
 						<td>
 							<input type="text" id="email" name="email" maxlength="150" onclick="inputEmail()" value="${loginInfo.email}" />
-							<button type="button" id="emailCheckBtn" class="btn-xs mypg-pfed2-overlap" onclick="emailCheck()">이메일 중복확인</button>
+							<button type="button" id="emailCheckBtn" class="btn-xs mypg-pfed2-overlap" onclick="onSubmit()">이메일 중복확인</button>
 							<input type="hidden" name="emailDuplication" value="emailUncheck" />
 						</td>
 					</tr>
@@ -99,7 +99,7 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn2">
-				<button type="submit" class="btn btn-lg mypg-pwed-change" onclick="onSubmit()">변경</button>
+				<button type="submit" class="btn btn-lg mypg-pwed-change">변경</button>
 				<button type="reset" class="btn btn-lg mypg-pwed-cancel"  onclick="goToBack()">취소</button>
 			</div>
 			</form>
@@ -108,21 +108,23 @@
 	
 	<script>	
 	function onSubmit() {
-		var ec = document.emailCheck;
+		var email = $("#email").val();
 		
-		/* if ($("#email").val() != null && $("#email").val() != "") {
-			if (ec.emailDuplication.value != "emailCheck") {
-				alert("이메일 중복확인을 해주세요.");
-				return false;
-			}
-		} else {
-			return true;
-		} */
-		return true;
-	}
-	
-	function emailCheck() {
+		var form = document.createElement("form");
+		form.setAttribute("charset", "UTF-8");
+		form.setAttribute("method", "Post");
+		form.setAttribute("action", "${pageContext.request.contextPath}/mypage/mypg_profile_edit_2_echk.do");
 		
+		var hiddenField = document.createElement("input");
+		hiddenField.setAttribute("type", "hidden");
+		hiddenField.setAttribute("name", "email");
+		hiddenField.setAttribute("id", "email");
+		hiddenField.setAttribute("value", email);
+		form.appendChild(hiddenField);
+		
+		document.body.appendChild(form);
+		
+		form.submit();
 	}
 	
 	function goToBack() {
@@ -130,7 +132,7 @@
 	}
 	
 	function inputEmail() {
-		$("input#email]").empty();
+		$("#email").val("");
 	}
 	
 	function inputTel() {

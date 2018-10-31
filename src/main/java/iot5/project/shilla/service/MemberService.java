@@ -7,6 +7,8 @@ public interface MemberService {
 	
 	public void selectEmailCount(Member member) throws Exception;
 	
+	public int selectEmailCheck(Member member) throws Exception;
+	
 	public Member selectFindId(Member member) throws Exception;
 	
 	public void insertMember(Member member) throws Exception;

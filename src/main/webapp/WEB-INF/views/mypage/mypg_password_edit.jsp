@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="mypg-contents">
-			<div class="bdb mypg-contents-header">
+			<div class="mypg-bdb2 mypg-contents-header">
 				<h3>비밀번호 변경</h3>
 				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;개인정보&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">비밀번호 변경</span></div>
 			</div>

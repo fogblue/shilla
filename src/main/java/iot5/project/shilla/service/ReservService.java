@@ -52,8 +52,32 @@ public interface ReservService {
 	 * @throws Exception
 	 */
 	public ResvRoom selectReservRById(ResvRoom reserv) throws Exception;
+	/**
+	 * 
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
 	public ResvGuest selectReservGById(ResvGuest reserv) throws Exception;
-	
+	/**
+	 * 
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
 	public Reservation selectroomInfo(Reservation reserv) throws Exception;
+	/**
+	 * 
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
 	public Reservation selectguestInfo(Reservation reserv) throws Exception;
+	/**
+	 * 예약 갯수 조회
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public int selectReservationCount(ResvRoom reserv) throws Exception;
 }

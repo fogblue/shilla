@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="mypg-contents">
-			<div class="bdb mypg-contents-header">
+			<div class="mypg-bdb2 mypg-contents-header">
 				<h3>예약확인/취소</h3>
 				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">예약 확인/취소</span></div>
 			</div>
@@ -73,12 +73,13 @@
 								<c:when test="${fn:length(reservInfo) > 0}">
 									<c:forEach var="reserv" items="${reservInfo}">
 										<tr>
-											<td>${reserv.id}</td>
+											<td>${maxPageNo}</td>
 											<td>${reserv.hotelCate}</td>
 											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
 											<td>${reserv.checkIn}</td>
 											<td></td>
 										</tr>
+										<c:set var="maxPageNo" value="${maxPageNo-1}" />
 									</c:forEach>
 								</c:when>
 								<c:otherwise>

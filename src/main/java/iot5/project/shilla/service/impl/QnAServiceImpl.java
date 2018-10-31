@@ -144,6 +144,7 @@ public class QnAServiceImpl implements QnAService {
 		}
 	}
 	
+	@Override
 	public QnA selectQnAById(QnA qna) throws Exception {
 		QnA result = null;
 
@@ -159,6 +160,19 @@ public class QnAServiceImpl implements QnAService {
 			throw new Exception("게시물 조회에 실패했습니다.");
 		}
 
+		return result;
+	}
+	
+	@Override
+	public int selectQnACount(QnA qna) throws Exception {
+		int result = 0;
+		
+		try {
+			result = sqlSession.selectOne("QnAMapper.selectQnACount", qna);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 수 조회에 실패했습니다.");
+		}
 		return result;
 	}
 }

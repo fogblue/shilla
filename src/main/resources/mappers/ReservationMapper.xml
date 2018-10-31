@@ -49,7 +49,7 @@
 	</insert>
  	
 	<!-- 예약 갯수 -->
-	 <select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
+	<select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
         SELECT count(id) FROM reservation WHERE member_id=#{memberId}
     </select>
    

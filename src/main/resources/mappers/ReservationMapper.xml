@@ -49,7 +49,7 @@
 	</insert>
  	
 	<!-- 예약 갯수 -->
-	 <select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
+	<select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
         SELECT count(id) FROM reservation WHERE member_id=#{memberId}
     </select>
    
@@ -72,7 +72,7 @@
 	<!-- 회원번호로 검색하기 -->
 	<select id="selectReservByMemberId" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		SELECT id, card_no, card_type, card_yy, card_mm, ppl_ad, ppl_ch, ppl_bb, detail, member_id
-		FROM resv_room
+		FROM resv_guest
     	WHERE member_id=#{memberId}
 	</select>
 	

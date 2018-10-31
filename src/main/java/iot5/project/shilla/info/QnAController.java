@@ -220,7 +220,7 @@ public class QnAController {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
 		
-		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
+		/** 저장 완료 후 읽기 페이지로 이동하기 */
 		if (loginInfo != null) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", "문의사항이 저장되었습니다.");	
 		} else {

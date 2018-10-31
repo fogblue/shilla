@@ -60,6 +60,7 @@
 					<div>
 						<p>Total : </p>
 						<table class="mypg-qna-contents-table">
+							<thead>
 							<tr class="qna-table-title">
 								<td>NO</td>
 								<td>호텔</td>
@@ -68,22 +69,20 @@
 								<td>문의일자</td>
 								<td>답변여부</td>
 							</tr>
-							<!-- <tbody id="find-result">
-								<tr id="find-target">
-									<td colspan="6">자료가 없습니다.</td>
-								</tr>
-							</tbody> -->
+							</thead>
+							<tbody>
 							<c:choose>
 								<c:when test="${fn:length(qnaInfo) > 0}">
 									<c:forEach var="qna" items="${qnaInfo}">
 										<tr>
-											<td>${qna.id}</td>
+											<td>${maxPageNo}</td>
 											<td>${qna.hotelCate}</td>
 											<td>${qna.enqType}</td>
 											<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do?id=${qna.id}" style="display: inline;">${qna.subject}</a></td>
 											<td>${qna.regDate}</td>
 											<td></td>
 										</tr>
+										<c:set var="maxPageNo" value="${maxPageNo-1}" />
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
@@ -92,6 +91,7 @@
 									</tr>
 								</c:otherwise>
 							</c:choose>
+							</tbody>
 						</table>
 					</div>
 				</div>

@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,19 +59,13 @@ public class IndexController {
 		return new ModelAndView("mem_policy");
 	}
 	
-	@RequestMapping(value = "/admin.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/admin.do", method = RequestMethod.GET)
 	public ModelAndView admin(Locale locale, Model model) {
 		logger.info("Admin Page");
 
 		return new ModelAndView("admin");
 	}
 	
-	@RequestMapping(value = "/room_add.do", method = RequestMethod.GET)
-	public ModelAndView room(Locale locale, Model model) {
-		logger.info("Admin Page");
-
-		return new ModelAndView("admin/room_add");
-	}
 	@RequestMapping(value = "/enqanswer.do", method = RequestMethod.GET)
 	public ModelAndView enqanswer(Locale locale, Model model) {
 		logger.info("Admin Page");
@@ -122,6 +115,7 @@ public class IndexController {
 		
 		return new ModelAndView("admin/enqanswer_2");
 	}
+
 	@RequestMapping(value = "/admin/room_add_ok.do", method = RequestMethod.POST)
 	public ModelAndView roomAddOk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -188,14 +182,17 @@ public class IndexController {
 		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
 		return web.redirect(web.getRootPath() + "/admin/room_add.do", "객실 정보가 저장되었습니다.");
 	}
-	@RequestMapping(value = "/package_add.do", method = RequestMethod.GET)
+
+	
+	@RequestMapping(value = "/admin/package_add.do", method = RequestMethod.GET)
+
 	public ModelAndView packageAdd(Locale locale, Model model) {
 		logger.info("Admin Page");
 
 		return new ModelAndView("admin/package_add");
 	}
 	
-	@RequestMapping(value = "/package_add_ok.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/package_add_ok.do", method = RequestMethod.POST)
 	public ModelAndView packageAddOk(Locale locale, Model model, HttpServletRequest request) throws ServletException, IOException {
 
 		web.init();
@@ -244,7 +241,6 @@ public class IndexController {
 		room.setRoomType(roomType);
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
-		room.setRoomImg(roomImg);
 		room.setRoomNo(roomNo);
 		room.setPackageId(packageId);
 		

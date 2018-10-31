@@ -73,12 +73,13 @@
 								<c:when test="${fn:length(reservInfo) > 0}">
 									<c:forEach var="reserv" items="${reservInfo}">
 										<tr>
-											<td>${reserv.id}</td>
+											<td>${maxPageNo}</td>
 											<td>${reserv.hotelCate}</td>
 											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
 											<td>${reserv.checkIn}</td>
 											<td></td>
 										</tr>
+										<c:set var="maxPageNo" value="${maxPageNo-1}" />
 									</c:forEach>
 								</c:when>
 								<c:otherwise>

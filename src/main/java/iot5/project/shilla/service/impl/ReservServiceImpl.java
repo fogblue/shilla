@@ -127,4 +127,31 @@ public class ReservServiceImpl implements ReservService {
 
 		return result;
 	}
+
+
+	@Override
+	public Reservation selectroomInfo(Reservation reserv) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Reservation selectguestInfo(Reservation reserv) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public int selectReservationCount(ResvRoom reserv) throws Exception {
+		int result = 0;
+		
+		try {
+			result = sqlSession.selectOne("ResvRoomMapper.selectReservationCount", reserv);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("예약 갯수 조회에 실패했습니다.");
+		}
+		return result;
+	}
 }

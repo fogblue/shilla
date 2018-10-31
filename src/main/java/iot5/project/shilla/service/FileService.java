@@ -22,6 +22,14 @@ public interface FileService {
 	public List<File> selectFileList(File file) throws Exception;
 	
 	/**
+	 * 하나의 객실 추가 페이지 종속된 파일 목록을 조회한다.
+	 * @param file - 객실 일련번호를 저장하고 있는 JavaBeans
+	 * @return
+	 * @throws Exception
+	 */
+	public List<File> selectRoomFileList(File file) throws Exception;
+	
+	/**
 	 * 하나의 QnA 문의에 종속된 파일 목록을 조회한다.
 	 * @param file - QnA 게시물 일련번호를 저장하고 있는 JavaBeans
 	 * @return

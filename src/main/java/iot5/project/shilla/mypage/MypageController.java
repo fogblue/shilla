@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import iot5.project.shilla.helper.PageHelper;
 import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
@@ -48,11 +49,14 @@ public class MypageController {
 	ReservService reservService;
 	@Autowired
 	FileService fileService;
+	@Autowired
+	PageHelper pageHelper;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
 	@RequestMapping(value = "/mypage/mypg_main.do", method = RequestMethod.GET)
 	public ModelAndView mypg_main(Locale locale, Model model) {	
+		web.init();
 		return new ModelAndView("mypage/mypg_main");
 	}
 	
@@ -68,9 +72,14 @@ public class MypageController {
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
+		/* */int page = web.getInt("page", 1);
+		
+		/* */int totalCount = 0;
 		
 		List<ResvRoom> reservInfo = null;
 		try {
+			/* */totalCount = reservService.selectReservationCount(resvroom);
+			/* */pageHelper.pageProcess(page, totalCount, 10, 5);
 			reservInfo = reservService.selectReservList(resvroom);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
@@ -78,27 +87,17 @@ public class MypageController {
 		
 		model.addAttribute("reservInfo", reservInfo);
 		
+		/* */model.addAttribute("pageHelper", pageHelper);
+		
+		/* */int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		/* */model.addAttribute("maxPageNo", maxPageNo);
+		
 		return new ModelAndView("mypage/mypg_reservation");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
-		/*web.init();
-		
-		Member loginInfo = (Member) web.getSession("loginInfo");
-		
-		ResvRoom resvroom = new ResvRoom();
-		resvroom.setMemberId(loginInfo.getId());
-		
-		List<ResvRoom> reservInfo = null;
-		try {
-			reservInfo = reservService.selectReservList(resvroom);
-		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
-		}
-		
-		model.addAttribute("reservInfo", reservInfo);*/
-		
+		web.init();
 		return new ModelAndView("mypage/mypg_reservation_table");
 	}
 	
@@ -130,6 +129,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit(Locale locale, Model model) {
+		web.init();
 		return new ModelAndView("mypage/mypg_profile_edit"); 
 	}
 	
@@ -158,34 +158,88 @@ public class MypageController {
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", null);
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.POST)
-	public ModelAndView mypg_profile_edit_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
+	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
 		web.init();
-		
-		String email = request.getParameter("email");
-		logger.info("받아온 이메일은 >> " + email);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_profile_edit_2_ok.do", method = RequestMethod.GET)
-	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model) {
+	@RequestMapping(value = "/mypage/mypg_profile_edit_2_echk.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		String newEmail = request.getParameter("email");
+		logger.info("입력한 이메일은 >> " + newEmail);
+		
+		Member member = new Member();
+		member.setEmail(newEmail);
+		int result = 0;
+		try {
+			result = memberService.selectEmailCheck(member);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		if (result > 0) {
+			return web.redirect(null, "이미 사용중인 이메일 입니다.");
+		}
+		
+		return web.redirect(null, "사용가능한 이메일 입니다.");
+	}
+	
+	@RequestMapping(value = "/mypage/mypg_profile_edit_2_ok.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		String email = request.getParameter("email");
+		String tel = request.getParameter("tel");
+		String agree1 = request.getParameter("agree1");
+		String agree2 = request.getParameter("agree2");
+		logger.info("입력한 이메일은 >> " + email);
+		logger.info("입력한 연락처는 >> " + tel);
+		
+		// 이메일 검사
+		if (!regex.isValue(email)) {
+			return web.redirect(null, "이메일을 입력하세요.");
+		}
+		if (!regex.isEmail(email)) {
+			return web.redirect(null, "이메일의 형식이 잘못되었습니다.");
+		}
+		// 연락처 검사
+		if (!regex.isValue(tel)) {
+			return web.redirect(null, "연락처를 입력하세요.");
+		}
+		if (!regex.isCellPhone(tel) && !regex.isTel(tel)) {
+			return web.redirect(null, "연락처의 형식이 잘못되었습니다.");
+		}
+		
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		Member member = new Member();
+		member.setId(loginInfo.getId());
+		member.setEmail(email);
+		member.setTel(tel);
+		member.setAgree1(agree1);
+		member.setAgree2(agree2);
+		
+		Member editInfo = null;
+		try {
+			memberService.selectEmailCount(member);
+			memberService.updateMemberET(member);
+			editInfo = memberService.selectMember(member);
+		} catch (Exception e) {
+			return web.redirect(null, "이미 사용중인 이메일 입니다.");
+		}
+		
+		web.removeSession("loginInfo");
+		web.setSession("loginInfo", editInfo);
+		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_password_edit(Locale locale, Model model) {
+		web.init();
 		return new ModelAndView("mypage/mypg_password_edit"); 
 	}
 	
@@ -242,6 +296,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw(Locale locale, Model model) {
+		web.init();
 		return new ModelAndView("mypage/mypg_withdraw"); 
 	}
 	
@@ -272,6 +327,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2(Locale locale, Model model) {
+		web.init();
 		return new ModelAndView("mypage/mypg_withdraw_2"); 
 	}
 	
@@ -299,6 +355,7 @@ public class MypageController {
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_msg.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_msg(Locale locale, Model model) {
+		web.init();
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
@@ -311,36 +368,31 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setMemberId(loginInfo.getId());
 		
+		/* */int page = web.getInt("page", 1);
+		
+		/* */int totalCount = 0;
+
 		List<QnA> qnaInfo = null;
 		try {
+			/* */totalCount = qnaService.selectQnACount(qna);
+			/* */pageHelper.pageProcess(page, totalCount, 10, 5);
 			qnaInfo = qnaService.selectQnAList(qna);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
+		/* */model.addAttribute("pageHelper", pageHelper);
+		
+		/* */int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		/* */model.addAttribute("maxPageNo", maxPageNo);
 		
 		return new ModelAndView("mypage/mypg_qna");
 	}
 
 	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna_table(Locale locale, Model model) {
-		/*web.init();
-		
-		Member loginInfo = (Member) web.getSession("loginInfo");
-		
-		QnA qna = new QnA();
-		qna.setMemberId(loginInfo.getId());
-		
-		List<QnA> qnaInfo = null;
-		try {
-			qnaInfo = qnaService.selectQnAList(qna);
-		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
-		}
-		
-		model.addAttribute("qnaInfo", qnaInfo);*/
-		
+		web.init();
 		return new ModelAndView("mypage/mypg_qna_table");
 	}
 	
@@ -368,7 +420,7 @@ public class MypageController {
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
-		model.addAttribute("fileInfo", fileList);
+		model.addAttribute("fileList", fileList);
 		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}

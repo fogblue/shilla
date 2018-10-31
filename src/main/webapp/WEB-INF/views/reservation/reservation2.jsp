@@ -207,7 +207,7 @@
 						<li class="first">체크인 : <span>2018.10.01</span></li>
 						<li>체크아웃 : <span>2018.10.02</span></li>
 						<li>숙박일수 : <span>1박</span></li>
-						<li>투숙 인원<br/><span> 성인 : 1&nbsp; 어린이 : 0&nbsp; 유아 : 0 </span>
+						<li>투숙 인원<br/><span> 성인 : ${reservation.pplAd}&nbsp; 어린이 : 0&nbsp; 유아 : 0 </span>
 						</li>
 						<li>패키지명 : <span>Autumn Rooftop</span>
 						<!-- 유의사항 모달로 구현해야함 -->

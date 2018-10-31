@@ -72,4 +72,12 @@ public interface QnAService {
 	 * @throws Exception
 	 */
 	public QnA selectQnAById(QnA qna) throws Exception;
+	
+	/**
+	 * 게시물 갯수 조회
+	 * @param qna
+	 * @return
+	 * @throws Exception
+	 */
+	public int selectQnACount(QnA qna) throws Exception;
 }

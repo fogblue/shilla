@@ -1,12 +1,6 @@
 package iot5.project.shilla;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,13 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
-import iot5.project.shilla.model.File;
-import iot5.project.shilla.model.Member;
-import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Room;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
@@ -59,10 +48,8 @@ public class IndexController {
 		return new ModelAndView("mem_policy");
 	}
 	
-	@RequestMapping(value = "/admin/admin.do", method = RequestMethod.GET)
-	public ModelAndView admin(Locale locale, Model model) {
-		logger.info("Admin Page");
 
+<<<<<<< HEAD
 		return new ModelAndView("admin");
 	}
 	
@@ -255,4 +242,6 @@ public class IndexController {
 		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
 		return web.redirect(web.getRootPath() + "/admin/package_add.do", "패키지 정보가 저장되었습니다.");
 	}
+=======
+>>>>>>> 99ca508a0c10acd74726dcfeade317c29e16a144
 }

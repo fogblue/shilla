@@ -166,7 +166,6 @@ public class IndexController {
 		room.setRoomType(roomType);
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
-		room.setRoomImg(roomImg);
 		room.setRoomNo(roomNo);
 		room.setPackageId(packageId);
 		

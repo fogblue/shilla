@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -209,7 +210,7 @@ public class AdminController {
 		return new ModelAndView("admin");
 	}
 
-	@RequestMapping(value = "/enqanswer.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/enqanswer.do", method = RequestMethod.GET)
 	public ModelAndView enqanswer(Locale locale, Model model) {
 		logger.info("Admin Page");
 		web.init();
@@ -231,8 +232,8 @@ public class AdminController {
 		return new ModelAndView("admin/enqanswer");
 	}
 
-	@RequestMapping(value = "/enqanswer_2.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request) {
+	@RequestMapping(value = "/admin/enqanswer_2.do", method = RequestMethod.GET)
+	public ModelAndView enqanswer_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 
 		int id = web.getInt("id");
@@ -332,5 +333,6 @@ public class AdminController {
 		/** (11)저장 완료 후 읽기 페이지로 이동하기 */
 		return web.redirect(web.getRootPath() + "/admin/package_add.do", "패키지 정보가 저장되었습니다.");
 	}
+
 
 }

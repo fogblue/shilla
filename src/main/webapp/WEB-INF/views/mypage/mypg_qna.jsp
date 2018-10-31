@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="mypg-contents">
-			<div class="bdb mypg-contents-header">
+			<div class="mypg-bdb2 mypg-contents-header">
 				<h3>문의 내역</h3>
 				<div class="pull-right mypg-loc"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;My Page&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<span class="mypg-loc-txt">문의 내역</span></div>
 			</div>

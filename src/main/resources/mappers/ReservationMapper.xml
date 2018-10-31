@@ -27,18 +27,20 @@
 		<result property="pplBb" column="ppl_bb" />
 		<result property="detail" column="detail" />
 	</resultMap>
- 	 
- 	 <!-- 예약 : 객실정보 -->
+	<!-- ######## -->
+	<!-- ##입력## -->
+	<!-- ######## -->
+	<!-- 예약 : 객실정보 -->
 	<insert id="insertReservRoom" parameterType="iot5.project.shilla.model.Reservation" 
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO resv_room ( room_no, check_in, check_out, room_type,
-		package_type, exbed, meal, total_price, resv_date, member_id, hotel_category
+		INSERT INTO resv_room (
+			room_no, check_in, check_out, room_type, package_type, exbed, meal,
+			total_price, resv_date, member_id, hotel_category
 		) VALUES (
-			#{roomNo}, #{checkIn}, #{checkOut}, #{roomType},
-			#{packageType}, #{exbed}, #{meal}, #{totalPrice}, now(), #{memberId}, #{hotelCate}
+			#{roomNo}, #{checkIn}, #{checkOut}, #{roomType}, #{packageType}, #{exbed}, #{meal},
+			#{totalPrice}, now(), #{memberId}, #{hotelCate}
 		)
 	</insert>
-	
 	<!-- 예약 : 고객정보 -->
 	<insert id="insertReservGuest" parameterType="iot5.project.shilla.model.Reservation" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO resv_guest (
@@ -47,36 +49,44 @@
 			#{cardNo}, #{cardType}, #{cardYy}, #{cardMm}, #{pplAd}, #{pplCh}, #{pplBb}, #{detail}, #{memberId}
 		)
 	</insert>
- 	
-	<!-- 예약 갯수 -->
+	<!-- ######## -->
+	<!-- ##수정## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##삭제## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##조회## -->
+	<!-- ######## -->
+	<!-- 회원아이디와 일치하는 예약 건수를 조회한다 -->
 	<select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
-        SELECT count(id) FROM reservation WHERE member_id=#{memberId}
-    </select>
-   
-	<!-- 예약세부사항 -->
+		SELECT count(id)
+		FROM   reservation
+		WHERE  member_id=#{memberId}
+    </select>  
+	<!-- 회원아이디와 일치하는 예약의 정보를 조회한다 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
 			total_price, resv_date, member_id, hotel_category
-		FROM resv_room
-    	WHERE member_id=#{memberId}
-	</select>
-	
-	<!-- 예약번호로 검색하기 -->
+		FROM   resv_room
+    	WHERE  member_id=#{memberId}
+	</select>	
+	<!-- 객실아이디와 일치하는 예약정보를 조회한다 -->
 	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		SELECT resv_room.id as id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
 			total_price, resv_date, member_id, hotel_category
-		FROM resv_room
-    	WHERE id=#{roomId}
+		FROM   resv_room
+    	WHERE  id=#{roomId}
 	</select>
-	
-	<!-- 회원번호로 검색하기 -->
+	<!-- 회원번호와 일치하는 예약정보를 조회한다 -->
 	<select id="selectReservByMemberId" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		SELECT id, card_no, card_type, card_yy, card_mm, ppl_ad, ppl_ch, ppl_bb, detail, member_id
-		FROM resv_guest
-    	WHERE member_id=#{memberId}
+		FROM   resv_guest
+    	WHERE  member_id=#{memberId}
 	</select>
-	
-	<!-- 검색 -->
+	<!-- 예약 가능한 방을 검색한다 -->
 	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		 
 	</select>

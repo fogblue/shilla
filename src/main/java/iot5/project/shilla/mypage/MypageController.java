@@ -168,8 +168,19 @@ public class MypageController {
 	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		String email = loginInfo.getEmail();		
 		String newEmail = request.getParameter("email");
+		logger.info("기존의 이메일은 >> " + email);
 		logger.info("입력한 이메일은 >> " + newEmail);
+		
+		if (!regex.isValue(newEmail)) {
+			return web.redirect(null, "이메일을 입력하세요.");
+		}
+		if (!regex.isEmail(newEmail)) {
+			return web.redirect(null, "이메일의 형식이 잘못되었습니다.");
+		}
 		
 		Member member = new Member();
 		member.setEmail(newEmail);
@@ -191,48 +202,101 @@ public class MypageController {
 	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		String email = request.getParameter("email");
-		String tel = request.getParameter("tel");
+		String ECHK = request.getParameter("emailDuplication");
+		logger.info("ECHK의 값은 >> " + ECHK);
+		if (ECHK == "emailUncheck") {
+			return web.redirect(null, "이메일 중복검사를 해주세요.");
+		}
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		String email = loginInfo.getEmail();
+		String newEmail = request.getParameter("email");
+		String tel = loginInfo.getTel();
+		String newTel = request.getParameter("tel");
 		String agree1 = request.getParameter("agree1");
 		String agree2 = request.getParameter("agree2");
-		logger.info("입력한 이메일은 >> " + email);
-		logger.info("입력한 연락처는 >> " + tel);
+		logger.info("기존의 이메일은 >> " + email);
+		logger.info("입력한 이메일은 >> " + newEmail);
+		logger.info("기존의 연락처는 >> " + tel);
+		logger.info("입력한 연락처는 >> " + newTel);
+		logger.info("수신동의1 >> " + agree1);
+		logger.info("수신동의2 >> " + agree2);
 		
 		// 이메일 검사
-		if (!regex.isValue(email)) {
+		if (!regex.isValue(newEmail)) {
 			return web.redirect(null, "이메일을 입력하세요.");
 		}
-		if (!regex.isEmail(email)) {
+		if (!regex.isEmail(newEmail)) {
 			return web.redirect(null, "이메일의 형식이 잘못되었습니다.");
 		}
 		// 연락처 검사
-		if (!regex.isValue(tel)) {
+		if (!regex.isValue(newTel)) {
 			return web.redirect(null, "연락처를 입력하세요.");
 		}
-		if (!regex.isCellPhone(tel) && !regex.isTel(tel)) {
+		if (!regex.isCellPhone(newTel) && !regex.isTel(newTel)) {
 			return web.redirect(null, "연락처의 형식이 잘못되었습니다.");
 		}
 		
-		
-		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
 		member.setId(loginInfo.getId());
-		member.setEmail(email);
-		member.setTel(tel);
+		member.setEmail(newEmail);
+		member.setTel(newTel);
 		member.setAgree1(agree1);
 		member.setAgree2(agree2);
 		
 		Member editInfo = null;
 		try {
 			memberService.selectEmailCount(member);
+			memberService.selectTelCount(member);
 			memberService.updateMemberET(member);
 			editInfo = memberService.selectMember(member);
 		} catch (Exception e) {
-			return web.redirect(null, "이미 사용중인 이메일 입니다.");
+			return web.redirect(null, e.getLocalizedMessage());
 		}
 		
 		web.removeSession("loginInfo");
 		web.setSession("loginInfo", editInfo);
+		
+		/*if (email != newEmail && tel == newTel) {
+			Member member = new Member();
+			member.setId(loginInfo.getId());
+			member.setEmail(newEmail);
+			member.setTel(tel);
+			member.setAgree1(agree1);
+			member.setAgree2(agree2);
+			
+			Member editInfo = null;
+			try {
+				memberService.selectEmailCount(member);
+				memberService.updateMemberET(member);
+				editInfo = memberService.selectMember(member);
+			} catch (Exception e) {
+				return web.redirect(null, e.getLocalizedMessage());
+			}
+			
+			web.removeSession("loginInfo");
+			web.setSession("loginInfo", editInfo);
+		} else if (email == newEmail && tel != newTel) {
+			Member member = new Member();
+			member.setId(loginInfo.getId());
+			member.setEmail(email);
+			member.setTel(newTel);
+			member.setAgree1(agree1);
+			member.setAgree2(agree2);
+			
+			Member editInfo = null;
+			try {
+				memberService.selectTelCount(member);
+				memberService.updateMemberET(member);
+				editInfo = memberService.selectMember(member);
+			} catch (Exception e) {
+				return web.redirect(null, e.getLocalizedMessage());
+			}
+			
+			web.removeSession("loginInfo");
+			web.setSession("loginInfo", editInfo);
+		}*/
 		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}

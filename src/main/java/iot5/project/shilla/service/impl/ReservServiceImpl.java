@@ -154,4 +154,11 @@ public class ReservServiceImpl implements ReservService {
 		}
 		return result;
 	}
+
+
+	@Override
+	public int selectReservationPplCount(ResvRoom reserv) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

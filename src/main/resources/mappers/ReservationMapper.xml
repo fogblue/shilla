@@ -91,4 +91,11 @@
 		 
 	</select>
 	
+	<!-- 숙박하는 인원수를 SELECT 한다 -->
+	<select id="selectReservationPplCount" parameterType="iot5.project.shilla.model.Reservation" resultMap="int">
+		SELECT ppl_ad, ppl_ch, ppl_bb
+		FROM   resv_guest
+    	WHERE  member_id=#{memberId}
+	</select>
+	
 </mapper>

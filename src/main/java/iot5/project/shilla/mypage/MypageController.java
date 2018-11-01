@@ -73,14 +73,14 @@ public class MypageController {
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
-		/* */int page = web.getInt("page", 1);
+		int page = web.getInt("page", 1);
 		
-		/* */int totalCount = 0;
+		int totalCount = 0;
 		
 		List<ResvRoom> reservInfo = null;
 		try {
-			/* */totalCount = reservService.selectReservationCount(resvroom);
-			/* */pageHelper.pageProcess(page, totalCount, 10, 5);
+			totalCount = reservService.selectReservationCount(resvroom);
+			pageHelper.pageProcess(page, totalCount, 10, 5);
 			reservInfo = reservService.selectReservList(resvroom);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
@@ -88,10 +88,10 @@ public class MypageController {
 		
 		model.addAttribute("reservInfo", reservInfo);
 		
-		/* */model.addAttribute("pageHelper", pageHelper);
+		model.addAttribute("pageHelper", pageHelper);
 		
-		/* */int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
-		/* */model.addAttribute("maxPageNo", maxPageNo);
+		int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		model.addAttribute("maxPageNo", maxPageNo);
 		
 		return new ModelAndView("mypage/mypg_reservation");
 	}
@@ -412,24 +412,24 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setMemberId(loginInfo.getId());
 		
-		/* */int page = web.getInt("page", 1);
+		int page = web.getInt("page", 1);
 		
-		/* */int totalCount = 0;
+		int totalCount = 0;
 
 		List<QnA> qnaInfo = null;
 		try {
-			/* */totalCount = qnaService.selectQnACount(qna);
-			/* */pageHelper.pageProcess(page, totalCount, 10, 5);
+			totalCount = qnaService.selectQnACount(qna);
+			pageHelper.pageProcess(page, totalCount, 10, 5);
 			qnaInfo = qnaService.selectQnAList(qna);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
-		/* */model.addAttribute("pageHelper", pageHelper);
+		model.addAttribute("pageHelper", pageHelper);
 		
-		/* */int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
-		/* */model.addAttribute("maxPageNo", maxPageNo);
+		int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		model.addAttribute("maxPageNo", maxPageNo);
 		
 		return new ModelAndView("mypage/mypg_qna");
 	}

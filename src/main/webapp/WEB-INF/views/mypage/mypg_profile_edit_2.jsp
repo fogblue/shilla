@@ -64,7 +64,7 @@
 						<td>
 							<input type="text" id="email" name="email" maxlength="150" onclick="inputEmail()" onkeydown="emailUncheck()" value="${loginInfo.email}" />
 							<button type="button" id="emailCheckBtn" class="btn-xs mypg-pfed2-overlap" onclick="onSubmit()">이메일 중복확인</button>
-							<input type="hidden" name="emailDuplication" value="emailUncheck" />
+							<input type="hidden" id="emailDuplication" name="emailDuplication" value="" />
 						</td>
 					</tr>
 					<tr>
@@ -131,12 +131,8 @@
 		location.href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do"
 	}
 	
-	function emailChecked() {
-		document.getElementsByName("emailDuplication")[0].value = "emailChecked";
-	}
-	
 	function emailUncheck() {
-		document.getElementsByName("emailDuplication")[0].value = "emailUncheck";
+		document.getElementById("emailDuplication").value = "emailUncheck";
 	}
 	
 	function inputEmail() {

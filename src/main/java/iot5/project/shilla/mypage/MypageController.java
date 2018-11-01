@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import iot5.project.shilla.helper.PageHelper;
 import iot5.project.shilla.helper.RegexHelper;
@@ -165,7 +166,7 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2_echk.do", method = RequestMethod.POST)
-	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttributes) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -194,7 +195,6 @@ public class MypageController {
 		if (result > 0) {
 			return web.redirect(null, "이미 사용중인 이메일 입니다.");
 		}
-		
 		return web.redirect(null, "사용가능한 이메일 입니다.");
 	}
 	
@@ -202,11 +202,11 @@ public class MypageController {
 	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		String ECHK = request.getParameter("emailDuplication");
-		logger.info("ECHK의 값은 >> " + ECHK);
-		if (ECHK == "emailUncheck") {
+		/*String echk = request.getParameter("emailDuplication");
+		logger.info("echk의 값은 >> " + echk);
+		if (!echk.equals("emailChecked")) {
 			return web.redirect(null, "이메일 중복검사를 해주세요.");
-		}
+		}*/
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
@@ -238,27 +238,7 @@ public class MypageController {
 			return web.redirect(null, "연락처의 형식이 잘못되었습니다.");
 		}
 		
-		Member member = new Member();
-		member.setId(loginInfo.getId());
-		member.setEmail(newEmail);
-		member.setTel(newTel);
-		member.setAgree1(agree1);
-		member.setAgree2(agree2);
-		
-		Member editInfo = null;
-		try {
-			memberService.selectEmailCount(member);
-			memberService.selectTelCount(member);
-			memberService.updateMemberET(member);
-			editInfo = memberService.selectMember(member);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-		
-		web.removeSession("loginInfo");
-		web.setSession("loginInfo", editInfo);
-		
-		/*if (email != newEmail && tel == newTel) {
+		if (!email.equals(newEmail) && tel.equals(newTel)) {
 			Member member = new Member();
 			member.setId(loginInfo.getId());
 			member.setEmail(newEmail);
@@ -277,7 +257,7 @@ public class MypageController {
 			
 			web.removeSession("loginInfo");
 			web.setSession("loginInfo", editInfo);
-		} else if (email == newEmail && tel != newTel) {
+		} else if (email.equals(newEmail) && !tel.equals(newTel)) {
 			Member member = new Member();
 			member.setId(loginInfo.getId());
 			member.setEmail(email);
@@ -295,8 +275,8 @@ public class MypageController {
 			}
 			
 			web.removeSession("loginInfo");
-			web.setSession("loginInfo", editInfo);
-		}*/
+			web.setSession("loginInfo", editInfo);		
+		}
 		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}

@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.PageHelper;
+import iot5.project.shilla.helper.RegexHelper;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
@@ -27,7 +29,9 @@ import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.model.Room;
 import iot5.project.shilla.service.FileService;
+import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
+import iot5.project.shilla.service.ReservService;
 import iot5.project.shilla.service.RoomService;
 
 @Controller
@@ -37,15 +41,24 @@ public class AdminController {
 	@Autowired
 	WebHelper web;
 	@Autowired
+	SqlSession sqlSession;
+	@Autowired
+	RegexHelper regex;
+	@Autowired
 	UploadHelper upload;
 	@Autowired
-	RoomService roomService;
+	MemberService memberService;
+	@Autowired
+	QnAService qnaService;
+	@Autowired
+	ReservService reservService;
 	@Autowired
 	FileService fileService;
 	@Autowired
 	PageHelper pageHelper;
 	@Autowired
-	QnAService qnaService;
+	RoomService roomService;
+	
 
 	@RequestMapping(value = "/admin/room_list.do", method = RequestMethod.GET)
 	public ModelAndView roomList(Locale locale, Model model) throws ServletException, IOException {
@@ -224,12 +237,17 @@ public class AdminController {
 		try {
 			qnaInfo = qnaService.selectQnAList(qna);
 		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/enqanswer.do", null);
+			return web.redirect(web.getRootPath() + "/admin/enqanswer.do", null);
 		}
 
 		model.addAttribute("qnaInfo", qnaInfo);
 
 		return new ModelAndView("admin/enqanswer");
+	}
+	@RequestMapping(value = "/admin/enqanswer_table.do", method = RequestMethod.GET)
+	public ModelAndView mypg_qna_table(Locale locale, Model model) {
+		web.init();
+		return new ModelAndView("admin/enqanswer_table");
 	}
 
 	@RequestMapping(value = "/admin/enqanswer_2.do", method = RequestMethod.GET)
@@ -252,7 +270,7 @@ public class AdminController {
 			qnaInfo = qnaService.selectQnAById(qna);
 			fileList = fileService.selectQnAFileList(file);
 		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/enqanswer_2.do", null);
+			return web.redirect(web.getRootPath() + "/admin/enqanswer_2.do", null);
 		}
 
 		model.addAttribute("qnaInfo", qnaInfo);

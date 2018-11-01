@@ -100,6 +100,11 @@
 			</div>
 		</div>
 		</div>
+		<script type="text/javascript">
+		function moveToList() {
+			location.href="${pageContext.request.contextPath}/admin/enqanswer.do"
+		}
+	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 	<!-- json 데이터를 정의한 외부 파일 로드하기 -->

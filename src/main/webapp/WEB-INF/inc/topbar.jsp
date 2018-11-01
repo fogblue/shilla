@@ -30,6 +30,14 @@
 					<li class="menu-item2"><a href="${pageContext.request.contextPath}/mypage/mypg_reservation.do">예약 확인</a></li>
 				</ul>
 			</c:when>
+			<c:when test="${loginInfo.id == 2}">
+				<ul class="menu2 list-inline pull-right">
+					<li class="menu-item2 br">${loginInfo.userNameKor}님&nbsp;</li>
+					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/mypage/mypg_main.do">마이페이지&nbsp;</a></li>
+					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃&nbsp;</a></li>
+					<li class="menu-item2 br"><a href="${pageContext.request.contextPath}/admin/package_add.do">관리자페이지</a></li>
+				</ul>
+			</c:when>
 			<c:otherwise>
 				<ul class="menu2 list-inline pull-right">
 					<li class="menu-item2 br">${loginInfo.userNameKor}님&nbsp;</li>
@@ -44,7 +52,7 @@
 
 				<li class="menu-item"><a href="${pageContext.request.contextPath}/info/hotelinfo.do"><button class="btn btn-topbar">호텔신라 소개</button></a></li>
 				<li class="menu-item"><a href="${pageContext.request.contextPath}/info/contactinfo.do"><button class="btn btn-topbar">고객문의</button></a></li>
-				<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/package_add.do" class="btn btn-topbar">관리자페이지</a></li>
+				<li class="menu-item"><a href="#" class="btn btn-topbar">신라리워즈?</a></li>
 			</ul>
 		</div>
 	</div>

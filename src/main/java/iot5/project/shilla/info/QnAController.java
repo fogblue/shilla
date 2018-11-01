@@ -29,6 +29,7 @@ import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
+import iot5.project.shilla.service.RoomService;
 
 @Controller
 public class QnAController {
@@ -49,6 +50,8 @@ public class QnAController {
 	FileService fileService;
 	@Autowired
 	ReservService reservService;
+	@Autowired
+	RoomService roomService;
 
 	@RequestMapping(value = "/info/contactinfo.do", method = RequestMethod.GET)
 	public ModelAndView contactinfo(Locale locale, Model model) {
@@ -258,6 +261,8 @@ public class QnAController {
 		resv.setPplAd(pplAd);
 		resv.setPplCh(pplCh);
 		resv.setPplBb(pplBb);
+		
+		/*roomService.selectRoomItem();*/
 
 		/* web.setSession("resv", resv); */
 		/* Reservation resv = (Reservation) web.getSession("resv"); */

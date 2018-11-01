@@ -13,7 +13,10 @@
 		<result property="packageContent" column="package_content" />
 		<result property="hotelCategory" column="hotel_category" />
 	</resultMap>
-	
+	<!-- ######## -->
+	<!-- ##입력## -->
+	<!-- ######## -->
+	<!-- 패키지를 저장한다 -->
 	<insert id="insertPackage" parameterType="iot5.project.shilla.model.Package" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO package(
 			package_name, package_price, package_img, package_content, hotel_category
@@ -22,10 +25,22 @@
 		)
 	</insert>
 	
+	<!-- ######## -->
+	<!-- ##수정## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##삭제## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##조회## -->
+	<!-- ######## -->
+	<!-- 패키지 목록을 조회한다 -->
 	<select id="selectPackageList" parameterType="iot5.project.shilla.model.Package" resultMap="package">
 		SELECT id, package_name, package_price, package_img, package_content, hotel_category
-		FROM package
-		WHERE id=#{id}
+		FROM   package
+		WHERE  id=#{id}
 	</select>
 	
 </mapper>

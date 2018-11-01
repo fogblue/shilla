@@ -11,8 +11,10 @@
 		<result property="zipcode" column="zipcode" />
 		<result property="addr" column="addr" />
 	</resultMap>
-	
-	<!-- 호텔의 정보를 저장한다. -->
+	<!-- ######## -->
+	<!-- ##입력## -->
+	<!-- ######## -->
+	<!-- 호텔의 정보를 저장한다 -->
 	<insert id="insertHotel" parameterType="iot5.project.shilla.model.Hotel"
 		useGeneratedKeys="false" keyProperty="category">
 		INSERT INTO hotel(
@@ -22,17 +24,27 @@
 		)
 	</insert>
 	
-	<!-- 호텔을 조회한다. -->
+	<!-- ######## -->
+	<!-- ##수정## -->
+	<!-- ######## -->
+	
+	<!-- ######## -->
+	<!-- ##삭제## -->
+	<!-- ######## -->
+	<!-- 호텔을 삭제한다 -->
+	<delete id="deleteHotel" parameterType="iot5.project.shilla.model.Hotel">
+		DELETE FROM hotel WHERE category=#{category}
+	</delete>
+	
+	<!-- ######## -->
+	<!-- ##조회## -->
+	<!-- ######## -->
+	<!-- 호텔을 조회한다 -->
 	<select id="selectHotel" parameterType="iot5.project.shilla.model.Hotel" 
 		resultMap="hotel">
 		SELECT category, tel, zipcode, addr
 		FROM   hotel
 		WHERE  category=#{category}
 	</select>
-	
-	<!-- 호텔을 삭제한다. -->
-	<delete id="deleteHotel" parameterType="iot5.project.shilla.model.Hotel">
-		DELETE FROM hotel WHERE category=#{category}
-	</delete>
-	
+
 </mapper>

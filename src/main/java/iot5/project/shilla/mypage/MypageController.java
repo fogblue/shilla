@@ -195,6 +195,7 @@ public class MypageController {
 		if (result > 0) {
 			return web.redirect(null, "이미 사용중인 이메일 입니다.");
 		}
+		
 		return web.redirect(null, "사용가능한 이메일 입니다.");
 	}
 	
@@ -202,11 +203,11 @@ public class MypageController {
 	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		/*String echk = request.getParameter("emailDuplication");
+		String echk = request.getParameter("emailDuplication");
 		logger.info("echk의 값은 >> " + echk);
-		if (!echk.equals("emailChecked")) {
-			return web.redirect(null, "이메일 중복검사를 해주세요.");
-		}*/
+		if (!echk.equals("uncheck")) {
+			return web.redirect(null, "이메일 중복검사를 시떼구다사이.");
+		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
@@ -248,7 +249,7 @@ public class MypageController {
 			
 			Member editInfo = null;
 			try {
-				memberService.selectEmailCount(member);
+				/*memberService.selectEmailCount(member);*/
 				memberService.updateMemberET(member);
 				editInfo = memberService.selectMember(member);
 			} catch (Exception e) {

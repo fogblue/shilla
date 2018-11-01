@@ -37,7 +37,7 @@
 	<!-- 객실 정보 확인 -->
 	<select id="selectRoomItem" parameterType="iot5.project.shilla.model.Room" resultMap="room">
 		SELECT id, room_no, room_type, bed_type, room_price, package_id, hotel_category
-		FROM room WHERE id=#{id} or room_no=#{roomNo}
+		FROM room
 	</select>
 	
 	<!-- 다중행 조회(목록조회) -->

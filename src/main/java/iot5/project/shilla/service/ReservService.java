@@ -80,4 +80,7 @@ public interface ReservService {
 	 * @throws Exception
 	 */
 	public int selectReservationCount(ResvRoom reserv) throws Exception;
+	
+	
+	public int selectReservationPplCount(ResvRoom reserv) throws Exception;
 }

@@ -27,8 +27,7 @@
 	<!-- ##입력## -->
 	<!-- ######## -->
 	<!-- 회원정보를 저장한다 : 가입 -->
-	<insert id="insertMember" parameterType="iot5.project.shilla.model.Member" 
-		useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertMember" parameterType="iot5.project.shilla.model.Member" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO member (
 			user_name_kor, user_name_eng, user_id, user_pw,
 			birthdate, email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date
@@ -84,8 +83,7 @@
 	<!-- ##조회## -->
 	<!-- ######## -->
 	<!-- 회원번호가 일치하는 회원정보를 조회한다 -->
-	<select id="selectMember"
-		parameterType="iot5.project.shilla.model.Member" resultMap="member">
+	<select id="selectMember" parameterType="iot5.project.shilla.model.Member" resultMap="member">
 		SELECT id, user_name_kor, user_name_eng, user_id, password(user_pw), DATE_FORMAT(birthdate, '%Y-%m-%d') as birthdate,
 				email, tel, tel_home, zipcode, addr1, addr2, reg_date, edit_date, agree1, agree2
 		FROM   member
@@ -120,9 +118,14 @@
 		FROM   member
 		WHERE  email=#{email}
 	</select>
+	<!-- 휴대전화 중복검사를 수행한다 -->
+	<select id="selectTelCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
+		SELECT count(id)
+		FROM   member
+		WHERE  tel=#{tel}
+	</select>
 	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->
-	<select id="selectMemberPasswordCount" parameterType="iot5.project.shilla.model.Member" 
-    	resultType="int">
+	<select id="selectMemberPasswordCount" parameterType="iot5.project.shilla.model.Member" resultType="int">
 		SELECT count(id)
 		FROM   member 
 		WHERE  id=#{id} AND user_pw=password(#{userPw})

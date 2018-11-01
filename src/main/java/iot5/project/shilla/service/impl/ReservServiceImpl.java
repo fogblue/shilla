@@ -154,4 +154,20 @@ public class ReservServiceImpl implements ReservService {
 		}
 		return result;
 	}
+
+
+	@Override
+	public int selectReservationPplCount(ResvRoom reserv) throws Exception {
+		// TODO Auto-generated method stub
+		int result = 0;
+		
+		try {
+			result = sqlSession.selectOne("ReservationMapper.selectReservationPplCount", reserv);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("예약 갯수 조회에 실패했습니다.");
+		}
+		return result;
+	}
+	
 }

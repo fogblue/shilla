@@ -2,6 +2,8 @@ package iot5.project.shilla.reserv;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvGuest;
 
 @Controller
 public class ReservController {
@@ -50,7 +53,7 @@ public class ReservController {
 		
 		
 		
-		web.init();
+	/*	web.init();
 		int pplAd = web.getInt("ppl_add");
 		int pplCh = web.getInt("ppl_ch");
 		int pplBb = web.getInt("ppl_bb");
@@ -58,8 +61,28 @@ public class ReservController {
 		Reservation reservation = new Reservation();
 		reservation.setPplAd(pplAd);
 		reservation.setPplCh(pplCh);
-		reservation.setPplBb(pplBb);
+		reservation.setPplBb(pplBb);*/
 		
+		
+		return new ModelAndView("reservation/reservation");
+	}
+	
+	@RequestMapping(value = "/reservation/reservation_ok.do", method = RequestMethod.POST)
+	public ModelAndView reservation_ok(Locale locale, Model model, HttpServletRequest request) {
+		web.init();
+		
+		int ppl_ad = Integer.parseInt(request.getParameter("ppl_ad"));
+		int ppl_ch = Integer.parseInt(request.getParameter("ppl_ch"));
+		int ppl_bb = Integer.parseInt(request.getParameter("ppl_bb"));
+		logger.info("ppl_ad >> " + ppl_ad);
+		logger.info("ppl_ch >> " + ppl_ch);
+		logger.info("ppl_bb >> " + ppl_bb);
+		
+		ResvGuest reserv = new ResvGuest();
+		reserv.setPplAd(ppl_ad);
+		reserv.setPplCh(ppl_ch);
+		reserv.setPplBb(ppl_bb);
+
 		
 		return new ModelAndView("reservation/reservation");
 	}

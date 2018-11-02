@@ -105,44 +105,52 @@
 						});
 			</script>
 			<!-- Date picker 끝 -->
-			<div class="rsv_personcount">
-				<form method="post" action="${pageContext.request.contextPath}/reservation/reservation2.do">
-				
+			<form method="post" action="${pageContext.request.contextPath}/reservation/reservation_ok.do">
+			<div class="rsv_personcount">										
 				<div class="rsv_adult">
 					<div class="rsv_pmbutton">
 						<span>성인</span>
 					</div>
-					<input class="rsv_numbox" name="ppl_ad" id="numbox1" value="1" disabled style="border: none; background: #efefef;"></input><!-- 세션저장값 -->
+					<input class="rsv_numbox" name="ppl_ad" id="numbox1" value="1"  style="border: none; background: #efefef;"></input><!-- 세션저장값 -->
 					<div class="rsv_pmbotton2">
 						<button type="button" class="rsv_plus 1234" id="plus1">+</button>
 						<button type="button" class="rsv_minus 1234" id="minus1">-</button>
 					</div>
-				</div>
-				
+				</div>			
 				<div class="rsv_child">
 					<div class="rsv_pmbutton">
 						<span>어린이</span>
 					</div>
-					<input class="rsv_numbox" name="ppl_ch" id="numbox2" value="0" disabled style="border: none; background: #efefef;"></input><!-- 세션저장값 -->
+					<input class="rsv_numbox" name="ppl_ch" id="numbox2" value="0"  style="border: none; background: #efefef;"></input><!-- 세션저장값 -->
 					<div class="rsv_pmbotton2">
 						<button type="button" class="rsv_plus 1234" id="plus2">+</button>
 						<button type="button" class="rsv_minus 1234" id="minus2">-</button>
 					</div>
-				</div>
-				
+				</div>			
 				<div class="rsv_baby">
 					<div class="rsv_pmbutton">
 						<span>유아</span>
 					</div>
-					<input class="rsv_numbox" name="ppl_bb" id="numbox3" value="0" disabled style="border: none; background: #efefef;"></input><!-- 세션저장값 -->
+					<input class="rsv_numbox" name="ppl_bb" id="numbox3" value="0"  style="border: none; background: #efefef;"></input><!-- 세션저장값 -->
 					<div class="rsv_pmbotton2">
 						<button type="button" class="rsv_plus 1234" id="plus3">+</button>
 						<button type="button" class="rsv_minus 1234" id="minus3">-</button>
 					</div>
 				</div>
-				
-				</form>
-				<script type="text/javascript">
+				<input type="submit" value="값넘기기">	
+			</div>
+			<div class="rsv_search">
+				<a href="#" id="rsv_roomsearchbtn">검색</a>
+			</div>
+			</form>
+		</div>
+		<%-- selectbox end --%>
+		<div class="rsv_discriptionbox" id="rsv_contents_box2">
+			<span class="rsv_discription">예약을 원하시는 호텔, 날짜, 인원을 선택 후 검색 버튼을
+				눌러주세요.</span>
+		</div>
+	</div>
+	<script type="text/javascript">
 					$(function() {
 						var number1 = parseInt($(this).find('#numbox1').val());
 						var number2 = parseInt($(this).find('#numbox2').val());
@@ -207,39 +215,22 @@
 							$('#numbox3').val(number3);
 						});  
 					});
+					
+					$(function() {
+						$("#rsv_roomsearchbtn").click(function(e) {
+							$("#rsv_contents_box2").empty();
+							$.ajax({
+								url : "${pageContext.request.contextPath}/reservation/rsv_roomselect.do",
+								method : "get",
+								data : {},
+								dataType : "html",
+								success : function(req) {
+									$("#rsv_contents_box2").append(req);
+								}
+							});
+						});
+					});
 				</script>
-			</div>
-			<div class="rsv_search">
-				<a href="#" id="rsv_roomsearchbtn">검색</a>
-			</div>
-		</div>
-		<%-- selectbox end --%>
-		<script type="text/javascript">
-			$(function() {
-				$("#rsv_roomsearchbtn")
-						.click(
-								function(e) {
-									$("#rsv_contents_box2").empty();
-									$
-											.ajax({
-												url : "${pageContext.request.contextPath}/reservation/rsv_roomselect.do",
-												method : "get",
-												data : {},
-												dataType : "html",
-												success : function(req) {
-													$("#rsv_contents_box2")
-															.append(req);
-												}
-											});
-								});
-			});
-		</script>
-
-		<div class="rsv_discriptionbox" id="rsv_contents_box2">
-			<span class="rsv_discription">예약을 원하시는 호텔, 날짜, 인원을 선택 후 검색 버튼을
-				눌러주세요.</span>
-		</div>
-	</div>
 	<%-- container end --%>
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>

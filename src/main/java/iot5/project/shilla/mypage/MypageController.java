@@ -72,14 +72,14 @@ public class MypageController {
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
-		/* */int page = web.getInt("page", 1);
+		int page = web.getInt("page", 1);
 		
-		/* */int totalCount = 0;
+		int totalCount = 0;
 		
 		List<ResvRoom> reservInfo = null;
 		try {
-			/* */totalCount = reservService.selectReservationCount(resvroom);
-			/* */pageHelper.pageProcess(page, totalCount, 10, 5);
+			totalCount = reservService.selectReservationCount(resvroom);
+			pageHelper.pageProcess(page, totalCount, 10, 5);
 			reservInfo = reservService.selectReservList(resvroom);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
@@ -87,10 +87,10 @@ public class MypageController {
 		
 		model.addAttribute("reservInfo", reservInfo);
 		
-		/* */model.addAttribute("pageHelper", pageHelper);
+		model.addAttribute("pageHelper", pageHelper);
 		
-		/* */int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
-		/* */model.addAttribute("maxPageNo", maxPageNo);
+		int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		model.addAttribute("maxPageNo", maxPageNo);
 		
 		return new ModelAndView("mypage/mypg_reservation");
 	}
@@ -164,6 +164,37 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
+	@RequestMapping(value = "/mypage/mypg_profile_edit_echk.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		String newEmail = request.getParameter("email");
+		logger.info("입력한 이메일은 >> " + newEmail);
+		model.addAttribute("email", newEmail);
+		
+		if (!regex.isValue(newEmail)) {
+			return web.redirect(null, "이메일을 입력하세요.");
+		}
+		if (!regex.isEmail(newEmail)) {
+			return web.redirect(null, "이메일의 형식이 잘못되었습니다.");
+		}
+		
+		Member member = new Member();
+		member.setEmail(newEmail);
+		int result = 0;
+		try {
+			result = memberService.selectEmailCheck(member);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		if (result > 0) {
+			return web.redirect(null, "이미 사용중인 이메일 입니다.");
+		}
+		
+		return web.redirect(null, "사용가능한 이메일 입니다.");
+	}
+	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2_echk.do", method = RequestMethod.POST)
 	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
@@ -202,10 +233,10 @@ public class MypageController {
 	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
-		String ECHK = request.getParameter("emailDuplication");
-		logger.info("ECHK의 값은 >> " + ECHK);
-		if (ECHK == "emailUncheck") {
-			return web.redirect(null, "이메일 중복검사를 해주세요.");
+		String echk = request.getParameter("emailDuplication");
+		logger.info("echk의 값은 >> " + echk);
+		if (!echk.equals("uncheck")) {
+			return web.redirect(null, "이메일 중복확인을 해주세요.");
 		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -238,27 +269,7 @@ public class MypageController {
 			return web.redirect(null, "연락처의 형식이 잘못되었습니다.");
 		}
 		
-		Member member = new Member();
-		member.setId(loginInfo.getId());
-		member.setEmail(newEmail);
-		member.setTel(newTel);
-		member.setAgree1(agree1);
-		member.setAgree2(agree2);
-		
-		Member editInfo = null;
-		try {
-			memberService.selectEmailCount(member);
-			memberService.selectTelCount(member);
-			memberService.updateMemberET(member);
-			editInfo = memberService.selectMember(member);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-		
-		web.removeSession("loginInfo");
-		web.setSession("loginInfo", editInfo);
-		
-		/*if (email != newEmail && tel == newTel) {
+		if (!email.equals(newEmail) && tel.equals(newTel)) {
 			Member member = new Member();
 			member.setId(loginInfo.getId());
 			member.setEmail(newEmail);
@@ -268,7 +279,7 @@ public class MypageController {
 			
 			Member editInfo = null;
 			try {
-				memberService.selectEmailCount(member);
+				/*memberService.selectEmailCount(member);*/
 				memberService.updateMemberET(member);
 				editInfo = memberService.selectMember(member);
 			} catch (Exception e) {
@@ -277,7 +288,7 @@ public class MypageController {
 			
 			web.removeSession("loginInfo");
 			web.setSession("loginInfo", editInfo);
-		} else if (email == newEmail && tel != newTel) {
+		} else if (email.equals(newEmail) && !tel.equals(newTel)) {
 			Member member = new Member();
 			member.setId(loginInfo.getId());
 			member.setEmail(email);
@@ -295,8 +306,10 @@ public class MypageController {
 			}
 			
 			web.removeSession("loginInfo");
-			web.setSession("loginInfo", editInfo);
-		}*/
+			web.setSession("loginInfo", editInfo);		
+		} else if (email.equals(newEmail) && tel.equals(newTel)) {
+			return web.redirect(null, "변경된 내용이 없습니다.");
+		}
 		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
 	}
@@ -320,6 +333,10 @@ public class MypageController {
 		
 		if (!regex.isValue(userPw)) {	
 			return web.redirect(null, "기존 비밀번호를 입력하세요.");		
+		}
+		
+		if (!regex.isValue(newUserPw)) {	
+			return web.redirect(null, "새 비밀번호를 입력하세요.");		
 		}
 
 		if (regex.isValue(newUserPw)) {
@@ -432,24 +449,24 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setMemberId(loginInfo.getId());
 		
-		/* */int page = web.getInt("page", 1);
+		int page = web.getInt("page", 1);
 		
-		/* */int totalCount = 0;
+		int totalCount = 0;
 
 		List<QnA> qnaInfo = null;
 		try {
-			/* */totalCount = qnaService.selectQnACount(qna);
-			/* */pageHelper.pageProcess(page, totalCount, 10, 5);
+			totalCount = qnaService.selectQnACount(qna);
+			pageHelper.pageProcess(page, totalCount, 10, 5);
 			qnaInfo = qnaService.selectQnAList(qna);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_qna.do", null);
 		}
 		
 		model.addAttribute("qnaInfo", qnaInfo);
-		/* */model.addAttribute("pageHelper", pageHelper);
+		model.addAttribute("pageHelper", pageHelper);
 		
-		/* */int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
-		/* */model.addAttribute("maxPageNo", maxPageNo);
+		int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		model.addAttribute("maxPageNo", maxPageNo);
 		
 		return new ModelAndView("mypage/mypg_qna");
 	}

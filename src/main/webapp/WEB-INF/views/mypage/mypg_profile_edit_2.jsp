@@ -62,9 +62,9 @@
 					<tr>
 						<td rowspan="2">이메일</td>
 						<td>
-							<input type="text" id="email" name="email" maxlength="150" onclick="inputEmail()" onkeydown="emailUncheck()" value="${loginInfo.email}" />
+							<input type="text" id="email" name="email" maxlength="150" onclick="inputEmail()" onkeydown="emailUncheck()" value="${loginInfo.email}"  data-initial="${loginInfo.email}" />
 							<button type="button" id="emailCheckBtn" class="btn-xs mypg-pfed2-overlap" onclick="onSubmit()">이메일 중복확인</button>
-							<input type="hidden" name="emailDuplication" value="emailUncheck" />
+							<input type="hidden" id="emailDuplication" name="emailDuplication" value="uncheck" />
 						</td>
 					</tr>
 					<tr>
@@ -99,15 +99,15 @@
 				</table>
 			</div>
 			<div class="mypg-contents-btn2">
-				<button type="submit" class="btn btn-lg mypg-pwed-change">변경</button>
+				<button type="submit" class="btn btn-lg mypg-pwed-change" id="formsubmit">변경</button>
 				<button type="reset" class="btn btn-lg mypg-pwed-cancel"  onclick="goToBack()">취소</button>
 			</div>
 			</form>
 		</div>
 	</div>
 	
-	<script>	
-	function onSubmit() {
+	<script type="text/javascript">
+	function onSubmit() {		
 		var email = $("#email").val();
 		
 		var form = document.createElement("form");
@@ -131,12 +131,8 @@
 		location.href="${pageContext.request.contextPath}/mypage/mypg_profile_edit.do"
 	}
 	
-	function emailChecked() {
-		document.getElementsByName("emailDuplication")[0].value = "emailChecked";
-	}
-	
 	function emailUncheck() {
-		document.getElementsByName("emailDuplication")[0].value = "emailUncheck";
+		document.getElementById("emailDuplication").value = "emailUncheck";
 	}
 	
 	function inputEmail() {

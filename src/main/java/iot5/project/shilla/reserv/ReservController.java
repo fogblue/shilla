@@ -1,5 +1,6 @@
 package iot5.project.shilla.reserv;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import iot5.project.shilla.helper.WebHelper;
-import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
+import iot5.project.shilla.model.Room;
+import iot5.project.shilla.service.RoomService;
 
 @Controller
 public class ReservController {
@@ -25,34 +27,24 @@ public class ReservController {
 	WebHelper web;
 	@Autowired
 	SqlSession sqlSession;
-	
-	
-	
-	
-	
-	
-	
+	@Autowired
+	RoomService roomService;
 	
 	@RequestMapping(value = "/reservation/reservation.do", method = RequestMethod.GET)
 	public ModelAndView reservation(Locale locale, Model model) {
-		logger.info("Your locale is", locale);
-		
-		 
-		Reservation roomInfo = null;
+		web.init();
+			 
+	/*	Reservation roomInfo = null;
 		Reservation guestInfo = null;
 
 		try {
-			/*loginInfo = memberService.selectLoginInfo(member);*/
+			loginInfo = memberService.selectLoginInfo(member);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
 
-		/*web.setSession("reservation", reservation);*/
-		
-		
-		
-		
-		
+		web.setSession("reservation", reservation);*/
+
 	/*	web.init();
 		int pplAd = web.getInt("ppl_add");
 		int pplCh = web.getInt("ppl_ch");
@@ -62,8 +54,7 @@ public class ReservController {
 		reservation.setPplAd(pplAd);
 		reservation.setPplCh(pplCh);
 		reservation.setPplBb(pplBb);*/
-		
-		
+				
 		return new ModelAndView("reservation/reservation");
 	}
 	
@@ -89,32 +80,39 @@ public class ReservController {
 	
 	@RequestMapping(value = "/reservation/rsv_roomselect.do", method = RequestMethod.GET)
 	public ModelAndView rsv_roomselect(Locale locale, Model model) {
-		logger.info("Your locale is", locale);
+		web.init();
+		
+		Room room = new Room();
+		List<Room> RoomList = null;
+		
+		try	{
+			RoomList = roomService.getRoomListNW(room);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/reservation/rsv_roomselect.do", null);
+		}
+		
+		model.addAttribute("RoomList", RoomList);
 
 		return new ModelAndView("reservation/rsv_roomselect");
 	}
 	
 	@RequestMapping(value = "/reservation/reservation2.do", method = RequestMethod.GET)
 	public ModelAndView reservation2(Locale locale, Model model) {
-		logger.info("Your locale is", locale);
+		web.init();
 		
-		
-		
-		
-
 		return new ModelAndView("reservation/reservation2");
 	}
 	
 	@RequestMapping(value = "/reservation/reservation3.do", method = RequestMethod.GET)
 	public ModelAndView reservation3(Locale locale, Model model) {
-		logger.info("Your locale is", locale);
+		web.init();
 
 		return new ModelAndView("reservation/reservation3");
 	}
 	
 	@RequestMapping(value = "/reservation/reservation4.do", method = RequestMethod.GET)
 	public ModelAndView reservation4(Locale locale, Model model) {
-		logger.info("Your locale is", locale);
+		web.init();
 
 		return new ModelAndView("reservation/reservation4");
 	}

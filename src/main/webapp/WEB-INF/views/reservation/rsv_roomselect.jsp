@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet"
@@ -22,6 +24,30 @@
 		<!-- 탭 페이지 구성(전체, 패키지, 객실) -->
 		<div class="tab-content">
 		<!-- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -->
+		<table>
+			<tbody>
+				<c:choose>
+					<c:when test="${fn:length(RoomList) > 0}">
+						<c:forEach var="room" items="${RoomList}">
+							<tr>
+								<td>${room.id}</td>
+								<td>${room.roomNo}</td>
+								<td>${room.roomType}</td>
+								<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do?id=${room.id}" style="display: inline;">${room.bedType}</a></td>
+								<td>${room.roomPrice}</td>
+								<td></td>
+							</tr>
+							
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr id="find-target">
+							<td colspan="6">자료가 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
+			</tbody>
+		</table>
 			<div role="tabpanel" class="tab-pane fade active in" id="page1">
 				<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1"
 					method="get"

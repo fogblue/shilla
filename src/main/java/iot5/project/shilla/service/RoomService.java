@@ -49,4 +49,12 @@ public interface RoomService {
 	 * @throws Exception
 	 */
 	public List<Room> getRoomList(Room room) throws Exception;
+	
+	/**
+	 * 모든 객실 조회
+	 * @param room
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Room> getRoomListNW(Room room) throws Exception;
 }

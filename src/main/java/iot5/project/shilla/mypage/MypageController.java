@@ -548,8 +548,9 @@ public class MypageController {
 	resvRoom.setCheckOut(checkOut);
 	resvRoom.setRoomType(roomType);
 	resvRoom.setPackageType(packageType);
-	resvRoom.setExbed(exbed);
-	resvRoom.setMeal(meal);
+	/*resvRoom.setExbed(Integer.parseInt(exbed));*/
+	resvRoom.setMeal(Integer.parseInt(meal));
+	resvRoom.setTotalPrice(Integer.parseInt(totalPrice));
 	
 	ResvGuest resvGuest = new ResvGuest();
 	

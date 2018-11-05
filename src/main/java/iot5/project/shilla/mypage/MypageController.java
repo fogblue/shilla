@@ -23,6 +23,7 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.FileService;
@@ -541,18 +542,35 @@ public class MypageController {
 	String detail = request.getParameter("detail");
 	String resvRoomId = request.getParameter("resv_room_id");
 
-	
-	ResvRoom resvRoom = new ResvRoom();
+	Reservation resvRoom = new Reservation();
+	Reservation resvGuest = new Reservation();
+	/*ResvRoom resvRoom = new ResvRoom();
+	ResvGuest resvGuest = new ResvGuest();*/
 	resvRoom.setRoomNo(Integer.parseInt(roomNo));
 	resvRoom.setCheckIn(checkIn);
 	resvRoom.setCheckOut(checkOut);
 	resvRoom.setRoomType(roomType);
 	resvRoom.setPackageType(packageType);
-	/*resvRoom.setExbed(Integer.parseInt(exbed));*/
+	resvRoom.setExbed(Integer.parseInt(exbed));
 	resvRoom.setMeal(Integer.parseInt(meal));
 	resvRoom.setTotalPrice(Integer.parseInt(totalPrice));
+	resvRoom.setResvDate(resvDate);
+	resvRoom.setMemberId(Integer.parseInt(memberId));
+	resvRoom.setHotelCate(hotelCate);
+	resvGuest.setCardNo(cardNo);
+	resvGuest.setCardType(cardType);
+	resvGuest.setCardMm(Integer.parseInt(cardMm));
+	resvGuest.setCardYy(Integer.parseInt(cardYy));
+	resvGuest.setPplAd(Integer.parseInt(pplAd));
+	resvGuest.setPplCh(Integer.parseInt(pplCh));
+	resvGuest.setPplBb(Integer.parseInt(pplBb));
+	resvGuest.setDetail(detail);
+	resvGuest.setMemberId(resvRoom.getMemberId());
+	resvGuest.setResvRoomId(Integer.parseInt(resvRoomId));
 	
-	ResvGuest resvGuest = new ResvGuest();
+	
+	
+	
 	
 	
 	

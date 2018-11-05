@@ -26,10 +26,12 @@ import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.model.Room;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
+import iot5.project.shilla.service.RoomService;
 
 @Controller
 public class MypageController {
@@ -52,6 +54,8 @@ public class MypageController {
 	FileService fileService;
 	@Autowired
 	PageHelper pageHelper;
+	@Autowired
+	RoomService roomService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
@@ -122,8 +126,19 @@ public class MypageController {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
 		
+		Room room = new Room();
+		
+		room.setRoomNo(resvroom.getRoomNo());
+		
+		try {
+			room = roomService.selectRoom(room);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
 		model.addAttribute("reservRInfo", resvroom);
 		model.addAttribute("reservGInfo", resvguest);
+		model.addAttribute("roomInfo", room);
 		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
@@ -568,7 +583,9 @@ public class MypageController {
 	} catch (Exception e) {
 		return web.redirect(null, e.getLocalizedMessage());
 	}
+	
 	Reservation id = new Reservation();
+	
 	/** 예약 번호 불러오기 */
 	try {
 		id = reservService.selectReserv(reserv);

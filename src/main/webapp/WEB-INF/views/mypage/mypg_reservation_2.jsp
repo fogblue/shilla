@@ -95,9 +95,9 @@
 					<table class="mypg-rsvt2-contents-table-2">
 						<tr class="text-center">
 							<td style="width: 15%">${reservRInfo.checkIn}</td>
-							<td style="width: 45%">(내역)</td>
-							<td style="width: 20%">원</td>
-							<td style="width: 20%">원</td>
+							<td style="width: 45%">${roomInfo.roomType}</td>
+							<td style="width: 20%">${roomInfo.roomPrice}원</td>
+							<td style="width: 20%">${roomInfo.roomPrice}원</td>
 						</tr>
 						<c:choose>
 							<c:when test="${reservRInfo.exbed != 0}">

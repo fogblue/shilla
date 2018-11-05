@@ -518,8 +518,6 @@ public class MypageController {
 	public ModelAndView reserv_test_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 	web.init();
 	
-	Member loginInfo = (Member) web.getSession("loginInfo");
-	
 	String roomNo = request.getParameter("room_no");
 	String checkIn = request.getParameter("check_in");
 	String checkOut = request.getParameter("check_out");
@@ -540,12 +538,9 @@ public class MypageController {
 	String pplCh = request.getParameter("ppl_ch");
 	String pplBb = request.getParameter("ppl_bb");
 	String detail = request.getParameter("detail");
-	/*String resvRoomId = request.getParameter("resv_room_id");*/
 
 	Reservation reserv = new Reservation();
 	
-	/*ResvRoom resvRoom = new ResvRoom();
-	ResvGuest resvGuest = new ResvGuest();*/
 	reserv.setRoomNo(Integer.parseInt(roomNo));
 	reserv.setCheckIn(checkIn);
 	reserv.setCheckOut(checkOut);
@@ -566,7 +561,6 @@ public class MypageController {
 	reserv.setPplCh(Integer.parseInt(pplCh));
 	reserv.setPplBb(Integer.parseInt(pplBb));
 	reserv.setDetail(detail);
-	/*reserv.setResvRoomId(Integer.parseInt(resvRoomId));*/
 
 	/** 객실 정보 입력 */
 	try {

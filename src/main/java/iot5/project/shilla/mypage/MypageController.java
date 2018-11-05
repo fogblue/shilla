@@ -540,7 +540,7 @@ public class MypageController {
 	String pplCh = request.getParameter("ppl_ch");
 	String pplBb = request.getParameter("ppl_bb");
 	String detail = request.getParameter("detail");
-	String resvRoomId = request.getParameter("resv_room_id");
+	/*String resvRoomId = request.getParameter("resv_room_id");*/
 
 	Reservation reserv = new Reservation();
 	
@@ -566,17 +566,30 @@ public class MypageController {
 	reserv.setPplCh(Integer.parseInt(pplCh));
 	reserv.setPplBb(Integer.parseInt(pplBb));
 	reserv.setDetail(detail);
-	reserv.setMemberId(reserv.getMemberId());
-	reserv.setResvRoomId(Integer.parseInt(resvRoomId));
+	/*reserv.setResvRoomId(Integer.parseInt(resvRoomId));*/
 
+	/** 객실 정보 입력 */
 	try {
-		reservService.insertReserv(reserv);
+		reservService.insertReservRoom(reserv);
+	} catch (Exception e) {
+		return web.redirect(null, e.getLocalizedMessage());
+	}
+	Reservation id = new Reservation();
+	/** 예약 번호 불러오기 */
+	try {
+		id = reservService.selectReserv(reserv);
 	} catch (Exception e) {
 		return web.redirect(null, e.getLocalizedMessage());
 	}
 	
+	reserv.setResvRoomId(id.getRoomId());
 	
-	
+	/** 예약 번호 불러오기 */
+	try {
+		reservService.insertReservGuest(reserv);
+	} catch (Exception e) {
+		return web.redirect(null, e.getLocalizedMessage());
+	}
 	
 	return web.redirect(web.getRootPath() + "/mypage/reserv_test.do", "예약이 접수되었습니다.");
 	}

@@ -5,7 +5,7 @@
 
 <mapper namespace="ReservationMapper">
 	<resultMap id="reserv" type="iot5.project.shilla.model.Reservation">
-		<result property="roomId" column="resv_room.id" />
+		<result property="roomId" column="id" />
 		<result property="roomNo" column="room_no" />
 		<result property="checkIn" column="check_in" />
 		<result property="checkOut" column="check_out" />
@@ -69,10 +69,9 @@
     </select>  
 	<!-- 회원아이디와 일치하는 예약의 정보를 조회한다 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
-		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
-			total_price, resv_date, member_id, hotel_category
+		SELECT id
 		FROM   resv_room
-    	WHERE  member_id=#{memberId}
+    	WHERE  member_id=#{memberId} AND room_no=#{roomNo} AND check_in=#{checkIn} AND check_out=#{checkOut}
 	</select>	
 	<!-- 객실아이디와 일치하는 예약정보를 조회한다 -->
 	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">

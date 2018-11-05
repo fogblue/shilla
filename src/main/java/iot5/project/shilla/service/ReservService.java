@@ -9,12 +9,18 @@ import iot5.project.shilla.model.ResvRoom;
 public interface ReservService {
 
 	/**
-	 * 예약 하기
-	 * @param reserv
+	 * 예약 하기 - room
+	 * @param reserv - 예약할 객실 정보
 	 * @throws Exception
 	 */
-	public void insertReserv(Reservation reserv) throws Exception;
+	public void insertReservRoom(Reservation reserv) throws Exception;
 
+	/**
+	 * 예약 하기 - guest
+	 * @param reserv - 예약할 고객 정보
+	 * @throws Exception
+	 */
+	public void insertReservGuest(Reservation reserv) throws Exception;
 	/**
 	 * 예약 취소
 	 * @param reserv

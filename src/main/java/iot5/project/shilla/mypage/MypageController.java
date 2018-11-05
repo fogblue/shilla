@@ -524,19 +524,19 @@ public class MypageController {
 	String roomType = request.getParameter("room_type");
 	String packageType = request.getParameter("package_type");
 	String bedType = request.getParameter("bed_type");
-	String exbed = request.getParameter("exbed");
-	String meal = request.getParameter("meal");
-	String totalPrice = request.getParameter("total_price");
+	int exbed = web.getInt("exbed");
+	int meal = web.getInt("meal");
+	int totalPrice = web.getInt("total_price");
+	int memberId = web.getInt("member_id");
 	String resvDate = request.getParameter("resv_date");
-	String memberId = request.getParameter("member_id");
 	String hotelCate = request.getParameter("hotel_category");
 	String cardNo = request.getParameter("card_no");
 	String cardType = request.getParameter("card_type");
-	String cardYy = request.getParameter("card_yy");
-	String cardMm = request.getParameter("card_mm");
-	String pplAd = request.getParameter("ppl_ad");
-	String pplCh = request.getParameter("ppl_ch");
-	String pplBb = request.getParameter("ppl_bb");
+	int cardYy = web.getInt("card_yy");
+	int cardMm = web.getInt("card_mm");
+	int pplAd = web.getInt("ppl_ad");
+	int pplCh = web.getInt("ppl_ch");
+	int pplBb = web.getInt("ppl_bb");
 	String detail = request.getParameter("detail");
 
 	Reservation reserv = new Reservation();
@@ -547,19 +547,19 @@ public class MypageController {
 	reserv.setRoomType(roomType);
 	reserv.setPackageType(packageType);
 	reserv.setBedType(bedType);
-	reserv.setExbed(Integer.parseInt(exbed));
-	reserv.setMeal(Integer.parseInt(meal));
-	reserv.setTotalPrice(Integer.parseInt(totalPrice));
+	reserv.setExbed(exbed);
+	reserv.setMeal(meal);
+	reserv.setTotalPrice(totalPrice);
 	reserv.setResvDate(resvDate);
-	reserv.setMemberId(Integer.parseInt(memberId));
+	reserv.setMemberId(memberId);
 	reserv.setHotelCate(hotelCate);
 	reserv.setCardNo(cardNo);
 	reserv.setCardType(cardType);
-	reserv.setCardMm(Integer.parseInt(cardMm));
-	reserv.setCardYy(Integer.parseInt(cardYy));
-	reserv.setPplAd(Integer.parseInt(pplAd));
-	reserv.setPplCh(Integer.parseInt(pplCh));
-	reserv.setPplBb(Integer.parseInt(pplBb));
+	reserv.setCardMm(cardMm);
+	reserv.setCardYy(cardYy);
+	reserv.setPplAd(pplAd);
+	reserv.setPplCh(pplCh);
+	reserv.setPplBb(pplBb);
 	reserv.setDetail(detail);
 
 	/** 객실 정보 입력 */

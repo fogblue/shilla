@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="${pageContext.request.contextPath}/mypage/reserv_test_ok.do" method="post">
+		<form action="${pageContext.request.contextPath}/mypage/reserv_test_ok.do" method="post" enctype="multipart/form-data">
 			<label for="room_no">객실 번호
 				<input type="text" name="room_no" id="room_no" />
 			</label>

@@ -254,21 +254,21 @@ public class QnAController {
 		int pplCh = web.getInt("ppl_Ch");
 		int pplBb = web.getInt("ppl_Bb");
 
-		Reservation resv = new Reservation();
-		resv.setHotelCate(hotelCate);
-		resv.setCheckIn(tStart);
-		resv.setCheckOut(tEnd);
-		resv.setPplAd(pplAd);
-		resv.setPplCh(pplCh);
-		resv.setPplBb(pplBb);
+		Reservation room = new Reservation();
+		room.setHotelCate(hotelCate);
+		room.setCheckIn(tStart);
+		room.setCheckOut(tEnd);
+		room.setPplAd(pplAd);
+		room.setPplCh(pplCh);
+		room.setPplBb(pplBb);
 		
 		/*roomService.selectRoomItem();*/
 
 		/* web.setSession("resv", resv); */
 		/* Reservation resv = (Reservation) web.getSession("resv"); */
 
-		model.addAttribute("resv", resv);
+		model.addAttribute("room", room);
 		
-		return new ModelAndView("test/reservation_test2");
+		return web.redirect(null, null);
 	}
 }

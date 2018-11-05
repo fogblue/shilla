@@ -3,6 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <div class="container2">
 		<!-- 탭 페이지 구성(전체, 패키지, 객실) -->
+		<input type="hidden" name="hotel_cate" value="<% %>" />
 		<div class="tab-content">
 			<!-- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -->
 			<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1" method="get"

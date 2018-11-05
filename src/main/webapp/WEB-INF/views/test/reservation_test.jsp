@@ -66,7 +66,7 @@
                             <button type="button" class="rsv_minus 1234" id="minus3">-</button>
                         </div>
                     </div>
-            
+            </div>
             
             </div>
                 <button type="submit" id="rsv_roomsearchbtn" class="btn btn-success">검색</button>
@@ -141,8 +141,8 @@
              fnDataEvent: null
          });
      });
-        <!-- Date picker 끝 -->
-        <!-- 인원 수 계산 스크립트 -->
+        // Date picker 끝
+        // 인원 수 계산 스크립트 -->
             $(function() {
                 var number1 = parseInt($(this).find('#numbox1').val());
                 var number2 = parseInt($(this).find('#numbox2').val());
@@ -206,9 +206,9 @@
                     }
                     $('#numbox3').val(number3);
                 });
-    		 <!-- 검색 스크립트 --> 
+    		 // 검색 스크립트
             $("#rsv_roomsearchbtn").click(function(e) {
-            	/* e.preventDefault(); */
+            	e.preventDefault();
                 $("#rsv_contents_box2").empty();
                 $.get("${pageContext.request.contextPath}/test/reservation_roomsel", function(req) {$("#rsv_contents_box2").append(req);
 				}, "html"); // end $.get

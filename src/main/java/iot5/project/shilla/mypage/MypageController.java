@@ -505,4 +505,56 @@ public class MypageController {
 		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}
+	
+	@RequestMapping(value = "/mypage/reserv_test.do", method = RequestMethod.GET)
+	public ModelAndView reserv_test(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	web.init();
+	
+	return new ModelAndView("mypage/reserv_test");
+	}
+	
+	@RequestMapping(value = "/mypage/reserv_test_ok.do", method = RequestMethod.POST)
+	public ModelAndView reserv_test_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	web.init();
+	
+	Member loginInfo = (Member) web.getSession("loginInfo");
+	
+	String roomNo = request.getParameter("room_no");
+	String checkIn = request.getParameter("check_in");
+	String checkOut = request.getParameter("check_out");
+	String roomType = request.getParameter("room_type");
+	String packageType = request.getParameter("package_type");
+	String bedType = request.getParameter("bed_type");
+	String exbed = request.getParameter("exbed");
+	String meal = request.getParameter("meal");
+	String totalPrice = request.getParameter("total_price");
+	String resvDate = request.getParameter("resv_date");
+	String memberId = request.getParameter("member_id");
+	String hotelCate = request.getParameter("hotel_category");
+	String cardNo = request.getParameter("card_no");
+	String cardType = request.getParameter("card_type");
+	String cardYy = request.getParameter("card_yy");
+	String cardMm = request.getParameter("card_mm");
+	String pplAd = request.getParameter("ppl_ad");
+	String pplCh = request.getParameter("ppl_ch");
+	String pplBb = request.getParameter("ppl_bb");
+	String detail = request.getParameter("detail");
+	String resvRoomId = request.getParameter("resv_room_id");
+
+	
+	ResvRoom resvRoom = new ResvRoom();
+	resvRoom.setRoomNo(Integer.parseInt(roomNo));
+	resvRoom.setCheckIn(checkIn);
+	resvRoom.setCheckOut(checkOut);
+	resvRoom.setRoomType(roomType);
+	resvRoom.setPackageType(packageType);
+	resvRoom.setExbed(exbed);
+	resvRoom.setMeal(meal);
+	
+	ResvGuest resvGuest = new ResvGuest();
+	
+	
+	
+	return new ModelAndView("mypage/reserv_test_ok");
+	}
 }

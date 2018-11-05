@@ -1,43 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!doctype html>
 <html>
-
-
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_reservation.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/rsv_reservation2.css">
-
 </head>
-
 <body>
 	<%@ include file="/WEB-INF/inc/topbar.jsp"%>
 	<div class="container main">
 		<%-- container start --%>
-
-
 		<div class="rsv_step">
 			<span class="rsv_step2img">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
 				Step3. 고객 정보 입력 Step4. 예약 완료 /확인</span>
 		</div>
 		<div class="rsv_cont">
 			<div class="container1 col-sm-9">
-
 				<div class="rsv2_option">
-					<!-- =============================================================================================================================================================================== -->
+					<!-- ========================================================================== -->
 					<div class="rsv2_optionlist">
 						<h4 class="rsv2_optionlist_1">
 							<strong>옵션사항</strong>
 						</h4>
 						<h4 class="rsv2_optionlist_2">객실이용에 필요한 옵션사항을 선택하세요.</h4>
 					</div>
-					<!-- =============================================================================================================================================================================== -->
+					<!-- ========================================================================== -->
 					<div class="rsv2_option1"><!-- 세션저장값 -->
 						<div class="col-sm-7">
-							<input type="checkbox" class="rsv_optchbox" /> <label
-								class="rsv2_optext1">Daily Breakfast Buffet for Adult</label>
+							<input type="checkbox" class="rsv_optchbox" />
+							<label class="rsv2_optext1">Daily Breakfast Buffet for Adult</label>
 						</div>
 						<div class="rsv2_optext2 col-sm-3">
 							<label>30,000원</label>
@@ -46,15 +38,15 @@
 
 					<div class="rsv2_option2 clearfix"><!-- 세션저장값 -->
 						<div class="col-sm-7">
-							<input type="checkbox" class="rsv_optchbox" /> <label
-								class="rsv2_optext1">Daily Extra bed</label>
+							<input type="checkbox" class="rsv_optchbox" />
+							<label class="rsv2_optext1">Daily Extra bed</label>
 						</div>
 						<div class="rsv2_optext2 col-sm-3">
 							<label>30,000원</label>
 						</div>
 					</div>
 
-					<!-- =============================================================================================================================================================================== -->
+					<!-- =========================================================================== -->
 					<div class="rsv2_option_graybox">
 						<div class="rsv2_option_graybox2">
 							<h6>조식이 포함된 패키지를 예약하실 경우 추가 인원에 대한 조식만 선택해주시기 바랍니다.</h6>
@@ -63,7 +55,7 @@
 					</div>
 				</div>
 
-				<!-- =============================================================================================================================================================================== -->
+				<!-- =============================================================================== -->
 				<!-- 아코디언 -->
 
 				<div class='collapse-item'>
@@ -195,11 +187,10 @@
 				</div>
 				
 				<div class="rsv_rsvinfotext">
-						<ul class="rsv_rsvinfotextul">
-							<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">서울신라호텔</span></li>
-						</ul>
-						
-					</div>
+					<ul class="rsv_rsvinfotextul">
+						<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">서울신라호텔</span></li>
+					</ul>						
+				</div>
 					<br/><hr/>
 				
 				<div class="rsv_rsvinfotext">
@@ -213,47 +204,44 @@
 						<!-- 유의사항 모달로 구현해야함 -->
 							<div class="rsv_packagewarn clearfix">
 								<!-- 링크로 모달 열기 -->
-								<a href="#" class="btn btn-warning" data-toggle="modal"
-									data-target="#myModal2"> 패키지 유의사항 </a>
+								<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2"> 패키지 유의사항 </a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="myModal2">
 								<div class="modal-dialog modal-md">
 									<div class="modal-content">
 										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
 											<h4 class="modal-title">패키지 유의사항</h4>
 										</div>
 										<div class="modal-body">
 											<p class="rsv_useguide">
-													- 본 상품은 성인 2인 1실 기준이며, 요금에는 세금 및 봉사료가 부과됩니다. <br/> <br/> - 본 패키지는 어번
-													아일랜드(야외 수영장) 입장 혜택을 포함하지 않은 상품입니다. <br/> <br/> - 어번 아일랜드 루프탑은 이용
-													시간(9월 7일 ~ 30일 18:00 ~ 22:00 / 10월 1일 ~ 21일 17:00 ~ 21:00)에
-													한해 입장 및 이용 가능합니다. <br/> <br/> - 더 이그제큐티브 라운지는 투숙객 전용 공간으로, 객실 투숙 고객(만
-													13세 이상)에 한해 이용 가능합니다. <br/> <br/> - 본 상품은 카드사 할인 등의 중복 할인 혜택이 적용되지
-													않습니다. <br/> <br/> - 기준 인원을 초과하여 투숙 시 추가 인원에 대해서는 별도의 요금이 부과됩니다.<br/>• 객실
-													1실 당 성인은 최대 3인까지만 투숙 가능하며, 소인(37개월 이상~만 12세 이하)은 최대 2인까지만
-													동반 투숙 가능합니다.<br/>• 객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다. <br/> <br/> -
-													Check-in은 오후 3시, Check-out은 정오까지입니다. <br/> <br/> - 숙박 예정일 1일 전 18시까지는
-													위약금 없이 취소 및 변경이 가능합니다. <br/> <br/> 숙박 예정일 1일 전 18시 이후 취소/변경 및
-													노쇼(No-show) 발생 시, ▷성수기(5월~10월, 12월 24일~31일)에는 최초 1일 숙박 요금의
-													80%, ▷비수기(성수기 외 기간)에는 최초 1일 숙박 요금의 10%가 위약금으로 부과됩니다. <br/> <br/> -
-													패키지에 포함된 혜택 및 선물은 투숙 기간 중에 한해 1회 제공되며, 중복 제공되지 않습니다. <br/> <br/> -
-													주류는 성인 고객에 한해 이용 가능합니다. <br/>
-												</p>
+												- 본 상품은 성인 2인 1실 기준이며, 요금에는 세금 및 봉사료가 부과됩니다. <br/> <br/> - 본 패키지는 어번
+												아일랜드(야외 수영장) 입장 혜택을 포함하지 않은 상품입니다. <br/> <br/> - 어번 아일랜드 루프탑은 이용
+												시간(9월 7일 ~ 30일 18:00 ~ 22:00 / 10월 1일 ~ 21일 17:00 ~ 21:00)에
+												한해 입장 및 이용 가능합니다. <br/> <br/> - 더 이그제큐티브 라운지는 투숙객 전용 공간으로, 객실 투숙 고객(만
+												13세 이상)에 한해 이용 가능합니다. <br/> <br/> - 본 상품은 카드사 할인 등의 중복 할인 혜택이 적용되지
+												않습니다. <br/> <br/> - 기준 인원을 초과하여 투숙 시 추가 인원에 대해서는 별도의 요금이 부과됩니다.<br/>• 객실
+												1실 당 성인은 최대 3인까지만 투숙 가능하며, 소인(37개월 이상~만 12세 이하)은 최대 2인까지만
+												동반 투숙 가능합니다.<br/>• 객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다. <br/> <br/> -
+												Check-in은 오후 3시, Check-out은 정오까지입니다. <br/> <br/> - 숙박 예정일 1일 전 18시까지는
+												위약금 없이 취소 및 변경이 가능합니다. <br/> <br/> 숙박 예정일 1일 전 18시 이후 취소/변경 및
+												노쇼(No-show) 발생 시, ▷성수기(5월~10월, 12월 24일~31일)에는 최초 1일 숙박 요금의
+												80%, ▷비수기(성수기 외 기간)에는 최초 1일 숙박 요금의 10%가 위약금으로 부과됩니다. <br/> <br/> -
+												패키지에 포함된 혜택 및 선물은 투숙 기간 중에 한해 1회 제공되며, 중복 제공되지 않습니다. <br/> <br/> -
+												주류는 성인 고객에 한해 이용 가능합니다. <br/>
+											</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						<!-- 유의사항 모달로 구현해야함 -->
-							</li>
-							
-						</ul>
-						<p>객실타입<span>Twin</span></p>
-						<hr/>
+						</li>							
+					</ul>
+					<p>객실타입<span>Twin</span></p>
+					<hr/>
 				</div>
 				
 				<div class="rsv_prinfo">
@@ -278,8 +266,7 @@
 				</div>
 				<div class="rsv_totalpay">
 				<p>요금합계 338,800원</p>
-				</div>
-				
+				</div>				
 			</div>
 <!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
 		</div>
@@ -287,33 +274,4 @@
 	<%-- container end --%>
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

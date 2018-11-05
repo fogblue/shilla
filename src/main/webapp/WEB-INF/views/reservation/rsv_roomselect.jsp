@@ -1,29 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <head>
 <%@ include file="/WEB-INF/inc/head.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/index.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/plugins/youcover/youCover.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/plugins/lightbox/css/lightbox.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/index.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/youcover/youCover.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/lightbox/css/lightbox.min.css" />
 <script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
 </head>
 <div class="container2">
 	<div>
 		<!-- 탭 버튼 구성 -->
 		<ul class="nav nav-tabs" id="mytab">
-			<li class="active"><a href="#page1" data-toggle="tab">전체(5)</a></li>
+			<li class="active"><a href="#page1" data-toggle="tab">전체(${fn:length(RoomList)})</a></li>
 			<li><a href="#page2" data-toggle="tab">패키지(3)</a></li>
 			<li><a href="#page3" data-toggle="tab">객실(2)</a></li>
 		</ul>
 		<!-- 탭 페이지 구성(전체, 패키지, 객실) -->
 		<div class="tab-content">
 		<!-- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -->
+		<!--  -->
 		<table>
 			<tbody>
 				<c:choose>
@@ -36,8 +33,7 @@
 								<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do?id=${room.id}" style="display: inline;">${room.bedType}</a></td>
 								<td>${room.roomPrice}</td>
 								<td></td>
-							</tr>
-							
+							</tr>							
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
@@ -48,10 +44,10 @@
 				</c:choose>
 			</tbody>
 		</table>
+		<button type="button" onclick="location.href='${pageContext.request.contextPath}/reservation/rsv_roominsert.do'">객실입력</button>
+		<!--  -->
 			<div role="tabpanel" class="tab-pane fade active in" id="page1">
-				<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1"
-					method="get"
-					action="${pageContext.request.contextPath}/reservation/reservation2.do">
+				<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1" method="get" action="${pageContext.request.contextPath}/reservation/reservation2.do">
 					<div class="rsv_packagetextdiv">
 						<p class="rsv_packagetextdiv_text">패키지</p>
 						<p class="rsv_packagetextdiv_text2">할인이 적용된 요금입니다.</p>
@@ -60,16 +56,13 @@
 					<div class="rsv_roomlistbox">
 						<div class="rlbox ">
 							<div class="rsv_thumb clearfix">
-								<img
-									src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg"
-									alt="이미지1" />
+								<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
 							</div>
 							<div class="rsv_text">
 								<ul>
 									<li class="rsv_text_1">Autumn Rooftop</li>
 									<li class="rsv_text_2">어번 아일랜드 루프탑 입장 혜택(성인 2인)</li>
 									<li class="rsv_text_2">체련장(Gym), 실내 수영장 혜택</li>
-									
 								</ul>
 							</div>
 						</div>

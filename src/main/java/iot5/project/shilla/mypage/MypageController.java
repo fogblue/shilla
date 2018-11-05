@@ -583,10 +583,9 @@ public class MypageController {
 	} catch (Exception e) {
 		return web.redirect(null, e.getLocalizedMessage());
 	}
-	
-	Reservation id = new Reservation();
-	
+		
 	/** 예약 번호 불러오기 */
+	Reservation id = new Reservation();
 	try {
 		id = reservService.selectReserv(reserv);
 	} catch (Exception e) {

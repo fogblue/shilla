@@ -106,10 +106,8 @@
 		</div>
 	</div>
 	
-	<script>	
-	function onSubmit() {
-		var edupl = $(this).find("#emailDuplication").val();
-		edupl = "checked";
+	<script type="text/javascript">
+	function onSubmit() {		
 		var email = $("#email").val();
 		
 		var form = document.createElement("form");

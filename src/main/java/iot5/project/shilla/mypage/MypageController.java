@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import iot5.project.shilla.helper.PageHelper;
 import iot5.project.shilla.helper.RegexHelper;
@@ -24,6 +23,7 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.service.FileService;
@@ -165,8 +165,39 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
+	@RequestMapping(value = "/mypage/mypg_profile_edit_echk.do", method = RequestMethod.POST)
+	public ModelAndView mypg_profile_edit_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+		web.init();
+		
+		String newEmail = request.getParameter("email");
+		logger.info("입력한 이메일은 >> " + newEmail);
+		model.addAttribute("email", newEmail);
+		
+		if (!regex.isValue(newEmail)) {
+			return web.redirect(null, "이메일을 입력하세요.");
+		}
+		if (!regex.isEmail(newEmail)) {
+			return web.redirect(null, "이메일의 형식이 잘못되었습니다.");
+		}
+		
+		Member member = new Member();
+		member.setEmail(newEmail);
+		int result = 0;
+		try {
+			result = memberService.selectEmailCheck(member);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		if (result > 0) {
+			return web.redirect(null, "이미 사용중인 이메일 입니다.");
+		}
+		
+		return web.redirect(null, "사용가능한 이메일 입니다.");
+	}
+	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2_echk.do", method = RequestMethod.POST)
-	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttributes) {
+	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -206,7 +237,7 @@ public class MypageController {
 		String echk = request.getParameter("emailDuplication");
 		logger.info("echk의 값은 >> " + echk);
 		if (!echk.equals("uncheck")) {
-			return web.redirect(null, "이메일 중복검사를 시떼구다사이.");
+			return web.redirect(null, "이메일 중복확인을 해주세요.");
 		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
@@ -277,6 +308,8 @@ public class MypageController {
 			
 			web.removeSession("loginInfo");
 			web.setSession("loginInfo", editInfo);		
+		} else if (email.equals(newEmail) && tel.equals(newTel)) {
+			return web.redirect(null, "변경된 내용이 없습니다.");
 		}
 		
 		return web.redirect(web.getRootPath() + "/mypage/mypg_profile_edit_2.do", "수정되었습니다.");
@@ -301,6 +334,10 @@ public class MypageController {
 		
 		if (!regex.isValue(userPw)) {	
 			return web.redirect(null, "기존 비밀번호를 입력하세요.");		
+		}
+		
+		if (!regex.isValue(newUserPw)) {	
+			return web.redirect(null, "새 비밀번호를 입력하세요.");		
 		}
 
 		if (regex.isValue(newUserPw)) {
@@ -468,5 +505,75 @@ public class MypageController {
 		model.addAttribute("fileList", fileList);
 		
 		return new ModelAndView("mypage/mypg_qna_2");
+	}
+	
+	@RequestMapping(value = "/mypage/reserv_test.do", method = RequestMethod.GET)
+	public ModelAndView reserv_test(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	web.init();
+	
+	return new ModelAndView("mypage/reserv_test");
+	}
+	
+	@RequestMapping(value = "/mypage/reserv_test_ok.do", method = RequestMethod.POST)
+	public ModelAndView reserv_test_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
+	web.init();
+	
+	Member loginInfo = (Member) web.getSession("loginInfo");
+	
+	String roomNo = request.getParameter("room_no");
+	String checkIn = request.getParameter("check_in");
+	String checkOut = request.getParameter("check_out");
+	String roomType = request.getParameter("room_type");
+	String packageType = request.getParameter("package_type");
+	String bedType = request.getParameter("bed_type");
+	String exbed = request.getParameter("exbed");
+	String meal = request.getParameter("meal");
+	String totalPrice = request.getParameter("total_price");
+	String resvDate = request.getParameter("resv_date");
+	String memberId = request.getParameter("member_id");
+	String hotelCate = request.getParameter("hotel_category");
+	String cardNo = request.getParameter("card_no");
+	String cardType = request.getParameter("card_type");
+	String cardYy = request.getParameter("card_yy");
+	String cardMm = request.getParameter("card_mm");
+	String pplAd = request.getParameter("ppl_ad");
+	String pplCh = request.getParameter("ppl_ch");
+	String pplBb = request.getParameter("ppl_bb");
+	String detail = request.getParameter("detail");
+	String resvRoomId = request.getParameter("resv_room_id");
+
+	Reservation resvRoom = new Reservation();
+	Reservation resvGuest = new Reservation();
+	/*ResvRoom resvRoom = new ResvRoom();
+	ResvGuest resvGuest = new ResvGuest();*/
+	resvRoom.setRoomNo(Integer.parseInt(roomNo));
+	resvRoom.setCheckIn(checkIn);
+	resvRoom.setCheckOut(checkOut);
+	resvRoom.setRoomType(roomType);
+	resvRoom.setPackageType(packageType);
+	resvRoom.setExbed(Integer.parseInt(exbed));
+	resvRoom.setMeal(Integer.parseInt(meal));
+	resvRoom.setTotalPrice(Integer.parseInt(totalPrice));
+	resvRoom.setResvDate(resvDate);
+	resvRoom.setMemberId(Integer.parseInt(memberId));
+	resvRoom.setHotelCate(hotelCate);
+	resvGuest.setCardNo(cardNo);
+	resvGuest.setCardType(cardType);
+	resvGuest.setCardMm(Integer.parseInt(cardMm));
+	resvGuest.setCardYy(Integer.parseInt(cardYy));
+	resvGuest.setPplAd(Integer.parseInt(pplAd));
+	resvGuest.setPplCh(Integer.parseInt(pplCh));
+	resvGuest.setPplBb(Integer.parseInt(pplBb));
+	resvGuest.setDetail(detail);
+	resvGuest.setMemberId(resvRoom.getMemberId());
+	resvGuest.setResvRoomId(Integer.parseInt(resvRoomId));
+	
+	
+	
+	
+	
+	
+	
+	return new ModelAndView("mypage/reserv_test_ok");
 	}
 }

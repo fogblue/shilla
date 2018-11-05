@@ -66,5 +66,10 @@
 		ORDER BY id DESC
 		LIMIT #{limitStart}, #{listCount}
 	</select>
+	<!-- 객실타입과 일치하는 객실의 목록을 조회한다 -->
+	<select id="selectRoomListNW" parameterType="iot5.project.shilla.model.Room" resultMap="room">
+		SELECT id, room_no, room_type, bed_type, room_price, package_id, hotel_category 
+		FROM   room
+	</select>
 	
 </mapper>

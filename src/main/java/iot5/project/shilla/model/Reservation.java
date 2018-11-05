@@ -7,6 +7,7 @@ public class Reservation {
 	private String checkOut;
 	private String roomType;
 	private String packageType;
+	private String bedType;
 	private int exbed;
 	private int meal;
 	private int totalPrice;
@@ -22,6 +23,7 @@ public class Reservation {
 	private int pplCh;
 	private int pplBb;
 	private String detail;
+	private int resvRoomId;
 
 	public int getRoomId() {
 		return roomId;
@@ -69,6 +71,14 @@ public class Reservation {
 
 	public void setPackageType(String packageType) {
 		this.packageType = packageType;
+	}
+
+	public String getBedType() {
+		return bedType;
+	}
+
+	public void setBedType(String bedType) {
+		this.bedType = bedType;
 	}
 
 	public int getExbed() {
@@ -191,14 +201,22 @@ public class Reservation {
 		this.detail = detail;
 	}
 
+	public int getResvRoomId() {
+		return resvRoomId;
+	}
+
+	public void setResvRoomId(int resvRoomId) {
+		this.resvRoomId = resvRoomId;
+	}
+
 	@Override
 	public String toString() {
 		return "Reservation [roomId=" + roomId + ", roomNo=" + roomNo + ", checkIn=" + checkIn + ", checkOut="
-				+ checkOut + ", roomType=" + roomType + ", packageType=" + packageType + ", exbed=" + exbed + ", meal="
-				+ meal + ", totalPrice=" + totalPrice + ", resvDate=" + resvDate + ", memberId=" + memberId
-				+ ", hotelCate=" + hotelCate + ", guestId=" + guestId + ", cardNo=" + cardNo + ", cardType=" + cardType
-				+ ", cardYy=" + cardYy + ", cardMm=" + cardMm + ", pplAd=" + pplAd + ", pplCh=" + pplCh + ", pplBb="
-				+ pplBb + ", detail=" + detail + "]";
+				+ checkOut + ", roomType=" + roomType + ", packageType=" + packageType + ", bedType=" + bedType
+				+ ", exbed=" + exbed + ", meal=" + meal + ", totalPrice=" + totalPrice + ", resvDate=" + resvDate
+				+ ", memberId=" + memberId + ", hotelCate=" + hotelCate + ", guestId=" + guestId + ", cardNo=" + cardNo
+				+ ", cardType=" + cardType + ", cardYy=" + cardYy + ", cardMm=" + cardMm + ", pplAd=" + pplAd
+				+ ", pplCh=" + pplCh + ", pplBb=" + pplBb + ", detail=" + detail + ", resvRoomId=" + resvRoomId + "]";
 	}
 
 }

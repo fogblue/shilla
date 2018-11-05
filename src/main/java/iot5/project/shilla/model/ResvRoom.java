@@ -7,6 +7,7 @@ public class ResvRoom {
 	private String checkOut;
 	private String roomType;
 	private String packageType;
+	private String bedType;
 	private int exbed;
 	private int meal;
 	private int totalPrice;
@@ -62,6 +63,14 @@ public class ResvRoom {
 		this.packageType = packageType;
 	}
 
+	public String getBedType() {
+		return bedType;
+	}
+
+	public void setBedType(String bedType) {
+		this.bedType = bedType;
+	}
+
 	public int getExbed() {
 		return exbed;
 	}
@@ -113,9 +122,9 @@ public class ResvRoom {
 	@Override
 	public String toString() {
 		return "ResvRoom [id=" + id + ", roomNo=" + roomNo + ", checkIn=" + checkIn + ", checkOut=" + checkOut
-				+ ", roomType=" + roomType + ", packageType=" + packageType + ", exbed=" + exbed + ", meal=" + meal
-				+ ", totalPrice=" + totalPrice + ", resvDate=" + resvDate + ", memberId=" + memberId + ", hotelCate="
-				+ hotelCate + "]";
+				+ ", roomType=" + roomType + ", packageType=" + packageType + ", bedType=" + bedType + ", exbed="
+				+ exbed + ", meal=" + meal + ", totalPrice=" + totalPrice + ", resvDate=" + resvDate + ", memberId="
+				+ memberId + ", hotelCate=" + hotelCate + "]";
 	}
 
 }

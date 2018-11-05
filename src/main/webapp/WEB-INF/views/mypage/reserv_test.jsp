@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="" method="post">
+		<form action="${pageContext.request.contextPath}/mypage/reserv_test_ok.do" method="post">
 			<label for="room_no">객실 번호
 				<input type="text" name="room_no" id="room_no" />
 			</label>
@@ -82,6 +82,7 @@
 			<label for="resv_room_id">객실예약번호
 				<input type="text" name="resv_room_id" id="resv_room_id" />
 			</label>
+			<button type="submit" class="btn btn-success">예약</button>
 		</form>
 	</div>
 </body>

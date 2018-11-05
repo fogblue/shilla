@@ -542,38 +542,42 @@ public class MypageController {
 	String detail = request.getParameter("detail");
 	String resvRoomId = request.getParameter("resv_room_id");
 
-	Reservation resvRoom = new Reservation();
-	Reservation resvGuest = new Reservation();
+	Reservation reserv = new Reservation();
+	
 	/*ResvRoom resvRoom = new ResvRoom();
 	ResvGuest resvGuest = new ResvGuest();*/
-	resvRoom.setRoomNo(Integer.parseInt(roomNo));
-	resvRoom.setCheckIn(checkIn);
-	resvRoom.setCheckOut(checkOut);
-	resvRoom.setRoomType(roomType);
-	resvRoom.setPackageType(packageType);
-	resvRoom.setExbed(Integer.parseInt(exbed));
-	resvRoom.setMeal(Integer.parseInt(meal));
-	resvRoom.setTotalPrice(Integer.parseInt(totalPrice));
-	resvRoom.setResvDate(resvDate);
-	resvRoom.setMemberId(Integer.parseInt(memberId));
-	resvRoom.setHotelCate(hotelCate);
-	resvGuest.setCardNo(cardNo);
-	resvGuest.setCardType(cardType);
-	resvGuest.setCardMm(Integer.parseInt(cardMm));
-	resvGuest.setCardYy(Integer.parseInt(cardYy));
-	resvGuest.setPplAd(Integer.parseInt(pplAd));
-	resvGuest.setPplCh(Integer.parseInt(pplCh));
-	resvGuest.setPplBb(Integer.parseInt(pplBb));
-	resvGuest.setDetail(detail);
-	resvGuest.setMemberId(resvRoom.getMemberId());
-	resvGuest.setResvRoomId(Integer.parseInt(resvRoomId));
+	reserv.setRoomNo(Integer.parseInt(roomNo));
+	reserv.setCheckIn(checkIn);
+	reserv.setCheckOut(checkOut);
+	reserv.setRoomType(roomType);
+	reserv.setPackageType(packageType);
+	reserv.setBedType(bedType);
+	reserv.setExbed(Integer.parseInt(exbed));
+	reserv.setMeal(Integer.parseInt(meal));
+	reserv.setTotalPrice(Integer.parseInt(totalPrice));
+	reserv.setResvDate(resvDate);
+	reserv.setMemberId(Integer.parseInt(memberId));
+	reserv.setHotelCate(hotelCate);
+	reserv.setCardNo(cardNo);
+	reserv.setCardType(cardType);
+	reserv.setCardMm(Integer.parseInt(cardMm));
+	reserv.setCardYy(Integer.parseInt(cardYy));
+	reserv.setPplAd(Integer.parseInt(pplAd));
+	reserv.setPplCh(Integer.parseInt(pplCh));
+	reserv.setPplBb(Integer.parseInt(pplBb));
+	reserv.setDetail(detail);
+	reserv.setMemberId(reserv.getMemberId());
+	reserv.setResvRoomId(Integer.parseInt(resvRoomId));
+
+	try {
+		reservService.insertReserv(reserv);
+	} catch (Exception e) {
+		return web.redirect(null, e.getLocalizedMessage());
+	}
 	
 	
 	
 	
-	
-	
-	
-	return new ModelAndView("mypage/reserv_test_ok");
+	return web.redirect(web.getRootPath() + "/mypage/reserv_test.do", "예약이 접수되었습니다.");
 	}
 }

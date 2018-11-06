@@ -145,7 +145,6 @@ public class AdminController {
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
 		room.setRoomNo(roomNo);
-		room.setPackageId(packageId);
 
 		logger.debug("room >>" + room.toString());
 
@@ -337,7 +336,6 @@ public class AdminController {
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
 		room.setRoomNo(roomNo);
-		room.setPackageId(packageId);
 
 		logger.debug("room >>" + room.toString());
 

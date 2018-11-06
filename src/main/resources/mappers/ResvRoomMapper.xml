@@ -64,17 +64,17 @@
     	WHERE  id=#{id}
 	</select>	
 	<!-- 예약 가능한 방을 검색한다 -->
-	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">		
-		SELECT room.id as id, room_no, check_in, check_out, room_type, bed_type, exbed, meal, total_price, resv_date, member_id,
-		 		room.hotel_category as hotel_category, room_type, room_price
-		FROM   room
-		LEFT JOIN resv_room
-		ON 		room.id=resv_room.room_id
-		AND 	resv_room.check_out &gt;= #{checkIn}
-		AND 	resv_room.check_in &lt;= #{checkOut}
-    	WHERE 	room.hotel_category = #{hotelCate}
-    	AND 	resv_room.id IS NULL
-    	
+	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.RoomForReserv" resultMap="resvroom">		
+		 <![CDATA[ 
+		SELECT 		room.id as id, room_no, room_type, bed_type, room_price, room.hotel_category as hotel_category
+		FROM   		room
+		LEFT JOIN 	resv_room
+			ON 		room.id=resv_room.room_id
+			AND 	resv_room.check_out >= #{checkIn}
+			AND 	resv_room.check_in <= #{checkOut}
+    	WHERE 		room.hotel_category = #{hotelCate}
+    		AND 	resv_room.id IS NULL
+    	]]>
 	</select>
 	
 </mapper>

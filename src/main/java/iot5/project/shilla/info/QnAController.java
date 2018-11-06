@@ -25,7 +25,8 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
+import iot5.project.shilla.model.ResvGuest;
+import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -237,7 +238,7 @@ public class QnAController {
 		return new ModelAndView("test/reservation_test");
 	}
 
-	@RequestMapping(value = "/test/reservation_roomsel", method = RequestMethod.GET)
+	@RequestMapping(value = "/test/reservation_test2.do", method = RequestMethod.GET)
 	public ModelAndView reservationTest2(Locale locale, Model model) {
 
 		return new ModelAndView("test/reservation_test2");
@@ -254,18 +255,36 @@ public class QnAController {
 		int pplCh = web.getInt("ppl_Ch");
 		int pplBb = web.getInt("ppl_Bb");
 
-		Reservation room = new Reservation();
+		RoomForReserv room = new RoomForReserv();
 		room.setHotelCate(hotelCate);
 		room.setCheckIn(tStart);
 		room.setCheckOut(tEnd);
-		room.setPplAd(pplAd);
-		room.setPplCh(pplCh);
-		room.setPplBb(pplBb);
 		
+		logger.debug(hotelCate);
+		logger.debug(tStart);
+		logger.debug(tEnd);
 		
-
-		model.addAttribute("room", room);
+		ResvGuest guest = new ResvGuest();
+		guest.setPplAd(pplAd);
+		guest.setPplCh(pplCh);
+		guest.setPplBb(pplBb);
 		
-		return web.redirect(web.getRootPath() + "test/reservation_roomsel", null);
+		logger.info("pplAd=" + pplAd);
+		logger.info("pplCh=" + pplCh);
+		logger.info("pplBb=" + pplBb);
+		
+		web.setSession("guest", guest);
+		
+		List<RoomForReserv> roomList = null;
+		
+		try {
+			roomList = roomService.getRoomList(room);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
+		model.addAttribute("roomList", roomList);
+		
+		return new ModelAndView("test/reservation_test2");
 	}
 }

@@ -6,8 +6,7 @@
 		<input type="hidden" name="hotel_cate" value="<% %>" />
 		<div class="tab-content">
 			<!-- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -->
-			<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1" method="get"
-				action="${pageContext.request.contextPath}/reservation/reservation2.do">
+			<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1" method="get" action="${pageContext.request.contextPath}/reservation/reservation2.do">
 				<div class="rev_bedselect clearfix" id="rsv_roomarc2">
 					<div class="rsv_collapse">
 						<!-- 게시글 하나 단위 -->

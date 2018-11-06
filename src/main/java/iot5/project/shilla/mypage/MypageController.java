@@ -128,7 +128,7 @@ public class MypageController {
 		
 		Room room = new Room();
 		
-		room.setRoomNo(resvroom.getRoomNo());
+		room.setId(resvroom.getRoomId());
 		
 		try {
 			room = roomService.selectRoom(room);

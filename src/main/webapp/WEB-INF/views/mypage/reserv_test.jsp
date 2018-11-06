@@ -15,74 +15,132 @@
 <body>
 	<div class="container">
 		<form action="${pageContext.request.contextPath}/mypage/reserv_test_ok.do" method="post" enctype="multipart/form-data">
-			<label for="room_no">객실 번호
-				<input type="text" name="room_no" id="room_no" />
-			</label>
-			<label for="check_in">체크인 날짜
-				<input type="text" name="check_in" id="check_in" />
-			</label>
-			<label for="check_out">체크아웃 날짜
-				<input type="text" name="check_out" id="check_out" />
-			</label>
-			<label for="room_type">객실타입
-				<input type="text" name="room_type" id="room_type" />
-			</label>
-			<label for="packager_type">패키지타입
-				<input type="text" id="packager_type" name="packager_type" />
-			</label>
-			<label for="bed_type">침대타입
-				<input type="text" id="bed_type" name="bed_type" />
-			</label>
-			<label for="exbed">추가침대
-				<input type="text" id="exbed" name="exbed" />
-			</label>
-			<label for="meal">조식
-				<input type="text" id="meal" name="meal" />
-			</label>
-			<label for="total_price">총 가격
-				<input type="text" id="total_price" name="total_price" />
-			</label>
-			<label for="resv_date">예약 날짜
-				<input type="text" id="resv_date" name="resv_date" />
-			</label>
-			<label for="member_id">회원번호
-				<input type="text" id="member_id" name="member_id" />
-			</label>
-			<label for="hotel_category">호텔종류
-				<input type="text" id="hotel_category" name="hotel_category" />
-			</label>
+			<div class="form-group">
+			<label for="room_no" class="col-md-2">객실 번호</label>
+				<div class="col-md-10">
+					<input type="text" name="room_no" id="room_no" <%-- value="${.roomNo}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="check_in" class="col-md-2">체크인 날짜</label>
+				<div class="col-md-10">
+					<input type="date" name="check_in" id="check_in" <%-- value="${.checkIn}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="check_out" class="col-md-2">체크아웃 날짜</label>
+				<div class="col-md-10">
+					<input type="date" name="check_out" id="check_out" <%-- value="${.checkOut}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="room_type" class="col-md-2">객실타입</label>
+				<div class="col-md-10">
+				<%-- <input type="text" name="room_type" id="room_type" value="${.roomType}" class="form-control" /> --%>
+					<select name="room_type" id="room_type" class="form-control">
+						<option value="">--선택하세요--</option>
+						<option value="Business Deluxe">Business Deluxe</option>
+						<option value="Executive Business Deluxe">Executive Business Deluxe</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="bed_type" class="col-md-2">침대타입</label>
+				<div class="col-md-10">
+					<%-- <input type="text" id="bed_type" name="bed_type" value="${.bedType}" class="form-control" /> --%>
+					<select id="bed_type" name="bed_type" class="form-control">
+						<option value="">--선택하세요--</option>
+						<option value="Twin">Twin</option>
+						<option value="Double">Double</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exbed" class="col-md-2">추가침대</label>
+				<div class="col-md-10">
+					<input type="text" id="exbed" name="exbed" <%-- value="${.exbed}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="meal" class="col-md-2">조식</label>
+				<div class="col-md-10">
+					<input type="text" id="meal" name="meal" <%-- value="${.meal}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="member_id" class="col-md-2">회원번호</label>
+				<div class="col-md-10">
+					<input type="text" id="member_id" name="member_id" value="${loginInfo.id}" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="hotel_category" class="col-md-2">호텔종류</label>
+				<div class="col-md-10">
+					<select id="hotel_category" name="hotel_category" class="form-control">
+						<option value="">--선택하세요--</option>
+						<option value="서울신라호텔">서울신라호텔</option>
+						<option value="제주신라호텔">제주신라호텔</option>
+					</select>
+				</div>
+			</div>
 			<hr />
-			<label for="card_no">카드번호
-				<input type="text" name="card_no" id="card_no" />
-			</label>
-			<label for="card_type">카드종류
-				<input type="text" name="card_type" id="card_type" />
-			</label>
-			<label for="card_yy">카드 유효년
-				<input type="text" name="card_yy" id="card_yy" />
-			</label>
-			<label for="card_mm">카드 유효월
-				<input type="text" name="card_mm" id="card_mm" />
-			</label>
-			<label for="ppl_ad">성인
-				<input type="text" name="ppl_ad" id="ppl_ad" />
-			</label>
-			<label for="ppl_ch">청소년
-				<input type="text" name="ppl_ch" id="ppl_ch" />
-			</label>
-			<label for="ppl_bb">아기
-				<input type="text" name="ppl_bb" id="ppl_bb" />
-			</label>
-			<label for="detail">요구사항
-				<textarea name="detail" id="detail"></textarea>
-			</label>
-			<label for="member_id">회원번호
-				<input type="text" name="member_id" id="member_id" />
-			</label>
-			<label for="resv_room_id">객실예약번호
-				<input type="text" name="resv_room_id" id="resv_room_id" />
-			</label>
-			<button type="submit" class="btn btn-success">예약</button>
+			<div class="form-group">
+				<label for="card_no" class="col-md-2">카드번호</label>
+				<div class="col-md-10">
+					<input type="text" name="card_no" id="card_no" maxlength="16" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="card_type" class="col-md-2">카드종류</label>
+				<div class="col-md-10">
+					<select name="card_type" id="card_type" class="form-control">
+						<option value="">--선택하세요--</option>
+						<option value="Master">Master</option>
+						<option value="Visa">Visa</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="card_yy" class="col-md-2">카드 유효년</label>
+				<div class="col-md-10">
+					<input type="text" name="card_yy" id="card_yy" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="card_mm" class="col-md-2">카드 유효월</label>
+				<div class="col-md-10">
+					<input type="text" name="card_mm" id="card_mm" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="ppl_ad" class="col-md-2">성인</label>
+				<div class="col-md-10">
+					<input type="number" min="1" max="3" name="ppl_ad" id="ppl_ad" <%-- value="${.pplAd}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="ppl_ch" class="col-md-2">청소년</label>
+				<div class="col-md-10">
+					<input type="number" min="0" max="1" name="ppl_ch" id="ppl_ch" <%-- value="${.pplCh}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="ppl_bb" class="col-md-2">아기</label>
+				<div class="col-md-10">
+					<input type="number" min="0" max="1" name="ppl_bb" id="ppl_bb" <%-- value="${.pplBb}" --%> class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="detail" class="col-md-2">요구사항</label>
+				<div class="col-md-10">
+					<textarea name="detail" id="detail" style="width: 690px;" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<button type="submit" class="btn btn-success">예약</button>
+				</div>
+			</div>
 		</form>
 	</div>
 </body>

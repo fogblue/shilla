@@ -18,10 +18,10 @@
 			<label for="room_no">객실 번호
 				<input type="text" name="room_no" id="room_no" />
 			</label>
-			<label for="check_in">체크인 시간
+			<label for="check_in">체크인 날짜
 				<input type="text" name="check_in" id="check_in" />
 			</label>
-			<label for="check_out">체크아웃시간
+			<label for="check_out">체크아웃 날짜
 				<input type="text" name="check_out" id="check_out" />
 			</label>
 			<label for="room_type">객실타입

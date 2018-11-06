@@ -208,9 +208,9 @@
                 });
     		 // 검색 스크립트
             $("#rsv_roomsearchbtn").click(function(e) {
-            	e.preventDefault();
                 $("#rsv_contents_box2").empty();
-                $.get("${pageContext.request.contextPath}/test/reservation_roomsel", function(req) {$("#rsv_contents_box2").append(req);
+                $.get("${pageContext.request.contextPath}/test/reservation_test2.do", function(req) {
+                	$("#rsv_contents_box2").append(req);
 				}, "html"); // end $.get
             });
         });

@@ -1,6 +1,8 @@
 package iot5.project.shilla.model;
 
 public class RoomForReserv extends ResvRoom {
+	private String checkIn;
+	private String checkOut;
 	private int roomNo;
 	private String roomType;
 	private String bedType;
@@ -9,6 +11,22 @@ public class RoomForReserv extends ResvRoom {
 	private String hotelCate;
 	private int limitStart;
 	private int listCount;
+
+	public String getCheckIn() {
+		return checkIn;
+	}
+
+	public void setCheckIn(String checkIn) {
+		this.checkIn = checkIn;
+	}
+
+	public String getCheckOut() {
+		return checkOut;
+	}
+
+	public void setCheckOut(String checkOut) {
+		this.checkOut = checkOut;
+	}
 
 	public int getRoomNo() {
 		return roomNo;
@@ -76,16 +94,8 @@ public class RoomForReserv extends ResvRoom {
 
 	@Override
 	public String toString() {
-		return "RoomForReserv [roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType + ", roomPrice="
-				+ roomPrice + ", packageId=" + packageId + ", hotelCate=" + hotelCate + ", limitStart=" + limitStart
-				+ ", listCount=" + listCount + ", getRoomNo()=" + getRoomNo() + ", getRoomType()=" + getRoomType()
-				+ ", getBedType()=" + getBedType() + ", getRoomPrice()=" + getRoomPrice() + ", getPackageId()="
-				+ getPackageId() + ", getHotelCate()=" + getHotelCate() + ", getLimitStart()=" + getLimitStart()
-				+ ", getListCount()=" + getListCount() + ", getId()=" + getId() + ", getRoomId()=" + getRoomId()
-				+ ", getCheckIn()=" + getCheckIn() + ", getCheckOut()=" + getCheckOut() + ", getExbed()=" + getExbed()
-				+ ", getMeal()=" + getMeal() + ", getTotalPrice()=" + getTotalPrice() + ", getResvDate()="
-				+ getResvDate() + ", getMemberId()=" + getMemberId() + ", toString()=" + super.toString()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+		return "RoomForReserv [checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomNo=" + roomNo + ", roomType="
+				+ roomType + ", bedType=" + bedType + ", roomPrice=" + roomPrice + ", packageId=" + packageId
+				+ ", hotelCate=" + hotelCate + ", limitStart=" + limitStart + ", listCount=" + listCount + "]";
 	}
-
 }

@@ -128,7 +128,7 @@ public class MypageController {
 		
 		Room room = new Room();
 		
-		room.setRoomNo(resvroom.getRoomNo());
+		room.setId(resvroom.getRoomId());
 		
 		try {
 			room = roomService.selectRoom(room);
@@ -539,23 +539,22 @@ public class MypageController {
 	String roomType = request.getParameter("room_type");
 	String packageType = request.getParameter("package_type");
 	String bedType = request.getParameter("bed_type");
-	int exbed = web.getInt("exbed");
-	int meal = web.getInt("meal");
-	int totalPrice = web.getInt("total_price");
-	int memberId = web.getInt("member_id");
 	String resvDate = request.getParameter("resv_date");
 	String hotelCate = request.getParameter("hotel_category");
 	String cardNo = request.getParameter("card_no");
 	String cardType = request.getParameter("card_type");
+	String detail = request.getParameter("detail");
+	int exbed = web.getInt("exbed");
+	int meal = web.getInt("meal");
+	int totalPrice = web.getInt("total_price");
+	int memberId = web.getInt("member_id");
 	int cardYy = web.getInt("card_yy");
 	int cardMm = web.getInt("card_mm");
 	int pplAd = web.getInt("ppl_ad");
 	int pplCh = web.getInt("ppl_ch");
 	int pplBb = web.getInt("ppl_bb");
-	String detail = request.getParameter("detail");
 
-	Reservation reserv = new Reservation();
-	
+	Reservation reserv = new Reservation();	
 	reserv.setRoomNo(Integer.parseInt(roomNo));
 	reserv.setCheckIn(checkIn);
 	reserv.setCheckOut(checkOut);

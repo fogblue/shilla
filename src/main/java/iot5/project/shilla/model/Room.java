@@ -6,7 +6,6 @@ public class Room {
 	private String roomType;
 	private String bedType;
 	private int roomPrice;
-	private int packageId;
 	private String hotelCate;
 	private int limitStart;
 	private int listCount;
@@ -51,14 +50,6 @@ public class Room {
 		this.roomPrice = roomPrice;
 	}
 
-	public int getPackageId() {
-		return packageId;
-	}
-
-	public void setPackageId(int packageId) {
-		this.packageId = packageId;
-	}
-
 	public String getHotelCate() {
 		return hotelCate;
 	}
@@ -86,8 +77,12 @@ public class Room {
 	@Override
 	public String toString() {
 		return "Room [id=" + id + ", roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType
-				+ ", roomPrice=" + roomPrice + ", packageId=" + packageId + ", hotelCate=" + hotelCate + ", limitStart="
-				+ limitStart + ", listCount=" + listCount + "]";
+				+ ", roomPrice=" + roomPrice + ", hotelCate=" + hotelCate + ", limitStart=" + limitStart
+				+ ", listCount=" + listCount + ", getId()=" + getId() + ", getRoomNo()=" + getRoomNo()
+				+ ", getRoomType()=" + getRoomType() + ", getBedType()=" + getBedType() + ", getRoomPrice()="
+				+ getRoomPrice() + ", getHotelCate()=" + getHotelCate() + ", getLimitStart()=" + getLimitStart()
+				+ ", getListCount()=" + getListCount() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 
 }

@@ -184,7 +184,6 @@ public class ReservController {
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
 		/*room.setRoomImg(roomImg);*/
-		room.setPackageId(packageId);
 		room.setHotelCate(hotelCate);
 		
 		/** (8) Service를 통한 데이터베이스 저장 처리 */

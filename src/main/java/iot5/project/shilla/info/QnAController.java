@@ -262,13 +262,10 @@ public class QnAController {
 		room.setPplCh(pplCh);
 		room.setPplBb(pplBb);
 		
-		/*roomService.selectRoomItem();*/
-
-		/* web.setSession("resv", resv); */
-		/* Reservation resv = (Reservation) web.getSession("resv"); */
+		
 
 		model.addAttribute("room", room);
 		
-		return web.redirect(null, null);
+		return web.redirect(web.getRootPath() + "test/reservation_roomsel", null);
 	}
 }

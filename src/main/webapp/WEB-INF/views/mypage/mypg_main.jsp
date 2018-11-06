@@ -8,14 +8,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/mypage.css">
 </head>
 <body>
-<c:choose>
-	<c:when test="${loginInfo == null}">
-		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 서비스입니다.");
-			location.href="${pageContext.request.contextPath}/member/log_main.do";
-		</script>
-	</c:when>
-	<c:otherwise>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
@@ -46,13 +38,11 @@
 				<span>회원 번호</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.id}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span>성명</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.userNameKor}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span>아이디</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.userId}</span>
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/mypage/reserv_test.do'">예약 테스트 가기</button>
+				<button type="button" onclick="location.href='${pageContext.request.contextPath}/test/reservation_test.do'">예약 테스트 가기</button>
 			</div>
 		</div>
 	</div>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>
-	</c:otherwise>
-</c:choose>
 </body>
 </html>

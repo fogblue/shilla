@@ -678,7 +678,7 @@ public class MypageController {
 	
 		reserv.setResvRoomId(id.getRoomId());
 		
-		/** 예약 번호 불러오기 */
+		/** 고객 정보 입력 */
 		try {
 			reservService.insertReservGuest(reserv);
 		} catch (Exception e) {

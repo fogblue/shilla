@@ -1,56 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="container2">
-		<!-- 탭 페이지 구성(전체, 패키지, 객실) -->
-		<div class="tab-content">
-			<!-- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -- 전체 탭 시작 -->
-			<form class="rsv_form" name="rsv_formpage1" id="rsv_formpage1" method="get"
-				action="${pageContext.request.contextPath}/reservation/reservation2.do">
-				<div class="rev_bedselect clearfix" id="rsv_roomarc2">
-					<div class="rsv_collapse">
-						<!-- 게시글 하나 단위 -->
-						<div class='rsv_collapse-item'>
-							<!-- 게시글 제목영역 -->
-							<div class='rsv_collapse-title'>${room.roomType}</div>
-							<!-- 게시글 내용영역 -->
-							<div id="rsv_content1" class="rsv_content">
-								<div class="rsv_content1-1-1">${room.bedType}</div>
-								<div class="rsv_content1-1-2">
-									${room.price} 원~ <input type="radio" name="subject1" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
+	
+	
+	<table>
+	<c:choose>
+		<c:when test="${fn:length(roomList) > 0}">
+			<c:forEach var="roomList" items="${roomList}">
+			<form method="get" action="${pageContext.request.contextPath}/test/reservation_test2_ok.do">
+				<tr>
+					<td>${roomList.id}</td>
+					<td><input type="hidden" name="id" id="id" value="${roomList.id}" /></td>
+					<td>${roomList.roomNo}</td>
+					<td><input type="hidden" name="room_no" id="room_no" value="${roomList.roomNo}" /></td>
+					<td>${roomList.roomType}</td>
+					<td><input type="hidden" name="room_type" id="room_type" value="${roomList.roomType}" /></td>
+					<td>${roomList.bedType}</td>
+					<td><input type="hidden" name="bed_type" id="bed_type" value="${roomList.bedType}" /></td>
+					<td>${roomList.roomPrice}</td>
+					<td><input type="hidden" name="room_price" id="room_price" value="${roomList.roomPrice}" /></td>
+					<td>${roomList.hotelCate}</td>
+					<td><input type="hidden" name="hotel_category" id="hotel_cate" value="${roomList.hotelCate}" /><td>
+					<td>
+						<button type="submit">선택</button>
+					</td>
+				</tr>
+				<input type="hidden" name="t-start" id="t-start" value="${roomInfo.checkIn}" />
+				<input type="hidden" name="t-end" id="t-end" value="${roomInfo.checkOut}" />
+				<input type="hidden" name="ppl_ad" id="ppl_ad" value="${guestInfo.pplAd}" />
+				<input type="hidden" name="ppl_ch" id="ppl_ch" value="${guestInfo.pplCh}" />
+				<input type="hidden" name="ppl_bb" id="ppl_bb" value="${guestInfo.pplBb}" />
+				</form>
+			</c:forEach>	
+		</c:when>
+		<c:otherwise>
+			<tr id="find-target">
+				<td>예약 가능한 객실이 없습니다.</td>
+			</tr>
+		</c:otherwise>
+	</c:choose>
+		</table>
 </div>
-	<script type="text/javascript">
-		$(function() {
-			$("#rsv_formpage1").submit(function(e) {
-				// 기본동작 수행 방식
-				if ($("input:radio[name='subject1']").is(":checked") == true) {
-				} else {
-					alert('객실을 선택하세요.');
-					return false;
-				}
-			});
-			$("#rsv_formpage2").submit(function(e) {
-				// 기본동작 수행 방식
-				if ($("input:radio[name='subject2']").is(":checked") == true) {
-				} else {
-					alert('객실을 선택하세요.');
-					return false;
-				}
-			});
-			$("#rsv_formpage3").submit(function(e) {
-				// 기본동작 수행 방식
-				if ($("input:radio[name='subject3']").is(":checked") == true) {
-				} else {
-					alert('객실을 선택하세요.');
-					return false;
-				}
-			});
-		});
-	</script>

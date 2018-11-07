@@ -8,14 +8,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/mypage.css">
 </head>
 <body>
-<c:choose>
-	<c:when test="${loginInfo == null}">
-		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 서비스입니다.");
-			location.href="${pageContext.request.contextPath}/member/log_main.do";
-		</script>
-	</c:when>
-	<c:otherwise>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
@@ -67,7 +59,7 @@
 							<td>호텔</td>
 							<td>${reservRInfo.hotelCate}</td>
 							<td>고객명</td>
-							<td>${loginInfo.userNameEng}</td>
+							<td style="text-transform: uppercase;">${loginInfo.userNameEng}</td>
 						</tr>
 						<tr>
 							<td>체크인 날짜</td>
@@ -95,9 +87,9 @@
 					<table class="mypg-rsvt2-contents-table-2">
 						<tr class="text-center">
 							<td style="width: 15%">${reservRInfo.checkIn}</td>
-							<td style="width: 45%">(내역)</td>
-							<td style="width: 20%">원</td>
-							<td style="width: 20%">원</td>
+							<td style="width: 45%">${reservRInfo.packageType}&nbsp;/&nbsp;${roomInfo.roomType}</td>
+							<td style="width: 20%">${roomInfo.roomPrice}원</td>
+							<td style="width: 20%">${roomInfo.roomPrice}원</td>
 						</tr>
 						<c:choose>
 							<c:when test="${reservRInfo.exbed != 0}">
@@ -120,7 +112,7 @@
 						</c:choose>
 						<tr class="text-right">
 							<td colspan="3">세금&amp;봉사료</td>
-							<td>&nbsp;원</td>
+							<td>${reservRInfo.totalPrice * 0.2}&nbsp;원</td>
 						</tr>
 						<tr class="text-right">
 							<td colspan="3">요금합계&nbsp;&nbsp;&nbsp;</td>
@@ -166,10 +158,8 @@
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>
-	</c:otherwise>
-</c:choose>
 </body>
-
+<!-- 모달 -->
 <div class="modal" id="cancel-modal">
 	<div class="modal-dialog modal-sm">
 		<div class="cancel-modal-content">
@@ -192,5 +182,5 @@
 		</div>
 	</div>
 </div>
-
+<!-- 모달 -->
 </html>

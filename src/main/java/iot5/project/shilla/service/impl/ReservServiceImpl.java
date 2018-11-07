@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.ReservService;
 
 @Service
@@ -21,11 +22,10 @@ public class ReservServiceImpl implements ReservService {
 	SqlSession sqlSession;
 	
 	@Override
-	public void insertReserv(Reservation reserv) throws Exception {
+	public void insertReservRoom(RoomForReserv reserv) throws Exception {
 		try {
-			int result1 = sqlSession.insert("ReservMapper.insertReservRoom", reserv);
-			int result2 = sqlSession.insert("ReservationMapper.insertReservGuest", reserv);
-			if (result1 == 0 || result2 ==0) {
+			int result = sqlSession.insert("ReservationMapper.insertReservRoom", reserv);
+			if (result == 0) {
 				throw new NullPointerException();
 			}
 		} catch (NullPointerException e) {
@@ -37,6 +37,21 @@ public class ReservServiceImpl implements ReservService {
 		
 	}
 
+	@Override
+	public void insertReservGuest(RoomForReserv reserv) throws Exception {
+		try {
+			int result = sqlSession.insert("ReservationMapper.insertReservGuest", reserv);
+			if (result ==0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("등록된 예약이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("예약 등록에 실패했습니다.");
+		}
+		
+	}
 
 	@Override
 	public void deleteReserv(Reservation reserv) throws Exception {
@@ -53,11 +68,11 @@ public class ReservServiceImpl implements ReservService {
 
 
 	@Override
-	public Reservation selectReserv(Reservation reserv) throws Exception {
+	public Reservation selectReserv(RoomForReserv reserv) throws Exception {
 		Reservation result = null;
 
 		try {
-			result = sqlSession.selectOne("ReservMapper.selectReserv", reserv);
+			result = sqlSession.selectOne("ReservationMapper.selectReserv", reserv);
 			if (result == null) {
 				throw new NullPointerException();
 			}
@@ -169,5 +184,8 @@ public class ReservServiceImpl implements ReservService {
 		}
 		return result;
 	}
+
+
+	
 	
 }

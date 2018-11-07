@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import iot5.project.shilla.model.Room;
+import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.RoomService;
 
 @Service
@@ -77,11 +78,11 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public List<Room> getRoomList(Room room) throws Exception {
-		List<Room> result = null;
+	public List<RoomForReserv> getRoomList(RoomForReserv resvroom) throws Exception {
+		List<RoomForReserv> result = null;
 
 		try {
-			result = sqlSession.selectList("RoomMapper.selectRoomList", room);
+			result = sqlSession.selectList("ResvRoomMapper.searchAvailRooms", resvroom);
 			if (result == null) {
 				throw new NullPointerException();
 			}

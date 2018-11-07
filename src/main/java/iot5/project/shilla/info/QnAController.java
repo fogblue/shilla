@@ -25,7 +25,6 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -229,46 +228,5 @@ public class QnAController {
 		}
 
 	}
-
-	@RequestMapping(value = "/test/reservation_test.do", method = RequestMethod.GET)
-	public ModelAndView reservation_test(Locale locale, Model model) {
-		web.init();
-
-		return new ModelAndView("test/reservation_test");
-	}
-
-	@RequestMapping(value = "/test/reservation_roomsel", method = RequestMethod.GET)
-	public ModelAndView reservationTest2(Locale locale, Model model) {
-
-		return new ModelAndView("test/reservation_test2");
-	}
-
-	@RequestMapping(value = "/test/reservation_test_ok.do", method = RequestMethod.GET)
-	public ModelAndView reservationTestOk(Locale locale, Model model) {
-		web.init();
-		
-		String hotelCate = web.getString("hotel_cate");
-		String tStart = web.getString("t_start");
-		String tEnd = web.getString("t_end");
-		int pplAd = web.getInt("ppl_ad");
-		int pplCh = web.getInt("ppl_Ch");
-		int pplBb = web.getInt("ppl_Bb");
-
-		Reservation resv = new Reservation();
-		resv.setHotelCate(hotelCate);
-		resv.setCheckIn(tStart);
-		resv.setCheckOut(tEnd);
-		resv.setPplAd(pplAd);
-		resv.setPplCh(pplCh);
-		resv.setPplBb(pplBb);
-		
-		/*roomService.selectRoomItem();*/
-
-		/* web.setSession("resv", resv); */
-		/* Reservation resv = (Reservation) web.getSession("resv"); */
-
-		model.addAttribute("resv", resv);
-		
-		return new ModelAndView("test/reservation_test2");
-	}
+	
 }

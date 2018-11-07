@@ -8,14 +8,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/mypage.css">
 </head>
 <body>
-<c:choose>
-	<c:when test="${loginInfo == null}">
-		<script type="text/javascript">
-			alert("로그인 후 이용 가능한 서비스입니다.");
-			location.href="${pageContext.request.contextPath}/member/log_main.do";
-		</script>
-	</c:when>
-	<c:otherwise>
 	<%@ include file="/WEB-INF/inc/topbar.jsp" %>
 	<!-- ============시작================== -->
 	<div class="mypg-container main">
@@ -87,10 +79,8 @@
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>
-	</c:otherwise>
-</c:choose>
 </body>
-
+	<!-- 모달 -->
 	<div class="modal" id="info-modal">
 		<div class="modal-dialog modal-sm">
 			<div class="info-modal-content">
@@ -105,4 +95,5 @@
 			</div>
 		</div>
 	</div>
+	<!-- 모달 -->
 </html>

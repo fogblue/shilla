@@ -91,7 +91,7 @@ public class AdminController {
 		// 조회결과를 저장하기 위한 객체
 		List<Room> list = null;
 		try {
-			list = roomService.getRoomList(room);
+			/*list = roomService.getRoomList(room);*/
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
@@ -145,7 +145,6 @@ public class AdminController {
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
 		room.setRoomNo(roomNo);
-		room.setPackageId(packageId);
 
 		logger.debug("room >>" + room.toString());
 
@@ -337,7 +336,6 @@ public class AdminController {
 		room.setBedType(bedType);
 		room.setRoomPrice(roomPrice);
 		room.setRoomNo(roomNo);
-		room.setPackageId(packageId);
 
 		logger.debug("room >>" + room.toString());
 

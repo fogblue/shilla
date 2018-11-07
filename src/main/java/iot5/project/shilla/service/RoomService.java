@@ -3,6 +3,7 @@ package iot5.project.shilla.service;
 import java.util.List;
 
 import iot5.project.shilla.model.Room;
+import iot5.project.shilla.model.RoomForReserv;
 
 public interface RoomService {
 	/**
@@ -48,7 +49,7 @@ public interface RoomService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Room> getRoomList(Room room) throws Exception;
+	public List<RoomForReserv> getRoomList(RoomForReserv resvroom) throws Exception;
 	
 	/**
 	 * 모든 객실 조회

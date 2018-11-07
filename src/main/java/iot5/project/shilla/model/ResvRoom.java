@@ -2,11 +2,11 @@ package iot5.project.shilla.model;
 
 public class ResvRoom {
 	private int id;
-	private int roomNo;
+	private int roomId;
 	private String checkIn;
 	private String checkOut;
 	private String roomType;
-	private String packageType;
+	private String bedType;
 	private int exbed;
 	private int meal;
 	private int totalPrice;
@@ -22,12 +22,12 @@ public class ResvRoom {
 		this.id = id;
 	}
 
-	public int getRoomNo() {
-		return roomNo;
+	public int getRoomId() {
+		return roomId;
 	}
 
-	public void setRoomNo(int roomNo) {
-		this.roomNo = roomNo;
+	public void setRoomId(int roomId) {
+		this.roomId = roomId;
 	}
 
 	public String getCheckIn() {
@@ -54,12 +54,12 @@ public class ResvRoom {
 		this.roomType = roomType;
 	}
 
-	public String getPackageType() {
-		return packageType;
+	public String getBedType() {
+		return bedType;
 	}
 
-	public void setPackageType(String packageType) {
-		this.packageType = packageType;
+	public void setBedType(String bedType) {
+		this.bedType = bedType;
 	}
 
 	public int getExbed() {
@@ -112,8 +112,8 @@ public class ResvRoom {
 
 	@Override
 	public String toString() {
-		return "ResvRoom [id=" + id + ", roomNo=" + roomNo + ", checkIn=" + checkIn + ", checkOut=" + checkOut
-				+ ", roomType=" + roomType + ", packageType=" + packageType + ", exbed=" + exbed + ", meal=" + meal
+		return "ResvRoom [id=" + id + ", roomId=" + roomId + ", checkIn=" + checkIn + ", checkOut=" + checkOut
+				+ ", roomType=" + roomType + ", bedType=" + bedType + ", exbed=" + exbed + ", meal=" + meal
 				+ ", totalPrice=" + totalPrice + ", resvDate=" + resvDate + ", memberId=" + memberId + ", hotelCate="
 				+ hotelCate + "]";
 	}

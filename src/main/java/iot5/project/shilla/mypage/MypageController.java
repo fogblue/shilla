@@ -25,10 +25,12 @@ import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.model.Room;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
+import iot5.project.shilla.service.RoomService;
 
 @Controller
 public class MypageController {
@@ -51,18 +53,29 @@ public class MypageController {
 	FileService fileService;
 	@Autowired
 	PageHelper pageHelper;
+	@Autowired
+	RoomService roomService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
 	@RequestMapping(value = "/mypage/mypg_main.do", method = RequestMethod.GET)
 	public ModelAndView mypg_main(Locale locale, Model model) {	
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_main");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation(Locale locale, Model model) {	
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
@@ -98,12 +111,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_reservation_table");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		int id = web.getInt("id");
 		logger.info("받아온 id는 >> " + id);
@@ -121,8 +143,19 @@ public class MypageController {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
 		
+		Room room = new Room();
+		
+		room.setId(resvroom.getRoomId());
+		
+		try {
+			room = roomService.selectRoom(room);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		
 		model.addAttribute("reservRInfo", resvroom);
 		model.addAttribute("reservGInfo", resvguest);
+		model.addAttribute("roomInfo", room);
 		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}
@@ -130,12 +163,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_profile_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_profile_edit"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_ok.do", method = RequestMethod.POST)
 	public ModelAndView mypg_profile_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		String userPw = request.getParameter("pswd_confirm");
 		logger.info("입력한 패스워드는 >> " + userPw);
@@ -161,12 +203,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_profile_edit_2(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_profile_edit_2"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_profile_edit_echk.do", method = RequestMethod.POST)
 	public ModelAndView mypg_profile_edit_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		String newEmail = request.getParameter("email");
 		logger.info("입력한 이메일은 >> " + newEmail);
@@ -198,6 +249,10 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2_echk.do", method = RequestMethod.POST)
 	public ModelAndView mypg_profile_edit_2_echk(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
@@ -232,6 +287,10 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_profile_edit_2_ok.do", method = RequestMethod.POST)
 	public ModelAndView mypg_profile_edit_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		String echk = request.getParameter("emailDuplication");
 		logger.info("echk의 값은 >> " + echk);
@@ -317,12 +376,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_password_edit.do", method = RequestMethod.GET)
 	public ModelAndView mypg_password_edit(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_password_edit"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_password_edit_ok.do", method = RequestMethod.POST)
 	public ModelAndView mypg_password_edit_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		String userPw = request.getParameter("now_pw");
 		String newUserPw = request.getParameter("new_pw");
@@ -378,12 +446,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_withdraw.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_withdraw"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_ok.do", method = RequestMethod.POST)
 	public ModelAndView mypg_withdraw_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		String userPw = request.getParameter("pswd_confirm");
 		logger.info("입력한 패스워드는 >> " + userPw);
@@ -409,12 +486,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_withdraw_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_withdraw_2"); 
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_withdraw_2_ok.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_2_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		Member member = new Member();
@@ -437,12 +523,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_withdraw_msg.do", method = RequestMethod.GET)
 	public ModelAndView mypg_withdraw_msg(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_withdraw_msg");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		
@@ -474,12 +569,21 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna_table(Locale locale, Model model) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
+		
 		return new ModelAndView("mypage/mypg_qna_table");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna_2.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna_2(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		web.init();
+		
+		if (web.getSession("loginInfo") == null) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
 		int id = web.getInt("id");
 		logger.info("받아온 id는 >> " + id);
@@ -504,58 +608,5 @@ public class MypageController {
 		model.addAttribute("fileList", fileList);
 		
 		return new ModelAndView("mypage/mypg_qna_2");
-	}
-	
-	@RequestMapping(value = "/mypage/reserv_test.do", method = RequestMethod.GET)
-	public ModelAndView reserv_test(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
-	web.init();
-	
-	return new ModelAndView("mypage/reserv_test");
-	}
-	
-	@RequestMapping(value = "/mypage/reserv_test_ok.do", method = RequestMethod.POST)
-	public ModelAndView reserv_test_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
-	web.init();
-	
-	Member loginInfo = (Member) web.getSession("loginInfo");
-	
-	String roomNo = request.getParameter("room_no");
-	String checkIn = request.getParameter("check_in");
-	String checkOut = request.getParameter("check_out");
-	String roomType = request.getParameter("room_type");
-	String packageType = request.getParameter("package_type");
-	String bedType = request.getParameter("bed_type");
-	String exbed = request.getParameter("exbed");
-	String meal = request.getParameter("meal");
-	String totalPrice = request.getParameter("total_price");
-	String resvDate = request.getParameter("resv_date");
-	String memberId = request.getParameter("member_id");
-	String hotelCate = request.getParameter("hotel_category");
-	String cardNo = request.getParameter("card_no");
-	String cardType = request.getParameter("card_type");
-	String cardYy = request.getParameter("card_yy");
-	String cardMm = request.getParameter("card_mm");
-	String pplAd = request.getParameter("ppl_ad");
-	String pplCh = request.getParameter("ppl_ch");
-	String pplBb = request.getParameter("ppl_bb");
-	String detail = request.getParameter("detail");
-	String resvRoomId = request.getParameter("resv_room_id");
-
-	
-	ResvRoom resvRoom = new ResvRoom();
-	resvRoom.setRoomNo(Integer.parseInt(roomNo));
-	resvRoom.setCheckIn(checkIn);
-	resvRoom.setCheckOut(checkOut);
-	resvRoom.setRoomType(roomType);
-	resvRoom.setPackageType(packageType);
-	/*resvRoom.setExbed(Integer.parseInt(exbed));*/
-	resvRoom.setMeal(Integer.parseInt(meal));
-	resvRoom.setTotalPrice(Integer.parseInt(totalPrice));
-	
-	ResvGuest resvGuest = new ResvGuest();
-	
-	
-	
-	return new ModelAndView("mypage/reserv_test_ok");
 	}
 }

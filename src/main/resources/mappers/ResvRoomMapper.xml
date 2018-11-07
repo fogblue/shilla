@@ -3,18 +3,22 @@
   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ResvRoomMapper">
-	<resultMap id="resvroom" type="iot5.project.shilla.model.ResvRoom">
+	<resultMap id="resvroom" type="iot5.project.shilla.model.RoomForReserv">
 		<result property="id" column="id" />
-		<result property="roomNo" column="room_no" />
+		<result property="roomId" column="room_id" />
 		<result property="checkIn" column="check_in" />
 		<result property="checkOut" column="check_out" />
 		<result property="roomType" column="room_type" />
-		<result property="packageType" column="package_type" />
+		<result property="bedType" column="bed_type" />
 		<result property="exbed" column="exbed" />
 		<result property="meal" column="meal" />
 		<result property="totalPrice" column="total_price" />
 		<result property="resvDate" column="resv_date" />
 		<result property="memberId" column="member_id" />
+		<result property="roomNo" column="room_no" />
+		<result property="roomType" column="room_type" />
+		<result property="bedType" column="bed_type" />
+		<result property="roomPrice" column="room_price" />
 		<result property="hotelCate" column="hotel_category" />
 	</resultMap>
  	<!-- ######## -->
@@ -40,7 +44,7 @@
     </select>	
 	<!-- 회원아이디와 일치하는 예약의 정보를 조회한다 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">
-		SELECT id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
+		SELECT id, room_no, check_in, check_out, room_type, package_type, bed_type, exbed, meal,
 				total_price, resv_date, member_id, hotel_category
 		FROM   resv_room
     	WHERE  member_id=#{memberId}
@@ -60,8 +64,17 @@
     	WHERE  id=#{id}
 	</select>	
 	<!-- 예약 가능한 방을 검색한다 -->
-	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.ResvRoom" resultMap="resvroom">
-		 
+	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.RoomForReserv" resultMap="resvroom">		
+		 <![CDATA[ 
+		SELECT 		room.id as id, room_no, room_type, bed_type, room_price, room.hotel_category as hotel_category
+		FROM   		room
+		LEFT JOIN 	resv_room
+			ON 		room.id=resv_room.room_id
+			AND 	resv_room.check_out >= #{checkIn}
+			AND 	resv_room.check_in <= #{checkOut}
+    	WHERE 		room.hotel_category = #{hotelCate}
+    		AND 	resv_room.id IS NULL
+    	]]>
 	</select>
 	
 </mapper>

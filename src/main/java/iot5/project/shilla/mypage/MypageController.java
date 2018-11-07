@@ -23,10 +23,8 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
-import iot5.project.shilla.model.ResvGuest;
-import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.model.Room;
+import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.MemberService;
 import iot5.project.shilla.service.QnAService;
@@ -80,7 +78,7 @@ public class MypageController {
 		/*로그인세션 참조*/
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		/*로그인세션에서 회원번호를 가져와 객실예약 객체에 회원번호 넣어주기*/
-		Reservation resvroom = new Reservation();
+		RoomForReserv resvroom = new RoomForReserv();
 		try {
 			resvroom.setMemberId(loginInfo.getId());
 		} catch (Exception e) {
@@ -91,7 +89,7 @@ public class MypageController {
 		/*리스트갯수*/
 		int totalCount = 0;
 		
-		List<Reservation> reservInfo = null;
+		List<RoomForReserv> reservInfo = null;
 		try {
 			totalCount = reservService.selectReservationCount(resvroom);
 			pageHelper.pageProcess(page, totalCount, 10, 5);
@@ -134,16 +132,16 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		Reservation reserv = new Reservation();
-		reserv.setRoomId(id);
+		RoomForReserv reserv = new RoomForReserv();
+		reserv.setId(id);
 		reserv.setResvRoomId(id);
 		
 		try {
-			reserv = reservService.selectReservById(reserv);
+			reserv = reservService.selectReservInfo(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
-		
+		/*
 		Room room = new Room();
 		
 		room.setId(reserv.getRoomId());
@@ -152,10 +150,10 @@ public class MypageController {
 			room = roomService.selectRoom(room);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
-		}
+		}*/
 		
 		model.addAttribute("reservInfo", reserv);
-		model.addAttribute("roomInfo", room);
+		/*model.addAttribute("roomInfo", room);*/
 		
 		return new ModelAndView("mypage/mypg_reservation_2");
 	}

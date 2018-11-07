@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.ReservService;
 
@@ -52,22 +51,22 @@ public class ReservServiceImpl implements ReservService {
 	}
 
 	@Override
-	public void deleteReserv(Reservation reserv) throws Exception {
+	public void deleteReserv(RoomForReserv reserv) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void updateReserv(Reservation reserv) throws Exception {
+	public void updateReserv(RoomForReserv reserv) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public Reservation selectReserv(RoomForReserv reserv) throws Exception {
-		Reservation result = null;
+	public RoomForReserv selectReserv(RoomForReserv reserv) throws Exception {
+		RoomForReserv result = null;
 
 		try {
 			result = sqlSession.selectOne("ReservationMapper.selectReserv", reserv);
@@ -85,8 +84,8 @@ public class ReservServiceImpl implements ReservService {
 	}
 
 	@Override
-	public List<Reservation> selectReservList(Reservation reserv) throws Exception {
-		List<Reservation> result = null;
+	public List<RoomForReserv> selectReservList(RoomForReserv reserv) throws Exception {
+		List<RoomForReserv> result = null;
 
 		try {
 			result = sqlSession.selectList("ReservationMapper.selectReservList", reserv);
@@ -104,8 +103,8 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
-	public Reservation selectReservById(Reservation reserv) throws Exception {
-		Reservation result = null;
+	public RoomForReserv selectReservById(RoomForReserv reserv) throws Exception {
+		RoomForReserv result = null;
 
 		try {
 			result = sqlSession.selectOne("ReservationMapper.selectReservRById", reserv);
@@ -123,20 +122,20 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
-	public Reservation selectroomInfo(Reservation reserv) throws Exception {
+	public RoomForReserv selectroomInfo(RoomForReserv reserv) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public Reservation selectguestInfo(Reservation reserv) throws Exception {
+	public RoomForReserv selectguestInfo(RoomForReserv reserv) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public int selectReservationCount(Reservation reserv) throws Exception {
+	public int selectReservationCount(RoomForReserv reserv) throws Exception {
 		int result = 0;
 		
 		try {
@@ -148,22 +147,22 @@ public class ReservServiceImpl implements ReservService {
 		return result;
 	}
 
-
 	@Override
-	public int selectReservationPplCount(Reservation reserv) throws Exception {
-		// TODO Auto-generated method stub
-		int result = 0;
+	public RoomForReserv selectReservInfo(RoomForReserv reserv) throws Exception {
+		RoomForReserv result = null;
 		
 		try {
-			result = sqlSession.selectOne("ReservationMapper.selectReservationPplCount", reserv);
+			result = sqlSession.selectOne("ReservationMapper.selectReservInfo", reserv);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 예약정보가 없습니다.");
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
-			throw new Exception("예약 갯수 조회에 실패했습니다.");
+			throw new Exception("예약 정보 조회에 실패했습니다.");
 		}
 		return result;
 	}
-
-
-	
 	
 }

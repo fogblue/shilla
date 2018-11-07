@@ -87,7 +87,7 @@
 					<table class="mypg-rsvt2-contents-table-2">
 						<tr class="text-center">
 							<td style="width: 15%">${reservInfo.checkIn}</td>
-							<td style="width: 45%">&nbsp;${reservInfo.roomType}</td>
+							<td style="width: 45%">${reservInfo.roomType}&nbsp;/&nbsp;</td>
 							<td style="width: 20%">${reservInfo.roomPrice}원</td>
 							<td style="width: 20%">${reservInfo.roomPrice}원</td>
 						</tr>
@@ -112,7 +112,7 @@
 						</c:choose>
 						<tr class="text-right">
 							<td colspan="3">세금&amp;봉사료</td>
-							<td>${reservInfo.totalPrice * 0.2}&nbsp;원</td>
+							<td>${reservInfo.totalPrice * 20 / 100}&nbsp;원</td>
 						</tr>
 						<tr class="text-right">
 							<td colspan="3">요금합계&nbsp;&nbsp;&nbsp;</td>

@@ -23,7 +23,6 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Room;
 import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.MemberService;

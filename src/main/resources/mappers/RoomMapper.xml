@@ -51,7 +51,7 @@
 	<select id="selectRoomItem" parameterType="iot5.project.shilla.model.Room" resultMap="room">
 		SELECT id, room_no, room_type, bed_type, room_price, hotel_category
 		FROM   room
-		WHERE  id=#{id} or room_no=#{roomNo} or hotel_category=#{hotelCate}
+		WHERE  id=#{id} or room_no=#{roomNo} AND hotel_category=#{hotelCate}
 	</select>
 	<!-- 객실타입과 일치하는 객실의 목록을 조회한다 -->
 	<select id="selectRoomList" parameterType="iot5.project.shilla.model.Room" resultMap="room">

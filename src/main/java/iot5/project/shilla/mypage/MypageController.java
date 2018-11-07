@@ -72,21 +72,22 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_reservation.do", method = RequestMethod.GET)
 	public ModelAndView mypg_reservation(Locale locale, Model model) {	
 		web.init();
-		
+		/*로그인 여부 검사*/
 		if (web.getSession("loginInfo") == null) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
-		
+		/*로그인세션 참조*/
 		Member loginInfo = (Member) web.getSession("loginInfo");
-		
+		/*로그인세션에서 회원번호를 가져와 객실예약 객체에 회원번호 넣어주기*/
 		ResvRoom resvroom = new ResvRoom();
 		try {
 			resvroom.setMemberId(loginInfo.getId());
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
+		/*리스트페이지 번호 부여*/
 		int page = web.getInt("page", 1);
-		
+		/*리스트갯수*/
 		int totalCount = 0;
 		
 		List<ResvRoom> reservInfo = null;

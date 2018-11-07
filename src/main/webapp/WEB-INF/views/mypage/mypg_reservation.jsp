@@ -68,7 +68,7 @@
 											<td>${maxPageNo}</td>
 											<td>${reserv.hotelCate}</td>
 											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
-											<td>${reserv.checkIn}</td>
+											<td>${reserv.checkIn}&nbsp;/&nbsp;${reserv.checkOut}</td>
 											<td style="color: #ff0000;"></td>
 										</tr>
 										<c:set var="maxPageNo" value="${maxPageNo-1}" />

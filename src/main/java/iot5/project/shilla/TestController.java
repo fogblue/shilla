@@ -177,6 +177,7 @@ public class TestController {
 		/** 객실 번호로 객실 정보 조회 */
 		Room room = new Room();
 		room.setRoomNo(roomNo);
+		room.setHotelCate(hotelCate);
 		
 		try {
 			room = roomService.selectRoom(room);

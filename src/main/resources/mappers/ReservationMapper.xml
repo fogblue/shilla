@@ -35,10 +35,10 @@
 	<insert id="insertReservRoom" parameterType="iot5.project.shilla.model.Reservation" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO resv_room (
-			room_no, check_in, check_out, room_type, package_type, bed_type, exbed, meal,
+			room_id, check_in, check_out, exbed, meal,
 			total_price, resv_date, member_id, hotel_category
 		) VALUES (
-			#{roomNo}, #{checkIn}, #{checkOut}, #{roomType}, #{packageType}, #{bedType}, #{exbed}, #{meal},
+			#{roomId}, #{checkIn}, #{checkOut}, #{exbed}, #{meal},
 			#{totalPrice}, now(), #{memberId}, #{hotelCate}
 		)
 	</insert>
@@ -71,7 +71,7 @@
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		SELECT id
 		FROM   resv_room
-    	WHERE  member_id=#{memberId} AND room_no=#{roomNo} AND check_in=#{checkIn} AND check_out=#{checkOut}
+    	WHERE  member_id=#{memberId} AND room_id=#{roomId} AND check_in=#{checkIn} AND check_out=#{checkOut}
 	</select>	
 	<!-- 객실아이디와 일치하는 예약정보를 조회한다 -->
 	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">

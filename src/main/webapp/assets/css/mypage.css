@@ -647,21 +647,28 @@ body::-webkit-scrollbar {
 	margin-top: 20px;
 }
 
+.mypg-rsvt2-contents-table-2 tr {
+	height: 45px;
+}
+
 .mypg-rsvt2-contents-table-2 tr td {
 	padding: 0 20px;
 }
 
-.mypg-rsvt2-contents-table-2 tr:nth-child(2) {
+.mypg-rsvt2-contents-table-2 tr[id="exbed"],
+.mypg-rsvt2-contents-table-2 tr[id="meal"] {
+	border-top: 1px solid #eceae1;
+}
+
+.mypg-rsvt2-contents-table-2 tr[id="tex"] {
 	background-color: #fdf8ef;
 	border: 1px solid #eceae1;
 	color: #7e4f15;
-	height: 45px;
 }
 
-.mypg-rsvt2-contents-table-2 tr:nth-child(3) {
+.mypg-rsvt2-contents-table-2 tr[id="ttp"] {
 	background-color: #a1886f;
 	color: #fdf8ef;
-	height: 45px;
 }
 /*--------------------- table-3 ------------------------*/
 .mypg-rsvt2-contents-table-3 {

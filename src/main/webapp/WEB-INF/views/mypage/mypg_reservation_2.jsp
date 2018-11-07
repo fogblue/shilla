@@ -88,35 +88,49 @@
 						<tr class="text-center">
 							<td style="width: 15%">${reservInfo.checkIn}</td>
 							<td style="width: 45%">${reservInfo.roomType}&nbsp;/&nbsp;</td>
-							<td style="width: 20%">${reservInfo.roomPrice}원</td>
-							<td style="width: 20%">${reservInfo.roomPrice}원</td>
+							<td style="width: 20%">${reservInfo.roomPrice}&nbsp;원</td>
+							<td style="width: 20%"><p id="crpr" style="display: inline;">${reservInfo.roomPrice}</p>&nbsp;원</td>
 						</tr>
 						<c:choose>
-							<c:when test="${reservInfo.exbed != 0}">
-								<tr class="text-center">
+							<c:when test="${reservInfo.exbed != 0 && reservInfo.meal != 0}">
+								<tr class="text-center" id="exbed">
 									<td></td>
-									<td>(내역)</td>
-									<td>&nbsp;개</td>
-									<td>${reservInfo.exbed}&nbsp;원</td>
+									<td>추가 침대</td>
+									<td>${reservInfo.exbed}&nbsp;개</td>
+									<td><p id="cexb" style="display: inline;">${reservInfo.exbed * 30000}</p>&nbsp;원</td>
+								</tr>
+								<tr class="text-center" id="meal">
+									<td></td>
+									<td>조&nbsp;&nbsp;식</td>
+									<td>${reservInfo.meal}&nbsp;명</td>
+									<td><p id="cmea" style="display: inline;">${reservInfo.meal * 30000}</p>&nbsp;원</td>
+								</tr>
+							</c:when>
+							<c:when test="${reservInfo.exbed != 0}">
+								<tr class="text-center" id="exbed">
+									<td></td>
+									<td>추가 침대</td>
+									<td>${reservInfo.exbed}&nbsp;개</td>
+									<td><p id="cexb" style="display: inline;">${reservInfo.exbed * 30000}</p>&nbsp;원</td>
 								</tr>
 							</c:when>
 							<c:when test="${reservInfo.meal != 0}">
-								<tr class="text-center">
+								<tr class="text-center" id="meal">
 									<td></td>
-									<td>(내역)</td>
-									<td>&nbsp;명</td>
-									<td>${reservInfo.meal}&nbsp;원</td>
+									<td>조&nbsp;&nbsp;식</td>
+									<td>${reservInfo.meal}&nbsp;명</td>
+									<td><p id="cmea" style="display: inline;">${reservInfo.meal * 30000}</p>&nbsp;원</td>
 								</tr>
 							</c:when>
 							<c:otherwise></c:otherwise>
 						</c:choose>
-						<tr class="text-right">
+						<tr class="text-right" id="tex">
 							<td colspan="3">세금&amp;봉사료</td>
-							<td>${reservInfo.totalPrice * 20 / 100}&nbsp;원</td>
+							<td><p id="ctex" style="display: inline;"></p>&nbsp;원</td>
 						</tr>
-						<tr class="text-right">
+						<tr class="text-right" id="ttp">
 							<td colspan="3">요금합계&nbsp;&nbsp;&nbsp;</td>
-							<td>${reservInfo.totalPrice}&nbsp;원</td>
+							<td><p id="cttp" style="display: inline;"></p>&nbsp;원</td>
 						</tr>
 					</table>
 					<p style="magin: 0; color: #7e4f15;">&#8251; 10% service charge and 11% Tax Included.<br />&#8251; 현재 미결제 상태이며, 체크인시 결제가 진행됩니다.</p>
@@ -155,6 +169,18 @@
 		function moveToList() {
 			location.href="${pageContext.request.contextPath}/mypage/mypg_reservation.do"
 		}
+		
+		$(function() { 
+			var crpr = Number($("#crpr").text());
+			var cexb = Number($("#cexb").text());
+			var cmea = Number($("#cmea").text());
+			var cttpa = crpr + cexb + cmea;
+			var ctexa = cttpa * 0.1;
+			var ctexb = cttpa * 0.11;
+			$("#ctex").text(ctexa + ctexb);
+			var ctex = Number($("#ctex").text());
+			var cttp = $("#cttp").text(cttpa + ctex);
+		})
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

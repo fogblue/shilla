@@ -32,7 +32,7 @@
 	<!-- ##입력## -->
 	<!-- ######## -->
 	<!-- 예약 : 객실정보 -->
-	<insert id="insertReservRoom" parameterType="iot5.project.shilla.model.Reservation" 
+	<insert id="insertReservRoom" parameterType="iot5.project.shilla.model.RoomForReserv" 
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO resv_room (
 			room_id, check_in, check_out, exbed, meal,

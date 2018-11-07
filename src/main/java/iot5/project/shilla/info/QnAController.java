@@ -25,9 +25,6 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
-import iot5.project.shilla.model.ResvGuest;
-import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.FileService;
 import iot5.project.shilla.service.QnAService;
 import iot5.project.shilla.service.ReservService;
@@ -230,113 +227,6 @@ public class QnAController {
 			return web.redirect(web.getRootPath(), "문의사항이 저장되었습니다.");
 		}
 
-	}
-
-	@RequestMapping(value = "/test/reservation_test.do", method = RequestMethod.GET)
-	public ModelAndView reservation_test(Locale locale, Model model) {
-		web.init();
-
-		return new ModelAndView("test/reservation_test");
-	}
-
-	@RequestMapping(value = "/test/reservation_test_ok.do", method = RequestMethod.GET)
-	public ModelAndView reservationTestOk(Locale locale, Model model) {
-		web.init();
-		
-		String hotelCate = web.getString("hotel_cate");
-		String tStart = web.getString("t-start");
-		String tEnd = web.getString("t-end");
-
-		RoomForReserv room = new RoomForReserv();
-		room.setHotelCate(hotelCate);
-		room.setCheckIn(tStart);
-		room.setCheckOut(tEnd);
-		
-		logger.info("hotelCate=" + hotelCate);
-		logger.info("tStart=" + tStart);
-		logger.info("tEnd=" + tEnd);
-
-		int pplAd = web.getInt("ppl_ad");
-		int pplCh = web.getInt("ppl_ch");
-		int pplBb = web.getInt("ppl_bb");
-		
-		ResvGuest guest = new ResvGuest();
-		guest.setPplAd(pplAd);
-		guest.setPplCh(pplCh);
-		guest.setPplBb(pplBb);
-		
-		logger.info("pplAd=" + pplAd);
-		logger.info("pplCh=" + pplCh);
-		logger.info("pplBb=" + pplBb);
-		
-		web.setSession("guest", guest);
-		
-		List<RoomForReserv> roomList = null;
-		
-		try {
-			roomList = roomService.getRoomList(room);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-		model.addAttribute("roomInfo", room);
-		model.addAttribute("guestInfo", guest);
-		model.addAttribute("roomList", roomList);
-		
-		return new ModelAndView("test/reservation_test2");
-	}
-	
-	@RequestMapping(value = "/test/reservation_test2.do", method = RequestMethod.GET)
-	public ModelAndView reservationTest2(Locale locale, Model model) {
-
-		return new ModelAndView("test/reservation_test2");
-	}
-	
-	@RequestMapping(value = "/test/reservation_test2_ok.do", method = RequestMethod.GET)
-	public ModelAndView reservationTest2Ok(Locale locale, Model model) {
-		web.init();
-		
-		String hotelCate = web.getString("hotel_cate");
-		String tStart = web.getString("t-start");
-		String tEnd = web.getString("t-end");
-		int pplAd = web.getInt("ppl_ad");
-		int pplCh = web.getInt("ppl_ch");
-		int pplBb = web.getInt("ppl_bb");
-		
-		logger.info("hotelCate=" + hotelCate);
-		logger.info("tStart=" + tStart);
-		logger.info("tEnd=" + tEnd);
-		logger.info("pplAd=" + pplAd);
-		logger.info("pplCh=" + pplCh);
-		logger.info("pplBb=" + pplBb);
-		
-		int roomId = web.getInt("id");
-		int roomNo = web.getInt("room_no");
-		String roomType = web.getString("room_type");
-		String bedType = web.getString("bed_type");
-		int roomPrice = web.getInt("room_price");
-
-		logger.info("roomId=" + roomId);
-		logger.info("roomNo=" + roomNo);
-		logger.info("roomType=" + roomType);
-		logger.info("bedType=" + bedType);
-		logger.info("roomPrice=" + roomPrice);
-		
-		Reservation reserv = new Reservation();
-		reserv.setHotelCate(hotelCate);
-		reserv.setCheckIn(tStart);
-		reserv.setCheckOut(tEnd);
-		reserv.setPplAd(pplAd);
-		reserv.setPplCh(pplCh);
-		reserv.setPplBb(pplBb);
-		reserv.setRoomId(roomId);
-		reserv.setRoomNo(roomNo);
-		reserv.setRoomType(roomType);
-		reserv.setBedType(bedType);
-		reserv.setRoomPrice(roomPrice);
-		
-		model.addAttribute("reservInfo", reserv);
-		
-		return new ModelAndView("mypage/reserv_test");
 	}
 	
 }

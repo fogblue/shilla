@@ -50,9 +50,9 @@
     </select>
 	<!-- 객실아이디나 객실번호가 일치하는 객실의 정보를 조회한다 -->
 	<select id="selectRoomItem" parameterType="iot5.project.shilla.model.Room" resultMap="room">
-		SELECT id, room_no, room_type, bed_type, room_price, package_id, hotel_category
+		SELECT id, room_no, room_type, bed_type, room_price, hotel_category
 		FROM   room
-		WHERE  id=#{id} or room_no=#{roomNo}
+		WHERE  id=#{id} or room_no=#{roomNo} or hotel_category=#{hotelCate}
 	</select>
 	<!-- 객실타입과 일치하는 객실의 목록을 조회한다 -->
 	<select id="selectRoomList" parameterType="iot5.project.shilla.model.Room" resultMap="room">
@@ -68,7 +68,7 @@
 	</select>
 	<!-- 객실타입과 일치하는 객실의 목록을 조회한다 -->
 	<select id="selectRoomListNW" parameterType="iot5.project.shilla.model.Room" resultMap="room">
-		SELECT id, room_no, room_type, bed_type, room_price, package_id, hotel_category 
+		SELECT id, room_no, room_type, bed_type, room_price, hotel_category 
 		FROM   room
 	</select>
 	

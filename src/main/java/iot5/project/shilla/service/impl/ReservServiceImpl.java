@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import iot5.project.shilla.model.Reservation;
-import iot5.project.shilla.model.ResvGuest;
-import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.ReservService;
 
@@ -87,11 +85,11 @@ public class ReservServiceImpl implements ReservService {
 	}
 
 	@Override
-	public List<ResvRoom> selectReservList(ResvRoom reserv) throws Exception {
-		List<ResvRoom> result = null;
+	public List<Reservation> selectReservList(Reservation reserv) throws Exception {
+		List<Reservation> result = null;
 
 		try {
-			result = sqlSession.selectList("ResvRoomMapper.selectReservList", reserv);
+			result = sqlSession.selectList("ReservationMapper.selectReservList", reserv);
 			if (result == null) {
 				throw new NullPointerException();
 			}
@@ -106,11 +104,11 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
-	public ResvRoom selectReservRById(ResvRoom reserv) throws Exception {
-		ResvRoom result = null;
+	public Reservation selectReservRById(Reservation reserv) throws Exception {
+		Reservation result = null;
 
 		try {
-			result = sqlSession.selectOne("ResvRoomMapper.selectReservRById", reserv);
+			result = sqlSession.selectOne("ReservationMapper.selectReservRById", reserv);
 			if (result == null) {
 				throw new NullPointerException();
 			}
@@ -125,11 +123,11 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
-	public ResvGuest selectReservGById(ResvGuest reserv) throws Exception {
-		ResvGuest result = null;
+	public Reservation selectReservGById(Reservation reserv) throws Exception {
+		Reservation result = null;
 
 		try {
-			result = sqlSession.selectOne("ResvGuestMapper.selectReservGById", reserv);
+			result = sqlSession.selectOne("ReservationMapper.selectReservGById", reserv);
 			if (result == null) {
 				throw new NullPointerException();
 			}
@@ -158,11 +156,11 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
-	public int selectReservationCount(ResvRoom reserv) throws Exception {
+	public int selectReservationCount(Reservation reserv) throws Exception {
 		int result = 0;
 		
 		try {
-			result = sqlSession.selectOne("ResvRoomMapper.selectReservationCount", reserv);
+			result = sqlSession.selectOne("ReservationMapper.selectReservationCount", reserv);
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 			throw new Exception("예약 갯수 조회에 실패했습니다.");
@@ -172,7 +170,7 @@ public class ReservServiceImpl implements ReservService {
 
 
 	@Override
-	public int selectReservationPplCount(ResvRoom reserv) throws Exception {
+	public int selectReservationPplCount(Reservation reserv) throws Exception {
 		// TODO Auto-generated method stub
 		int result = 0;
 		

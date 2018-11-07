@@ -73,22 +73,39 @@
 		FROM   resv_room
     	WHERE  member_id=#{memberId} AND room_id=#{roomId} AND check_in=#{checkIn} AND check_out=#{checkOut}
 	</select>	
-	<!-- 객실아이디와 일치하는 예약정보를 조회한다 -->
-	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
-		SELECT resv_room.id as id, room_no, check_in, check_out, room_type, package_type, exbed, meal,
-			total_price, resv_date, member_id, hotel_category
+	<!-- 예약된 객실아이디와 일치하는 예약정보를 조회한다 : 객실정보 -->
+	<select id="selectReservRById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+		SELECT id, room_id, DATE_FORMAT(check_in, '%Y-%m-%d') as check_in, DATE_FORMAT(check_out, '%Y-%m-%d') as check_out, room_type, package_type, exbed, meal,
+				total_price, DATE_FORMAT(resv_date, '%Y-%m-%d') as resv_date, member_id, hotel_category
 		FROM   resv_room
-    	WHERE  id=#{roomId}
+    	WHERE  id=#{id}
 	</select>
+	
 	<!-- 회원번호와 일치하는 예약정보를 조회한다 -->
 	<select id="selectReservByMemberId" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
 		SELECT id, card_no, card_type, card_yy, card_mm, ppl_ad, ppl_ch, ppl_bb, detail, member_id
 		FROM   resv_guest
     	WHERE  member_id=#{memberId}
 	</select>
+	<!-- 회원아이디와 일치하는 객실의 정보를 조회한다 -->
+	<select id="selectReservList" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+    	SELECT id, hotel_category, room_type, check_in
+		FROM   resv_room
+		WHERE  member_id=#{memberId}
+		ORDER BY id DESC
+    </select>
 	<!-- 예약 가능한 방을 검색한다 -->
-	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
-		 
+	<select id="searchAvailRooms" parameterType="iot5.project.shilla.model.RoomForReserv" resultMap="reserv">		
+		 <![CDATA[ 
+		SELECT 		room.id as id, room_no, room_type, bed_type, room_price, room.hotel_category as hotel_category
+		FROM   		room
+		LEFT JOIN 	resv_room
+			ON 		room.id=resv_room.room_id
+			AND 	resv_room.check_out >= #{checkIn}
+			AND 	resv_room.check_in <= #{checkOut}
+    	WHERE 		room.hotel_category = #{hotelCate}
+    		AND 	resv_room.id IS NULL
+    	]]>
 	</select>
 	
 	<!-- 숙박하는 인원수를 SELECT 한다 -->

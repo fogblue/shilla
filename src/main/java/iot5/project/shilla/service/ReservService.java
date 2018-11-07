@@ -3,8 +3,6 @@ package iot5.project.shilla.service;
 import java.util.List;
 
 import iot5.project.shilla.model.Reservation;
-import iot5.project.shilla.model.ResvGuest;
-import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.model.RoomForReserv;
 
 public interface ReservService {
@@ -50,7 +48,7 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<ResvRoom> selectReservList(ResvRoom reserv) throws Exception;
+	public List<Reservation> selectReservList(Reservation reserv) throws Exception;
 	
 	/**
 	 * 
@@ -58,14 +56,14 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ResvRoom selectReservRById(ResvRoom reserv) throws Exception;
+	public Reservation selectReservRById(Reservation reserv) throws Exception;
 	/**
 	 * 
 	 * @param reserv
 	 * @return
 	 * @throws Exception
 	 */
-	public ResvGuest selectReservGById(ResvGuest reserv) throws Exception;
+	public Reservation selectReservGById(Reservation reserv) throws Exception;
 	/**
 	 * 
 	 * @param reserv
@@ -86,8 +84,8 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public int selectReservationCount(ResvRoom reserv) throws Exception;
+	public int selectReservationCount(Reservation reserv) throws Exception;
 	
 	
-	public int selectReservationPplCount(ResvRoom reserv) throws Exception;
+	public int selectReservationPplCount(Reservation reserv) throws Exception;
 }

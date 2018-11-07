@@ -33,7 +33,7 @@
 			<div class="form-group">
 				<label for="hotel_cate" class="col-md-2">호텔종류</label>
 				<div class="col-md-10">
-					<input type="text" name="hotel_cate" id="hotel_cate" value="${reservInfo.hotelCate}" class="form-control" />
+					<input type="text" name="hotel_category" id="hotel_cate" value="${reservInfo.hotelCate}" class="form-control" />
 				</div>
 			</div>
 			<div class="form-group">

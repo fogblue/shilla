@@ -23,7 +23,7 @@
         </div>
         <div class="rsv_selectbox">
             <%-- select box start --%>
-            <strong class="rsv_hotelselect_hangel">호텔선택</strong> <select name="hotel_cate" class="rsv_hotelselect_dropdown">
+            <strong class="rsv_hotelselect_hangel">호텔선택</strong> <select name="hotel_category" class="rsv_hotelselect_dropdown">
                 <option class="selected">서울신라호텔</option>
                 <option>제주신라호텔</option>
             </select>

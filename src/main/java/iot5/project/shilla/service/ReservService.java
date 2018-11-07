@@ -5,6 +5,7 @@ import java.util.List;
 import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.model.RoomForReserv;
 
 public interface ReservService {
 
@@ -13,14 +14,14 @@ public interface ReservService {
 	 * @param reserv - 예약할 객실 정보
 	 * @throws Exception
 	 */
-	public void insertReservRoom(Reservation reserv) throws Exception;
+	public void insertReservRoom(RoomForReserv reserv) throws Exception;
 
 	/**
 	 * 예약 하기 - guest
 	 * @param reserv - 예약할 고객 정보
 	 * @throws Exception
 	 */
-	public void insertReservGuest(Reservation reserv) throws Exception;
+	public void insertReservGuest(RoomForReserv reserv) throws Exception;
 	/**
 	 * 예약 취소
 	 * @param reserv
@@ -41,7 +42,7 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Reservation selectReserv(Reservation reserv) throws Exception;
+	public Reservation selectReserv(RoomForReserv reserv) throws Exception;
 	
 	/**
 	 * 예약 리스트

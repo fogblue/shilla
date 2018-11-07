@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
+import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.ReservService;
 
 @Service
@@ -21,7 +22,7 @@ public class ReservServiceImpl implements ReservService {
 	SqlSession sqlSession;
 	
 	@Override
-	public void insertReservRoom(Reservation reserv) throws Exception {
+	public void insertReservRoom(RoomForReserv reserv) throws Exception {
 		try {
 			int result = sqlSession.insert("ReservationMapper.insertReservRoom", reserv);
 			if (result == 0) {
@@ -37,7 +38,7 @@ public class ReservServiceImpl implements ReservService {
 	}
 
 	@Override
-	public void insertReservGuest(Reservation reserv) throws Exception {
+	public void insertReservGuest(RoomForReserv reserv) throws Exception {
 		try {
 			int result = sqlSession.insert("ReservationMapper.insertReservGuest", reserv);
 			if (result ==0) {
@@ -67,7 +68,7 @@ public class ReservServiceImpl implements ReservService {
 
 
 	@Override
-	public Reservation selectReserv(Reservation reserv) throws Exception {
+	public Reservation selectReserv(RoomForReserv reserv) throws Exception {
 		Reservation result = null;
 
 		try {

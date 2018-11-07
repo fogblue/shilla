@@ -23,7 +23,6 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
-import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.model.Room;
@@ -609,82 +608,5 @@ public class MypageController {
 		model.addAttribute("fileList", fileList);
 		
 		return new ModelAndView("mypage/mypg_qna_2");
-	}
-	
-	@RequestMapping(value = "/mypage/reserv_test.do", method = RequestMethod.GET)
-	public ModelAndView reserv_test(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
-		web.init();
-		
-		return new ModelAndView("mypage/reserv_test");
-	}
-	
-	@RequestMapping(value = "/mypage/reserv_test_ok.do", method = RequestMethod.POST)
-	public ModelAndView reserv_test_ok(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
-		web.init();
-		
-		int memberId = web.getInt("member_id");
-		String checkIn = request.getParameter("check_in");
-		String checkOut = request.getParameter("check_out");
-		String hotelCate = request.getParameter("hotel_category");
-		int roomNo = web.getInt("room_no");
-		int pplAd = web.getInt("ppl_ad");
-		int pplCh = web.getInt("ppl_ch");
-		int pplBb = web.getInt("ppl_bb");
-		String roomType = request.getParameter("room_type");
-		String bedType = request.getParameter("bed_type");
-		int exbed = web.getInt("exbed");
-		int meal = web.getInt("meal");
-		String cardNo = request.getParameter("card_no");
-		String cardType = request.getParameter("card_type");
-		int cardYy = web.getInt("card_yy");
-		int cardMm = web.getInt("card_mm");
-		String detail = request.getParameter("detail");
-		String resvDate = request.getParameter("resv_date");
-
-		Reservation reserv = new Reservation();
-		reserv.setMemberId(memberId);
-		reserv.setCheckIn(checkIn);
-		reserv.setCheckOut(checkOut);
-		reserv.setHotelCate(hotelCate);
-		reserv.setRoomNo(roomNo);
-		reserv.setPplAd(pplAd);
-		reserv.setPplCh(pplCh);
-		reserv.setPplBb(pplBb);
-		reserv.setRoomType(roomType);
-		reserv.setBedType(bedType);
-		reserv.setExbed(exbed);
-		reserv.setMeal(meal);
-		reserv.setCardNo(cardNo);
-		reserv.setCardType(cardType);
-		reserv.setCardYy(cardYy);
-		reserv.setCardMm(cardMm);
-		reserv.setDetail(detail);
-		reserv.setResvDate(resvDate);
-
-		/** 객실 정보 입력 */
-		try {
-			reservService.insertReservRoom(reserv);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-		
-		/** 예약 번호 불러오기 */
-		Reservation id = new Reservation();
-		try {
-			id = reservService.selectReserv(reserv);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-	
-		reserv.setResvRoomId(id.getRoomId());
-		
-		/** 고객 정보 입력 */
-		try {
-			reservService.insertReservGuest(reserv);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-	
-		return web.redirect(web.getRootPath() + "/mypage/reserv_test.do", "예약이 접수되었습니다.");
 	}
 }

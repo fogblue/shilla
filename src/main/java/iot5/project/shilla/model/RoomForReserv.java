@@ -1,31 +1,20 @@
 package iot5.project.shilla.model;
 
-public class RoomForReserv extends ResvRoom {
-	private String checkIn;
-	private String checkOut;
+public class RoomForReserv extends Reservation {
+	private int id;
 	private int roomNo;
 	private String roomType;
 	private String bedType;
 	private int roomPrice;
-	private int packageId;
-	private String hotelCate;
 	private int limitStart;
 	private int listCount;
 
-	public String getCheckIn() {
-		return checkIn;
+	public int getId() {
+		return id;
 	}
 
-	public void setCheckIn(String checkIn) {
-		this.checkIn = checkIn;
-	}
-
-	public String getCheckOut() {
-		return checkOut;
-	}
-
-	public void setCheckOut(String checkOut) {
-		this.checkOut = checkOut;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getRoomNo() {
@@ -60,22 +49,6 @@ public class RoomForReserv extends ResvRoom {
 		this.roomPrice = roomPrice;
 	}
 
-	public int getPackageId() {
-		return packageId;
-	}
-
-	public void setPackageId(int packageId) {
-		this.packageId = packageId;
-	}
-
-	public String getHotelCate() {
-		return hotelCate;
-	}
-
-	public void setHotelCate(String hotelCate) {
-		this.hotelCate = hotelCate;
-	}
-
 	public int getLimitStart() {
 		return limitStart;
 	}
@@ -94,8 +67,7 @@ public class RoomForReserv extends ResvRoom {
 
 	@Override
 	public String toString() {
-		return "RoomForReserv [checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomNo=" + roomNo + ", roomType="
-				+ roomType + ", bedType=" + bedType + ", roomPrice=" + roomPrice + ", packageId=" + packageId
-				+ ", hotelCate=" + hotelCate + ", limitStart=" + limitStart + ", listCount=" + listCount + "]";
+		return "RoomForReserv [id=" + id + ", roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType
+				+ ", roomPrice=" + roomPrice + ", limitStart=" + limitStart + ", listCount=" + listCount + "]";
 	}
 }

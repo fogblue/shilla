@@ -609,5 +609,4 @@ public class MypageController {
 		
 		return new ModelAndView("mypage/mypg_qna_2");
 	}
-	
 }

@@ -76,6 +76,8 @@
 		</form>
 	</div>
 	<script type="text/javascript">
+	
+	
 	$(function() {
 		var number1 = parseInt($(this).find('#numbox1').val());
 		var number2 = parseInt($(this).find('#numbox2').val());

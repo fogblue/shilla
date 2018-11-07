@@ -80,7 +80,7 @@ public class ReservController {
 		reserv.setPplBb(ppl_bb);
 
 		
-		return new ModelAndView("reservation/reservation");
+		return new ModelAndView("reservation/rsv_roomselect");
 	}
 	
 	@RequestMapping(value = "/reservation/rsv_roomselect.do", method = RequestMethod.GET)

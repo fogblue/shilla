@@ -56,14 +56,7 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Reservation selectReservRById(Reservation reserv) throws Exception;
-	/**
-	 * 
-	 * @param reserv
-	 * @return
-	 * @throws Exception
-	 */
-	public Reservation selectReservGById(Reservation reserv) throws Exception;
+	public Reservation selectReservById(Reservation reserv) throws Exception;
 	/**
 	 * 
 	 * @param reserv

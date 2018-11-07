@@ -64,7 +64,7 @@
 	<!-- 회원아이디와 일치하는 예약 건수를 조회한다 -->
 	<select id="selectReservationCount" parameterType="iot5.project.shilla.model.Reservation" resultType="int">
 		SELECT count(id)
-		FROM   reservation
+		FROM   resv_room
 		WHERE  member_id=#{memberId}
     </select>  
 	<!-- 회원아이디와 일치하는 예약의 정보를 조회한다 -->
@@ -73,12 +73,12 @@
 		FROM   resv_room
     	WHERE  member_id=#{memberId} AND room_id=#{roomId} AND check_in=#{checkIn} AND check_out=#{checkOut}
 	</select>	
-	<!-- 예약된 객실아이디와 일치하는 예약정보를 조회한다 : 객실정보 -->
-	<select id="selectReservRById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
-		SELECT id, room_id, DATE_FORMAT(check_in, '%Y-%m-%d') as check_in, DATE_FORMAT(check_out, '%Y-%m-%d') as check_out, room_type, package_type, exbed, meal,
+	<!-- 예약된 객실아이디와 일치하는 예약정보를 조회한다 -->
+	<select id="selectReservById" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
+		SELECT id, room_id, DATE_FORMAT(check_in, '%Y-%m-%d') as check_in, DATE_FORMAT(check_out, '%Y-%m-%d') as check_out, exbed, meal,
 				total_price, DATE_FORMAT(resv_date, '%Y-%m-%d') as resv_date, member_id, hotel_category
 		FROM   resv_room
-    	WHERE  id=#{id}
+    	WHERE  member_id=#{memberId}
 	</select>
 	
 	<!-- 회원번호와 일치하는 예약정보를 조회한다 -->
@@ -89,7 +89,7 @@
 	</select>
 	<!-- 회원아이디와 일치하는 객실의 정보를 조회한다 -->
 	<select id="selectReservList" parameterType="iot5.project.shilla.model.Reservation" resultMap="reserv">
-    	SELECT id, hotel_category, room_type, check_in
+    	SELECT id, hotel_category, check_in
 		FROM   resv_room
 		WHERE  member_id=#{memberId}
 		ORDER BY id DESC

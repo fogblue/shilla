@@ -23,6 +23,7 @@ import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.File;
 import iot5.project.shilla.model.Member;
 import iot5.project.shilla.model.QnA;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.model.Room;
@@ -79,7 +80,7 @@ public class MypageController {
 		/*로그인세션 참조*/
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		/*로그인세션에서 회원번호를 가져와 객실예약 객체에 회원번호 넣어주기*/
-		ResvRoom resvroom = new ResvRoom();
+		Reservation resvroom = new Reservation();
 		try {
 			resvroom.setMemberId(loginInfo.getId());
 		} catch (Exception e) {
@@ -90,11 +91,12 @@ public class MypageController {
 		/*리스트갯수*/
 		int totalCount = 0;
 		
-		List<ResvRoom> reservInfo = null;
+		List<Reservation> reservInfo = null;
 		try {
 			totalCount = reservService.selectReservationCount(resvroom);
 			pageHelper.pageProcess(page, totalCount, 10, 5);
 			reservInfo = reservService.selectReservList(resvroom);
+			
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
@@ -132,21 +134,19 @@ public class MypageController {
 		logger.info("받아온 id는 >> " + id);
 		model.addAttribute("id", id);
 		
-		ResvRoom resvroom = new ResvRoom();
-		ResvGuest resvguest = new ResvGuest();
-		resvroom.setId(id);
-		resvguest.setResvRoomId(id);
+		Reservation reserv = new Reservation();
+		reserv.setRoomId(id);
+		reserv.setResvRoomId(id);
 		
 		try {
-			resvroom = reservService.selectReservRById(resvroom);
-			resvguest = reservService.selectReservGById(resvguest);
+			reserv = reservService.selectReservById(reserv);
 		} catch (Exception e) {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation_2.do", null);
 		}
 		
 		Room room = new Room();
 		
-		room.setId(resvroom.getRoomId());
+		room.setId(reserv.getRoomId());
 		
 		try {
 			room = roomService.selectRoom(room);
@@ -154,8 +154,7 @@ public class MypageController {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
 		
-		model.addAttribute("reservRInfo", resvroom);
-		model.addAttribute("reservGInfo", resvguest);
+		model.addAttribute("reservInfo", reserv);
 		model.addAttribute("roomInfo", room);
 		
 		return new ModelAndView("mypage/mypg_reservation_2");

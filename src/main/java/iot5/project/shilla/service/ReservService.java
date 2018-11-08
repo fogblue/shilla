@@ -50,6 +50,14 @@ public interface ReservService {
 	public List<RoomForReserv> selectReservList(RoomForReserv reserv) throws Exception;
 	
 	/**
+	 * 예약 리스트
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RoomForReserv> selectReservListByDate(RoomForReserv reserv) throws Exception;
+	
+	/**
 	 * 
 	 * @param reserv
 	 * @return
@@ -77,6 +85,14 @@ public interface ReservService {
 	 * @throws Exception
 	 */
 	public int selectReservationCount(RoomForReserv reserv) throws Exception;
+	
+	/**
+	 * 예약 갯수 조회
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public int selectReservationCountByDate(RoomForReserv reserv) throws Exception;
 	
 	/**
 	 * 예약 정보 확인

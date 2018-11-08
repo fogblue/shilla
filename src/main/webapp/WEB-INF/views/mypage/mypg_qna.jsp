@@ -50,7 +50,7 @@
 				</div>
 				<div class="mypg-contents-table">
 					<div>
-						<p>Total : </p>
+						<p>Total&nbsp;:&nbsp;${fn:length(qnaInfo)}</p>
 						<table class="mypg-qna-contents-table">
 							<thead>
 							<tr class="qna-table-title">

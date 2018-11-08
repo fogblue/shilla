@@ -103,11 +103,30 @@ public class ReservServiceImpl implements ReservService {
 	}
 	
 	@Override
+	public List<RoomForReserv> selectReservListByDate(RoomForReserv reserv) throws Exception {
+		List<RoomForReserv> result = null;
+
+		try {
+			result = sqlSession.selectList("ReservationMapper.selectReservListByDate", reserv);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 글 목록이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("글 목록 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+	
+	@Override
 	public RoomForReserv selectReservById(RoomForReserv reserv) throws Exception {
 		RoomForReserv result = null;
 
 		try {
-			result = sqlSession.selectOne("ReservationMapper.selectReservRById", reserv);
+			result = sqlSession.selectOne("ReservationMapper.selectReservById", reserv);
 			if (result == null) {
 				throw new NullPointerException();
 			}
@@ -140,6 +159,19 @@ public class ReservServiceImpl implements ReservService {
 		
 		try {
 			result = sqlSession.selectOne("ReservationMapper.selectReservationCount", reserv);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("예약 갯수 조회에 실패했습니다.");
+		}
+		return result;
+	}
+
+	@Override
+	public int selectReservationCountByDate(RoomForReserv reserv) throws Exception {
+		int result = 0;
+		
+		try {
+			result = sqlSession.selectOne("ReservationMapper.selectReservationCountByDate", reserv);
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 			throw new Exception("예약 갯수 조회에 실패했습니다.");

@@ -38,7 +38,6 @@
 				<span>회원 번호</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.id}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span>성명</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.userNameKor}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span>아이디</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="member-id">${loginInfo.userId}</span>
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/test/reservation_test.do'">예약 테스트 가기</button>
 			</div>
 		</div>
 	</div>

@@ -265,7 +265,7 @@
 			// Data holidays
 			fnDataEvent : null
 		});
-	});
+
 	
 	/* $("#rsv_roomsearchbtn").click(function(e) {
         $("#rsv_contents_box2").empty();
@@ -273,6 +273,7 @@
             $("#rsv_contents_box2").append(req);
         }, "html"); // end $.get 
     });*/
+
     </script>
     <%-- container end --%>
     <%@ include file="/WEB-INF/inc/footer.jsp"%>

@@ -22,7 +22,7 @@
 		<div class="rsv_selectbox">
 			<%-- select box start --%>
 			<strong class="rsv_hotelselect_hangel">호텔선택</strong>
-			<select class="rsv_hotelselect_dropdown">
+			<select class="rsv_hotelselect_dropdown" name="hotel_category">
 				<option class="selected">서울신라호텔</option>
 				<option>제주신라호텔</option>
 			</select>
@@ -64,17 +64,20 @@
 					</div>
 				</div>	
 			</div>
-			<div class="rsv_search">
-				<a href="#" id="rsv_roomsearchbtn">검색</a>
-			</div>
+		
+				<button type="submit" id="rsv_roomsearchbtn">검1색</button>
+			
 		</div>
+		</form>
+	</div>
+
 		<%-- selectbox end --%>
 		<div class="rsv_discriptionbox" id="rsv_contents_box2">
 			<span class="rsv_discription">예약을 원하시는 호텔, 날짜, 인원을 선택 후 검색 버튼을
 				눌러주세요.</span>
 		</div>
-		</form>
-	</div>
+		
+	
 	<script type="text/javascript">
 	
 	
@@ -219,6 +222,13 @@
 			fnDataEvent : null
 		});
 	});
+	
+	/* $("#rsv_roomsearchbtn").click(function(e) {
+        $("#rsv_contents_box2").empty();
+        $.get("${pageContext.request.contextPath}/test/reservation_test2.do", function(req) {
+        	$("#rsv_contents_box2").append(req);
+		}, "html"); // end $.get
+    }); */
 	</script>
 	<%-- container end --%>
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>

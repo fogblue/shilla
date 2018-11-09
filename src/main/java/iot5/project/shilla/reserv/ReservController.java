@@ -19,8 +19,10 @@ import org.springframework.web.servlet.ModelAndView;
 import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
+import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.Room;
+import iot5.project.shilla.model.RoomForReserv;
 import iot5.project.shilla.service.RoomService;
 
 @Controller
@@ -38,28 +40,7 @@ public class ReservController {
 	@RequestMapping(value = "/reservation/reservation.do", method = RequestMethod.GET)
 	public ModelAndView reservation(Locale locale, Model model) {
 		web.init();
-			 
-	/*	Reservation roomInfo = null;
-		Reservation guestInfo = null;
-
-		try {
-			loginInfo = memberService.selectLoginInfo(member);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-
-		web.setSession("reservation", reservation);*/
-
-	/*	web.init();
-		int pplAd = web.getInt("ppl_add");
-		int pplCh = web.getInt("ppl_ch");
-		int pplBb = web.getInt("ppl_bb");
-		
-		Reservation reservation = new Reservation();
-		reservation.setPplAd(pplAd);
-		reservation.setPplCh(pplCh);
-		reservation.setPplBb(pplBb);*/
-				
+						
 		return new ModelAndView("reservation/reservation");
 	}
 	
@@ -67,23 +48,48 @@ public class ReservController {
 	public ModelAndView reservation_ok(Locale locale, Model model, HttpServletRequest request) {
 		web.init();
 		
-		int ppl_ad = Integer.parseInt(request.getParameter("ppl_ad"));
-		int ppl_ch = Integer.parseInt(request.getParameter("ppl_ch"));
-		int ppl_bb = Integer.parseInt(request.getParameter("ppl_bb"));
-		logger.info("ppl_ad >> " + ppl_ad);
-		logger.info("ppl_ch >> " + ppl_ch);
-		logger.info("ppl_bb >> " + ppl_bb);
-		
-		ResvGuest reserv = new ResvGuest();
-		reserv.setPplAd(ppl_ad);
-		reserv.setPplCh(ppl_ch);
-		reserv.setPplBb(ppl_bb);
+		String hotelCate = request.getParameter("hotel_category");
+		String tStart = request.getParameter("t-start");
+		String tEnd = request.getParameter("t-end");
 
+		RoomForReserv room = new RoomForReserv();
+		room.setHotelCate(hotelCate);
+		room.setCheckIn(tStart);
+		room.setCheckOut(tEnd);
+		
+		logger.info("hotelCate=" + hotelCate);
+		logger.info("tStart=" + tStart);
+		logger.info("tEnd=" + tEnd);
+
+		int pplAd = web.getInt("ppl_ad");
+		int pplCh = web.getInt("ppl_ch");
+		int pplBb = web.getInt("ppl_bb");
+		
+		ResvGuest guest = new ResvGuest();
+		guest.setPplAd(pplAd);
+		guest.setPplCh(pplCh);
+		guest.setPplBb(pplBb);
+		
+		logger.info("pplAd=" + pplAd);
+		logger.info("pplCh=" + pplCh);
+		logger.info("pplBb=" + pplBb);
+		
+		
+		List<RoomForReserv> roomList = null;
+		
+		try {
+			roomList = roomService.getRoomList(room);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+		model.addAttribute("roomInfo", room);
+		model.addAttribute("guestInfo", guest);
+		model.addAttribute("roomList", roomList);		
 		
 		return new ModelAndView("reservation/rsv_roomselect");
 	}
 	
-	@RequestMapping(value = "/reservation/rsv_roomselect.do", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/reservation/rsv_roomselect.do", method = RequestMethod.GET)
 	public ModelAndView rsv_roomselect(Locale locale, Model model) {
 		web.init();
 		
@@ -98,6 +104,54 @@ public class ReservController {
 		
 		model.addAttribute("RoomList", RoomList);
 
+		return new ModelAndView("reservation/rsv_roomselect");
+	}*/
+	
+	@RequestMapping(value = "/reservation/rsv_roomselect.do", method = RequestMethod.GET)
+	public ModelAndView rsv_roomselect(Locale locale, Model model) {
+		web.init();
+		
+		String hotelCate = web.getString("hotel_category");
+		String tStart = web.getString("t-start");
+		String tEnd = web.getString("t-end");
+		int pplAd = web.getInt("ppl_ad");
+		int pplCh = web.getInt("ppl_ch");
+		int pplBb = web.getInt("ppl_bb");
+		
+		logger.info("hotelCate=" + hotelCate);
+		logger.info("tStart=" + tStart);
+		logger.info("tEnd=" + tEnd);
+		logger.info("pplAd=" + pplAd);
+		logger.info("pplCh=" + pplCh);
+		logger.info("pplBb=" + pplBb);
+		
+		int roomId = web.getInt("id");
+		int roomNo = web.getInt("room_no");
+		String roomType = web.getString("room_type");
+		String bedType = web.getString("bed_type");
+		int roomPrice = web.getInt("room_price");
+
+		logger.info("roomId=" + roomId);
+		logger.info("roomNo=" + roomNo);
+		logger.info("roomType=" + roomType);
+		logger.info("bedType=" + bedType);
+		logger.info("roomPrice=" + roomPrice);
+		
+		Reservation reserv = new Reservation();
+		reserv.setHotelCate(hotelCate);
+		reserv.setCheckIn(tStart);
+		reserv.setCheckOut(tEnd);
+		reserv.setPplAd(pplAd);
+		reserv.setPplCh(pplCh);
+		reserv.setPplBb(pplBb);
+		reserv.setRoomId(roomId);
+		reserv.setRoomNo(roomNo);
+		reserv.setRoomType(roomType);
+		reserv.setBedType(bedType);
+		reserv.setRoomPrice(roomPrice);
+		
+		model.addAttribute("reservInfo", reserv);
+		
 		return new ModelAndView("reservation/rsv_roomselect");
 	}
 	

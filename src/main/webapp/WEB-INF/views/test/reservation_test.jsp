@@ -16,7 +16,7 @@
     <%@ include file="/WEB-INF/inc/topbar.jsp"%>
     <div class="container main">
         <%-- container start --%>
-        <form method="get" action="${pageContext.request.contextPath}/test/reservation_test_ok.do">
+        <form method="get" action="${pageContext.request.contextPath}/test/reservation_test.do">
         <div class="rsv_step">
             <span class="rsv_stepimg">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
 				Step3. 고객 정보 입력 Step4. 예약 완료 /확인</span>

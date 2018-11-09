@@ -165,20 +165,20 @@
 	border-radius: 0;
 }
 
-.mypg-rsvt-bd>div:first-child>* {
+.mypg-rsvt-bd>div:first-child>form>* {
 	height: 27px;
 	line-height: 27px;
 }
 
-.mypg-rsvt-bd>div:first-child>a {
+.mypg-rsvt-bd>div:first-child>form>a {
 	display: inline;
 }
 
-.mypg-rsvt-bd>div:first-child>input {
+.mypg-rsvt-bd>div:first-child>form>input {
 	width: 100px;
 }
 
-.mypg-rsvt-bd>div:first-child>a>img {
+.mypg-rsvt-bd>div:first-child>form>a>img {
 	margin: 5px 0 8px 5px;
 }
 

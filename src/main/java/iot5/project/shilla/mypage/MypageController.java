@@ -108,15 +108,57 @@ public class MypageController {
 		return new ModelAndView("mypage/mypg_reservation");
 	}
 	
-	@RequestMapping(value = "/mypage/mypg_reservation_table.do", method = RequestMethod.GET)
-	public ModelAndView mypg_reservation_table(Locale locale, Model model) {
+	@RequestMapping(value = "/mypage/mypg_reservation_search.do", method = RequestMethod.GET)
+	public ModelAndView mypg_reservation_search(Locale locale, Model model) {
 		web.init();
 		/*로그인 여부 검사*/
 		if (web.getSession("loginInfo") == null) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
+		/*조회날짜 받아오기*/
+		String start = web.getString("datepicker-s");
+		String end = web.getString("datepicker-e");
+		logger.info("datepicker-s=" + start);
+		logger.info("datepicker-e=" + end);
+		/*로그인세션 참조*/
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		/*로그인세션에서 회원번호를 가져와 객실예약 객체에 회원번호 넣어주기*/
+		RoomForReserv resvroom = new RoomForReserv();
+		try {
+			resvroom.setMemberId(loginInfo.getId());
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
+		}
 		
-		return new ModelAndView("mypage/mypg_reservation_table");
+		try	{
+			resvroom = reservService.selectReservById(resvroom);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
+		}
+		
+		/*리스트페이지 번호 부여*/
+		int page = web.getInt("page", 1);
+		/*리스트갯수*/
+		int totalCount = 0;
+		/*예약리스트객체 만들기*/
+		List<RoomForReserv> reservBDInfo = null;
+		try {
+			/*회원번호로 검색한 리스트결과를 객체에 담기*/
+			totalCount = reservService.selectReservationCountByDate(resvroom);
+			pageHelper.pageProcess(page, totalCount, 10, 5);
+			/*회원번호로 검색한 예약리스트의 정보를 객체에 담기*/
+			reservBDInfo = reservService.selectReservListByDate(resvroom);
+		} catch (Exception e) {
+			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
+		}
+		/*예약리스트정보를 모델에 넣기*/
+		model.addAttribute("reservInfo", reservBDInfo);
+		model.addAttribute("pageHelper", pageHelper);
+		
+		int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();
+		model.addAttribute("maxPageNo", maxPageNo);
+		
+		return new ModelAndView("mypage/mypg_reservation");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_reservation_2.do", method = RequestMethod.GET)

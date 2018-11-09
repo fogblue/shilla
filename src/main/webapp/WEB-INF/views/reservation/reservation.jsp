@@ -66,7 +66,7 @@
 					</div>
 				</div>	
 			</div>
-				<button type="submit" id="rsv_roomsearchbtn">검1색</button>
+				<button type="submit" id="rsv_roomsearchbtn">검색</button>
 		</div>
 		</form>
 				<table>
@@ -92,7 +92,7 @@
 		                    <td><input type="hidden" name="hotel_category" id="hotel_cate" value="${roomList.hotelCate}" /><td>
 		                    <td><a href="#" class="rsv_roommorebtn btn btn-warning" data-toggle="modal" data-target="#myModal9">객실 자세히 보기</a></td>
 		                    <td>
-		                        <button class="rsv_roomchobtn" type="submit">선택</button>
+		                        <button class="rsv_roomchobtn" id="rsv_roomchobtn" type="submit">선택</button>
 		                    </td>
 		                </tr>
 		                <input type="hidden" name="t-start" id="t-start" value="${roomInfo.checkIn}" />
@@ -271,8 +271,8 @@
         $("#rsv_contents_box2").empty();
         $.get("${pageContext.request.contextPath}/test/reservation_test2.do", function(req) {
             $("#rsv_contents_box2").append(req);
-        }, "html"); // end $.get */
-    });
+        }, "html"); // end $.get 
+    });*/
     </script>
     <%-- container end --%>
     <%@ include file="/WEB-INF/inc/footer.jsp"%>

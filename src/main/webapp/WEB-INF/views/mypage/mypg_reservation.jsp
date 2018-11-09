@@ -72,7 +72,7 @@
 										<c:set var="maxPageNo" value="${maxPageNo-1}" />
 									</c:forEach>
 								</c:when>
-								<%-- <c:when test="${fn:length(reservInfo) > 0}">
+								<c:when test="${fn:length(reservInfo) > 0}">
 									<c:forEach var="reserv" items="${reservInfo}">
 										<tr>
 											<td>${maxPageNo}</td>
@@ -83,7 +83,7 @@
 										</tr>
 										<c:set var="maxPageNo" value="${maxPageNo-1}" />
 									</c:forEach>
-								</c:when> --%>
+								</c:when>
 								<c:otherwise>
 									<tr id="find-target">
 										<td colspan="5">자료가 없습니다.</td>

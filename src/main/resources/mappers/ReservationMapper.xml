@@ -14,7 +14,6 @@
 		<result property="bedType" column="bed_type" />
 		<result property="exbed" column="exbed" />
 		<result property="meal" column="meal" />
-		<result property="totalPrice" column="total_price" />
 		<result property="resvDate" column="resv_date" />
 		<result property="memberId" column="member_id" />
 		<result property="hotelCate" column="hotel_category" />
@@ -40,7 +39,7 @@
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO resv_room (
 			room_id, check_in, check_out, exbed, meal,
-			total_price, resv_date, member_id, hotel_category
+			resv_date, member_id, hotel_category
 		) VALUES (
 			#{roomId}, #{checkIn}, #{checkOut}, #{exbed}, #{meal},
 			#{totalPrice}, now(), #{memberId}, #{hotelCate}
@@ -86,7 +85,7 @@
 	<!-- 예약된 객실아이디와 일치하는 예약정보를 조회한다 -->
 	<select id="selectReservById" parameterType="iot5.project.shilla.model.RoomForReserv" resultMap="reserv">
 		SELECT id, room_id, DATE_FORMAT(check_in, '%Y-%m-%d') as check_in, DATE_FORMAT(check_out, '%Y-%m-%d') as check_out, exbed, meal,
-				total_price, DATE_FORMAT(resv_date, '%Y-%m-%d') as resv_date, member_id, hotel_category
+				DATE_FORMAT(resv_date, '%Y-%m-%d') as resv_date, member_id, hotel_category
 		FROM   resv_room
     	WHERE  member_id=#{memberId}
 	</select>

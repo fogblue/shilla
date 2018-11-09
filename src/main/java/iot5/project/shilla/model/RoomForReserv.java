@@ -10,66 +10,64 @@ public class RoomForReserv extends Reservation {
 	private int listCount;
 	private String start;
 	private String end;
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public int getRoomNo() {
 		return roomNo;
 	}
-
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
-
 	public String getRoomType() {
 		return roomType;
 	}
-
 	public void setRoomType(String roomType) {
 		this.roomType = roomType;
 	}
-
 	public String getBedType() {
 		return bedType;
 	}
-
 	public void setBedType(String bedType) {
 		this.bedType = bedType;
 	}
-
 	public int getRoomPrice() {
 		return roomPrice;
 	}
-
 	public void setRoomPrice(int roomPrice) {
 		this.roomPrice = roomPrice;
 	}
-
 	public int getLimitStart() {
 		return limitStart;
 	}
-
 	public void setLimitStart(int limitStart) {
 		this.limitStart = limitStart;
 	}
-
 	public int getListCount() {
 		return listCount;
 	}
-
 	public void setListCount(int listCount) {
 		this.listCount = listCount;
 	}
-
+	public String getStart() {
+		return start;
+	}
+	public void setStart(String start) {
+		this.start = start;
+	}
+	public String getEnd() {
+		return end;
+	}
+	public void setEnd(String end) {
+		this.end = end;
+	}
 	@Override
 	public String toString() {
 		return "RoomForReserv [id=" + id + ", roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType
-				+ ", roomPrice=" + roomPrice + ", limitStart=" + limitStart + ", listCount=" + listCount + "]";
+				+ ", roomPrice=" + roomPrice + ", limitStart=" + limitStart + ", listCount=" + listCount + ", start="
+				+ start + ", end=" + end + "]";
 	}
 }

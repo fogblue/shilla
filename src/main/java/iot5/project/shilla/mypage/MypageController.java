@@ -116,10 +116,10 @@ public class MypageController {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
 		/*조회날짜 받아오기*/
-		String start = web.getString("datepicker-s");
-		String end = web.getString("datepicker-e");
-		logger.info("datepicker-s=" + start);
-		logger.info("datepicker-e=" + end);
+		String datepickerS = web.getString("datepickerS");
+		String datepickerE = web.getString("datepickerE");
+		logger.info("datepickerS=" + datepickerS);
+		logger.info("datepickerE=" + datepickerE);
 		/*로그인세션 참조*/
 		Member loginInfo = (Member) web.getSession("loginInfo");
 		/*로그인세션에서 회원번호를 가져와 객실예약 객체에 회원번호 넣어주기*/
@@ -130,17 +130,15 @@ public class MypageController {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
 		}
 		
-		try	{
-			resvroom = reservService.selectReservById(resvroom);
-		} catch (Exception e) {
-			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
-		}
+		resvroom.setDatepickerS(datepickerS);
+		resvroom.setDatepickerE(datepickerE);
 		
 		/*리스트페이지 번호 부여*/
 		int page = web.getInt("page", 1);
 		/*리스트갯수*/
 		int totalCount = 0;
 		/*예약리스트객체 만들기*/
+
 		List<RoomForReserv> reservBDInfo = null;
 		try {
 			/*회원번호로 검색한 리스트결과를 객체에 담기*/
@@ -152,7 +150,7 @@ public class MypageController {
 			return web.redirect(web.getRootPath() + "/mypage/mypg_reservation.do", null);
 		}
 		/*예약리스트정보를 모델에 넣기*/
-		model.addAttribute("reservInfo", reservBDInfo);
+		model.addAttribute("reservBDInfo", reservBDInfo);
 		model.addAttribute("pageHelper", pageHelper);
 		
 		int maxPageNo = pageHelper.getTotalCount() - (pageHelper.getPage() -1) * pageHelper.getListCount();

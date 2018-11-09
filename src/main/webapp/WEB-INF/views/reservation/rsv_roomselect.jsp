@@ -22,7 +22,7 @@
                         <p class="rsv_packagetextdiv_text2">할인이 적용된 요금입니다.</p>
                         </div>
             <c:forEach var="roomList" items="${roomList}">
-            <form method="get" action="${pageContext.request.contextPath}/reservation/rsv_roomselect.do">
+            <form method="get" action="${pageContext.request.contextPath}/test/reservation_test2.do">
                 <tr>
                     <td class="rsv_roomlist2" style="width:50px; height: 50px;">${roomList.id}</td>
                     <td><input type="hidden" name="id" id="id" value="${roomList.id}" /></td>

@@ -85,7 +85,6 @@ public class ReservController {
 		model.addAttribute("roomInfo", room);
 		model.addAttribute("guestInfo", guest);
 		model.addAttribute("roomList", roomList);		
-		
 		return new ModelAndView("reservation/rsv_roomselect");
 	}
 	

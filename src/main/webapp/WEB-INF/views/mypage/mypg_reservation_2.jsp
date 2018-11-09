@@ -51,72 +51,86 @@
 					<table class="mypg-rsvt2-contents-table">
 						<tr>
 							<td style="width: 15%">예약번호</td>
-							<td style="width: 35%">${reservRInfo.id}</td>
+							<td style="width: 35%">${reservInfo.id}</td>
 							<td style="width: 15%">예약상태</td>
 							<td style="width: 35%"></td>
 						</tr>
 						<tr>
 							<td>호텔</td>
-							<td>${reservRInfo.hotelCate}</td>
+							<td>${reservInfo.hotelCate}</td>
 							<td>고객명</td>
 							<td style="text-transform: uppercase;">${loginInfo.userNameEng}</td>
 						</tr>
 						<tr>
 							<td>체크인 날짜</td>
-							<td>${reservRInfo.checkIn}</td>
+							<td>${reservInfo.checkIn}</td>
 							<td>체크아웃 날짜</td>
-							<td>${reservRInfo.checkOut}</td>
+							<td>${reservInfo.checkOut}</td>
 						</tr>
 						<tr>
 							<td>예약 일자</td>
-							<td>${reservRInfo.resvDate}</td>
+							<td>${reservInfo.resvDate}</td>
 							<td>투숙인원</td>
-							<td>성인&nbsp;:&nbsp;${reservGInfo.pplAd}&nbsp;/&nbsp;어린이&nbsp;:&nbsp;${reservGInfo.pplCh}&nbsp;/&nbsp;유아&nbsp;:&nbsp;${reservGInfo.pplBb}</td>
+							<td>성인&nbsp;:&nbsp;${reservInfo.pplAd}&nbsp;/&nbsp;어린이&nbsp;:&nbsp;${reservInfo.pplCh}&nbsp;/&nbsp;유아&nbsp;:&nbsp;${reservInfo.pplBb}</td>
 						</tr>
 						<tr>
 							<td>객실타입</td>
-							<td colspan="3">${reservRInfo.roomType}</td>
+							<td colspan="3">${reservInfo.roomType}</td>
 						</tr>
 						<tr>
 							<td>패키지명</td>
-							<td colspan="3">${reservRInfo.packageType}</td>
+							<td colspan="3">${reservInfo.packageType}</td>
 						</tr>
 					</table>
 				</div>
 				<div class="mypg-contents-table">
 					<table class="mypg-rsvt2-contents-table-2">
 						<tr class="text-center">
-							<td style="width: 15%">${reservRInfo.checkIn}</td>
-							<td style="width: 45%">${reservRInfo.packageType}&nbsp;/&nbsp;${roomInfo.roomType}</td>
-							<td style="width: 20%">${roomInfo.roomPrice}원</td>
-							<td style="width: 20%">${roomInfo.roomPrice}원</td>
+							<td style="width: 15%">${reservInfo.checkIn}</td>
+							<td style="width: 45%">${reservInfo.roomType}&nbsp;/&nbsp;</td>
+							<td style="width: 20%">${reservInfo.roomPrice}&nbsp;원</td>
+							<td style="width: 20%"><p id="crpr" style="display: inline;">${reservInfo.roomPrice}</p>&nbsp;원</td>
 						</tr>
 						<c:choose>
-							<c:when test="${reservRInfo.exbed != 0}">
-								<tr class="text-center">
+							<c:when test="${reservInfo.exbed != 0 && reservInfo.meal != 0}">
+								<tr class="text-center" id="exbed">
 									<td></td>
-									<td>(내역)</td>
-									<td>&nbsp;개</td>
-									<td>${reservRInfo.exbed}&nbsp;원</td>
+									<td>추가 침대</td>
+									<td>${reservInfo.exbed}&nbsp;개</td>
+									<td><p id="cexb" style="display: inline;">${reservInfo.exbed * 30000}</p>&nbsp;원</td>
+								</tr>
+								<tr class="text-center" id="meal">
+									<td></td>
+									<td>조&nbsp;&nbsp;식</td>
+									<td>${reservInfo.meal}&nbsp;명</td>
+									<td><p id="cmea" style="display: inline;">${reservInfo.meal * 30000}</p>&nbsp;원</td>
 								</tr>
 							</c:when>
-							<c:when test="${reservRInfo.meal != 0}">
-								<tr class="text-center">
+							<c:when test="${reservInfo.exbed != 0}">
+								<tr class="text-center" id="exbed">
 									<td></td>
-									<td>(내역)</td>
-									<td>&nbsp;명</td>
-									<td>${reservRInfo.meal}&nbsp;원</td>
+									<td>추가 침대</td>
+									<td>${reservInfo.exbed}&nbsp;개</td>
+									<td><p id="cexb" style="display: inline;">${reservInfo.exbed * 30000}</p>&nbsp;원</td>
+								</tr>
+							</c:when>
+							<c:when test="${reservInfo.meal != 0}">
+								<tr class="text-center" id="meal">
+									<td></td>
+									<td>조&nbsp;&nbsp;식</td>
+									<td>${reservInfo.meal}&nbsp;명</td>
+									<td><p id="cmea" style="display: inline;">${reservInfo.meal * 30000}</p>&nbsp;원</td>
 								</tr>
 							</c:when>
 							<c:otherwise></c:otherwise>
 						</c:choose>
-						<tr class="text-right">
+						<tr class="text-right" id="tex">
 							<td colspan="3">세금&amp;봉사료</td>
-							<td>${reservRInfo.totalPrice * 0.2}&nbsp;원</td>
+							<td><p id="ctex" style="display: inline;"></p>&nbsp;원</td>
 						</tr>
-						<tr class="text-right">
+						<tr class="text-right" id="ttp">
 							<td colspan="3">요금합계&nbsp;&nbsp;&nbsp;</td>
-							<td>${reservRInfo.totalPrice}&nbsp;원</td>
+							<td><p id="cttp" style="display: inline;"></p>&nbsp;원</td>
 						</tr>
 					</table>
 					<p style="magin: 0; color: #7e4f15;">&#8251; 10% service charge and 11% Tax Included.<br />&#8251; 현재 미결제 상태이며, 체크인시 결제가 진행됩니다.</p>
@@ -126,13 +140,13 @@
 					<table class="mypg-rsvt2-contents-table-3">
 						<tr>
 							<td style="width: 15%">카드번호</td>
-							<td colspan="3">${reservGInfo.cardNo}</td>
+							<td colspan="3">${reservInfo.cardNo}</td>
 						</tr>
 						<tr>
 							<td style="width: 15%">카드종류</td>
-							<td style="width: 35%">${reservGInfo.cardType}</td>
+							<td style="width: 35%">${reservInfo.cardType}</td>
 							<td style="width: 15%">만기일</td>
-							<td style="width: 35%">${reservGInfo.cardYy}년${reservGInfo.cardMm}월</td>
+							<td style="width: 35%">${reservInfo.cardYy}년${reservInfo.cardMm}월</td>
 						</tr>
 					</table>
 				</div>
@@ -141,7 +155,7 @@
 					<table class="mypg-rsvt2-contents-table-4">
 						<tr>
 							<td style="width: 15%;">남기신 말씀</td>
-							<td>${reservGInfo.detail}</td>
+							<td>${reservInfo.detail}</td>
 						</tr>
 					</table>
 				</div>
@@ -155,6 +169,18 @@
 		function moveToList() {
 			location.href="${pageContext.request.contextPath}/mypage/mypg_reservation.do"
 		}
+		
+		$(function() { 
+			var crpr = Number($("#crpr").text());
+			var cexb = Number($("#cexb").text());
+			var cmea = Number($("#cmea").text());
+			var cttpa = crpr + cexb + cmea;
+			var ctexa = cttpa * 0.1;
+			var ctexb = cttpa * 0.11;
+			$("#ctex").text(ctexa + ctexb);
+			var ctex = Number($("#ctex").text());
+			var cttp = $("#cttp").text(cttpa + ctex);
+		})
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

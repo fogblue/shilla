@@ -8,6 +8,8 @@ public class RoomForReserv extends Reservation {
 	private int roomPrice;
 	private int limitStart;
 	private int listCount;
+	private String start;
+	private String end;
 
 	public int getId() {
 		return id;

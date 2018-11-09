@@ -2,6 +2,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <!doctype html>
 <html>
 <head>
@@ -37,17 +38,19 @@
 			</div>
 			<div class="mypg-rsvt-bd">
 				<div>
+					<form action="${pageContext.request.contextPath}/mypage/mypg_reservation_search.do" method="get">
 					<span>기간조회</span>
 					<button type="button" class="btn mypg-rsvt-whole">전체</button>
-					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
+					<input type="text" id="datepicker-s" name="datepicker-s" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
-					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
-					<button type="button" class="btn mypg-rsvt-find" id="find">조회</button>
+					<input type="text" id="datepicker-e" name="datepicker-e" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
+					<button type="submit" class="btn mypg-rsvt-find" id="find">조회</button>
+					</form>
 				</div>
 				<div class="mypg-contents-table">
 					<h4 class="mypg-bdb">객실 / 패키지 예약</h4>
 					<div>
-						<p>Total : </p>
+						<p>Total&nbsp;:&nbsp;${fn:length(reservInfo)}</p>
 						<table class="mypg-rsvt-contents-table">
 							<tr class="rsvt-table-title">
 								<td>예약번호</td>
@@ -56,24 +59,31 @@
 								<td>체크인/체크아웃</td>
 								<td>예약상태</td>
 							</tr>
-							<!-- <tbody id="find-result">
-								<tr id="find-target">
-									<td colspan="5">자료가 없습니다.</td>
-								</tr>
-							</tbody> -->
 							<c:choose>
-								<c:when test="${fn:length(reservInfo) > 0}">
-									<c:forEach var="reserv" items="${reservInfo}">
+								<c:when test="${fn:length(reservBDInfo) > 0}">
+									<c:forEach var="reserv" items="${reservBDInfo}">
 										<tr>
 											<td>${maxPageNo}</td>
 											<td>${reserv.hotelCate}</td>
 											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
-											<td>${reserv.checkIn}</td>
+											<td>${reserv.checkIn}&nbsp;/&nbsp;${reserv.checkOut}</td>
 											<td style="color: #ff0000;"></td>
 										</tr>
 										<c:set var="maxPageNo" value="${maxPageNo-1}" />
 									</c:forEach>
 								</c:when>
+								<%-- <c:when test="${fn:length(reservInfo) > 0}">
+									<c:forEach var="reserv" items="${reservInfo}">
+										<tr>
+											<td>${maxPageNo}</td>
+											<td>${reserv.hotelCate}</td>
+											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
+											<td>${reserv.checkIn}&nbsp;/&nbsp;${reserv.checkOut}</td>
+											<td style="color: #ff0000;"></td>
+										</tr>
+										<c:set var="maxPageNo" value="${maxPageNo-1}" />
+									</c:forEach>
+								</c:when> --%>
 								<c:otherwise>
 									<tr id="find-target">
 										<td colspan="5">자료가 없습니다.</td>
@@ -106,19 +116,6 @@
             trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
         });
     });
-   /*  $("#find").click(function(e) {
-		$("#find-result").empty();
-		$("#find-target").remove();
-		$.ajax({
-			url: "${pageContext.request.contextPath}/mypage/mypg_reservation_table.do",
-			method: "get",
-			data: {},
-			dataType: "html",
-			success: function(req) {
-				$("#find-result").append(req);
-			}
-		});
-	}); */
     </script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

@@ -253,14 +253,14 @@ public class TestController {
 		}
 		
 		/** 예약 번호로 객실 정보 불러오기 */
-		Reservation id = new Reservation();
+		RoomForReserv id = new RoomForReserv();
 		try {
 			id = reservService.selectReserv(reserv);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
 	
-		reserv.setResvRoomId(id.getRoomId());
+		reserv.setResvRoomId(id.getId());
 		
 		/** 예약 번호 불러오기 */
 		try {

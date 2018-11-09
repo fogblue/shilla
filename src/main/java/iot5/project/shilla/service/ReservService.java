@@ -2,9 +2,6 @@ package iot5.project.shilla.service;
 
 import java.util.List;
 
-import iot5.project.shilla.model.Reservation;
-import iot5.project.shilla.model.ResvGuest;
-import iot5.project.shilla.model.ResvRoom;
 import iot5.project.shilla.model.RoomForReserv;
 
 public interface ReservService {
@@ -27,14 +24,14 @@ public interface ReservService {
 	 * @param reserv
 	 * @throws Exception
 	 */
-	public void deleteReserv(Reservation reserv) throws Exception;
+	public void deleteReserv(RoomForReserv reserv) throws Exception;
 
 	/**
 	 * 예약 수정
 	 * @param reserv
 	 * @throws Exception
 	 */
-	public void updateReserv(Reservation reserv) throws Exception;
+	public void updateReserv(RoomForReserv reserv) throws Exception;
 
 	/**
 	 * 예약 보기
@@ -42,7 +39,7 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Reservation selectReserv(RoomForReserv reserv) throws Exception;
+	public RoomForReserv selectReserv(RoomForReserv reserv) throws Exception;
 	
 	/**
 	 * 예약 리스트
@@ -50,7 +47,15 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<ResvRoom> selectReservList(ResvRoom reserv) throws Exception;
+	public List<RoomForReserv> selectReservList(RoomForReserv reserv) throws Exception;
+	
+	/**
+	 * 예약 리스트
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public List<RoomForReserv> selectReservListByDate(RoomForReserv reserv) throws Exception;
 	
 	/**
 	 * 
@@ -58,36 +63,43 @@ public interface ReservService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ResvRoom selectReservRById(ResvRoom reserv) throws Exception;
+	public RoomForReserv selectReservById(RoomForReserv reserv) throws Exception;
 	/**
 	 * 
 	 * @param reserv
 	 * @return
 	 * @throws Exception
 	 */
-	public ResvGuest selectReservGById(ResvGuest reserv) throws Exception;
+	public RoomForReserv selectroomInfo(RoomForReserv reserv) throws Exception;
 	/**
 	 * 
 	 * @param reserv
 	 * @return
 	 * @throws Exception
 	 */
-	public Reservation selectroomInfo(Reservation reserv) throws Exception;
-	/**
-	 * 
-	 * @param reserv
-	 * @return
-	 * @throws Exception
-	 */
-	public Reservation selectguestInfo(Reservation reserv) throws Exception;
+	public RoomForReserv selectguestInfo(RoomForReserv reserv) throws Exception;
 	/**
 	 * 예약 갯수 조회
 	 * @param reserv
 	 * @return
 	 * @throws Exception
 	 */
-	public int selectReservationCount(ResvRoom reserv) throws Exception;
+	public int selectReservationCount(RoomForReserv reserv) throws Exception;
 	
+	/**
+	 * 예약 갯수 조회
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public int selectReservationCountByDate(RoomForReserv reserv) throws Exception;
 	
-	public int selectReservationPplCount(ResvRoom reserv) throws Exception;
+	/**
+	 * 예약 정보 확인
+	 * @param reserv
+	 * @return
+	 * @throws Exception
+	 */
+	public RoomForReserv selectReservInfo(RoomForReserv reserv) throws Exception;
+	
 }

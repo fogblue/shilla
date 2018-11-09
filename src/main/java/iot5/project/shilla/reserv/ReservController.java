@@ -84,8 +84,10 @@ public class ReservController {
 		}
 		model.addAttribute("roomInfo", room);
 		model.addAttribute("guestInfo", guest);
-		model.addAttribute("roomList", roomList);		
-		return new ModelAndView("reservation/rsv_roomselect");
+		model.addAttribute("roomList", roomList);
+		
+		return new ModelAndView("reservation/reservation");
+
 	}
 	
 	/*@RequestMapping(value = "/reservation/rsv_roomselect.do", method = RequestMethod.GET)

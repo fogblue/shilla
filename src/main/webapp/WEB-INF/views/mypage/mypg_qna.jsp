@@ -52,7 +52,7 @@
 				</div>
 				<div class="mypg-contents-table">
 					<div>
-						<p>Total&nbsp;:&nbsp;<c:choose><c:when test="${fn:length(qnaBDInfo) > 0}">${fn:length(qnaBDInfo)}</c:when><c:otherwise>${fn:length(qnaInfo)}</c:otherwise></c:choose>${fn:length(qnaInfo)}</p>
+						<p>Total&nbsp;:&nbsp;<c:choose><c:when test="${fn:length(qnaBDInfo) > 0}">${fn:length(qnaBDInfo)}</c:when><c:otherwise>${fn:length(qnaInfo)}</c:otherwise></c:choose></p>
 						<table class="mypg-qna-contents-table">
 							<thead>
 							<tr class="qna-table-title">
@@ -108,7 +108,7 @@
 	
 	<script type="text/javascript">
 	$(function() {
-		$("#datepickeS").datepicker({
+		$("#datepickerS").datepicker({
 			autoHide: true, // 날자 선택 후 자동 숨김 (true/false)
 			format: 'yyyy-mm-dd', // 날짜 형식
 			language: 'ko-KR', // 언어
@@ -185,6 +185,19 @@
 			$("#datepickerE").val("");
 		}
 	})
+	
+	$("#find").click(function() {
+		var date1 = document.getElementById("datepickerS").value;
+		var date2 = document.getElementById("datepickerE").value;
+		if (date1 == "" || date2 == "") {
+			alert("조회할 기간을 입력해주세요.");
+			return false;
+		} else if (date1 > date2) {
+			alert("기간을 잘못 입력하셨습니다.");
+			return false;
+		}
+		return true;
+	});
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

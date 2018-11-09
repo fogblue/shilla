@@ -115,6 +115,19 @@
             trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
         });
     });
+    
+    $("#find").click(function() {
+		var date1 = document.getElementById("datepickerS").value;
+		var date2 = document.getElementById("datepickerE").value;
+		if (date1 == "" || date2 == "") {
+			alert("조회할 기간을 입력해주세요.");
+			return false;
+		} else if (date1 > date2) {
+			alert("기간을 잘못 입력하셨습니다.");
+			return false;
+		}
+		return true;
+	});
     </script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

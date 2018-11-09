@@ -37,20 +37,22 @@
 			</div>
 			<div class="mypg-rsvt-bd">
 				<div class="mypg-qna-bd-search">
+					<form action="${pageContext.request.contextPath}/mypage/mypg_qna_search.do" method="get">
 					<span>기간조회</span>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="1week">1주</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="1month">1개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="3month">3개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="6month">6개월</button>
-					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all">전체</button>
-					<input type="text" id="datepicker-s" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all" onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_qna.do'">전체</button>
+					<input type="text" id="datepickerS" name="datepickerS" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
-					<input type="text" id="datepicker-e" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
-					<button type="button" class="btn mypg-rsvt-find" id="find">조회</button>
+					<input type="text" id="datepickerE" name="datepickerE" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
+					<button type="submit" class="btn mypg-rsvt-find" id="find">조회</button>
+					</form>
 				</div>
 				<div class="mypg-contents-table">
 					<div>
-						<p>Total&nbsp;:&nbsp;${fn:length(qnaInfo)}</p>
+						<p>Total&nbsp;:&nbsp;<c:choose><c:when test="${fn:length(qnaBDInfo) > 0}">${fn:length(qnaBDInfo)}</c:when><c:otherwise>${fn:length(qnaInfo)}</c:otherwise></c:choose>${fn:length(qnaInfo)}</p>
 						<table class="mypg-qna-contents-table">
 							<thead>
 							<tr class="qna-table-title">
@@ -64,6 +66,19 @@
 							</thead>
 							<tbody>
 							<c:choose>
+								<c:when test="${fn:length(qnaBDInfo) > 0}">
+									<c:forEach var="qna" items="${qnaBDInfo}">
+										<tr>
+											<td>${maxPageNo}</td>
+											<td>${qna.hotelCate}</td>
+											<td>${qna.enqType}</td>
+											<td><a href="${pageContext.request.contextPath}/mypage/mypg_qna_2.do?id=${qna.id}" style="display: inline;">${qna.subject}</a></td>
+											<td>${qna.regDate}</td>
+											<td></td>
+										</tr>
+										<c:set var="maxPageNo" value="${maxPageNo-1}" />
+									</c:forEach>
+								</c:when>
 								<c:when test="${fn:length(qnaInfo) > 0}">
 									<c:forEach var="qna" items="${qnaInfo}">
 										<tr>
@@ -93,7 +108,7 @@
 	
 	<script type="text/javascript">
 	$(function() {
-		$("#datepicker-s").datepicker({
+		$("#datepickeS").datepicker({
 			autoHide: true, // 날자 선택 후 자동 숨김 (true/false)
 			format: 'yyyy-mm-dd', // 날짜 형식
 			language: 'ko-KR', // 언어
@@ -102,7 +117,7 @@
 		});
 	});
 	$(function() {
-		$("#datepicker-e").datepicker({
+		$("#datepickerE").datepicker({
 			autoHide: true, // 날자 선택 후 자동 숨김 (true/false)
 			format: 'yyyy-mm-dd', // 날짜 형식
 			language: 'ko-KR', // 언어
@@ -156,34 +171,20 @@
 	
 	$(".mypg-qna-bd-search .datepicker-btnbtn").click(function() {
 		var rname = $(this).attr("name")
-		$("#datepicker-e").val(today())
+		$("#datepickerE").val(today())
 		if (rname == "1week"){
-			$("#datepicker-s").val(lastWeek())
+			$("#datepickerS").val(lastWeek())
 		} else if (rname == "1month") {
-			$("#datepicker-s").val(lastMonth())
+			$("#datepickerS").val(lastMonth())
 		} else if (rname == "3month") {
-			$("#datepicker-s").val(last3Month())
+			$("#datepickerS").val(last3Month())
 		} else if (rname == "6month") {
-			$("#datepicker-s").val(last6Month())
+			$("#datepickerS").val(last6Month())
 		} else if (rname == "all") {
-			$("#datepicker-s").val("");
-			$("#datepicker-e").val("");
+			$("#datepickerS").val("");
+			$("#datepickerE").val("");
 		}
 	})
-	
-	/* $("#find").click(function(e) {
-		$("#find-result").empty();
-		$("#find-target").remove();
-		$.ajax({
-			url: "${pageContext.request.contextPath}/mypage/mypg_qna_table.do",
-			method: "get",
-			data: {},
-			dataType: "html",
-			success: function(req) {
-				$("#find-result").append(req);
-			}
-		});
-	}); */
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

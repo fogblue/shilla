@@ -28,8 +28,8 @@
 		<result property="detail" column="detail" />
 		<result property="resvRoomId" column="resv_room_id" />
 		<result property="roomPrice" column="room_price" />
-		<result property="start" column="start" />
-		<result property="end" column="end" />
+		<result property="datepickerS" column="datepickerS" />
+		<result property="datepickerE" column="datepickerE" />
 	</resultMap>
 	<!-- ######## -->
 	<!-- ##입력## -->
@@ -74,7 +74,7 @@
     <select id="selectReservationCountByDate" parameterType="iot5.project.shilla.model.RoomForReserv" resultType="int">
 		SELECT count(id)
 		FROM   resv_room
-		WHERE  member_id=#{memberId} AND (check_in BETWEEN #{start} AND #{end})
+		WHERE  member_id=#{memberId} AND (check_in BETWEEN #{datepickerS} AND #{datepickerE})
     </select>
 	<!-- 회원아이디와 일치하는 예약의 정보를 조회한다 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.RoomForReserv" resultMap="reserv">
@@ -111,7 +111,7 @@
 		FROM   resv_room
 		INNER JOIN 	room
 			ON 		room.id=resv_room.room_id
-		WHERE  member_id=#{memberId} AND (check_in BETWEEN #{start} AND #{end})
+		WHERE  member_id=#{memberId} AND (check_in BETWEEN #{datepickerS} AND #{datepickerE})
 		ORDER BY id DESC
     </select>
     

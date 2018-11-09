@@ -8,8 +8,8 @@ public class RoomForReserv extends Reservation {
 	private int roomPrice;
 	private int limitStart;
 	private int listCount;
-	private String start;
-	private String end;
+	private String datepickerS;
+	private String datepickerE;
 	public int getId() {
 		return id;
 	}
@@ -52,22 +52,22 @@ public class RoomForReserv extends Reservation {
 	public void setListCount(int listCount) {
 		this.listCount = listCount;
 	}
-	public String getStart() {
-		return start;
+	public String getDatepickerS() {
+		return datepickerS;
 	}
-	public void setStart(String start) {
-		this.start = start;
+	public void setDatepickerS(String datepickerS) {
+		this.datepickerS = datepickerS;
 	}
-	public String getEnd() {
-		return end;
+	public String getDatepickerE() {
+		return datepickerE;
 	}
-	public void setEnd(String end) {
-		this.end = end;
+	public void setDatepickerE(String datepickerE) {
+		this.datepickerE = datepickerE;
 	}
 	@Override
 	public String toString() {
 		return "RoomForReserv [id=" + id + ", roomNo=" + roomNo + ", roomType=" + roomType + ", bedType=" + bedType
-				+ ", roomPrice=" + roomPrice + ", limitStart=" + limitStart + ", listCount=" + listCount + ", start="
-				+ start + ", end=" + end + "]";
+				+ ", roomPrice=" + roomPrice + ", limitStart=" + limitStart + ", listCount=" + listCount + ", datepickerS="
+				+ datepickerS + ", datepickerE=" + datepickerE + "]";
 	}
 }

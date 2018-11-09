@@ -40,7 +40,7 @@
 				<div>
 					<form action="${pageContext.request.contextPath}/mypage/mypg_reservation_search.do" method="get">
 					<span>기간조회</span>
-					<button type="button" class="btn mypg-rsvt-whole">전체</button>
+					<button type="button" class="btn mypg-rsvt-whole" onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_reservation.do'">전체</button>
 					<input type="text" id="datepickerS" name="datepickerS" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
 					<input type="text" id="datepickerE" name="datepickerE" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
@@ -50,7 +50,7 @@
 				<div class="mypg-contents-table">
 					<h4 class="mypg-bdb">객실 / 패키지 예약</h4>
 					<div>
-						<p>Total&nbsp;:&nbsp;${fn:length(reservInfo)}</p>
+						<p>Total&nbsp;:&nbsp;${fn:length(reservBDInfo)}</p>
 						<table class="mypg-rsvt-contents-table">
 							<tr class="rsvt-table-title">
 								<td>예약번호</td>
@@ -62,18 +62,6 @@
 							<c:choose>
 								<c:when test="${fn:length(reservBDInfo) > 0}">
 									<c:forEach var="reserv" items="${reservBDInfo}">
-										<tr>
-											<td>${maxPageNo}</td>
-											<td>${reserv.hotelCate}</td>
-											<td><a href="${pageContext.request.contextPath}/mypage/mypg_reservation_2.do?id=${reserv.id}" style="display: inline;">${reserv.roomType}</a></td>
-											<td>${reserv.checkIn}&nbsp;/&nbsp;${reserv.checkOut}</td>
-											<td style="color: #ff0000;"></td>
-										</tr>
-										<c:set var="maxPageNo" value="${maxPageNo-1}" />
-									</c:forEach>
-								</c:when>
-								<c:when test="${fn:length(reservInfo) > 0}">
-									<c:forEach var="reserv" items="${reservInfo}">
 										<tr>
 											<td>${maxPageNo}</td>
 											<td>${reserv.hotelCate}</td>

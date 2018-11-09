@@ -89,7 +89,7 @@ public class TestController {
 		return new ModelAndView("test/reservation_test2");
 	}
 	
-	/*@RequestMapping(value = "/test/reservation_test_ok.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/test/reservation_test_ok.do", method = RequestMethod.GET)
 	public ModelAndView reservationTestOk(Locale locale, Model model) {
 		web.init();
 		
@@ -132,7 +132,7 @@ public class TestController {
 		model.addAttribute("roomList", roomList);
 		
 		return new ModelAndView("test/reservation_test2");
-	}*/
+	}
 	
 	@RequestMapping(value = "/test/reservation_test2_ok.do", method = RequestMethod.GET)
 	public ModelAndView reservationTest2Ok(Locale locale, Model model) {

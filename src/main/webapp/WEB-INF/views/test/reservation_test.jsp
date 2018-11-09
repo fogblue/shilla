@@ -16,21 +16,21 @@
     <%@ include file="/WEB-INF/inc/topbar.jsp"%>
     <div class="container main">
         <%-- container start --%>
-        <form method="get" action="${pageContext.request.contextPath}/test/reservation_test.do">
+        <form id="resvform" method="get" action="${pageContext.request.contextPath}/test/reservation_test_ok.do" onSubmit="return false;">
         <div class="rsv_step">
             <span class="rsv_stepimg">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
 				Step3. 고객 정보 입력 Step4. 예약 완료 /확인</span>
         </div>
         <div class="rsv_selectbox">
             <%-- select box start --%>
-            <strong class="rsv_hotelselect_hangel">호텔선택</strong> <select name="hotel_category" class="rsv_hotelselect_dropdown">
+            <strong class="rsv_hotelselect_hangel">호텔선택</strong> <select name="hotel_category" class="rsv_hotelselect_dropdown" id="hotel_category">
                 <option class="selected">서울신라호텔</option>
                 <option>제주신라호텔</option>
             </select>
             <!-- Date picker 시작 -->
             <div class="t-datepicker">
-                <div class="t-check-in"></div><!-- 세션저장값 -->
-                <div class="t-check-out"></div><!-- 세션저장값 -->
+                <div class="t-check-in" id="t-checkin"></div><!-- 세션저장값 -->
+                <div class="t-check-out" id="t-checkout"></div><!-- 세션저장값 -->
             </div>
             
             <div class="rsv_personcount">
@@ -206,12 +206,17 @@
                     $('#numbox3').val(number3);
                 });
     		 // 검색 스크립트
-            $("#rsv_roomsearchbtn").click(function(e) {
+    		 
+    		 /* var hotelCate = $('form input[name=hotel_category]').val();
+    		 var checkIn = $('form input[name=t-start]').val();
+    		 var checkOut = $('form input[name=t-end]').val(); */
+    		 
+           /* $("#resvform").ajaxSubmit(function(e) {
                 $("#rsv_contents_box2").empty();
                 $.get("${pageContext.request.contextPath}/test/reservation_test2.do", function(req) {
                 	$("#rsv_contents_box2").append(req);
 				}, "html"); // end $.get
-            });
+            }); */
         });
         </script>
 </body>

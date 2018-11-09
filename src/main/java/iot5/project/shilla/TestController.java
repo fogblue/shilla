@@ -40,45 +40,7 @@ public class TestController {
 	@RequestMapping(value = "/test/reservation_test.do", method = RequestMethod.GET)
 	public ModelAndView reservation_test(Locale locale, Model model) {
 		web.init();
-		
-		String hotelCate = web.getString("hotel_category");
-		String tStart = web.getString("t-start");
-		String tEnd = web.getString("t-end");
 
-		RoomForReserv room = new RoomForReserv();
-		room.setHotelCate(hotelCate);
-		room.setCheckIn(tStart);
-		room.setCheckOut(tEnd);
-		
-		logger.info("hotelCate=" + hotelCate);
-		logger.info("tStart=" + tStart);
-		logger.info("tEnd=" + tEnd);
-
-		int pplAd = web.getInt("ppl_ad");
-		int pplCh = web.getInt("ppl_ch");
-		int pplBb = web.getInt("ppl_bb");
-		
-		ResvGuest guest = new ResvGuest();
-		guest.setPplAd(pplAd);
-		guest.setPplCh(pplCh);
-		guest.setPplBb(pplBb);
-		
-		logger.info("pplAd=" + pplAd);
-		logger.info("pplCh=" + pplCh);
-		logger.info("pplBb=" + pplBb);
-		
-		
-		List<RoomForReserv> roomList = null;
-		
-		try {
-			roomList = roomService.getRoomList(room);
-		} catch (Exception e) {
-			return web.redirect(null, e.getLocalizedMessage());
-		}
-		model.addAttribute("roomInfo", room);
-		model.addAttribute("guestInfo", guest);
-		model.addAttribute("roomList", roomList);
-		
 		return new ModelAndView("test/reservation_test");
 	}
 
@@ -89,7 +51,7 @@ public class TestController {
 		return new ModelAndView("test/reservation_test2");
 	}
 	
-	/*@RequestMapping(value = "/test/reservation_test_ok.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/test/reservation_test_ok.do", method = RequestMethod.GET)
 	public ModelAndView reservationTestOk(Locale locale, Model model) {
 		web.init();
 		
@@ -132,7 +94,7 @@ public class TestController {
 		model.addAttribute("roomList", roomList);
 		
 		return new ModelAndView("test/reservation_test2");
-	}*/
+	}
 	
 	@RequestMapping(value = "/test/reservation_test2_ok.do", method = RequestMethod.GET)
 	public ModelAndView reservationTest2Ok(Locale locale, Model model) {
@@ -253,14 +215,14 @@ public class TestController {
 		}
 		
 		/** 예약 번호로 객실 정보 불러오기 */
-		RoomForReserv id = new RoomForReserv();
+		Reservation id = new Reservation();
 		try {
 			id = reservService.selectReserv(reserv);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
 	
-		reserv.setResvRoomId(id.getId());
+		reserv.setResvRoomId(id.getRoomId());
 		
 		/** 예약 번호 불러오기 */
 		try {

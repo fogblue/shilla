@@ -5,6 +5,19 @@
 	border-bottom: 1px solid #c0b7ab;
 }
 
+.rsv_roomlist2 {
+	border: 1px solid #c0b7ab;
+	text-align: center;
+}
+
+.rsv_roommorebtn{
+	margin: 20px;
+}
+
+.rsv_roomchobtn{
+	margin-left:50px;
+}
+
 .rsv_roomlistbox2 {
 	width: 1200px;
 	height: 600px;

@@ -74,7 +74,7 @@
     <select id="selectReservationCountByDate" parameterType="iot5.project.shilla.model.RoomForReserv" resultType="int">
 		SELECT count(id)
 		FROM   resv_room
-		WHERE  member_id=#{memberId} AND (check_in BETWEEN #{datepickerS} AND #{datepickerE})
+		WHERE  member_id=#{memberId} AND (DATE_FORMAT(check_in, '%Y-%m-%d') BETWEEN #{datepickerS} AND #{datepickerE})
     </select>
 	<!-- 회원아이디와 일치하는 예약의 정보를 조회한다 -->
 	<select id="selectReserv" parameterType="iot5.project.shilla.model.RoomForReserv" resultMap="reserv">

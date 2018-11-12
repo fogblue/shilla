@@ -78,8 +78,8 @@
 							<td colspan="3">${reservInfo.roomType}</td>
 						</tr>
 						<tr>
-							<td>패키지명</td>
-							<td colspan="3">${reservInfo.packageType}</td>
+							<td>객실번호</td>
+							<td colspan="3">${reservInfo.roomNo}&nbsp;호</td>
 						</tr>
 					</table>
 				</div>
@@ -87,7 +87,7 @@
 					<table class="mypg-rsvt2-contents-table-2">
 						<tr class="text-center">
 							<td style="width: 15%">${reservInfo.checkIn}</td>
-							<td style="width: 45%">${reservInfo.roomType}&nbsp;/&nbsp;</td>
+							<td style="width: 45%">${reservInfo.roomType}</td>
 							<td style="width: 20%">${reservInfo.roomPrice}&nbsp;원</td>
 							<td style="width: 20%"><p id="crpr" style="display: inline;">${reservInfo.roomPrice}</p>&nbsp;원</td>
 						</tr>

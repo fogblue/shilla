@@ -116,7 +116,7 @@
     </select>
     
     <select id="selectReservInfo" parameterType="iot5.project.shilla.model.RoomForReserv" resultMap="reserv">
-    SELECT 		resv_room.id as id, room_type, bed_type, room_price, room.hotel_category as hotel_category,
+    SELECT 		resv_room.id as id, room_type, bed_type, room_price, room.hotel_category as hotel_category, room.room_no,
     			DATE_FORMAT(check_in, '%Y-%m-%d') as check_in, DATE_FORMAT(check_out, '%Y-%m-%d') as check_out, DATE_FORMAT(resv_date, '%Y-%m-%d') as resv_date,
     			ppl_ad, ppl_ch, ppl_bb, resv_room.exbed, resv_room.meal, card_no, card_yy, card_mm, card_type, detail
 	FROM   		resv_room

@@ -76,7 +76,7 @@
 		        	<p class="rsv_packagetextdiv_text2">할인이 적용된 요금입니다.</p>
 		        </div>
 		            <c:forEach var="roomList" items="${roomList}">
-		            <form method="get" action="${pageContext.request.contextPath}/reservation/rsv_roomselect.do">
+		            <form method="get" action="${pageContext.request.contextPath}/reservation/reservation2.do">
 		                <tr>
 		                    <td class="rsv_roomlist2" style="width:50px; height: 50px;">${roomList.id}</td>
 		                    <td><input type="hidden" name="id" id="id" value="${roomList.id}" /></td>
@@ -100,6 +100,13 @@
 		                <input type="hidden" name="ppl_ad" id="ppl_ad" value="${guestInfo.pplAd}" />
 		                <input type="hidden" name="ppl_ch" id="ppl_ch" value="${guestInfo.pplCh}" />
 		                <input type="hidden" name="ppl_bb" id="ppl_bb" value="${guestInfo.pplBb}" />
+		                
+		                <input type="hidden" name="room_id" id="room_id" value="${roomList.id}" />
+		                <input type="hidden" name="room_no" id="room_no" value="${roomList.roomNo}" />
+		                <input type="hidden" name="room_type" id="room_type" value="${roomList.roomType}" />
+		                <input type="hidden" name="bed_type" id="bed_type" value="${roomList.bedType}" />
+		                <input type="hidden" name="room_price" id="room_price" value="${roomList.roomPrice}" />
+		                <input type="hidden" name="hotel_cate" id="hotel_cate" value="${roomList.hotelCate}" />
 		                </form>
 		            </c:forEach>    
 		        </c:when>
@@ -266,6 +273,7 @@
 			fnDataEvent : null
 		});
 
+	});
 	
 	/* $("#rsv_roomsearchbtn").click(function(e) {
         $("#rsv_contents_box2").empty();

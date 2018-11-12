@@ -178,6 +178,17 @@
 			<!--// 아코디언 -->
 
 
+
+
+
+
+
+
+
+
+
+
+
 <!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
 			<div class="rsv_rsvinfobox col-sm-3">
 			
@@ -188,24 +199,29 @@
 				
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul">
-						<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">서울신라호텔</span></li>
+						<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">${roomInfo.hotelCate}</span></li>
 					</ul>						
 				</div>
 					<br/><hr/>
 				
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul clearfix">
-						<li class="first">체크인 : <span>2018.10.01</span></li>
-						<li>체크아웃 : <span>2018.10.02</span></li>
+						<li class="first">체크인 : <span>${roomInfo.checkIn}</span></li>
+						<li>체크아웃 : <span>${roomInfo.checkOut}</span></li>
 						<li>숙박일수 : <span>1박</span></li>
-						<li>투숙 인원<br/><span> 성인 : ${reservation.pplAd}&nbsp; 어린이 : 0&nbsp; 유아 : 0 </span>
+						<li>투숙 인원<br/><span> 성인 : ${guestInfo.pplAd}&nbsp; 어린이 : ${guestInfo.pplCh}&nbsp; 유아 : ${guestInfo.pplBb} </span>
 						</li>
-						<li>패키지명 : <span>Autumn Rooftop</span>
+						<li>객실타입 : <span>${roomInfo.roomType}</span>
+						
+						
+						
+						
 						<!-- 유의사항 모달로 구현해야함 -->
 							<div class="rsv_packagewarn clearfix">
 								<!-- 링크로 모달 열기 -->
 								<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2"> 패키지 유의사항 </a>
 							</div>
+							
 							<!-- Modal -->
 							<div class="modal fade" id="myModal2">
 								<div class="modal-dialog modal-md">
@@ -238,27 +254,29 @@
 								</div>
 							</div>
 						<!-- 유의사항 모달로 구현해야함 -->
+						
+						
 						</li>							
 					</ul>
-					<p>객실타입<span>Twin</span></p>
+					<p>침대타입<span>${roomInfo.bedType}</span></p>
 					<hr/>
 				</div>
 				
 				<div class="rsv_prinfo">
-					<p class="rsv_rsvinfotitle clearfix">객실/패키지</p>
+					<p class="rsv_rsvinfotitle clearfix">객실</p>
 					<ul>
-						<li>Autumn Rooftop(DB)</li>
-						<li>2018.10.15 280,000 원(DB)</li>
+						<li>${roomInfo.roomType}</li>
+						<li>체크인 날짜 : ${roomInfo.checkIn}&nbsp; ${roomInfo.roomPrice}원</li>
 					</ul>
-					<p>280,000원 (1박) (DB)</p>
+					<p>${roomInfo.roomPrice}원 (1박) (DB)</p>
 				</div>
 				
-				<div class="rsv_primg">
+				<%-- <div class="rsv_primg">
 				<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
 				
 				<p>Business Deluxe / Twin</p>
 				<img src="${pageContext.request.contextPath}/assets/img/rsv_businessdeluxe.jpg" alt="이미지1" />
-				</div>
+				</div> --%>
 				<hr/>
 				<div class="rsv_price">
 				<p>봉사료 28,000 원</p>
@@ -267,8 +285,23 @@
 				<div class="rsv_totalpay">
 				<p>요금합계 338,800원</p>
 				</div>				
+				
+				<input type="hidden" name="room_id" id="room_id" value="${roomList.id}" />
+		                <input type="hidden" name="room_no" id="room_no" value="${roomList.roomNo}" />
+		                <input type="hidden" name="room_type" id="room_type" value="${roomList.roomType}" />
+		                <input type="hidden" name="bed_type" id="bed_type" value="${roomList.bedType}" />
+		                <input type="hidden" name="room_price" id="room_price" value="${roomList.roomPrice}" />
+		                <input type="hidden" name="hotel_cate" id="hotel_cate" value="${roomList.hotelCate}" />
 			</div>
 <!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
+		
+		
+		
+		
+		
+		
+		
+		
 		</div>
 	</div>
 	<%-- container end --%>

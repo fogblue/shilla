@@ -160,8 +160,55 @@ public class ReservController {
 	public ModelAndView reservation2(Locale locale, Model model) {
 		web.init();
 		
+		String hotelCate = web.getString("hotel_category");
+		String tStart = web.getString("t-start");
+		String tEnd = web.getString("t-end");
+		int roomId = web.getInt("id");
+		int roomNo = web.getInt("room_no");
+		String roomType = web.getString("room_type");
+		String bedType = web.getString("bed_type");
+		int roomPrice = web.getInt("room_price");
+
+		RoomForReserv room = new RoomForReserv();
+		room.setHotelCate(hotelCate);
+		room.setCheckIn(tStart);
+		room.setCheckOut(tEnd);
+		room.setRoomId(roomId);
+		room.setRoomNo(roomNo);
+		room.setRoomType(roomType);
+		room.setBedType(bedType);
+		room.setRoomPrice(roomPrice);
+		
+		logger.info("hotelCate=" + hotelCate);
+		logger.info("tStart=" + tStart);
+		logger.info("tEnd=" + tEnd);
+
+		int pplAd = web.getInt("ppl_ad");
+		int pplCh = web.getInt("ppl_ch");
+		int pplBb = web.getInt("ppl_bb");
+		
+		ResvGuest guest = new ResvGuest();
+		guest.setPplAd(pplAd);
+		guest.setPplCh(pplCh);
+		guest.setPplBb(pplBb);
+		
+		logger.info("pplAd=" + pplAd);
+		logger.info("pplCh=" + pplCh);
+		logger.info("pplBb=" + pplBb);
+		logger.info("roomId=" + roomId);
+		logger.info("roomNo=" + roomNo);
+		logger.info("roomType=" + roomType);
+		logger.info("bedType=" + bedType);
+		logger.info("roomPrice=" + roomPrice);
+		
+		model.addAttribute("roomInfo", room);
+		model.addAttribute("guestInfo", guest);
 		return new ModelAndView("reservation/reservation2");
 	}
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/reservation/reservation3.do", method = RequestMethod.GET)
 	public ModelAndView reservation3(Locale locale, Model model) {

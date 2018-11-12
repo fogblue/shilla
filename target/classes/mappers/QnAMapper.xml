@@ -69,7 +69,7 @@
 	<select id="selectQnACountByDate" parameterType="iot5.project.shilla.model.QnA" resultType="int">
 		SELECT count(id)
 		FROM   qna
-		WHERE  member_id=#{memberId} AND (reg_date BETWEEN #{datepickerS} AND DATE_ADD(#{datepickerE}, INTERVAL 1 DAY))
+		WHERE  member_id=#{memberId} AND (DATE_FORMAT(reg_date, '%Y-%m-%d') BETWEEN #{datepickerS} AND #{datepickerE})
 	</select>
 	<!-- 회원번호를 사용하여 문의사항의 리스트를 조회한다 -->
 	<select id="selectQnAList" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
@@ -82,7 +82,7 @@
 	<select id="selectQnAListByDate" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
 		SELECT id, hotel_category, enq_type, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
 		FROM   qna
-		WHERE  member_id=#{memberId} AND (reg_date BETWEEN #{datepickerS} AND DATE_ADD(#{datepickerE}, INTERVAL 1 DAY))
+		WHERE  member_id=#{memberId} AND (DATE_FORMAT(reg_date, '%Y-%m-%d') BETWEEN #{datepickerS} AND #{datepickerE})
 		ORDER BY id DESC
 	</select>
 	<!-- 문의사항 글의 상세정보를 조회한다 -->

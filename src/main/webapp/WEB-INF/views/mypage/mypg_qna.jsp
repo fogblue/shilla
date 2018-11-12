@@ -127,10 +127,15 @@
 	});
 
 	/* 날짜 객체 받아서 문자열로 리턴하는 함수 */
-	function getDateStr(myDate){
-		return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate())
+	function getDateStr(myDate) {
+		/* 월, 일의 자릿수가 1자리일때 앞에 0을 추가 */
+	    function pad(num) {
+	        num = num + '';
+	        return num.length < 2 ? '0' + num : num;
+	    }
+	    return myDate.getFullYear() + '-' + pad(myDate.getMonth()+1) + '-' + pad(myDate.getDate());
 	}
-
+	
 	/* 오늘 날짜를 문자열로 반환 */
 	function today() {
 		var d = new Date()

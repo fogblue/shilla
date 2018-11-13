@@ -2,7 +2,6 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <!doctype html>
 <html>
 <head>
@@ -40,7 +39,7 @@
 				<div>
 					<form action="${pageContext.request.contextPath}/mypage/mypg_reservation_search.do" method="get">
 					<span>기간조회</span>
-					<button type="button" class="btn mypg-rsvt-whole">전체</button>
+					<button type="button" class="btn mypg-rsvt-whole" onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_reservation.do'">전체</button>
 					<input type="text" id="datepickerS" name="datepickerS" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
 					<input type="text" id="datepickerE" name="datepickerE" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
@@ -50,7 +49,7 @@
 				<div class="mypg-contents-table">
 					<h4 class="mypg-bdb">객실 / 패키지 예약</h4>
 					<div>
-						<p>Total&nbsp;:&nbsp;${fn:length(reservInfo)}</p>
+						<p>Total&nbsp;:&nbsp;<c:choose><c:when test="${fn:length(reservBDInfo) > 0}">${fn:length(reservBDInfo)}</c:when><c:otherwise>${fn:length(reservInfo)}</c:otherwise></c:choose></p>
 						<table class="mypg-rsvt-contents-table">
 							<tr class="rsvt-table-title">
 								<td>예약번호</td>
@@ -116,6 +115,19 @@
             trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
         });
     });
+    
+    $("#find").click(function() {
+		var date1 = document.getElementById("datepickerS").value;
+		var date2 = document.getElementById("datepickerE").value;
+		if (date1 == "" || date2 == "") {
+			alert("조회할 기간을 입력해주세요.");
+			return false;
+		} else if (date1 > date2) {
+			alert("기간을 잘못 입력하셨습니다.");
+			return false;
+		}
+		return true;
+	});
     </script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

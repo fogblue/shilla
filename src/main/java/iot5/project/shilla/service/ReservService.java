@@ -19,6 +19,7 @@ public interface ReservService {
 	 * @throws Exception
 	 */
 	public void insertReservGuest(RoomForReserv reserv) throws Exception;
+	public void insertReservation(RoomForReserv reserv) throws Exception;
 	/**
 	 * 예약 취소
 	 * @param reserv

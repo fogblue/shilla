@@ -104,6 +104,25 @@ public class QnAServiceImpl implements QnAService {
 	}
 	
 	@Override
+	public List<QnA> selectQnAListByDate(QnA qna) throws Exception {
+		List<QnA> result = null;
+
+		try {
+			result = sqlSession.selectList("QnAMapper.selectQnAListByDate", qna);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 글 목록이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("글 목록 조회에 실패했습니다.");
+		}
+
+		return result;
+	}
+	
+	@Override
 	public QnA selectPrevQnA(QnA qna) throws Exception {
 		QnA result = null;
 
@@ -169,6 +188,19 @@ public class QnAServiceImpl implements QnAService {
 		
 		try {
 			result = sqlSession.selectOne("QnAMapper.selectQnACount", qna);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 수 조회에 실패했습니다.");
+		}
+		return result;
+	}
+	
+	@Override
+	public int selectQnACountByDate(QnA qna) throws Exception {
+		int result = 0;
+		
+		try {
+			result = sqlSession.selectOne("QnAMapper.selectQnACountByDate", qna);
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 			throw new Exception("게시물 수 조회에 실패했습니다.");

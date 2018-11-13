@@ -18,6 +18,8 @@
 		<result property="ipAddress" column="ip_address" />
 		<result property="memberId" column="member_id" />
 		<result property="hotelCate" column="hotel_category" />
+		<result property="datepickerS" column="datepickerS" />
+		<result property="datepickerE" column="datepickerE" />
 	</resultMap>
 	<!-- ######## -->
 	<!-- ##입력## -->
@@ -57,17 +59,30 @@
     	FROM   qna
     	WHERE  id=#{id}
 	</select>
-	<!-- 문의사항 글 갯수를 조회한다 -->
+	<!-- 회원번호를 사용하여 문의사항 글 갯수를 조회한다 -->
 	<select id="selectQnACount" parameterType="iot5.project.shilla.model.QnA" resultType="int">
 		SELECT count(id)
 		FROM   qna
 		WHERE  member_id=#{memberId}
 	</select>
-	<!-- 문의사항의 리스트를 조회한다 -->
+	<!-- 회원번호와 수정날짜를 비교하여 문의사항 글 갯수를 조회한다 -->
+	<select id="selectQnACountByDate" parameterType="iot5.project.shilla.model.QnA" resultType="int">
+		SELECT count(id)
+		FROM   qna
+		WHERE  member_id=#{memberId} AND (DATE_FORMAT(reg_date, '%Y-%m-%d') BETWEEN #{datepickerS} AND #{datepickerE})
+	</select>
+	<!-- 회원번호를 사용하여 문의사항의 리스트를 조회한다 -->
 	<select id="selectQnAList" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
 		SELECT id, hotel_category, enq_type, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
 		FROM   qna
 		WHERE  member_id=#{memberId}
+		ORDER BY id DESC
+	</select>
+	<!-- 회원번호와 수정날짜를 비교하여 문의사항의 리스트를 조회한다 -->
+	<select id="selectQnAListByDate" parameterType="iot5.project.shilla.model.QnA" resultMap="qna">
+		SELECT id, hotel_category, enq_type, subject, DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date   
+		FROM   qna
+		WHERE  member_id=#{memberId} AND (DATE_FORMAT(reg_date, '%Y-%m-%d') BETWEEN #{datepickerS} AND #{datepickerE})
 		ORDER BY id DESC
 	</select>
 	<!-- 문의사항 글의 상세정보를 조회한다 -->

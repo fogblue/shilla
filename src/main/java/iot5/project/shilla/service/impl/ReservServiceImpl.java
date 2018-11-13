@@ -51,6 +51,21 @@ public class ReservServiceImpl implements ReservService {
 	}
 
 	@Override
+	public void insertReservation(RoomForReserv reserv) throws Exception {
+		try {
+			int result = sqlSession.insert("ReservationMapper.insertReservation", reserv);
+			if (result ==0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("등록된 예약이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("예약 등록에 실패했습니다.");
+		}
+	}
+	
+	@Override
 	public void deleteReserv(RoomForReserv reserv) throws Exception {
 		// TODO Auto-generated method stub
 		

@@ -44,7 +44,7 @@
 						<div class="rsv_customerinfo col-sm-6">
 							<p>투숙자 정보 입력</p>
 							*성명(한글)	<input type="text" disabled value="${loginInfo.userNameKor}" name="user_name_kor" /><br /><br />
-							*성명(영문) <input type="text" disabled value="${loginInfo.userNameEng}" name="user_name_eng"  /><br /><br />
+							*성명(영문) <input type="text" disabled value="${loginInfo.userNameEng}" name="user_name_eng" /><br /><br />
 							*이메일 <input type="text" disabled value="${loginInfo.email}" name="email" /><br /><br />
 							*연락처 <input type="text" disabled value="${loginInfo.tel}" name="tel" />
 						</div>
@@ -53,20 +53,20 @@
 							<p>카드 정보 입력</p>
 							*카드종류 <select class="uiform" id="guestCardTypCd" name="card_type" title="카드사 선택">
 								<option value="">선택</option>
-								<option value="AX">AMEX CARD</option>
-								<option value="BC">BC CARD</option>
-								<option value="CB">CITIBANK CARD</option>
-								<option value="DI">DINERS CARD</option>
-								<option value="HD">HYUNDAI CARD</option>
-								<option value="JC">JCB CARD</option>
-								<option value="KE">KEB CARD</option>
-								<option value="KM">KOOKMIN CARD</option>
-								<option value="LO">LOTTE CARD</option>
-								<option value="MA">MASTER OVERSEAS</option>
-								<option value="SH">SHINHAN CARD</option>
-								<option value="SS">SAMSUNG CARD</option>
-								<option value="VS">VISA OVERSEAS</option>
-								<option value="UN">UNION PAY</option>
+								<option value="AMEX CARD">AMEX CARD</option>
+								<option value="BC CARD">BC CARD</option>
+								<option value="CITIBANK CARD">CITIBANK CARD</option>
+								<option value="DINERS CARD">DINERS CARD</option>
+								<option value="HYUNDAI CARD">HYUNDAI CARD</option>
+								<option value="JCB CARD">JCB CARD</option>
+								<option value="KEB CARD">KEB CARD</option>
+								<option value="KOOKMIN CARD">KOOKMIN CARD</option>
+								<option value="LOTTE CARD">LOTTE CARD</option>
+								<option value="MASTER OVERSEAS">MASTER OVERSEAS</option>
+								<option value="SHINHAN CARD">SHINHAN CARD</option>
+								<option value="SAMSUNG CARD">SAMSUNG CARD</option>
+								<option value="VISA OVERSEAS">VISA OVERSEAS</option>
+								<option value="UNION PAY">UNION PAY</option>
 							</select><br /><br />
 							*카드번호 <input type="text" class="cardno" name="card_no" /><br /><br />
 							*만기일 <select name="card_mm">
@@ -184,131 +184,11 @@
 				</div>
 				<div>
 					<button class="btn btn-md rsv_prevbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation2.do'">&lt;SETP2</button>
-				</div>
-				<!-- ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== -->
-				<div class="rsv_packagewarn clearfix">
-					<!-- 링크로 모달 열기 -->
-					<!-- <a href="#" class="btn btn-warning rsv_rsvapplibtn" data-toggle="modal" data-target="#myModal3"> 예약신청 </a> -->
+				</div>				
+				<div class="rsv_packagewarn clearfix">					
 					<button class="rsv_nextbtn" id="rsv_nextbtn" type="submit">예약하기</button>
 				</div>
 				</form>
-				<!-- Modal -->
-				<%-- <div class="modal fade" id="myModal3">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-								<h4 class="modal-title">예약정보</h4>
-							</div>
-							<div class="modal-body">
-								<div class="rsv_rsvinfomodal">
-									<div class="rsv_rsvinfomodal_wrap">
-										<!-- ==호텔,상태,체크인날짜,체크아웃날짜,객실수,등록일자,객실타입으로 구성된테이블== -->
-										<table summary="호텔,상태,체크인날짜,체크아웃날짜,객실수,등록일자,객실타입으로 구성된테이블"
-											class="rsv_rsvinfomodal_table tableTypeA tableInfo1">
-											<colgroup>
-												<col width="18% " class="col1">
-												<col class="col2">
-												<col width="18% " class="col5">
-												<col class="col4">
-											</colgroup>
-											<tbody>
-												<tr class="rsv_rsv3_tr">
-													<th class="rsv_rsv3_thf" scope="row">호텔</th>
-													<td class="rsv_rsv3_tdf">서울신라호텔</td>
-													<th class="rsv_rsv3_thf" scope="row">성명(영문)</th>
-													<td class="rsv_rsv3_tdf" id="guestName">LEE DONGGEON</td>
-												</tr>
-												<tr class="rsv_rsv3_tr">
-													<th class="rsv_rsv3_th" scope="row">체크인</th>
-													<td class="rsv_rsv3_td">2018.10.15</td>
-													<th class="rsv_rsv3_th" scope="row">체크아웃</th>
-													<td class="rsv_rsv3_td">2018.10.16</td>
-												</tr>
-												<tr class="rsv_rsv3_tr">
-													<th class="rsv_rsv3_th" scope="row">숙박일수</th>
-													<td class="rsv_rsv3_td">1박</td>
-													<th class="rsv_rsv3_th" scope="row">투숙인원</th>
-													<td class="rsv_rsv3_td">성인 : 1&nbsp;/ 어린이 : 0&nbsp;/ 유아 : 0</td>
-												</tr>
-												<tr class="rsv_rsv3_tr">
-													<th class="rsv_rsv3_thl" scope="row">패키지명</th>
-													<td class="rsv_rsv3_tdl">Autumn Rooftop</td>
-													<th class="rsv_rsv3_thl" scope="row">객실</th>
-													<td class="rsv_rsv3_tdl">Business Deluxe / Twin</td>
-												</tr>
-											</tbody>
-											<!-- ==호텔,상태,체크인날짜,체크아웃날짜,객실수,등록일자,객실타입으로 구성된테이블== -->
-										</table>
-										<br />
-										<table class="rsv_PriceTable" summary="예약번호,투숙인원,고객명,침대타입,객실요금으로 구성된 게시물 리스트 표">
-											<colgroup>
-												<col width="15%" class="col1">
-												<col width="35%" class="col2">
-												<col width="25%" class="col3">
-												<col class="col4">
-											</colgroup>
-											<tbody>
-												<!-- 박수별 객실요금 계산 -->
-												<tr class="rsv_rsv3_tr2">
-													<td class="rsv_rsv3_td2" rowspan="1">객실</td>
-													<td class="rsv_rsv3_td2">2018.10.15</td>
-													<td class="rsv_rsv3_td2">280,000&nbsp;원</td>
-													<td class="rsv_rsv3_td2" id="partSum" rowspan="1">280,000&nbsp;원 (1박)</td>
-												</tr>
-											</tbody>
-											<tbody>
-												<tr class="rsv_rsv3_tr2">
-													<td class="rsv_rsv3_td2" rowspan="2">옵션</td>
-													<!-- 옵션요금 계산 -->
-													<td class="rsv_rsv3_td2">Daily Breakfast Buffet for Adult</td>
-													<td class="rsv_rsv3_td2">30,000원</td>
-													<td class="rsv_rsv3_td2" rowspan="2" class="price">60,000&nbsp;원</td>
-												</tr>
-												<tr class="rsv_rsv3_tr2">
-													<td class="rsv_rsv3_td2">Daily Extra bed</td>
-													<td class="rsv_rsv3_td2">30,000원</td>
-													<!-- 옵션요금 합계 -->
-												</tr>
-											</tbody>
-										</table>
-										<div class="rsv_priceWrap">
-											<div class="rsv_otherprice">
-												<div class="rsv_otherpricep clearfix">
-													<p>&nbsp;&nbsp;봉사료</p>
-													<p>31,000원</p>
-													<br />
-												</div>
-												<div class="rsv_otherpricep">
-													<p>&nbsp;&nbsp;&nbsp;&nbsp;세금</p>
-													<p>34,100원</p>
-												</div>
-											</div>
-											<div class="rsv_totalprice">
-												<p class="rsv_totalpricep">375,100원</p>
-												<p class="rsv_totalpricep">요금합계 :&nbsp;</p>
-											</div>
-										</div>
-										<div class="rsv_priceview">
-											<div class="rsv_priceview">
-												※ 10% Tax Included <br>※ 예약한 내용 확인 및 변경, 취소는
-												<a href="/membership/mypage/resv/memListResv.do">My page</a>에서
-												가능합니다. <br> <strong>※ 현재 미결제 상태이며, 체크인시 결제가
-													진행됩니다.</strong>
-											</div>
-										</div>
-									</div>
-								</div>
-								<button type="button" class="btn btn-default" data-dismiss="modal">이전</button>
-								<button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation4.do'">예약신청</button>
-								
-							</div>
-						</div>
-					</div>
-				</div> --%>
-				<!-- ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== -->
 				<div>
 				</div>
 			</div>
@@ -355,20 +235,18 @@
 				
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul clearfix">
-						<li class="first">체크인 : <span>${reservInfo.checkIn}</span></li>
-						<li>체크아웃 : <span>${reservInfo.checkOut}</span></li>
-						<li>숙박일수 : <span class="rsv_datediff"></span></li>
-						<li>투숙 인원<br/><span> 성인 : ${reservInfo.pplAd}&nbsp; 어린이 : ${reservInfo.pplCh}&nbsp; 유아 : ${reservInfo.pplBb} </span>
+						<li class="first">체크인&nbsp;:&nbsp;<span>${reservInfo.checkIn}</span></li>
+						<li>체크아웃&nbsp;:&nbsp;<span>${reservInfo.checkOut}</span></li>
+						<li>숙박일수&nbsp;:&nbsp;<span class="rsv_datediff"></span></li>
+						<li>투숙&nbsp;인원<br/>
+							<span>&nbsp;&nbsp;&nbsp;성인&nbsp;:&nbsp;${reservInfo.pplAd}&nbsp;어린이&nbsp;:&nbsp;${reservInfo.pplCh}&nbsp;유아&nbsp;:&nbsp;${reservInfo.pplBb}</span>
 						</li>
-						<li>객실타입 : <span>${reservInfo.roomType}</span>
-						
-						
-						
+						<li>객실타입&nbsp;:&nbsp;<span>${reservInfo.roomType}</span>
 						
 						<!-- 유의사항 모달로 구현해야함 -->
 							<div class="rsv_packagewarn clearfix">
 								<!-- 링크로 모달 열기 -->
-								<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2"> 패키지 유의사항 </a>
+								<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2">패키지&nbsp;유의사항</a>
 							</div>
 							
 							<!-- Modal -->
@@ -379,7 +257,7 @@
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
-											<h4 class="modal-title">패키지 유의사항</h4>
+											<h4 class="modal-title">패키지&nbsp;유의사항</h4>
 										</div>
 										<div class="modal-body">
 											<p class="rsv_useguide">
@@ -403,31 +281,24 @@
 								</div>
 							</div>
 						<!-- 유의사항 모달로 구현해야함 -->
-						
-						
+												
 						</li>							
 					</ul>
-					<p>침대타입<span>${reservInfo.bedType}</span></p>
+					<p>침대타입&nbsp;:&nbsp;<span>${reservInfo.bedType}</span></p>
 					<hr/>
 				</div>
 				
 				<div class="rsv_prinfo">
 					<p class="rsv_rsvinfotitle clearfix">객실</p>
 					<ul>
-						<li>${reservInfo.roomType}&nbsp;(${reservInfo.roomNo}호) </li>
-						<li>체크인 날짜 : ${reservInfo.checkIn}&nbsp; ${reservInfo.roomPrice}원</li>
+						<li>${reservInfo.roomType}&nbsp;(${reservInfo.roomNo}&nbsp;호)</li>
+						<li>체크인&nbsp;날짜&nbsp;:&nbsp;${reservInfo.checkIn}&nbsp;${reservInfo.roomPrice}&nbsp;원</li>
 					</ul>
-					<p>${reservInfo.roomPrice}원 (<span class="rsv_datediff"></span>박)</p>
-					
-					<div class="rsv_optiontxt" >
-					Daily Breakfast Buffet for Adult 30,000원
-					추가침대 30,000원
-					</div>
-					
+					<p>${reservInfo.roomPrice}&nbsp;원
+						(<span class="rsv_datediff"></span>박)
+					</p>					
+					<div class="rsv_optiontxt" >Daily Breakfast Buffet for Adult 30,000원&nbsp;추가침대 30,000원</div>					
 				</div>
-				
-				
-				
 				
 				<%-- <div class="rsv_primg">
 				<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
@@ -441,15 +312,15 @@
 				<p>세금 30,800 원</p>
 				</div>
 				<div class="rsv_totalpay">
-				<p>요금합계 338,800원</p>
+					<p>요금합계 338,800원</p>
 				</div>				
 				
 				<input type="hidden" name="room_id" id="room_id" value="${roomList.id}" />
-		                <input type="hidden" name="room_no" id="room_no" value="${roomList.roomNo}" />
-		                <input type="hidden" name="room_type" id="room_type" value="${roomList.roomType}" />
-		                <input type="hidden" name="bed_type" id="bed_type" value="${roomList.bedType}" />
-		                <input type="hidden" name="room_price" id="room_price" value="${roomList.roomPrice}" />
-		                <input type="hidden" name="hotel_cate" id="hotel_cate" value="${roomList.hotelCate}" />
+		        <input type="hidden" name="room_no" id="room_no" value="${roomList.roomNo}" />
+		        <input type="hidden" name="room_type" id="room_type" value="${roomList.roomType}" />
+		        <input type="hidden" name="bed_type" id="bed_type" value="${roomList.bedType}" />
+		        <input type="hidden" name="room_price" id="room_price" value="${roomList.roomPrice}" />
+		        <input type="hidden" name="hotel_cate" id="hotel_cate" value="${roomList.hotelCate}" />
 			</div>
 <!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
 
@@ -457,6 +328,40 @@
 
 </div>
 	</div>
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+		$(function() { 
+		var date1 = '${reservInfo.checkIn}';
+		var date2 = '${reservInfo.checkOut}';
+	
+		// First we split the values to arrays date1[0] is the year, [1] the month and [2] the day
+		date1 = date1.split('-');
+		date2 = date2.split('-');
+	
+		// Now we convert the array to a Date object, which has several helpful methods
+		date1 = new Date(date1[0], date1[1], date1[2]);
+		date2 = new Date(date2[0], date2[1], date2[2]);
+	
+		// We use the getTime() method and get the unixtime (in milliseconds, but we want seconds, therefore we divide it through 1000)
+		date1_unixtime = parseInt(date1.getTime() / 1000);
+		date2_unixtime = parseInt(date2.getTime() / 1000);
+	
+		// This is the calculated difference in seconds
+		var timeDifference = date2_unixtime - date1_unixtime;
+	
+		// in Hours
+		var timeDifferenceInHours = timeDifference / 60 / 60;
+	
+		// and finaly, in days :)
+		var timeDifferenceInDays = null;
+		if( date1.getDate() > date2.getDate() ){
+			timeDifferenceInDays = (timeDifferenceInHours  / 24) - 1;
+		} else {
+			timeDifferenceInDays = timeDifferenceInHours  / 24;
+		}
+		$(".rsv_datediff").text(timeDifferenceInDays);
+		});
+	</script>
 	<%-- container end --%>
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>

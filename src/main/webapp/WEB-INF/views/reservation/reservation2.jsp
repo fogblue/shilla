@@ -210,18 +210,17 @@
 
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul clearfix">
-						<li class="first">체크인 : <span>${reservInfo.checkIn}</span></li>
-						<li>체크아웃 : <span>${reservInfo.checkOut}</span></li>
-						<li>숙박일수 : <span class="rsv_datediff"></span></li>
-						<li>투숙 인원<br />
-						<span> 성인 : ${reservInfo.pplAd}&nbsp; 어린이 :
-								${reservInfo.pplCh}&nbsp; 유아 : ${reservInfo.pplBb} </span>
+						<li class="first">체크인&nbsp;:&nbsp;<span>${reservInfo.checkIn}</span></li>
+						<li>체크아웃&nbsp;:&nbsp;<span>${reservInfo.checkOut}</span></li>
+						<li>숙박일수&nbsp;:&nbsp;<span class="rsv_datediff"></span></li>
+						<li>투숙&nbsp;인원<br />
+							<span>&nbsp;&nbsp;&nbsp;성인&nbsp;:&nbsp;${reservInfo.pplAd}&nbsp;어린이&nbsp;:&nbsp;${reservInfo.pplCh}&nbsp;유아&nbsp;:&nbsp;${reservInfo.pplBb}</span>
 						</li>
-						<li>객실타입 : <span>${reservInfo.roomType}</span> <!-- 유의사항 모달로 구현해야함 -->
+						<li>객실타입&nbsp;:&nbsp;<span>${reservInfo.roomType}</span> <!-- 유의사항 모달로 구현해야함 -->
 							<div class="rsv_packagewarn clearfix">
 								<!-- 링크로 모달 열기 -->
 								<a href="#" class="btn btn-warning" data-toggle="modal"
-									data-target="#myModal2"> 패키지 유의사항 </a>
+									data-target="#myModal2">패키지&nbsp;유의사항</a>
 							</div> <!-- Modal -->
 							<div class="modal fade" id="myModal2">
 								<div class="modal-dialog modal-md">
@@ -231,7 +230,7 @@
 												aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
-											<h4 class="modal-title">패키지 유의사항</h4>
+											<h4 class="modal-title">패키지&nbsp;유의사항</h4>
 										</div>
 										<div class="modal-body">
 											<p class="rsv_useguide">
@@ -261,7 +260,7 @@
 						</li>
 					</ul>
 					<p>
-						침대타입<span>${reservInfo.bedType}</span>
+						침대타입&nbsp;:&nbsp;<span>${reservInfo.bedType}</span>
 					</p>
 					<hr />
 				</div>
@@ -270,20 +269,14 @@
 					<p class="rsv_rsvinfotitle clearfix">객실</p>
 					<ul>
 						<li>${reservInfo.roomType}&nbsp;(${reservInfo.roomNo}호)</li>
-						<li>체크인 날짜 : ${reservInfo.checkIn}&nbsp;
-							${reservInfo.roomPrice}원</li>
+						<li>체크인&nbsp;날짜&nbsp;:&nbsp;${reservInfo.checkIn}&nbsp;${reservInfo.roomPrice}원</li>
 					</ul>
-					<p>${reservInfo.roomPrice}원
+					<p>${reservInfo.roomPrice}
+						<span>&nbsp;원</span>
 						(<span class="rsv_datediff"></span>박)
 					</p>
-
-					<div class="rsv_optiontxt">Daily Breakfast Buffet for Adult
-						30,000원 추가침대 30,000원</div>
-
+					<div class="rsv_optiontxt">Daily Breakfast Buffet for Adult30,000원 추가침대 30,000원</div>
 				</div>
-
-
-
 
 				<%-- <div class="rsv_primg">
 				<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
@@ -300,21 +293,15 @@
 					<p>요금합계 338,800원</p>
 				</div>
 
-				<input type="hidden" name="room_id" id="room_id"
-					value="${roomList.id}" /> <input type="hidden" name="room_no"
-					id="room_no" value="${roomList.roomNo}" /> <input type="hidden"
-					name="room_type" id="room_type" value="${roomList.roomType}" /> <input
-					type="hidden" name="bed_type" id="bed_type"
-					value="${roomList.bedType}" /> <input type="hidden"
-					name="room_price" id="room_price" value="${roomList.roomPrice}" />
-				<input type="hidden" name="hotel_cate" id="hotel_cate"
-					value="${roomList.hotelCate}" />
+				<input type="hidden" name="room_id" id="room_id" value="${roomList.id}" />
+				<input type="hidden" name="room_no" id="room_no" value="${roomList.roomNo}" />
+				<input type="hidden" name="room_type" id="room_type" value="${roomList.roomType}" />
+				<input type="hidden" name="bed_type" id="bed_type" value="${roomList.bedType}" />
+				<input type="hidden" name="room_price" id="room_price" value="${roomList.roomPrice}" />
+				<input type="hidden" name="hotel_cate" id="hotel_cate" value="${roomList.hotelCate}" />
 			</div>
 			<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
-
-
 		</div>
-
 	</div>
 
 	<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>

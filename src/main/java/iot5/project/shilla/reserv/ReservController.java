@@ -137,7 +137,7 @@ public class ReservController {
 		logger.info("bedType=" + bedType);
 		logger.info("roomPrice=" + roomPrice);
 		
-		Reservation reserv = new Reservation();
+		RoomForReserv reserv = new RoomForReserv();
 		reserv.setHotelCate(hotelCate);
 		reserv.setCheckIn(tStart);
 		reserv.setCheckOut(tEnd);
@@ -171,7 +171,7 @@ public class ReservController {
 		int pplCh = web.getInt("ppl_ch");
 		int pplBb = web.getInt("ppl_bb");
 		
-		Reservation reserv = new Reservation();
+		RoomForReserv reserv = new RoomForReserv();
 		reserv.setHotelCate(hotelCate);
 		reserv.setCheckIn(tStart);
 		reserv.setCheckOut(tEnd);
@@ -220,7 +220,7 @@ public class ReservController {
 		int pplCh = web.getInt("ppl_ch");
 		int pplBb = web.getInt("ppl_bb");
 		int meal = web.getInt("meal");
-		int exbed = web.getInt("exbed");
+		String stexbed = web.getString("exbed");
 		String detail = web.getString("detail");
 		
 		logger.info("hotelCate=" + hotelCate);
@@ -235,9 +235,14 @@ public class ReservController {
 		logger.info("bedType=" + bedType);
 		logger.info("roomPrice=" + roomPrice);
 		logger.info("meal >> " + meal);
-		logger.info("exbed >> " + exbed);
+		logger.info("exbed >> " + stexbed);
 		
-		Reservation reserv = new Reservation();
+		int exbed = 0;
+		if (stexbed.equals("on")) {
+			exbed = 1;
+		}
+		
+		RoomForReserv reserv = new RoomForReserv();
 		reserv.setHotelCate(hotelCate);
 		reserv.setCheckIn(tStart);
 		reserv.setCheckOut(tEnd);

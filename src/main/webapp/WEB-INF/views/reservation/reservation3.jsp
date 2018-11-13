@@ -18,6 +18,21 @@
 		</div>
 		<div class="rsv_cont">
 			<div class="container1 col-sm-9">
+			<form method="post" action="${pageContext.request.contextPath}/reservation/reservation3_ok.do">
+					<input type="hidden" name="id" id="id" value="${reservInfo.roomId}" />
+					<input type="hidden" name="room_no" id="room_no" value="${reservInfo.roomNo}" />
+					<input type="hidden" name="room_type" id="room_type" value="${reservInfo.roomType}" />
+					<input type="hidden" name="bed_type" id="bed_type" value="${reservInfo.bedType}" />
+					<input type="hidden" name="room_price" id="room_price" value="${reservInfo.roomPrice}" />
+					<input type="hidden" name="hotel_category" id="hotel_cate" value="${reservInfo.hotelCate}" />
+					<input type="hidden" name="t-start" id="t-start" value="${reservInfo.checkIn}" />
+					<input type="hidden" name="t-end" id="t-end" value="${reservInfo.checkOut}" />
+					<input type="hidden" name="ppl_ad" id="ppl_ad" value="${reservInfo.pplAd}" />
+					<input type="hidden" name="ppl_ch" id="ppl_ch" value="${reservInfo.pplCh}" />
+					<input type="hidden" name="ppl_bb" id="ppl_bb" value="${reservInfo.pplBb}" />
+					<input type="hidden" name="meal" id="meal" value="${reservInfo.meal}" />
+					<input type="hidden" name="exbed" id="exbed" value="${reservInfo.exbed}" />
+					<input type="hidden" name="detail" id="detail" value="${reservInfo.detail}" />
 				<div class="rsv2_option">
 					<div class="rsv2_optionlist">
 						<h4 class="rsv2_optionlist_1">
@@ -28,24 +43,15 @@
 					<div class="rsv_customerinfobox">
 						<div class="rsv_customerinfo col-sm-6">
 							<p>투숙자 정보 입력</p>
-							*성명(한글) <select name="jender" disabled>
-								<option value="mr." selected="selected">Mr.</option>
-								<option value="ms.">Ms.</option>
-							</select>
-							<input type="text" disabled value="이름" name="name" /><br /><br />
-							*성명(영문) <input type="text" disabled value="LASTNAME" name="name" />
-							<input type="text" disabled value="FIRSTNAME" name="name" /><br /><br />
-							*지역(여권기준) <select name="jender" disabled>
-								<option selected="selected">South Korea</option>
-							</select><br /><br />
-							*이메일 <input type="text" disabled value="E-mail" name="email" /><br /><br />
-							*연락처 <select name="jender" disabled>
-								<option selected="selected">휴대전화</option>
-							</select><input type="text" disabled value="010-1577-1577" name="tel" />
+							*성명(한글)	<input type="text" disabled value="${loginInfo.userNameKor}" name="user_name_kor" /><br /><br />
+							*성명(영문) <input type="text" disabled value="${loginInfo.userNameEng}" name="user_name_eng"  /><br /><br />
+							*이메일 <input type="text" disabled value="${loginInfo.email}" name="email" /><br /><br />
+							*연락처 <input type="text" disabled value="${loginInfo.tel}" name="tel" />
 						</div>
+					
 						<div class="rsv_cardinfo col-sm-6">
 							<p>카드 정보 입력</p>
-							*카드종류 <select class="uiform" id="guestCardTypCd" name="guestCardTypCd" title="카드사 선택">
+							*카드종류 <select class="uiform" id="guestCardTypCd" name="card_type" title="카드사 선택">
 								<option value="">선택</option>
 								<option value="AX">AMEX CARD</option>
 								<option value="BC">BC CARD</option>
@@ -62,10 +68,8 @@
 								<option value="VS">VISA OVERSEAS</option>
 								<option value="UN">UNION PAY</option>
 							</select><br /><br />
-							*카드번호 <input type="text" class="cardno" name="cardno" />
-							-<input type="text" class="cardno" name="cardno" />
-							-<input type="text" class="cardno" name="cardno" /><br /><br />
-							*만기일 <select name="month">
+							*카드번호 <input type="text" class="cardno" name="card_no" /><br /><br />
+							*만기일 <select name="card_mm">
 								<option value="">월</option>
 								<option value="01">01</option>
 								<option value="02">02</option>
@@ -79,7 +83,7 @@
 								<option value="10">10</option>
 								<option value="11">11</option>
 								<option value="12">12</option>
-							</select> <select name="year">
+							</select> <select name="card_yy">
 								<option value="">년</option>
 								<option value="2028">2028</option>
 								<option value="2027">2027</option>
@@ -184,10 +188,12 @@
 				<!-- ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== -->
 				<div class="rsv_packagewarn clearfix">
 					<!-- 링크로 모달 열기 -->
-					<a href="#" class="btn btn-warning rsv_rsvapplibtn" data-toggle="modal" data-target="#myModal3"> 예약신청 </a>
+					<!-- <a href="#" class="btn btn-warning rsv_rsvapplibtn" data-toggle="modal" data-target="#myModal3"> 예약신청 </a> -->
+					<button class="rsv_nextbtn" id="rsv_nextbtn" type="submit">예약하기</button>
 				</div>
+				</form>
 				<!-- Modal -->
-				<div class="modal fade" id="myModal3">
+				<%-- <div class="modal fade" id="myModal3">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -297,10 +303,11 @@
 								</div>
 								<button type="button" class="btn btn-default" data-dismiss="modal">이전</button>
 								<button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation4.do'">예약신청</button>
+								
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 				<!-- ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== ==예약신청 모달== -->
 				<div>
 				</div>
@@ -331,32 +338,40 @@
 				});
 			</script>
 			<!--// 아코디언 -->
-			<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
+<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
 			<div class="rsv_rsvinfobox col-sm-3">
+			
 				<div class="rsv_rsvinfo">
 					<p class="rsv_rsvinfotitle">예약정보</p>
-					<div class="rsv_rsvinforesetbtn">
-						<button class="btn btn-sm rsv_rsvinforesetbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.do'">예약초기화</button>
-					</div>
+					<div class="rsv_rsvinforesetbtn"><button class="btn btn-sm rsv_rsvinforesetbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.do'">예약초기화</button></div>
 				</div>
+				
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul">
-						<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">서울신라호텔</span></li>
-					</ul>
+						<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">${reservInfo.hotelCate}</span></li>
+					</ul>						
 				</div>
-				<br />
-				<hr />
+					<br/><hr/>
+				
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul clearfix">
-						<li class="first">체크인 : <span>2018.10.01</span></li>
-						<li>체크아웃 : <span>2018.10.02</span></li>
-						<li>숙박일수 : <span>1박</span></li>
-						<li>투숙 인원<br /> <span> 성인 : 1&nbsp; 어린이 : 0&nbsp; 유아 : 0 </span></li>
-						<li>패키지명 : <span>Autumn Rooftop</span> <!-- 유의사항 모달로 구현해야함 -->
+						<li class="first">체크인 : <span>${reservInfo.checkIn}</span></li>
+						<li>체크아웃 : <span>${reservInfo.checkOut}</span></li>
+						<li>숙박일수 : <span class="rsv_datediff"></span></li>
+						<li>투숙 인원<br/><span> 성인 : ${reservInfo.pplAd}&nbsp; 어린이 : ${reservInfo.pplCh}&nbsp; 유아 : ${reservInfo.pplBb} </span>
+						</li>
+						<li>객실타입 : <span>${reservInfo.roomType}</span>
+						
+						
+						
+						
+						<!-- 유의사항 모달로 구현해야함 -->
 							<div class="rsv_packagewarn clearfix">
 								<!-- 링크로 모달 열기 -->
 								<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2"> 패키지 유의사항 </a>
-							</div> <!-- Modal -->
+							</div>
+							
+							<!-- Modal -->
 							<div class="modal fade" id="myModal2">
 								<div class="modal-dialog modal-md">
 									<div class="modal-content">
@@ -368,58 +383,79 @@
 										</div>
 										<div class="modal-body">
 											<p class="rsv_useguide">
-												- 본 상품은 성인 2인 1실 기준이며, 요금에는 세금 및 봉사료가 부과됩니다. <br /> <br />
-												- 본 패키지는 어번 아일랜드(야외 수영장) 입장 혜택을 포함하지 않은 상품입니다. <br /> <br />
-												- 어번 아일랜드 루프탑은 이용 시간(9월 7일 ~ 30일 18:00 ~ 22:00 / 10월 1일 ~
-												21일 17:00 ~ 21:00)에 한해 입장 및 이용 가능합니다. <br /> <br /> - 더
-												이그제큐티브 라운지는 투숙객 전용 공간으로, 객실 투숙 고객(만 13세 이상)에 한해 이용 가능합니다. <br />
-												<br /> - 본 상품은 카드사 할인 등의 중복 할인 혜택이 적용되지 않습니다. <br /> <br />
-												- 기준 인원을 초과하여 투숙 시 추가 인원에 대해서는 별도의 요금이 부과됩니다.<br />• 객실 1실
-												당 성인은 최대 3인까지만 투숙 가능하며, 소인(37개월 이상~만 12세 이하)은 최대 2인까지만 동반 투숙
-												가능합니다.<br />• 객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다. <br />
-												<br /> - Check-in은 오후 3시, Check-out은 정오까지입니다. <br /> <br />
-												- 숙박 예정일 1일 전 18시까지는 위약금 없이 취소 및 변경이 가능합니다. <br /> <br />
-												숙박 예정일 1일 전 18시 이후 취소/변경 및 노쇼(No-show) 발생 시, ▷성수기(5월~10월,
-												12월 24일~31일)에는 최초 1일 숙박 요금의 80%, ▷비수기(성수기 외 기간)에는 최초 1일 숙박
-												요금의 10%가 위약금으로 부과됩니다. <br /> <br /> - 패키지에 포함된 혜택 및 선물은 투숙
-												기간 중에 한해 1회 제공되며, 중복 제공되지 않습니다. <br /> <br /> - 주류는 성인 고객에
-												한해 이용 가능합니다. <br />
+												- 본 상품은 성인 2인 1실 기준이며, 요금에는 세금 및 봉사료가 부과됩니다. <br/> <br/> - 본 패키지는 어번
+												아일랜드(야외 수영장) 입장 혜택을 포함하지 않은 상품입니다. <br/> <br/> - 어번 아일랜드 루프탑은 이용
+												시간(9월 7일 ~ 30일 18:00 ~ 22:00 / 10월 1일 ~ 21일 17:00 ~ 21:00)에
+												한해 입장 및 이용 가능합니다. <br/> <br/> - 더 이그제큐티브 라운지는 투숙객 전용 공간으로, 객실 투숙 고객(만
+												13세 이상)에 한해 이용 가능합니다. <br/> <br/> - 본 상품은 카드사 할인 등의 중복 할인 혜택이 적용되지
+												않습니다. <br/> <br/> - 기준 인원을 초과하여 투숙 시 추가 인원에 대해서는 별도의 요금이 부과됩니다.<br/>• 객실
+												1실 당 성인은 최대 3인까지만 투숙 가능하며, 소인(37개월 이상~만 12세 이하)은 최대 2인까지만
+												동반 투숙 가능합니다.<br/>• 객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다. <br/> <br/> -
+												Check-in은 오후 3시, Check-out은 정오까지입니다. <br/> <br/> - 숙박 예정일 1일 전 18시까지는
+												위약금 없이 취소 및 변경이 가능합니다. <br/> <br/> 숙박 예정일 1일 전 18시 이후 취소/변경 및
+												노쇼(No-show) 발생 시, ▷성수기(5월~10월, 12월 24일~31일)에는 최초 1일 숙박 요금의
+												80%, ▷비수기(성수기 외 기간)에는 최초 1일 숙박 요금의 10%가 위약금으로 부과됩니다. <br/> <br/> -
+												패키지에 포함된 혜택 및 선물은 투숙 기간 중에 한해 1회 제공되며, 중복 제공되지 않습니다. <br/> <br/> -
+												주류는 성인 고객에 한해 이용 가능합니다. <br/>
 											</p>
 										</div>
 									</div>
 								</div>
-							</div> <!-- 유의사항 모달로 구현해야함 -->
-						</li>
+							</div>
+						<!-- 유의사항 모달로 구현해야함 -->
+						
+						
+						</li>							
 					</ul>
-					<p>
-						객실타입<span>Twin</span>
-					</p>
-					<hr />
+					<p>침대타입<span>${reservInfo.bedType}</span></p>
+					<hr/>
 				</div>
+				
 				<div class="rsv_prinfo">
-					<p class="rsv_rsvinfotitle clearfix">객실/패키지</p>
+					<p class="rsv_rsvinfotitle clearfix">객실</p>
 					<ul>
-						<li>Autumn Rooftop(DB)</li>
-						<li>2018.10.15 280,000 원(DB)</li>
+						<li>${reservInfo.roomType}&nbsp;(${reservInfo.roomNo}호) </li>
+						<li>체크인 날짜 : ${reservInfo.checkIn}&nbsp; ${reservInfo.roomPrice}원</li>
 					</ul>
-					<p>280,000원 (1박) (DB)</p>
+					<p>${reservInfo.roomPrice}원 (<span class="rsv_datediff"></span>박)</p>
+					
+					<div class="rsv_optiontxt" >
+					Daily Breakfast Buffet for Adult 30,000원
+					추가침대 30,000원
+					</div>
+					
 				</div>
-				<div class="rsv_primg">
-					<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
-					<p>Business Deluxe / Twin</p>
-					<img src="${pageContext.request.contextPath}/assets/img/rsv_businessdeluxe.jpg" alt="이미지1" />
-				</div>
-				<hr />
+				
+				
+				
+				
+				<%-- <div class="rsv_primg">
+				<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
+				
+				<p>Business Deluxe / Twin</p>
+				<img src="${pageContext.request.contextPath}/assets/img/rsv_businessdeluxe.jpg" alt="이미지1" />
+				</div> --%>
+				<hr/>
 				<div class="rsv_price">
-					<p>봉사료 28,000 원</p>
-					<p>세금 30,800 원</p>
+				<p>봉사료 28,000 원</p>
+				<p>세금 30,800 원</p>
 				</div>
 				<div class="rsv_totalpay">
-					<p>요금합계 338,800원</p>
-				</div>
+				<p>요금합계 338,800원</p>
+				</div>				
+				
+				<input type="hidden" name="room_id" id="room_id" value="${roomList.id}" />
+		                <input type="hidden" name="room_no" id="room_no" value="${roomList.roomNo}" />
+		                <input type="hidden" name="room_type" id="room_type" value="${roomList.roomType}" />
+		                <input type="hidden" name="bed_type" id="bed_type" value="${roomList.bedType}" />
+		                <input type="hidden" name="room_price" id="room_price" value="${roomList.roomPrice}" />
+		                <input type="hidden" name="hotel_cate" id="hotel_cate" value="${roomList.hotelCate}" />
 			</div>
-			<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
-		</div>
+<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
+
+
+
+</div>
 	</div>
 	<%-- container end --%>
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>

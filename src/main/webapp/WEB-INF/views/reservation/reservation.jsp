@@ -274,13 +274,6 @@
 		});
 
 	});
-	
-	/* $("#rsv_roomsearchbtn").click(function(e) {
-        $("#rsv_contents_box2").empty();
-        $.get("${pageContext.request.contextPath}/test/reservation_test2.do", function(req) {
-            $("#rsv_contents_box2").append(req);
-        }, "html"); // end $.get 
-    });*/
 
     </script>
     <%-- container end --%>

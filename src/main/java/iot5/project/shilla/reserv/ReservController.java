@@ -20,7 +20,6 @@ import iot5.project.shilla.helper.FileInfo;
 import iot5.project.shilla.helper.UploadHelper;
 import iot5.project.shilla.helper.WebHelper;
 import iot5.project.shilla.model.Member;
-import iot5.project.shilla.model.Reservation;
 import iot5.project.shilla.model.ResvGuest;
 import iot5.project.shilla.model.Room;
 import iot5.project.shilla.model.RoomForReserv;

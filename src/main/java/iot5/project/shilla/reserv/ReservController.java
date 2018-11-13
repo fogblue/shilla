@@ -354,7 +354,64 @@ public class ReservController {
 	@RequestMapping(value = "/reservation/reservation4.do", method = RequestMethod.GET)
 	public ModelAndView reservation4(Locale locale, Model model) {
 		web.init();
-
+		
+		Member loginInfo = (Member) web.getSession("loginInfo");
+		
+		String hotelCate = web.getString("hotel_category");
+		String tStart = web.getString("t-start");
+		String tEnd = web.getString("t-end");
+		int roomId = web.getInt("id");
+		int roomNo = web.getInt("room_no");
+		String roomType = web.getString("room_type");
+		String bedType = web.getString("bed_type");
+		int roomPrice = web.getInt("room_price");
+		int pplAd = web.getInt("ppl_ad");
+		int pplCh = web.getInt("ppl_ch");
+		int pplBb = web.getInt("ppl_bb");
+		int meal = web.getInt("meal");
+		int exbed = web.getInt("exbed");
+		String detail = web.getString("detail");
+		String cardType = web.getString("card_type");
+		String cardNo = web.getString("card_no");
+		int cardYy = web.getInt("card_yy");
+		int cardMm = web.getInt("card_mm");
+		
+		RoomForReserv reserv = new RoomForReserv();
+		reserv.setMemberId(loginInfo.getId());
+		reserv.setHotelCate(hotelCate);
+		reserv.setCheckIn(tStart);
+		reserv.setCheckOut(tEnd);
+		reserv.setRoomId(roomId);
+		reserv.setRoomNo(roomNo);
+		reserv.setRoomType(roomType);
+		reserv.setBedType(bedType);
+		reserv.setRoomPrice(roomPrice);
+		reserv.setPplAd(pplAd);
+		reserv.setPplCh(pplCh);
+		reserv.setPplBb(pplBb);
+		reserv.setMeal(meal);
+		reserv.setExbed(exbed);
+		reserv.setDetail(detail);
+		reserv.setCardType(cardType);
+		reserv.setCardNo(cardNo);
+		reserv.setCardYy(cardYy);
+		reserv.setCardMm(cardMm);
+		
+		logger.info("hotelCate=" + hotelCate);
+		logger.info("tStart=" + tStart);
+		logger.info("tEnd=" + tEnd);
+		logger.info("pplAd=" + pplAd);
+		logger.info("pplCh=" + pplCh);
+		logger.info("pplBb=" + pplBb);
+		logger.info("roomId=" + roomId);
+		logger.info("roomNo=" + roomNo);
+		logger.info("roomType=" + roomType);
+		logger.info("bedType=" + bedType);
+		logger.info("roomPrice=" + roomPrice);
+		logger.info("meal >> " + meal);
+		logger.info("exbed >> " + exbed);
+		
+		model.addAttribute("reservInfo", reserv);
 		return new ModelAndView("reservation/reservation4");
 	}
 	

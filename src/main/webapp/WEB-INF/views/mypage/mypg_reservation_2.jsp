@@ -146,7 +146,7 @@
 							<td style="width: 15%">카드종류</td>
 							<td style="width: 35%">${reservInfo.cardType}</td>
 							<td style="width: 15%">만기일</td>
-							<td style="width: 35%">${reservInfo.cardYy}년${reservInfo.cardMm}월</td>
+							<td style="width: 35%">${reservInfo.cardYy}년&nbsp;${reservInfo.cardMm}월</td>
 						</tr>
 					</table>
 				</div>

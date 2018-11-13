@@ -39,7 +39,7 @@
 				<div>
 					<form action="${pageContext.request.contextPath}/mypage/mypg_reservation_search.do" method="get">
 					<span>기간조회</span>
-					<button type="button" class="btn mypg-rsvt-whole" onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_reservation.do'">전체</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all" <%-- onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_reservation.do'" --%>>전체</button>
 					<input type="text" id="datepickerS" name="datepickerS" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
 					<input type="text" id="datepickerE" name="datepickerE" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
@@ -132,18 +132,10 @@
 		return getDateStr(d)
 	}
 	
-	$(".mypg-qna-bd-search .datepicker-btnbtn").click(function() {
+	$(".mypg-rsvt-bd .datepicker-btnbtn").click(function() {
 		var rname = $(this).attr("name")
 		$("#datepickerE").val(today())
-		if (rname == "1week"){
-			$("#datepickerS").val(lastWeek())
-		} else if (rname == "1month") {
-			$("#datepickerS").val(lastMonth())
-		} else if (rname == "3month") {
-			$("#datepickerS").val(last3Month())
-		} else if (rname == "6month") {
-			$("#datepickerS").val(last6Month())
-		} else if (rname == "all") {
+		if (rname == "all") {
 			$("#datepickerS").val("${loginInfo.regDate}");
 		}
 	})

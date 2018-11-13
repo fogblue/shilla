@@ -36,7 +36,7 @@
 								alt="※ 예약하신 내용이 예약 시 입력하신 이메일로 발송되었습니다.※ 예약 번호를 메모해두시면 빠르고 편리하게 예약을 확인하실 수 있습니다.">
 						</p>
 						<div class="rsv_rsvNum">
-							예약번호<strong class="rsv_rsvNumstrong">${resv_room.id}</strong>
+							예약번호<strong class="rsv_rsvNumstrong">${reservInfo.resvRoomId}</strong>
 						</div>
 					</div>
 					<div class="rsv_rsvCompleteInfo">

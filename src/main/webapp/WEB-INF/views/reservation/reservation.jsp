@@ -100,7 +100,7 @@
 		                <input type="hidden" name="ppl_ad" id="ppl_ad" value="${guestInfo.pplAd}" />
 		                <input type="hidden" name="ppl_ch" id="ppl_ch" value="${guestInfo.pplCh}" />
 		                <input type="hidden" name="ppl_bb" id="ppl_bb" value="${guestInfo.pplBb}" />
-		                </form>
+		            </form>
 		            </c:forEach>    
 		        </c:when>
 		        <c:when test="${fn:length(roomList) == 0}">

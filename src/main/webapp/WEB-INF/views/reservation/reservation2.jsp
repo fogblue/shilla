@@ -79,8 +79,7 @@
 					</h2>
 					<!-- 게시글 내용영역 -->
 					<div id="content1" class="content">
-						<textarea class="rsv_opt_textarea" name="detail" id="detail">공항 교통편 문의 또는 호텔 이용 시 문의하실 사항이 있으시면 입력해 주십시오.</textarea>
-						<p>&bull; 전망은 체크인 당일 사정에 따라 달라질 수 있습니다.</p>
+						<textarea class="rsv_opt_textarea" name="detail" id="detail" placeholder="공항 교통편 문의 또는 호텔 이용 시 문의하실 사항이 있으시면 입력해 주십시오. &bull; 전망은 체크인 당일 사정에 따라 달라질 수 있습니다."></textarea>
 					</div>
 				</div>
 				
@@ -361,9 +360,9 @@
 			});
 		});
 		
-		$("#detail").click(function() {
+		/* $("#detail").click(function() {
 			$("#detail").empty();
-		});
+		}); */
 		
 		$(function() {
 			$(".rsv_optchbox").checked(function(e) {

@@ -53,24 +53,28 @@
 							<div class="col-sm-7">
 
 
-								<!-- <div class="rsv_adult">
-									<div class="rsv_pmbutton">
-										<span>Daily Breakfast Buffet for Adult</span>
-									</div>
+								<div class="">
+									
+									<!-- </div>
 									<input class="rsv_numbox" name="ppl_ad" id="numbox1" value="1"
 										style="border: none; background: #efefef;"></input>
 									세션저장값
 									<div class="rsv_pmbotton2">
 										<button type="button" class="rsv_plus 1234" id="plus1">+</button>
 										<button type="button" class="rsv_minus 1234" id="minus1">-</button>
-									</div>
-								</div> -->
+									</div> -->
+									
+									<select class="rsv_optchbox" id="guestCardTypCd" name="meal" title="Daily
+									Breakfast Buffet for Adult">
+								<option value="0">선택</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								</select>
+								&nbsp;&nbsp;&nbsp;<strong>Daily Breakfast Buffet for Adult</strong>
+								</div>
 
-
-
-								<input type="checkbox" class="rsv_optchbox" name="meal"
-									id="meal" /> <label class="rsv2_optext1" for="meal">Daily
-									Breakfast Buffet for Adult</label>
+						
 							</div>
 							<div class="rsv2_optext2 col-sm-3">
 								<p>30,000원</p>
@@ -413,7 +417,6 @@
 			});
 		});
 		
-		
 		$(function() {
 			var number1 = parseInt($(this).find('#numbox1').val());
 			var numbertotal = 0;
@@ -424,14 +427,12 @@
 						
 			$('#plus1').click(function() {
 				number1++;
-			}
 				$('#numbox1').val(number1);
 			});
 			
 			
 			$('#minus1').click(function() {
 				number1--;
-			}
 				$('#numbox1').val(number1);
 			});
 							

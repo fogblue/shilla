@@ -15,9 +15,22 @@
 			<span class="rsv_step2img">Step1. 날짜/인원/객실 선택 Step2. 옵션 선택
 				Step3. 고객 정보 입력 Step4. 예약 완료 /확인</span>
 		</div>
+		
 		<div class="rsv_cont">
 			<div class="container1 col-sm-9">
-				<div class="rsv2_option">
+			<form method="get" action="${pageContext.request.contextPath}/reservation/reservation3.do">
+				<input type="hidden" name="id" id="id" value="${reservInfo.roomId}" />
+				<input type="hidden" name="room_no" id="room_no" value="${reservInfo.roomNo}" />
+				<input type="hidden" name="room_type" id="room_type" value="${reservInfo.roomType}" />
+				<input type="hidden" name="bed_type" id="bed_type" value="${reservInfo.bedType}" />
+				<input type="hidden" name="room_price" id="room_price" value="${reservInfo.roomPrice}" />
+				<input type="hidden" name="hotel_category" id="hotel_cate" value="${reservInfo.hotelCate}" />
+				<input type="hidden" name="t-start" id="t-start" value="${reservInfo.checkIn}" />
+				<input type="hidden" name="t-end" id="t-end" value="${reservInfo.checkOut}" />
+				<input type="hidden" name="ppl_ad" id="ppl_ad" value="${reservInfo.pplAd}" />
+				<input type="hidden" name="ppl_ch" id="ppl_ch" value="${reservInfo.pplCh}" />
+				<input type="hidden" name="ppl_bb" id="ppl_bb" value="${reservInfo.pplBb}" />
+			<div class="rsv2_option">
 					<!-- ========================================================================== -->
 					<div class="rsv2_optionlist">
 						<h4 class="rsv2_optionlist_1">
@@ -28,23 +41,24 @@
 					<!-- ========================================================================== -->
 					<div class="rsv2_option1"><!-- 세션저장값 -->
 						<div class="col-sm-7">
-							<input type="checkbox" class="rsv_optchbox" />
-							<label class="rsv2_optext1">Daily Breakfast Buffet for Adult</label>
+							<input type="checkbox" class="rsv_optchbox" name="meal" id="meal" />
+							<label class="rsv2_optext1" for="meal">Daily Breakfast Buffet for Adult</label>
 						</div>
 						<div class="rsv2_optext2 col-sm-3">
-							<label>30,000원</label>
+							<p>30,000원</p>
 						</div>
 					</div>
 
 					<div class="rsv2_option2 clearfix"><!-- 세션저장값 -->
 						<div class="col-sm-7">
-							<input type="checkbox" class="rsv_optchbox" />
-							<label class="rsv2_optext1">Daily Extra bed</label>
+							<input type="checkbox" class="rsv_optchbox" name="exbed" id="exbed"/>
+							<label class="rsv2_optext1" for="exbed">Daily Extra bed</label>
 						</div>
 						<div class="rsv2_optext2 col-sm-3">
-							<label>30,000원</label>
+							<p>30,000원</p>
 						</div>
 					</div>
+				
 
 					<!-- =========================================================================== -->
 					<div class="rsv2_option_graybox">
@@ -65,10 +79,11 @@
 					</h2>
 					<!-- 게시글 내용영역 -->
 					<div id="content1" class="content">
-						<textarea class="rsv_opt_textarea">공항 교통편 문의 또는 호텔 이용 시 문의하실 사항이 있으시면 입력해 주십시오.</textarea>
+						<textarea class="rsv_opt_textarea" name="detail" id="detail">공항 교통편 문의 또는 호텔 이용 시 문의하실 사항이 있으시면 입력해 주십시오.</textarea>
 						<p>&bull; 전망은 체크인 당일 사정에 따라 달라질 수 있습니다.</p>
 					</div>
 				</div>
+				
 
 				<div class='collapse-item2'>
 					<!-- 게시글 제목영역 -->
@@ -141,40 +156,14 @@
 					<button class="btn btn-md rsv_prevbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation.do'">&lt;SETP 1</button>
 				</div>
 				<div>
-					<button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation3.do'">회원예약</button>
+					<%-- <button class="btn btn-md rsv_nextbtn" onclick="location.href='${pageContext.request.contextPath}/reservation/reservation3.do'">회원예약</button> --%>
+					<button class="rsv_nextbtn" id="rsv_nextbtn" type="submit">회원예약</button>
 				</div>
+				</form>
+				
 			</div>
 
-			<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-			<script type="text/javascript">
-				$(function() {
-					/** 게시글의 제목을 클릭한 경우 호출되는 이벤트 정의 */
-					$(".collapse-title a").click(function(e) {
-						// 링크의 기본 동작(페이지 이동) 방지
-						e.preventDefault();
-
-						// 클릭한 요소의 href 속성을 가져온다 --> 내용영역의 id
-						var target = $(this).attr('href');
-						// 가져온 내용영역의 id를 화면에 표시한다.
-						$(target).slideToggle(100);
-
-					});
-				});
-
-				$(function() {
-					/** 게시글의 제목을 클릭한 경우 호출되는 이벤트 정의 */
-					$(".collapse-title2 a").click(function(e) {
-						// 링크의 기본 동작(페이지 이동) 방지
-						e.preventDefault();
-
-						// 클릭한 요소의 href 속성을 가져온다 --> 내용영역의 id
-						var target = $(this).attr('href');
-						// 가져온 내용영역의 id를 화면에 표시한다.
-						$(target).slideToggle(100);
-
-					});
-				});
-			</script>
+			
 			<!--// 아코디언 -->
 
 
@@ -199,19 +188,19 @@
 				
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul">
-						<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">${roomInfo.hotelCate}</span></li>
+						<li class="rsv_rsvinfotext">호텔 : <span class="htlTxt">${reservInfo.hotelCate}</span></li>
 					</ul>						
 				</div>
 					<br/><hr/>
 				
 				<div class="rsv_rsvinfotext">
 					<ul class="rsv_rsvinfotextul clearfix">
-						<li class="first">체크인 : <span>${roomInfo.checkIn}</span></li>
-						<li>체크아웃 : <span>${roomInfo.checkOut}</span></li>
-						<li>숙박일수 : <span>1박</span></li>
-						<li>투숙 인원<br/><span> 성인 : ${guestInfo.pplAd}&nbsp; 어린이 : ${guestInfo.pplCh}&nbsp; 유아 : ${guestInfo.pplBb} </span>
+						<li class="first">체크인 : <span>${reservInfo.checkIn}</span></li>
+						<li>체크아웃 : <span>${reservInfo.checkOut}</span></li>
+						<li>숙박일수 : <span class="rsv_datediff"></span></li>
+						<li>투숙 인원<br/><span> 성인 : ${reservInfo.pplAd}&nbsp; 어린이 : ${reservInfo.pplCh}&nbsp; 유아 : ${reservInfo.pplBb} </span>
 						</li>
-						<li>객실타입 : <span>${roomInfo.roomType}</span>
+						<li>객실타입 : <span>${reservInfo.roomType}</span>
 						
 						
 						
@@ -258,18 +247,27 @@
 						
 						</li>							
 					</ul>
-					<p>침대타입<span>${roomInfo.bedType}</span></p>
+					<p>침대타입<span>${reservInfo.bedType}</span></p>
 					<hr/>
 				</div>
 				
 				<div class="rsv_prinfo">
 					<p class="rsv_rsvinfotitle clearfix">객실</p>
 					<ul>
-						<li>${roomInfo.roomType}</li>
-						<li>체크인 날짜 : ${roomInfo.checkIn}&nbsp; ${roomInfo.roomPrice}원</li>
+						<li>${reservInfo.roomType}&nbsp;(${reservInfo.roomNo}호) </li>
+						<li>체크인 날짜 : ${reservInfo.checkIn}&nbsp; ${reservInfo.roomPrice}원</li>
 					</ul>
-					<p>${roomInfo.roomPrice}원 (1박) (DB)</p>
+					<p>${reservInfo.roomPrice}원 (<span class="rsv_datediff"></span>박)</p>
+					
+					<div class="rsv_optiontxt" >
+					Daily Breakfast Buffet for Adult 30,000원
+					추가침대 30,000원
+					</div>
+					
 				</div>
+				
+				
+				
 				
 				<%-- <div class="rsv_primg">
 				<img src="${pageContext.request.contextPath}/assets/img/rsv_packageimg1.jpg" alt="이미지1" />
@@ -296,14 +294,85 @@
 <!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
 		
 		
-		
-		
-		
-		
-		
-		
 		</div>
+
 	</div>
+	
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+		$(function() { 
+		var date1 = '${reservInfo.checkIn}';
+		var date2 = '${reservInfo.checkOut}';
+	
+		// First we split the values to arrays date1[0] is the year, [1] the month and [2] the day
+		date1 = date1.split('-');
+		date2 = date2.split('-');
+	
+		// Now we convert the array to a Date object, which has several helpful methods
+		date1 = new Date(date1[0], date1[1], date1[2]);
+		date2 = new Date(date2[0], date2[1], date2[2]);
+	
+		// We use the getTime() method and get the unixtime (in milliseconds, but we want seconds, therefore we divide it through 1000)
+		date1_unixtime = parseInt(date1.getTime() / 1000);
+		date2_unixtime = parseInt(date2.getTime() / 1000);
+	
+		// This is the calculated difference in seconds
+		var timeDifference = date2_unixtime - date1_unixtime;
+	
+		// in Hours
+		var timeDifferenceInHours = timeDifference / 60 / 60;
+	
+		// and finaly, in days :)
+		var timeDifferenceInDays = null;
+		if( date1.getDate() > date2.getDate() ){
+			timeDifferenceInDays = (timeDifferenceInHours  / 24) - 1;
+		} else {
+			timeDifferenceInDays = timeDifferenceInHours  / 24;
+		}
+		$(".rsv_datediff").text(timeDifferenceInDays);
+		});
+	
+
+		$(function() {
+			/** 게시글의 제목을 클릭한 경우 호출되는 이벤트 정의 */
+			$(".collapse-title a").click(function(e) {
+				// 링크의 기본 동작(페이지 이동) 방지
+				e.preventDefault();
+
+				// 클릭한 요소의 href 속성을 가져온다 --> 내용영역의 id
+				var target = $(this).attr('href');
+				// 가져온 내용영역의 id를 화면에 표시한다.
+				$(target).slideToggle(100);
+
+			});
+		});
+
+		$(function() {
+			/** 게시글의 제목을 클릭한 경우 호출되는 이벤트 정의 */
+			$(".collapse-title2 a").click(function(e) {
+				// 링크의 기본 동작(페이지 이동) 방지
+				e.preventDefault();
+
+				// 클릭한 요소의 href 속성을 가져온다 --> 내용영역의 id
+				var target = $(this).attr('href');
+				// 가져온 내용영역의 id를 화면에 표시한다.
+				$(target).slideToggle(100);
+
+			});
+		});
+		
+		$("#detail").click(function() {
+			$("#detail").empty();
+		});
+		
+		$(function() {
+			$(".rsv_optchbox").checked(function(e) {
+				$(".rsv_optiontxt").empty();
+			});
+		});
+		
+	</script>
+	
 	<%-- container end --%>
 	<%@ include file="/WEB-INF/inc/footer.jsp"%>
 </body>

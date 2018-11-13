@@ -42,7 +42,7 @@
 			resv_date, member_id, hotel_category
 		) VALUES (
 			#{roomId}, #{checkIn}, #{checkOut}, #{exbed}, #{meal},
-			#{totalPrice}, now(), #{memberId}, #{hotelCate}
+			now(), #{memberId}, #{hotelCate}
 		)
 	</insert>
 	<!-- 예약 : 고객정보 -->
@@ -52,6 +52,28 @@
 		) VALUES (
 			#{cardNo}, #{cardType}, #{cardYy}, #{cardMm}, #{pplAd}, #{pplCh}, #{pplBb}, #{detail}, #{memberId}, #{resvRoomId}
 		)
+	</insert>
+	
+	<insert id="insertReservation" parameterType="iot5.project.shilla.model.RoomForReserv" 
+		useGeneratedKeys="true" keyProperty="id">
+	INSERT ALL
+	INTO resv_room (
+		room_id, check_in, check_out, exbed, meal,
+		resv_date, member_id, hotel_category
+	) VALUES (
+		#{roomId}, #{checkIn}, #{checkOut}, #{exbed}, #{meal},
+		now(), #{memberId}, #{hotelCate}
+	)
+	INTO resv_guest (
+		card_no, card_type, card_yy, card_mm, ppl_ad, ppl_ch, ppl_bb, detail, member_id
+	) VALUES (
+		#{cardNo}, #{cardType}, #{cardYy}, #{cardMm}, #{pplAd}, #{pplCh}, #{pplBb}, #{detail}, #{memberId}
+	)	
+	INTO room (
+		room_no, room_type, bed_type, room_price
+	) VALUES (
+		#{roomNo}, #{roomType}, #{bedType}, #{roomPrice}
+	)
 	</insert>
 	<!-- ######## -->
 	<!-- ##수정## -->

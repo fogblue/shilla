@@ -77,7 +77,7 @@
 									<!-- <li class="first">패키지<span class="rsv_compright">Autumn Rooftop</span></li> -->
 									<li>객실<span class="rsv_compright">${reservInfo.roomType}</span></li>
 									<li>침대타입 <span class="rsv_compright">${reservInfo.bedType}</span></li>
-									<li class="last">객실요금 <span class="rsv_compright">${reservInfo.roomPrice}원 </span></li>
+									<li class="last">객실요금 <span class="rsv_compright" id="crpr">${reservInfo.roomPrice}</span>원</li>
 								</ul>
 							</dd>
 						</dl>
@@ -85,21 +85,21 @@
 							<dt class="rsv_4_dt">옵션</dt>
 							<dd>
 								<ul class="infoDescList">
-									<li class="first">Daily Breakfast Buffet for Adult(30,000원)<span class="rsv_compright">30,000원 </span></li>
-									<li class="last">Daily Extra bed(30,000원)<span class="rsv_compright">30,000원 </span></li>
+									<li class="first">Daily Breakfast Buffet for Adult(30,000원)<span class="rsv_compright" id="cmea">${reservInfo.meal * 30000}</span>원</li>
+									<li class="last">Daily Extra bed(30,000원)<span class="rsv_compright" id="cexb">${reservInfo.exbed * 30000}</span>원</li>
 								</ul>
 							</dd>
 						</dl>
 					</li>
 					<li class="rsv_4_last">
 						<ul class="infoDescList">
-							<li class="first">봉사료<span class="rsv_compright">34,000원</span></li>
-							<li class="last">세금<span class="rsv_compright">37,400원</span></li>
+							<li class="first">봉사료<span class="rsv_compright" id="ctexa"></span>원</li>
+							<li class="last">세금<span class="rsv_compright" id="ctexb"></span>원</li>
 						</ul>
 					</li>
 				</ul>
 				<div class="rsvCompleteTot">
-					<strong>요금합계</strong> <span class="priceTotalSum"><strong>411,400</strong><span class="unitM"> 원</span></span>
+					<strong>요금합계</strong> <span class="priceTotalSum"><strong id="cttp">411,400</strong><span class="unitM">원</span></span>
 				</div>
 			</div>
 		</div>
@@ -151,6 +151,18 @@
 	}
 	$(".rsv_datediff").text(timeDifferenceInDays);
 	});
+	
+	$(function() { 
+		var crpr = Number($("#crpr").text());
+		var cexb = Number($("#cexb").text());
+		var cmea = Number($("#cmea").text());
+		var cttpa = crpr + cexb + cmea;
+		var ctexa = cttpa * 0.1;
+		var ctexb = cttpa * 0.11;
+		$("#ctexa").text(ctexa);
+		$("#ctexb").text(ctexb);
+		var cttp = $("#cttp").text(cttpa + ctexa + ctexb);
+	})
 	</script>
 </body>
 </html>

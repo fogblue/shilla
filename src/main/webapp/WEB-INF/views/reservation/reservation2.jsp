@@ -52,7 +52,7 @@
 							<!-- 세션저장값 -->
 							<div class="col-sm-7">
 								<div class="">																	
-									<select class="rsv_optchbox" id="guestCardTypCd" name="meal" title="Daily Breakfast Buffet for Adult">
+									<select class="rsv_optchbox" id="guestCardTypCd" name="meal">
 										<option value="0">선택</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -68,9 +68,10 @@
 						<div class="rsv2_option2 clearfix">
 							<!-- 세션저장값 -->
 							<div class="col-sm-7">
-								<input type="checkbox" class="rsv_optchbox" name="exbed"
-									id="exbed" /> <label class="rsv2_optext1" for="exbed">Daily
-									Extra bed</label>
+								<select class="rsv_optchbox" id="exbed" name="exbed">
+										<option value="0">선택</option>
+										<option value="1">1</option>
+								</select>&nbsp;&nbsp;&nbsp;<strong>Daily Extra bed</strong>
 							</div>
 							<div class="rsv2_optext2 col-sm-3">
 								<p>30,000&nbsp;원&nbsp;/&nbsp;개</p>
@@ -379,37 +380,12 @@
 			});
 		});
 		
-		/* $("#detail").click(function() {
-			$("#detail").empty();
-		}); */
-		
 		$(function() {
 			$(".rsv_optchbox").checked(function(e) {
 				$(".rsv_optiontxt").empty();
 			});
 		});
 		
-		$(function() {
-			var number1 = parseInt($(this).find('#numbox1').val());
-			var numbertotal = 0;
-							
-			$('.1234').click(function() {
-				numbertotal <= ${reservInfo.pplAd};
-			});
-						
-			$('#plus1').click(function() {
-				number1++;
-				$('#numbox1').val(number1);
-			});
-			
-			
-			$('#minus1').click(function() {
-				number1--;
-				$('#numbox1').val(number1);
-			});
-							
-			
-		});
 	</script>
 
 	<%-- container end --%>

@@ -219,7 +219,7 @@ public class ReservController {
 		int pplCh = web.getInt("ppl_ch");
 		int pplBb = web.getInt("ppl_bb");
 		int meal = web.getInt("meal");
-		String stexbed = web.getString("exbed");
+		int exbed= web.getInt("exbed");
 		String detail = web.getString("detail");
 		
 		logger.info("hotelCate=" + hotelCate);
@@ -234,14 +234,7 @@ public class ReservController {
 		logger.info("bedType=" + bedType);
 		logger.info("roomPrice=" + roomPrice);
 		logger.info("meal >> " + meal);
-		logger.info("exbed >> " + stexbed);
-		
-		int exbed = 0;
-		if (stexbed.equals("on")) {
-			exbed = 1;
-		} else if (stexbed.equals("")) {
-			exbed = 0;
-		}
+		logger.info("exbed >> " + exbed);
 		
 		RoomForReserv reserv = new RoomForReserv();
 		reserv.setHotelCate(hotelCate);

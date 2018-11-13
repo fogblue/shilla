@@ -279,7 +279,7 @@ public class ReservController {
 		String cardType = request.getParameter("card_type");
 		String cardNo = request.getParameter("card_no");
 		int cardYy = Integer.parseInt(request.getParameter("card_yy"));
-		int cardMm = Integer.parseInt(request.getParameter("card_mm"));
+		int cardMm = web.getInt("card_mm");
 		
 		RoomForReserv reserv = new RoomForReserv();
 		reserv.setMemberId(loginInfo.getId());
@@ -316,28 +316,35 @@ public class ReservController {
 		logger.info("meal >> " + meal);
 		logger.info("exbed >> " + exbed);
 		
-		try {
+		/*try {
 			reservService.insertReservation(reserv);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
-		}
+		}*/
 		
-		/** 예약 번호로 객실 정보 불러오기 *//*
-		Reservation id = new Reservation();
+		/** 객실 정보 입력 */
+		try {
+			reservService.insertReservRoom(reserv);
+		} catch (Exception e) {
+			return web.redirect(null, e.getLocalizedMessage());
+		}
+				
+		/** 예약 번호로 객실 정보 불러오기 */
+		RoomForReserv id = new RoomForReserv();
 		try {
 			id = reservService.selectReserv(reserv);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
 		}
 	
-		reserv.setResvRoomId(id.getRoomId());
+		reserv.setResvRoomId(id.getId());
 		
-		*//** 예약 번호 불러오기 *//*
+		/** 예약 번호 불러오기 */
 		try {
 			reservService.insertReservGuest(reserv);
 		} catch (Exception e) {
 			return web.redirect(null, e.getLocalizedMessage());
-		}*/
+		}
 		
 		model.addAttribute("reservInfo", reserv);
 		return web.redirect(web.getRootPath() + "/reservation/reservation4.do", "객실입력이 완료되었습니다.");

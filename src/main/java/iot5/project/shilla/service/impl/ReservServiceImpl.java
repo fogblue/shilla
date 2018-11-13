@@ -53,8 +53,9 @@ public class ReservServiceImpl implements ReservService {
 	@Override
 	public void insertReservation(RoomForReserv reserv) throws Exception {
 		try {
-			int result = sqlSession.insert("ReservationMapper.insertReservation", reserv);
-			if (result ==0) {
+			int result1 = sqlSession.insert("ReservationMapper.insertReservGuest", reserv);
+			int result2 = sqlSession.insert("ReservationMapper.insertReservRoom", reserv);
+			if (result1 == 0 || result2 == 0) {
 				throw new NullPointerException();
 			}
 		} catch (NullPointerException e) {

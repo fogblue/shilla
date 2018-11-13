@@ -52,6 +52,7 @@ public class QnAController {
 	@Autowired
 	RoomService roomService;
 
+	// View 접속을 위한 컨트롤러
 	@RequestMapping(value = "/info/contactinfo.do", method = RequestMethod.GET)
 	public ModelAndView contactinfo(Locale locale, Model model) {
 		logger.info("Welcome to contact info page! The client locale is {}.", locale);
@@ -65,7 +66,74 @@ public class QnAController {
 
 		return new ModelAndView("info/enquiry");
 	}
+	
+	@RequestMapping(value = "/info/awards.do", method = RequestMethod.GET)
+	public ModelAndView awards(Locale locale, Model model) {
+		logger.info("Welcome to awards page! The client locale is {}.", locale);
 
+		return new ModelAndView("info/awards");
+	}
+
+	@RequestMapping(value = "/info/hotelinfo.do", method = RequestMethod.GET)
+	public ModelAndView hotelinfo(Locale locale, Model model) {
+		logger.info("Welcome to hotel info page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/hotelinfo");
+	}
+
+	
+
+	@RequestMapping(value = "/info/jejushilla.do", method = RequestMethod.GET)
+	public ModelAndView jejushilla(Locale locale, Model model) {
+		logger.info("Welcome to jeju shilla page! The client locale is {}.", locale);
+		
+		return new ModelAndView("info/jejushilla");
+	}
+
+	@RequestMapping(value = "/info/seoulshilla.do", method = RequestMethod.GET)
+	public ModelAndView seoulshilla(Locale locale, Model model) {
+		logger.info("Welcome to seoul shilla page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/seoulshilla");
+	}
+
+	//QnA Ajax Controller Start
+	@RequestMapping(value = "/info/enq_dining", method = RequestMethod.GET)
+	public ModelAndView enqDining(Locale locale, Model model) {
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/enq_dining");
+	}
+	
+	@RequestMapping(value = "/info/enq_room", method = RequestMethod.GET)
+	public ModelAndView enqRoom(Locale locale, Model model) {
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/enq_room");
+	}
+	
+	@RequestMapping(value = "/info/enq_wedding", method = RequestMethod.GET)
+	public ModelAndView enqWedding(Locale locale, Model model) {
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/enq_wedding");
+	}
+
+	@RequestMapping(value = "/info/enq_party", method = RequestMethod.GET)
+	public ModelAndView enqParty(Locale locale, Model model) {
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/enq_party_web");
+	}
+	@RequestMapping(value = "/info/enq_web", method = RequestMethod.GET)
+	public ModelAndView enqWeb(Locale locale, Model model) {
+		logger.info("Welcome to enquiry page! The client locale is {}.", locale);
+
+		return new ModelAndView("info/enq_party_web");
+	}
+	// QnA Ajax Controller End
+
+	/** 문의하기 게시판 액션 페이지 */
 	@RequestMapping(value = "/info/write_ok.do", method = RequestMethod.POST)
 	public ModelAndView loginTest(Locale locale, Model model) throws ServletException, IOException {
 

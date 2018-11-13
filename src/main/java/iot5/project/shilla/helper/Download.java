@@ -1,4 +1,4 @@
-package iot5.project.shilla.info;
+package iot5.project.shilla.helper;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -14,9 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import iot5.project.shilla.helper.UploadHelper;
-import iot5.project.shilla.helper.WebHelper;
 
 @Controller
 public class Download {

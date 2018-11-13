@@ -36,14 +36,14 @@
 								alt="※ 예약하신 내용이 예약 시 입력하신 이메일로 발송되었습니다.※ 예약 번호를 메모해두시면 빠르고 편리하게 예약을 확인하실 수 있습니다.">
 						</p>
 						<div class="rsv_rsvNum">
-							예약번호<strong class="rsv_rsvNumstrong">${reservInfo.resvRoomId}</strong>
+							예약번호&nbsp;<strong class="rsv_rsvNumstrong">${reservInfo.resvRoomId}</strong>
 						</div>
 					</div>
 					<div class="rsv_rsvCompleteInfo">
 						<ul>
-							<li class="first">고객명<strong>${loginInfo.userNameEng}</strong></li>
-							<li>연락처 <strong id="telNo">${loginInfo.tel}</strong></li>
-							<li class="last">이메일<strong>${loginInfo.email}</strong></li>
+							<li class="first">고객명&nbsp;<strong>${loginInfo.userNameEng}</strong></li>
+							<li>연락처&nbsp;<strong id="telNo">${loginInfo.tel}</strong></li>
+							<li class="last">이메일&nbsp;<strong>${loginInfo.email}</strong></li>
 						</ul>
 					</div>
 				</div>
@@ -52,18 +52,18 @@
 				<ul class="rsvCompleteListInner">
 					<li class="rsv_4_first">
 						<ul class="infoHtl">
-							<li class="rsv_hotelname">호텔 <span class="rsv_compright">${reservInfo.hotelCate}</span>
+							<li class="rsv_hotelname">호텔<span class="rsv_compright">${reservInfo.hotelCate}</span>
 							</li>
 						</ul>
 						<dl class="infoDesc">
 							<dt class="rsv_4_dt">날짜/투숙인원</dt>
 							<dd>
 								<ul class="infoDescList">
-									<li class="first">체크인 <span class="rsv_compright">${reservInfo.checkIn}</span></li>
-									<li>체크아웃 <span class="rsv_compright">${reservInfo.checkOut}</span></li>
-									<li>숙박일수<span class="rsv_compright"><span class="rsv_datediff"></span>박</span></li>
+									<li class="first">체크인<span class="rsv_compright">${reservInfo.checkIn}</span></li>
+									<li>체크아웃<span class="rsv_compright">${reservInfo.checkOut}</span></li>
+									<li>숙박일수<span class="rsv_compright"><span class="rsv_datediff"></span>&nbsp;박</span></li>
 									<!-- <li>객실수<span class="rsv_compright">1</span></li> -->
-									<li class="last">투숙인원 <span class="rsv_compright"> 성인 : ${reservInfo.pplAd}&nbsp; 어린이 : ${reservInfo.pplCh}&nbsp; 유아 : ${reservInfo.pplBb} </span></li>
+									<li class="last">투숙인원<span class="rsv_compright">성인&nbsp;:&nbsp;${reservInfo.pplAd}&nbsp;어린이&nbsp;:&nbsp;${reservInfo.pplCh}&nbsp;유아&nbsp;:&nbsp;${reservInfo.pplBb}</span></li>
 								</ul>
 							</dd>
 						</dl>
@@ -76,8 +76,8 @@
 								<ul class="infoDescList">
 									<!-- <li class="first">패키지<span class="rsv_compright">Autumn Rooftop</span></li> -->
 									<li>객실<span class="rsv_compright">${reservInfo.roomType}</span></li>
-									<li>침대타입 <span class="rsv_compright">${reservInfo.bedType}</span></li>
-									<li class="last">객실요금 <span class="rsv_compright">원</span><span class="rsv_compright" id="crpr">${reservInfo.roomPrice}</span></li>
+									<li>침대타입<span class="rsv_compright">${reservInfo.bedType}</span></li>
+									<li class="last">객실요금<span class="rsv_compright">&nbsp;원</span><span class="rsv_compright" id="crpr">${reservInfo.roomPrice}</span></li>
 								</ul>
 							</dd>
 						</dl>
@@ -85,21 +85,21 @@
 							<dt class="rsv_4_dt">옵션</dt>
 							<dd>
 								<ul class="infoDescList">
-									<li class="first">Daily Breakfast Buffet for Adult<span class="rsv_compright">원</span><span class="rsv_compright" id="cmea">${reservInfo.meal * 30000}</span></li>
-									<li class="last">Daily Extra bed<span class="rsv_compright">원</span><span class="rsv_compright" id="cexb">${reservInfo.exbed * 30000}</span></li>
+									<li class="first">Daily Breakfast Buffet for Adult<span class="rsv_compright">&nbsp;원</span><span class="rsv_compright" id="cmea">${reservInfo.meal * 30000}</span></li>
+									<li class="last">Daily Extra bed<span class="rsv_compright">&nbsp;원</span><span class="rsv_compright" id="cexb">${reservInfo.exbed * 30000}</span></li>
 								</ul>
 							</dd>
 						</dl>
 					</li>
 					<li class="rsv_4_last">
 						<ul class="infoDescList">
-							<li class="first">봉사료<span class="rsv_compright">원</span><span class="rsv_compright" id="ctexa"></span></li>
-							<li class="last">세금<span class="rsv_compright">원</span><span class="rsv_compright" id="ctexb"></span></li>
+							<li class="first">봉사료<span class="rsv_compright">&nbsp;원</span><span class="rsv_compright" id="ctexa"></span></li>
+							<li class="last">세금<span class="rsv_compright">&nbsp;원</span><span class="rsv_compright" id="ctexb"></span></li>
 						</ul>
 					</li>
 				</ul>
 				<div class="rsvCompleteTot">
-					<strong>요금합계</strong> <span class="priceTotalSum"><strong id="cttp"></strong><span class="unitM">원</span></span>
+					<strong>요금합계</strong> <span class="priceTotalSum"><strong id="cttp"></strong><span class="unitM">&nbsp;원</span></span>
 				</div>
 			</div>
 		</div>

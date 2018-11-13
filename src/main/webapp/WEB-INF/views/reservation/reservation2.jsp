@@ -51,33 +51,17 @@
 						<div class="rsv2_option1">
 							<!-- 세션저장값 -->
 							<div class="col-sm-7">
-
-
-								<div class="">
-									
-									<!-- </div>
-									<input class="rsv_numbox" name="ppl_ad" id="numbox1" value="1"
-										style="border: none; background: #efefef;"></input>
-									세션저장값
-									<div class="rsv_pmbotton2">
-										<button type="button" class="rsv_plus 1234" id="plus1">+</button>
-										<button type="button" class="rsv_minus 1234" id="minus1">-</button>
-									</div> -->
-									
-									<select class="rsv_optchbox" id="guestCardTypCd" name="meal" title="Daily
-									Breakfast Buffet for Adult">
-								<option value="0">선택</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								</select>
-								&nbsp;&nbsp;&nbsp;<strong>Daily Breakfast Buffet for Adult</strong>
-								</div>
-
-						
+								<div class="">																	
+									<select class="rsv_optchbox" id="guestCardTypCd" name="meal" title="Daily Breakfast Buffet for Adult">
+										<option value="0">선택</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>&nbsp;&nbsp;&nbsp;<strong>Daily Breakfast Buffet for Adult</strong>
+								</div>						
 							</div>
 							<div class="rsv2_optext2 col-sm-3">
-								<p>30,000원</p>
+								<p>30,000&nbsp;원&nbsp;/&nbsp;명</p>
 							</div>
 						</div>
 
@@ -89,7 +73,7 @@
 									Extra bed</label>
 							</div>
 							<div class="rsv2_optext2 col-sm-3">
-								<p>30,000원</p>
+								<p>30,000&nbsp;원&nbsp;/&nbsp;개</p>
 							</div>
 						</div>
 
@@ -203,18 +187,6 @@
 
 
 			<!--// 아코디언 -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 			<!-- ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== ==예약정보== -->
 			<div class="rsv_rsvinfobox col-sm-3">

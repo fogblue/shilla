@@ -239,6 +239,8 @@ public class ReservController {
 		int exbed = 0;
 		if (stexbed.equals("on")) {
 			exbed = 1;
+		} else if (stexbed.equals("")) {
+			exbed = 0;
 		}
 		
 		RoomForReserv reserv = new RoomForReserv();

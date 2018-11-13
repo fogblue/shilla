@@ -554,6 +554,7 @@ public class MypageController {
 	@RequestMapping(value = "/mypage/mypg_qna.do", method = RequestMethod.GET)
 	public ModelAndView mypg_qna(Locale locale, Model model) {
 		web.init();
+		
 		/*로그인 여부 검사*/
 		if (web.getSession("loginInfo") == null) {
 			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
@@ -564,13 +565,17 @@ public class MypageController {
 		QnA qna = new QnA();
 		qna.setMemberId(loginInfo.getId());
 		
+		/*현재 페이지 수 --> 기본값은 1페이지로 설정함*/
 		int page = web.getInt("page", 1);
 		
+		/* 게시글 목록 조회 */
 		int totalCount = 0;
-
 		List<QnA> qnaInfo = null;
 		try {
+			/*전체 게시물 수*/
 			totalCount = qnaService.selectQnACount(qna);
+			/*나머지 페이지 번호 계산하기
+			--> 현재 페이지, 전체 게시물 수, 한 페이지의 목록 수, 그룹갯수*/
 			pageHelper.pageProcess(page, totalCount, 10, 5);
 			qnaInfo = qnaService.selectQnAList(qna);
 		} catch (Exception e) {
@@ -629,17 +634,6 @@ public class MypageController {
 		model.addAttribute("maxPageNo", maxPageNo);
 		
 		return new ModelAndView("mypage/mypg_qna");
-	}
-
-	@RequestMapping(value = "/mypage/mypg_qna_table.do", method = RequestMethod.GET)
-	public ModelAndView mypg_qna_table(Locale locale, Model model) {
-		web.init();
-		/*로그인 여부 검사*/
-		if (web.getSession("loginInfo") == null) {
-			return web.redirect(web.getRootPath() + "/member/log_main.do", "로그인 후 이용 가능한 서비스입니다.");
-		}
-		
-		return new ModelAndView("mypage/mypg_qna_table");
 	}
 	
 	@RequestMapping(value = "/mypage/mypg_qna_2.do", method = RequestMethod.GET)

@@ -43,7 +43,7 @@
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="1month">1개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="3month">3개월</button>
 					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="6month">6개월</button>
-					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all" onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_qna.do'">전체</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all" <%-- onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_qna.do'" --%>>전체</button>
 					<input type="text" id="datepickerS" name="datepickerS" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
 					<input type="text" id="datepickerE" name="datepickerE" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
@@ -100,7 +100,7 @@
 							</c:choose>
 							</tbody>
 						</table>
-					</div>
+					</div>					
 				</div>
 			</div>
 		</div>
@@ -186,8 +186,7 @@
 		} else if (rname == "6month") {
 			$("#datepickerS").val(last6Month())
 		} else if (rname == "all") {
-			$("#datepickerS").val("");
-			$("#datepickerE").val("");
+			$("#datepickerS").val("${loginInfo.regDate}");
 		}
 	})
 	

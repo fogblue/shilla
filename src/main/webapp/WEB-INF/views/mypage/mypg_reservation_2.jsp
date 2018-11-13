@@ -36,7 +36,7 @@
 			<div class="mypg-contents-txt">
 				<p>객실 및 패키지 예약 내역을 확인하실 수 있습니다.</p>
 			</div>
-			<div class="mypg-rsvt2-bd">
+			<div class="mypg-rsvt2-bd" id="print_area">
 				<div class="mypg-bdb">
 					<h4 class="mypg-rsvt2-title">Room / Package</h4>
 				</div>
@@ -45,7 +45,7 @@
 				</div>
 				<div>
 					<h5 class="mypg-rsvt2-title-1">예약정보</h5>
-					<button type="button" class="pull-right">인쇄하기</button>
+					<button type="button" class="pull-right" onclick="printArea()">인쇄하기</button>
 				</div>
 				<div class="mypg-contents-table">
 					<table class="mypg-rsvt2-contents-table">
@@ -181,6 +181,20 @@
 			var ctex = Number($("#ctex").text());
 			var cttp = $("#cttp").text(cttpa + ctex);
 		})
+		
+		var initBody;
+		function beforePrint() {
+			 boxes = document.body.innerHTML;
+			 document.body.innerHTML = print_area.innerHTML;
+		}
+		function afterPrint() { 
+			 document.body.innerHTML = boxes;
+		}
+		function printArea() {
+			 window.print();
+		}
+		window.onbeforeprint = beforePrint;
+		window.onafterprint = afterPrint;
 	</script>
 	<!-- ==============끝================== -->
 	<%@ include file="/WEB-INF/inc/footer.jsp" %>

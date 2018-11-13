@@ -39,7 +39,7 @@
 				<div>
 					<form action="${pageContext.request.contextPath}/mypage/mypg_reservation_search.do" method="get">
 					<span>기간조회</span>
-					<button type="button" class="btn mypg-rsvt-whole" onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_reservation.do'">전체</button>
+					<button type="button" class="btn mypg-rsvt-whole datepicker-btnbtn" name="all" <%-- onclick="location.href='${pageContext.request.contextPath}/mypage/mypg_reservation.do'" --%>>전체</button>
 					<input type="text" id="datepickerS" name="datepickerS" /><a href="#" id="show-cal-s"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
 					<span> ~ </span>
 					<input type="text" id="datepickerE" name="datepickerE" /><a href="#" id="show-cal-e"><img src="${pageContext.request.contextPath}/assets/img/btnCalendar.gif" width="20" height="30"></a>
@@ -115,6 +115,30 @@
             trigger: '#show-cal-e' // 클릭 시 달력을 표시할 요소의 id
         });
     });
+    
+    /* 날짜 객체 받아서 문자열로 리턴하는 함수 */
+	function getDateStr(myDate) {
+		/* 월, 일의 자릿수가 1자리일때 앞에 0을 추가 */
+	    function pad(num) {
+	        num = num + '';
+	        return num.length < 2 ? '0' + num : num;
+	    }
+	    return myDate.getFullYear() + '-' + pad(myDate.getMonth()+1) + '-' + pad(myDate.getDate());
+	}
+	
+	/* 오늘 날짜를 문자열로 반환 */
+	function today() {
+		var d = new Date()
+		return getDateStr(d)
+	}
+	
+	$(".mypg-rsvt-bd .datepicker-btnbtn").click(function() {
+		var rname = $(this).attr("name")
+		$("#datepickerE").val(today())
+		if (rname == "all") {
+			$("#datepickerS").val("${loginInfo.regDate}");
+		}
+	})
     
     $("#find").click(function() {
 		var date1 = document.getElementById("datepickerS").value;
